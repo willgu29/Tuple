@@ -8,8 +8,11 @@
 
 #import "SendInvitesViewController.h"
 #import "MessagingViewController.h"
+#import "PullFromContactsList.h"
 
 @interface SendInvitesViewController ()
+
+@property (nonatomic, strong) PullFromContactsList *pullFromContacts;
 
 @end
 
@@ -17,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    _pullFromContacts = [[PullFromContactsList alloc] init];
+    [_pullFromContacts fetchAllFromContactsList];
     
 }
 
@@ -53,7 +58,7 @@
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    cell.textLabel.text = @"HI!!!";
 }
 
 
