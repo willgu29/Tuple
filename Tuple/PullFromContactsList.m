@@ -8,24 +8,99 @@
 
 #import "PullFromContactsList.h"
 #import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import "UserCellDisplayInfo.h"
+#import "UserTypeEnums.h"
+@interface PullFromContactsList()
+
+@property (nonatomic, strong) NSMutableArray *contactListArray;
+
+@end
 
 @implementation PullFromContactsList
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        _contactListArray = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(void)fetchTableViewData
+{
+    [self checkAuthorizationStatusForContactList];
+}
+
+-(void)checkAuthorizationStatusForContactList
+{
+    ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
+    if (status == kABAuthorizationStatusAuthorized)
+    {
+        [self fetchAllFromContactsList];
+    }
+    else if (status == kABAuthorizationStatusNotDetermined) {
+        ABAddressBookRequestAccessWithCompletion(nil, ^(bool granted, CFErrorRef error) {
+            if (granted) {
+                [self fetchAllFromContactsList];
+            } else {
+                // User denied access
+                [_delegate contactListFetchFailure:(__bridge NSError *)(error)];
+            }
+        });
+    }
+    else if (status == kABAuthorizationStatusDenied || status == kABAuthorizationStatusRestricted)
+    {
+        NSError *error = [[NSError alloc] initWithDomain:@"This app requires access to your contacts book" code:1 userInfo:nil];
+        [_delegate contactListFetchFailure:error];
+        return;
+    }
+
+}
+
 -(void)fetchAllFromContactsList
 {
-    CFErrorRef error = nil;
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, &error);
+    CFErrorRef error = NULL;
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &error);
     if (error)
     {
         NSLog(@"Error Address Book: %@", error);
+        [_delegate contactListFetchFailure:(__bridge NSError *)(error)];
     }
-    CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
-    CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
+    NSArray *allPeople = CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
+    NSInteger nPeople = [allPeople count];
     for (int i = 0; i < nPeople; i++)
     {
-        ABRecordRef ref = CFArrayGetValueAtIndex(allPeople, i);
-        NSLog(@"Reference Contacts: %@", ref);
+        ABRecordRef person = (__bridge ABRecordRef)allPeople[i];
+        NSString *firstName = CFBridgingRelease(ABRecordCopyValue(person, kABPersonFirstNameProperty));
+        NSString *lastName  = CFBridgingRelease(ABRecordCopyValue(person, kABPersonLastNameProperty));
+        ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        
+        CFIndex numberOfPhoneNumbers = ABMultiValueGetCount(phoneNumbers);
+        NSString *phoneNumber = nil;
+        for (CFIndex i = 0; i < numberOfPhoneNumbers; i++) {
+            phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, i));
+            
+        }
+        CFRelease(phoneNumbers);
+
+        if (phoneNumber)
+        {
+            UserCellDisplayInfo *userInfo = [[UserCellDisplayInfo alloc] init];
+            userInfo.username = nil;
+            userInfo.firstName = firstName;
+            userInfo.lastName = lastName;
+            userInfo.phoneNumber = phoneNumber;
+            userInfo.userType = IS_CONTACT_NO_APP;
+            [_contactListArray addObject:userInfo];
+        }
+        
+        
+        
     }
+    [_delegate contactListFetchSuccess];
 }
 
 @end

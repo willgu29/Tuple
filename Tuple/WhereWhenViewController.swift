@@ -41,8 +41,8 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func sendInvites() {
         if (errorCheckSuccess() == true)
         {
-            var messagingVC = MessagingViewController(nibName: "MessagingViewController", bundle: nil);
-            self.navigationController?.pushViewController(messagingVC, animated: true);
+            var sendInviteVC = SendInvitesViewController(nibName: "SendInvitesViewController", bundle: nil);
+            self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }
     }
     @IBAction func timeButtonNowClicked()
@@ -69,8 +69,8 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func checkInvites(){
         //TODO: not using the navigation controller
-        var invitesVC = InvitesViewController(nibName:"InvitesViewController", bundle: nil);
-        self.presentViewController(invitesVC, animated: true, completion: nil);
+        var getInvitesVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle: nil);
+        self.presentViewController(getInvitesVC, animated: true, completion: nil);
     }
     
     //Dining Hall Picker

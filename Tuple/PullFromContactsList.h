@@ -8,8 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class PullFromContactsList;
+@protocol PullFromContactsListDelegate
+
+-(void)contactListFetchSuccess;
+-(void)contactListFetchFailure:(NSError *)error;
+
+@end
+
 @interface PullFromContactsList : NSObject
 
--(void)fetchAllFromContactsList;
- 
+@property (nonatomic, assign) id delegate;
+
+-(void)fetchTableViewData;
+-(instancetype)init;
+
 @end

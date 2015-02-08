@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PullFromContactsList.h"
 
-@interface SendInvitesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SendInvitesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate>
 
 @end

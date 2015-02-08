@@ -22,7 +22,8 @@
     [super viewDidLoad];
     
     _pullFromContacts = [[PullFromContactsList alloc] init];
-    [_pullFromContacts fetchAllFromContactsList];
+    _pullFromContacts.delegate = self;
+    [_pullFromContacts fetchTableViewData];
     
 }
 
@@ -38,6 +39,18 @@
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
     [self.navigationController pushViewController:messageVC animated:YES];
     
+}
+
+#pragma mark - Contact List Delegate
+-(void)contactListFetchSuccess
+{
+    NSLog(@"Fetch Contact List Success!");
+    //TODO: create Data Structure for contacts list and display useful information
+}
+-(void)contactListFetchFailure:(NSError *)error
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 #pragma mark - UITableViewDelegate

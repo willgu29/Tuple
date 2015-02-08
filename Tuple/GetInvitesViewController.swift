@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InvitesViewController: UIViewController {
+class GetInvitesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
