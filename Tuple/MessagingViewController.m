@@ -7,7 +7,7 @@
 //
 
 #import "MessagingViewController.h"
-#import "Degrees-Swift.h"
+#import "Tuple-Swift.h"
 @interface MessagingViewController ()
 
 @end
