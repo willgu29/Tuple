@@ -45,6 +45,7 @@
 		84821A8B1A873FE000463B7E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A851A873FE000463B7E /* Social.framework */; };
 		84821A8C1A873FE000463B7E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A861A873FE000463B7E /* SystemConfiguration.framework */; };
 		84821A8D1A873FE000463B7E /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A871A873FE000463B7E /* Twitter.framework */; };
+		84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		84821A851A873FE000463B7E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		84821A861A873FE000463B7E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84821A871A873FE000463B7E /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		84821A8E1A8744D700463B7E /* CreateAccountOnServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountOnServer.h; sourceTree = "<group>"; };
+		84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountOnServer.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -224,6 +227,7 @@
 		84821A1B1A873BDB00463B7E /* FirstUserSteps */ = {
 			isa = PBXGroup;
 			children = (
+				84821A911A8744DC00463B7E /* ServerAPI */,
 				84821A211A873C2600463B7E /* IntroViewController.swift */,
 				84821A221A873C2600463B7E /* IntroViewController.xib */,
 				84821A231A873C2600463B7E /* MakeNewAccountViewController.swift */,
@@ -314,6 +318,15 @@
 				84821A6D1A873EDF00463B7E /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84821A911A8744DC00463B7E /* ServerAPI */ = {
+			isa = PBXGroup;
+			children = (
+				84821A8E1A8744D700463B7E /* CreateAccountOnServer.h */,
+				84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */,
+			);
+			name = ServerAPI;
 			sourceTree = "<group>";
 		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {
@@ -480,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84821A471A873CAE00463B7E /* ReportBug.m in Sources */,
+				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,

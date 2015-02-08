@@ -8,8 +8,16 @@
 
 import UIKit
 
-class MakeNewAccountViewController: UIViewController {
+class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate {
 
+    var createAccountObject = CreateAccountOnServer()
+    
+    @IBOutlet var username: UITextField!
+    @IBOutlet var firstName: UITextField!
+    @IBOutlet var lastName: UITextField!
+    @IBOutlet var email: UITextField!
+    @IBOutlet var password: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +30,37 @@ class MakeNewAccountViewController: UIViewController {
     }
     
     @IBAction func createAccount() {
+        if (username.text.isEmpty || firstName.text.isEmpty || lastName.text.isEmpty || email.text.isEmpty || password.text.isEmpty)
+        {
+            //Alert, please fill out all forms!
+        }
+        else
+        {
+            createAccountObject.delegate = self;
+            //TODO: Display loading/spinner
+            createAccountObject.saveUserWithUsername(username.text, andPassword: password.text, andEmail:email.text , andFirstName: firstName.text, andLastName: lastName.text)
+        }
+    }
+    
+    
+    //Account delegation
+    func createAccountSuccess() {
+        PFUser.logInWithUsernameInBackground(username.text, password: password.text) { (var user: PFUser!, var error: NSError!) -> Void in
+            if ((user) != nil)
+            {
+                //Login success
+                var whereWhenVC = WhereWhenViewController(nibName:"WhereWhenViewController", bundle:nil)
+                var navigationController = UINavigationController(rootViewController: whereWhenVC);
+                self.presentViewController(navigationController, animated: true, completion: nil);
+            }
+            else
+            {
+                //Login failure
+            }
+        }
+    }
+    
+    func createAccountWithFailure(error: String!) {
         
     }
     

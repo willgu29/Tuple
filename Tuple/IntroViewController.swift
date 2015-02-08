@@ -30,7 +30,8 @@ class IntroViewController: UIViewController {
     }
     
     @IBAction func makeNewAccount() {
-        
+        var makeAccountVC = MakeNewAccountViewController(nibName:"MakeNewAccountViewController", bundle: nil)
+        self.presentViewController(makeAccountVC, animated: true, completion: nil);
     }
     
     //**********************

@@ -22,15 +22,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
     [self setupParse:application withLaunchOptions:launchOptions];
     
-    //if user token found (logged in already)
-        //present main
-    //else present
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    IntroViewController *introVC = [[IntroViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
-    self.window.rootViewController = introVC;
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) { //user logged in
+        WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:whereWhenVC];
+        self.window.rootViewController = navVC;
+    } else { //go to login screen
+        IntroViewController *introVC = [[IntroViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
+        self.window.rootViewController = introVC;
+    }
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
