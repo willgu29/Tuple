@@ -31,7 +31,6 @@
 		84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A491A873CB900463B7E /* AppDelegate.m */; };
 		84821A6E1A873EDF00463B7E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A6C1A873EDF00463B7E /* Bolts.framework */; };
 		84821A6F1A873EDF00463B7E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A6D1A873EDF00463B7E /* Parse.framework */; };
-		84821A731A873FA700463B7E /* libPods-Tuple-LayerKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A701A873FA700463B7E /* libPods-Tuple-LayerKit.a */; };
 		84821A741A873FA700463B7E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A711A873FA700463B7E /* Accelerate.framework */; };
 		84821A751A873FA700463B7E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A721A873FA700463B7E /* Accounts.framework */; };
 		84821A7C1A873FCB00463B7E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A761A873FCB00463B7E /* AudioToolbox.framework */; };
@@ -95,7 +94,6 @@
 		84821A491A873CB900463B7E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84821A6C1A873EDF00463B7E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		84821A6D1A873EDF00463B7E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		84821A701A873FA700463B7E /* libPods-Tuple-LayerKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Tuple-LayerKit.a"; path = "Pods/build/Debug-iphoneos/libPods-Tuple-LayerKit.a"; sourceTree = "<group>"; };
 		84821A711A873FA700463B7E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		84821A721A873FA700463B7E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		84821A761A873FCB00463B7E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -131,7 +129,6 @@
 				84821A7F1A873FCB00463B7E /* CoreLocation.framework in Frameworks */,
 				84821A801A873FCB00463B7E /* libsqlite3.dylib in Frameworks */,
 				84821A811A873FCB00463B7E /* libz.dylib in Frameworks */,
-				84821A731A873FA700463B7E /* libPods-Tuple-LayerKit.a in Frameworks */,
 				84821A741A873FA700463B7E /* Accelerate.framework in Frameworks */,
 				84821A751A873FA700463B7E /* Accounts.framework in Frameworks */,
 				84821A6F1A873EDF00463B7E /* Parse.framework in Frameworks */,
@@ -311,7 +308,6 @@
 				84821A791A873FCB00463B7E /* CoreLocation.framework */,
 				84821A7A1A873FCB00463B7E /* libsqlite3.dylib */,
 				84821A7B1A873FCB00463B7E /* libz.dylib */,
-				84821A701A873FA700463B7E /* libPods-Tuple-LayerKit.a */,
 				84821A711A873FA700463B7E /* Accelerate.framework */,
 				84821A721A873FA700463B7E /* Accounts.framework */,
 				84821A6C1A873EDF00463B7E /* Bolts.framework */,
@@ -388,6 +384,7 @@
 				TargetAttributes = {
 					848219ED1A873B0F00463B7E = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = X8C323275L;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -599,6 +596,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -624,6 +622,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
