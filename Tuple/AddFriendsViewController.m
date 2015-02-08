@@ -1,23 +1,21 @@
 //
-//  SendInvitesViewController.m
-//  Degrees
+//  AddFriendsViewController.m
+//  Tuple
 //
-//  Created by William Gu on 2/7/15.
+//  Created by William Gu on 2/8/15.
 //  Copyright (c) 2015 William Gu. All rights reserved.
 //
 
-#import "SendInvitesViewController.h"
-#import "MessagingViewController.h"
+#import "AddFriendsViewController.h"
 #import "PullFromContactsList.h"
-#import "UserCellDisplayInfo.h"
 
-@interface SendInvitesViewController ()
+@interface AddFriendsViewController ()
 
 @property (nonatomic, strong) PullFromContactsList *pullFromContacts;
 
 @end
 
-@implementation SendInvitesViewController
+@implementation AddFriendsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +23,6 @@
     _pullFromContacts = [[PullFromContactsList alloc] init];
     _pullFromContacts.delegate = self;
     [_pullFromContacts fetchTableViewData];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,14 +30,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - IBActions
-
--(IBAction)sendInvites:(UIButton *)sender
+-(IBAction)backButton:(UIButton *)sender
 {
-    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
-    [self.navigationController pushViewController:messageVC animated:YES];
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 #pragma mark - Contact List Delegate
 -(void)contactListFetchSuccess:(NSArray *)contactListArray
@@ -54,6 +48,5 @@
     [self.navigationController popViewControllerAnimated:YES];
     [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
-
 
 @end

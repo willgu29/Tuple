@@ -56,8 +56,10 @@
 		84821AAC1A87F33800463B7E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821AAA1A87F33800463B7E /* AddressBookUI.framework */; };
 		84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AAE1A87F73E00463B7E /* PullFromFriendsList.m */; };
 		84821AB21A88055500463B7E /* UserCellDisplayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AB11A88055500463B7E /* UserCellDisplayInfo.m */; };
-		84821ABC1A8806F700463B7E /* DisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ABB1A8806F700463B7E /* DisplayData.m */; };
 		84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ABE1A8818C600463B7E /* CreateFriendsList.m */; };
+		84821AC91A881F2900463B7E /* AddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AC71A881F2900463B7E /* AddFriendsViewController.m */; };
+		84821ACA1A881F2900463B7E /* AddFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821AC81A881F2900463B7E /* AddFriendsViewController.xib */; };
+		84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ACD1A88203500463B7E /* BaseTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,10 +142,13 @@
 		84821AB01A88055500463B7E /* UserCellDisplayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCellDisplayInfo.h; sourceTree = "<group>"; };
 		84821AB11A88055500463B7E /* UserCellDisplayInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCellDisplayInfo.m; sourceTree = "<group>"; };
 		84821AB51A8805AC00463B7E /* UserTypeEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTypeEnums.h; sourceTree = "<group>"; };
-		84821ABA1A8806F700463B7E /* DisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayData.h; sourceTree = "<group>"; };
-		84821ABB1A8806F700463B7E /* DisplayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayData.m; sourceTree = "<group>"; };
 		84821ABD1A8818C600463B7E /* CreateFriendsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateFriendsList.h; sourceTree = "<group>"; };
 		84821ABE1A8818C600463B7E /* CreateFriendsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateFriendsList.m; sourceTree = "<group>"; };
+		84821AC61A881F2900463B7E /* AddFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsViewController.h; sourceTree = "<group>"; };
+		84821AC71A881F2900463B7E /* AddFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsViewController.m; sourceTree = "<group>"; };
+		84821AC81A881F2900463B7E /* AddFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendsViewController.xib; sourceTree = "<group>"; };
+		84821ACC1A88203500463B7E /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		84821ACD1A88203500463B7E /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -209,11 +214,14 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				84821ACB1A88201700463B7E /* BaseTableViewInterface */,
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
 				84821A931A87DC4E00463B7E /* GlobalData */,
 				84821A171A873BAB00463B7E /* Converters */,
+				84821AA51A87F20E00463B7E /* GetPeopleAPI */,
 				84821A1B1A873BDB00463B7E /* FirstUserSteps */,
 				84821A1C1A873BE100463B7E /* MainInterface */,
+				84821AC01A881D2000463B7E /* AddFriendsInterface */,
 				84821A1D1A873BE700463B7E /* SendInvitesInterface */,
 				84821A1E1A873C0100463B7E /* MessagingGroup */,
 				84821A1F1A873C0800463B7E /* FeedbackInterface */,
@@ -287,7 +295,7 @@
 		84821A1D1A873BE700463B7E /* SendInvitesInterface */ = {
 			isa = PBXGroup;
 			children = (
-				84821AA51A87F20E00463B7E /* GetPeopleAPI */,
+				84821AB31A88055B00463B7E /* PersonInfo */,
 				84821A2D1A873C5100463B7E /* SendInvitesAPI */,
 				84821A2E1A873C5900463B7E /* CustomTableCells */,
 				84821A371A873C7D00463B7E /* SendInvitesViewController.h */,
@@ -396,8 +404,6 @@
 		84821AA51A87F20E00463B7E /* GetPeopleAPI */ = {
 			isa = PBXGroup;
 			children = (
-				84821AB61A8806B400463B7E /* DisplayData */,
-				84821AB31A88055B00463B7E /* PersonInfo */,
 				84821AAD1A87F73E00463B7E /* PullFromFriendsList.h */,
 				84821AAE1A87F73E00463B7E /* PullFromFriendsList.m */,
 				84821AA61A87F22B00463B7E /* PullFromContactsList.h */,
@@ -416,13 +422,23 @@
 			name = PersonInfo;
 			sourceTree = "<group>";
 		};
-		84821AB61A8806B400463B7E /* DisplayData */ = {
+		84821AC01A881D2000463B7E /* AddFriendsInterface */ = {
 			isa = PBXGroup;
 			children = (
-				84821ABA1A8806F700463B7E /* DisplayData.h */,
-				84821ABB1A8806F700463B7E /* DisplayData.m */,
+				84821AC61A881F2900463B7E /* AddFriendsViewController.h */,
+				84821AC71A881F2900463B7E /* AddFriendsViewController.m */,
+				84821AC81A881F2900463B7E /* AddFriendsViewController.xib */,
 			);
-			name = DisplayData;
+			name = AddFriendsInterface;
+			sourceTree = "<group>";
+		};
+		84821ACB1A88201700463B7E /* BaseTableViewInterface */ = {
+			isa = PBXGroup;
+			children = (
+				84821ACC1A88203500463B7E /* BaseTableViewController.h */,
+				84821ACD1A88203500463B7E /* BaseTableViewController.m */,
+			);
+			name = BaseTableViewInterface;
 			sourceTree = "<group>";
 		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {
@@ -534,6 +550,7 @@
 				84821A401A873CA600463B7E /* MessagingViewController.xib in Resources */,
 				84821A3B1A873C7D00463B7E /* SendInvitesViewController.xib in Resources */,
 				848219FF1A873B0F00463B7E /* Images.xcassets in Resources */,
+				84821ACA1A881F2900463B7E /* AddFriendsViewController.xib in Resources */,
 				84821A281A873C2600463B7E /* MakeNewAccountViewController.xib in Resources */,
 				84821A361A873C7500463B7E /* BlastOffTableViewCell.xib in Resources */,
 				84821AA01A87E02F00463B7E /* GetInvitesViewController.xib in Resources */,
@@ -590,7 +607,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84821A471A873CAE00463B7E /* ReportBug.m in Sources */,
-				84821ABC1A8806F700463B7E /* DisplayData.m in Sources */,
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
@@ -602,10 +618,12 @@
 				84821A9F1A87E02F00463B7E /* GetInvitesViewController.swift in Sources */,
 				84821AB21A88055500463B7E /* UserCellDisplayInfo.m in Sources */,
 				84821A3F1A873CA600463B7E /* MessagingViewController.m in Sources */,
+				84821AC91A881F2900463B7E /* AddFriendsViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
 				84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */,
 				84821A351A873C7500463B7E /* BlastOffTableViewCell.m in Sources */,
+				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
 				84821A991A87DCCE00463B7E /* PreSendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,

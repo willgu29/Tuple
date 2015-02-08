@@ -73,6 +73,11 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.presentViewController(getInvitesVC, animated: true, completion: nil);
     }
     
+    @IBAction func addFriends(){
+        var addFriendsVC = AddFriendsViewController(nibName:"AddFriendsViewController", bundle: nil);
+        self.navigationController?.pushViewController(addFriendsVC, animated: true);
+    }
+    
     //Dining Hall Picker
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //Save dining hall
