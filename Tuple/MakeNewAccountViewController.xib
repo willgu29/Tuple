@@ -10,6 +10,7 @@
                 <outlet property="firstName" destination="Q29-jC-si2" id="kXt-wn-J0H"/>
                 <outlet property="lastName" destination="7Eq-HK-G37" id="rtP-Go-6HQ"/>
                 <outlet property="password" destination="Taa-cD-Lot" id="XzV-4i-hdN"/>
+                <outlet property="username" destination="YQr-Vf-9ai" id="iAV-Jh-AD3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -20,6 +20,7 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        password.secureTextEntry = true;
 
         // Do any additional setup after loading the view.
     }
