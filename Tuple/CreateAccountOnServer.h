@@ -12,7 +12,7 @@
 @protocol CreateAccountOnServerDelegate
 
 -(void)createAccountSuccess;
--(void)createAccountWithFailure:(NSString *)error;
+-(void)createAccountWithFailure:(NSError *)error;
 
 @end
 

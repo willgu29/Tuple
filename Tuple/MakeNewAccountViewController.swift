@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate, UITextFieldDelegate {
+class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate, UITextFieldDelegate, CreateFriendsListDelegate {
 
     var createAccountObject = CreateAccountOnServer()
     
@@ -52,8 +52,18 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
     }
     
     
-    //Account delegation
+    //Account delegation -> FriendsList -> Segue VC
     func createAccountSuccess() {
+        
+        var createFriendsListObject = CreateFriendsList();
+        createFriendsListObject.delegate = self;
+        createFriendsListObject.createParseFriendsListWithUser(username.text);
+    }
+    func createAccountWithFailure(error: NSError!) {
+    
+    }
+    
+    func createFriendsListSuccess() {
         PFUser.logInWithUsernameInBackground(username.text, password: password.text) { (var user: PFUser!, var error: NSError!) -> Void in
             if ((user) != nil)
             {
@@ -68,10 +78,10 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
             }
         }
     }
-    
-    func createAccountWithFailure(error: String!) {
+    func createFriendsListFailure(error: NSError!) {
         
     }
+    
     
 
 }

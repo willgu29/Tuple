@@ -9,10 +9,13 @@
 #import "SendInvitesViewController.h"
 #import "MessagingViewController.h"
 #import "PullFromContactsList.h"
+#import "UserCellDisplayInfo.h"
 
 @interface SendInvitesViewController ()
 
 @property (nonatomic, strong) PullFromContactsList *pullFromContacts;
+
+@property (nonatomic, strong) NSArray *displayInfoArray;
 
 @end
 
@@ -42,10 +45,11 @@
 }
 
 #pragma mark - Contact List Delegate
--(void)contactListFetchSuccess
+-(void)contactListFetchSuccess:(NSArray *)contactListArray
 {
     NSLog(@"Fetch Contact List Success!");
-    //TODO: create Data Structure for contacts list and display useful information
+    _displayInfoArray = contactListArray;
+    
 }
 -(void)contactListFetchFailure:(NSError *)error
 {
@@ -56,7 +60,7 @@
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [_displayInfoArray count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -71,8 +75,12 @@
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.textLabel.text = @"HI!!!";
+    UserCellDisplayInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", userInfo.firstName, userInfo.lastName];
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 @end

@@ -86,7 +86,7 @@
         }
         CFRelease(phoneNumbers);
 
-        if (phoneNumber)
+        if (phoneNumber && (firstName || lastName))
         {
             UserCellDisplayInfo *userInfo = [[UserCellDisplayInfo alloc] init];
             userInfo.username = nil;
@@ -100,7 +100,7 @@
         
         
     }
-    [_delegate contactListFetchSuccess];
+    [_delegate contactListFetchSuccess:_contactListArray];
 }
 
 @end

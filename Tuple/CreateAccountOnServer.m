@@ -30,8 +30,7 @@
             // Hooray! Let them use the app now.
             [_delegate createAccountSuccess];
         } else {
-            NSString *errorString = [error userInfo][@"error"];
-            [_delegate createAccountWithFailure:errorString];
+            [_delegate createAccountWithFailure:error];
             // Show the errorString somewhere and let the user try again.
         }
     }];

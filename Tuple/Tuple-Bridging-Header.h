@@ -8,3 +8,4 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "SendInvitesViewController.h"
+#import "CreateFriendsList.h"

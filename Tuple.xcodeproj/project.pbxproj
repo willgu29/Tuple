@@ -57,6 +57,7 @@
 		84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AAE1A87F73E00463B7E /* PullFromFriendsList.m */; };
 		84821AB21A88055500463B7E /* UserCellDisplayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AB11A88055500463B7E /* UserCellDisplayInfo.m */; };
 		84821ABC1A8806F700463B7E /* DisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ABB1A8806F700463B7E /* DisplayData.m */; };
+		84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ABE1A8818C600463B7E /* CreateFriendsList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,8 @@
 		84821AB51A8805AC00463B7E /* UserTypeEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTypeEnums.h; sourceTree = "<group>"; };
 		84821ABA1A8806F700463B7E /* DisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayData.h; sourceTree = "<group>"; };
 		84821ABB1A8806F700463B7E /* DisplayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayData.m; sourceTree = "<group>"; };
+		84821ABD1A8818C600463B7E /* CreateFriendsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateFriendsList.h; sourceTree = "<group>"; };
+		84821ABE1A8818C600463B7E /* CreateFriendsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateFriendsList.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -364,6 +367,8 @@
 			children = (
 				84821A8E1A8744D700463B7E /* CreateAccountOnServer.h */,
 				84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */,
+				84821ABD1A8818C600463B7E /* CreateFriendsList.h */,
+				84821ABE1A8818C600463B7E /* CreateFriendsList.m */,
 			);
 			name = ServerAPI;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
+				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
 				848219F41A873B0F00463B7E /* main.m in Sources */,
 				84821A9F1A87E02F00463B7E /* GetInvitesViewController.swift in Sources */,

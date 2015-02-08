@@ -11,7 +11,7 @@
 @class PullFromContactsList;
 @protocol PullFromContactsListDelegate
 
--(void)contactListFetchSuccess;
+-(void)contactListFetchSuccess:(NSArray *)contactListArray;
 -(void)contactListFetchFailure:(NSError *)error;
 
 @end
