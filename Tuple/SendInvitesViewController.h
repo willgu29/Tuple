@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SendInvitesViewController : UIViewController
+@interface SendInvitesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

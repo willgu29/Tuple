@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate {
+class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate, UITextFieldDelegate {
 
     var createAccountObject = CreateAccountOnServer()
     
@@ -28,6 +28,14 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
+    }
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        resignFirstResponder();
     }
     
     @IBAction func createAccount() {

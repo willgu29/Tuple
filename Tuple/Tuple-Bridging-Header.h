@@ -6,3 +6,4 @@
 #import "ReportBug.h"
 #import "CreateAccountOnServer.h"
 #import <Parse/Parse.h>
+#import "AppDelegate.h"

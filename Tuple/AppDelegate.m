@@ -37,6 +37,7 @@
         self.window.rootViewController = introVC;
     }
     
+    _preSendData =  [[PreSendData alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
