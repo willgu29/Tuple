@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 William Gu. All rights reserved.
 //
 
-#import "UserCellDisplayInfo.h"
+#import "UserCellInfo.h"
 
-@implementation UserCellDisplayInfo
+@implementation UserCellInfo
 
 @end

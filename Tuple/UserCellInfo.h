@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserCellDisplayInfo : NSObject
+@interface UserCellInfo : NSObject
 
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *deviceToken;
+@property (nonatomic) BOOL emailVerified;
 @property (nonatomic) int userType; //check UserTypeEnums for types
 
 @end

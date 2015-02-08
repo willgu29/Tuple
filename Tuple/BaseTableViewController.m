@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewController.h"
-#import "UserCellDisplayInfo.h"
+#import "UserCellInfo.h"
 
 @interface BaseTableViewController ()
 
@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _displayInfoArray = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +46,7 @@
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UserCellDisplayInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
+    UserCellInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", userInfo.firstName, userInfo.lastName];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

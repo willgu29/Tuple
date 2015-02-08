@@ -9,7 +9,7 @@
 #import "PullFromContactsList.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
-#import "UserCellDisplayInfo.h"
+#import "UserCellInfo.h"
 #import "UserTypeEnums.h"
 @interface PullFromContactsList()
 
@@ -88,7 +88,7 @@
 
         if (phoneNumber && (firstName || lastName))
         {
-            UserCellDisplayInfo *userInfo = [[UserCellDisplayInfo alloc] init];
+            UserCellInfo *userInfo = [[UserCellInfo alloc] init];
             userInfo.username = nil;
             userInfo.firstName = firstName;
             userInfo.lastName = lastName;

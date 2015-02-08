@@ -10,7 +10,7 @@
 
 @interface BaseTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *displayInfoArray;
+@property (nonatomic, strong) NSMutableArray *displayInfoArray;
 
 @end
 

@@ -40,7 +40,7 @@
 -(void)contactListFetchSuccess:(NSArray *)contactListArray
 {
     NSLog(@"Fetch Contact List Success!");
-    self.displayInfoArray = contactListArray;
+    [self.displayInfoArray addObjectsFromArray:contactListArray];
     
 }
 -(void)contactListFetchFailure:(NSError *)error
