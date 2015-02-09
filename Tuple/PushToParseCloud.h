@@ -10,4 +10,6 @@
 
 @interface PushToParseCloud : NSObject
 
+-(void)sendDeviceTokensToCloud:(NSArray *)peopleArray;
+
 @end

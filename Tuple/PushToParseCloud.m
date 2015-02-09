@@ -10,4 +10,9 @@
 
 @implementation PushToParseCloud
 
+-(void)sendDeviceTokensToCloud:(NSArray *)peopleArray
+{
+    
+}
+
 @end

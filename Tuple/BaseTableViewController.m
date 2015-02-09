@@ -47,12 +47,20 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCellInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
+    if (userInfo.lastName == nil)
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", userInfo.firstName];
+        return;
+    }
+    else if (userInfo.firstName == nil)
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", userInfo.lastName];
+        return;
+    }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", userInfo.firstName, userInfo.lastName];
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
+
+
 
 
 @end

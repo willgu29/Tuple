@@ -35,7 +35,7 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
         return true;
     }
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        resignFirstResponder();
+        self.view.resignFirstResponder();
     }
     
     @IBAction func createAccount() {
