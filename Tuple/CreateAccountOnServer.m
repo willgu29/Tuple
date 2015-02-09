@@ -8,7 +8,7 @@
 
 #import "CreateAccountOnServer.h"
 #import <Parse/Parse.h>
-
+#import "PhoneNumberConvert.h"
 @interface CreateAccountOnServer()
 
 @end
@@ -25,7 +25,7 @@
     newUser[@"firstName"] = firstName;
     newUser[@"lastName"] = lastName;
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-    newUser[@"phoneNumber"] = phoneNumber;
+    newUser[@"phoneNumber"] = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:phoneNumber];
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.
