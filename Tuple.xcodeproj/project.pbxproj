@@ -63,6 +63,7 @@
 		84821AD31A88247300463B7E /* FetchUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD21A88247300463B7E /* FetchUserData.m */; };
 		84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD71A888F1500463B7E /* AddFriendRelation.m */; };
 		84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADB1A88A05000463B7E /* PhoneTextField.m */; };
+		84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,8 @@
 		84821AD71A888F1500463B7E /* AddFriendRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendRelation.m; sourceTree = "<group>"; };
 		84821ADA1A88A05000463B7E /* PhoneTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTextField.h; sourceTree = "<group>"; };
 		84821ADB1A88A05000463B7E /* PhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTextField.m; sourceTree = "<group>"; };
+		84821ADD1A88AA0300463B7E /* PhoneNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberConvert.h; sourceTree = "<group>"; };
+		84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberConvert.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -273,6 +276,8 @@
 			children = (
 				84821A181A873BD800463B7E /* NSDataConvert.h */,
 				84821A191A873BD800463B7E /* NSDataConvert.m */,
+				84821ADD1A88AA0300463B7E /* PhoneNumberConvert.h */,
+				84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */,
 			);
 			name = Converters;
 			sourceTree = "<group>";
@@ -660,6 +665,7 @@
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
 				84821A991A87DCCE00463B7E /* PreSendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
+				84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
 				84821A271A873C2600463B7E /* MakeNewAccountViewController.swift in Sources */,
 				84821A9C1A87DD5700463B7E /* PostSendData.m in Sources */,

@@ -56,23 +56,24 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
-    
+
     //TODO: remove at index and readd at index after lookupNumber
     PFUser *user = [FetchUserData lookupPhoneNumber:userInfo.phoneNumber];
     if (user)
     {
-        UserCellInfo *updatedUserInfo = [[UserCellInfo alloc] init];
-        updatedUserInfo.username = user.username;
-        updatedUserInfo.firstName = user[@"firstName"];
-        updatedUserInfo.lastName = user[@"lastName"];
-        updatedUserInfo.email = user.email;
-        updatedUserInfo.phoneNumber = user[@"phoneNumber"];
-        updatedUserInfo.deviceToken = user[@"deviceToken"];
-        updatedUserInfo.emailVerified = (BOOL)user[@"emailVerified"];
-        updatedUserInfo.userType = IS_CONTACT_WITH_APP;
+//        UserCellInfo *updatedUserInfo = [[UserCellInfo alloc] init];
+        userInfo.username = user.username;
+//        updatedUserInfo.firstName = user[@"firstName"];
+//        updatedUserInfo.lastName = user[@"lastName"];
+//        updatedUserInfo.email = user.email;
+//        updatedUserInfo.phoneNumber = user[@"phoneNumber"];
+        userInfo.deviceToken = user[@"deviceToken"];
+//        updatedUserInfo.emailVerified = (BOOL)user[@"emailVerified"];
+        userInfo.phoneVerified = (BOOL)user[@"phoneVerified"];
+        userInfo.userType = IS_CONTACT_WITH_APP;
         
-        [self.displayInfoArray removeObjectAtIndex:indexPath.row];
-        [self.displayInfoArray insertObject:updatedUserInfo atIndex:indexPath.row];
+//        [self.displayInfoArray removeObjectAtIndex:indexPath.row];
+//        [self.displayInfoArray insertObject:updatedUserInfo atIndex:indexPath.row];
     }
     else
     {
@@ -80,14 +81,33 @@
     }
   
     
-    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [_selectedPeopleArray removeObject:userInfo];
+        cell.detailTextLabel.alpha = 1;
+        [UIView animateWithDuration:1.0 animations:^{
+            cell.detailTextLabel.alpha = 0;
+        }];
+        cell.detailTextLabel.text = @"";
+
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.detailTextLabel.alpha = 0;
+        if (userInfo.username)
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.username];
+        }
+        else
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.phoneNumber];
+        }
+        [UIView animateWithDuration:1.5 animations:^{
+            cell.detailTextLabel.alpha = 1;
+        }];
+        
         [_selectedPeopleArray addObject:userInfo];
     }
     [self tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
@@ -96,16 +116,6 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCellInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
-    
-    if (userInfo.username)
-    {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.username];
-    }
-    else
-    {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.phoneNumber];
-    }
-    
     if (userInfo.lastName == nil)
     {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", userInfo.firstName];

@@ -7,6 +7,7 @@
 //
 
 #import "FetchUserData.h"
+#import "PhoneNumberConvert.h"
 
 @implementation FetchUserData
 
@@ -21,10 +22,13 @@
 
 +(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber
 {
+    NSString *justNumbersPhoneNumber = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:phoneNumber];
     PFQuery *query = [PFUser query];
-    [query whereKey:@"phoneNumber" equalTo:phoneNumber];
+    [query whereKey:@"phoneNumber" equalTo:justNumbersPhoneNumber];
     PFUser *user = (PFUser *)[query getFirstObject];
     return user;
 }
+
+
 
 @end

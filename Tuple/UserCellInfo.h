@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *deviceToken;
+@property (nonatomic) BOOL phoneVerified;
 @property (nonatomic) BOOL emailVerified;
 @property (nonatomic) int userType; //check UserTypeEnums for types
 
