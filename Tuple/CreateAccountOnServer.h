@@ -19,7 +19,6 @@
 @interface CreateAccountOnServer : NSObject
 
 @property (nonatomic, assign) id delegate;
--(void)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName;
-
+-(void)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andPhoneNumber:(NSString *)phoneNumber;
 
 @end

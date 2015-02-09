@@ -15,7 +15,7 @@
 
 @implementation CreateAccountOnServer
 
--(void)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName
+-(void)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andPhoneNumber:(NSString *)phoneNumber
 {
     
     PFUser *newUser = [PFUser user];
@@ -25,6 +25,7 @@
     newUser[@"firstName"] = firstName;
     newUser[@"lastName"] = lastName;
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+    newUser[@"phoneNumber"] = phoneNumber;
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.

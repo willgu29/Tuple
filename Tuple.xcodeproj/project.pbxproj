@@ -62,6 +62,7 @@
 		84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ACD1A88203500463B7E /* BaseTableViewController.m */; };
 		84821AD31A88247300463B7E /* FetchUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD21A88247300463B7E /* FetchUserData.m */; };
 		84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD71A888F1500463B7E /* AddFriendRelation.m */; };
+		84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADB1A88A05000463B7E /* PhoneTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		84821AD21A88247300463B7E /* FetchUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchUserData.m; sourceTree = "<group>"; };
 		84821AD61A888F1500463B7E /* AddFriendRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendRelation.h; sourceTree = "<group>"; };
 		84821AD71A888F1500463B7E /* AddFriendRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendRelation.m; sourceTree = "<group>"; };
+		84821ADA1A88A05000463B7E /* PhoneTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTextField.h; sourceTree = "<group>"; };
+		84821ADB1A88A05000463B7E /* PhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTextField.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -277,6 +280,7 @@
 		84821A1B1A873BDB00463B7E /* FirstUserSteps */ = {
 			isa = PBXGroup;
 			children = (
+				84821AD91A88A03500463B7E /* CustomTextField */,
 				84821A911A8744DC00463B7E /* ServerAPI */,
 				84821A211A873C2600463B7E /* IntroViewController.swift */,
 				84821A221A873C2600463B7E /* IntroViewController.xib */,
@@ -459,6 +463,15 @@
 			name = AddFriendAPI;
 			sourceTree = "<group>";
 		};
+		84821AD91A88A03500463B7E /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				84821ADA1A88A05000463B7E /* PhoneTextField.h */,
+				84821ADB1A88A05000463B7E /* PhoneTextField.m */,
+			);
+			name = CustomTextField;
+			sourceTree = "<group>";
+		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +651,7 @@
 				84821A9F1A87E02F00463B7E /* GetInvitesViewController.swift in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
 				84821A3F1A873CA600463B7E /* MessagingViewController.m in Sources */,
+				84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */,
 				84821AC91A881F2900463B7E /* AddFriendsViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,

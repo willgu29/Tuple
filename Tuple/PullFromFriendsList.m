@@ -33,6 +33,7 @@
                 PFUser *user = [FetchUserData lookupUsername:friendUsername];
                 UserCellInfo *userInfo = [[UserCellInfo alloc] init];
                 userInfo.username = user.username;
+                userInfo.email = user.email;
                 userInfo.emailVerified = (BOOL)user[@"emailVerified"];
                 userInfo.deviceToken = user[@"deviceToken"];
                 userInfo.firstName = user[@"firstName"];

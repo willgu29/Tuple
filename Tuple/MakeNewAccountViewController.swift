@@ -16,6 +16,7 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
     @IBOutlet var firstName: UITextField!
     @IBOutlet var lastName: UITextField!
     @IBOutlet var email: UITextField!
+    @IBOutlet var phoneNumber: UITextField!
     @IBOutlet var password: UITextField!
     
     override func viewDidLoad() {
@@ -30,6 +31,15 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if (textField == phoneNumber)
+        {
+            [PhoneTextField .textField(textField, shouldChangeCharactersInRange: range, replacementString: string)]
+            
+        }
+        return false;
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return true;
@@ -39,7 +49,7 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
     }
     
     @IBAction func createAccount() {
-        if (username.text.isEmpty || firstName.text.isEmpty || lastName.text.isEmpty || email.text.isEmpty || password.text.isEmpty)
+        if (username.text.isEmpty || firstName.text.isEmpty || lastName.text.isEmpty || email.text.isEmpty || password.text.isEmpty || phoneNumber.text.isEmpty)
         {
             //Alert, please fill out all forms!
         }
@@ -47,7 +57,7 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
         {
             createAccountObject.delegate = self;
             //TODO: Display loading/spinner
-            createAccountObject.saveUserWithUsername(username.text, andPassword: password.text, andEmail:email.text , andFirstName: firstName.text, andLastName: lastName.text)
+            createAccountObject.saveUserWithUsername(username.text, andPassword: password.text, andEmail: email.text, andFirstName: firstName.text, andLastName: lastName.text, andPhoneNumber: phoneNumber.text);
         }
     }
     

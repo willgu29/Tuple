@@ -10,6 +10,7 @@
                 <outlet property="firstName" destination="Q29-jC-si2" id="kXt-wn-J0H"/>
                 <outlet property="lastName" destination="7Eq-HK-G37" id="rtP-Go-6HQ"/>
                 <outlet property="password" destination="Taa-cD-Lot" id="XzV-4i-hdN"/>
+                <outlet property="phoneNumber" destination="KWf-YQ-D13" id="wsF-Ws-pBX"/>
                 <outlet property="username" destination="YQr-Vf-9ai" id="iAV-Jh-AD3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -43,8 +44,16 @@
                         <outlet property="delegate" destination="-1" id="HHn-s1-R6L"/>
                     </connections>
                 </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-cD-Lot">
+                    <rect key="frame" x="38" y="277" width="245" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="bu8-EE-L6o"/>
+                    </connections>
+                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E41-Sv-4J0">
-                    <rect key="frame" x="107" y="290" width="107" height="30"/>
+                    <rect key="frame" x="107" y="311" width="107" height="30"/>
                     <state key="normal" title="Create Account">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -60,34 +69,37 @@
                         <outlet property="delegate" destination="-1" id="dsI-vG-wcg"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-cD-Lot">
-                    <rect key="frame" x="38" y="252" width="245" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWf-YQ-D13">
+                    <rect key="frame" x="38" y="239" width="245" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="bu8-EE-L6o"/>
+                        <outlet property="delegate" destination="-1" id="SFa-yG-urY"/>
                     </connections>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="w9h-79-42G" firstAttribute="leading" secondItem="Taa-cD-Lot" secondAttribute="leading" id="085-ps-Wdn"/>
-                <constraint firstItem="YQr-Vf-9ai" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="38" id="30V-vN-0dU"/>
-                <constraint firstItem="w9h-79-42G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8s1-II-gaO"/>
-                <constraint firstItem="Q29-jC-si2" firstAttribute="top" secondItem="YQr-Vf-9ai" secondAttribute="bottom" constant="13" id="9Mw-Ma-EF2"/>
-                <constraint firstItem="E41-Sv-4J0" firstAttribute="top" secondItem="Taa-cD-Lot" secondAttribute="bottom" constant="8" symbolic="YES" id="9Pr-qM-Opd"/>
-                <constraint firstItem="w9h-79-42G" firstAttribute="trailing" secondItem="7Eq-HK-G37" secondAttribute="trailing" id="DYh-ZY-gVl"/>
-                <constraint firstItem="YQr-Vf-9ai" firstAttribute="leading" secondItem="Q29-jC-si2" secondAttribute="leading" id="EmK-OR-QuU"/>
-                <constraint firstItem="YQr-Vf-9ai" firstAttribute="trailing" secondItem="Q29-jC-si2" secondAttribute="trailing" id="IB5-VA-yn2"/>
-                <constraint firstItem="7Eq-HK-G37" firstAttribute="top" secondItem="Q29-jC-si2" secondAttribute="bottom" constant="15" id="LkS-MQ-kWp"/>
-                <constraint firstItem="YQr-Vf-9ai" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="MiX-NG-uKe"/>
-                <constraint firstItem="Taa-cD-Lot" firstAttribute="trailing" secondItem="w9h-79-42G" secondAttribute="trailing" id="Q2h-US-JbV"/>
-                <constraint firstItem="Q29-jC-si2" firstAttribute="trailing" secondItem="7Eq-HK-G37" secondAttribute="trailing" id="ZGl-Do-3U0"/>
-                <constraint firstItem="Q29-jC-si2" firstAttribute="leading" secondItem="7Eq-HK-G37" secondAttribute="leading" id="bDk-Mk-JVg"/>
-                <constraint firstItem="7Eq-HK-G37" firstAttribute="leading" secondItem="w9h-79-42G" secondAttribute="leading" id="bQ0-pX-1sl"/>
-                <constraint firstItem="Taa-cD-Lot" firstAttribute="top" secondItem="w9h-79-42G" secondAttribute="bottom" constant="23" id="gh7-jc-Ohj"/>
-                <constraint firstItem="w9h-79-42G" firstAttribute="top" secondItem="7Eq-HK-G37" secondAttribute="bottom" constant="13" id="mrv-Vh-2Ij"/>
-                <constraint firstItem="Taa-cD-Lot" firstAttribute="centerX" secondItem="E41-Sv-4J0" secondAttribute="centerX" id="pu8-VL-JP9"/>
+                <constraint firstItem="YQr-Vf-9ai" firstAttribute="leading" secondItem="Q29-jC-si2" secondAttribute="leading" id="1eA-5M-l83"/>
+                <constraint firstItem="7Eq-HK-G37" firstAttribute="top" secondItem="Q29-jC-si2" secondAttribute="bottom" constant="15" id="2E2-hL-ASr"/>
+                <constraint firstItem="w9h-79-42G" firstAttribute="leading" secondItem="KWf-YQ-D13" secondAttribute="leading" id="3J4-VD-E2q"/>
+                <constraint firstItem="YQr-Vf-9ai" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="74g-Zx-Wnp"/>
+                <constraint firstItem="E41-Sv-4J0" firstAttribute="top" secondItem="Taa-cD-Lot" secondAttribute="bottom" constant="4" id="Hcj-8s-Xnd"/>
+                <constraint firstItem="Q29-jC-si2" firstAttribute="top" secondItem="YQr-Vf-9ai" secondAttribute="bottom" constant="13" id="IRH-am-MpQ"/>
+                <constraint firstItem="Taa-cD-Lot" firstAttribute="top" secondItem="KWf-YQ-D13" secondAttribute="bottom" constant="8" symbolic="YES" id="Lok-d4-Dn8"/>
+                <constraint firstItem="YQr-Vf-9ai" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="38" id="MJc-79-aDT"/>
+                <constraint firstItem="7Eq-HK-G37" firstAttribute="trailing" secondItem="w9h-79-42G" secondAttribute="trailing" id="Okk-Hi-NbA"/>
+                <constraint firstItem="w9h-79-42G" firstAttribute="leading" secondItem="7Eq-HK-G37" secondAttribute="leading" id="Vu7-hB-fHn"/>
+                <constraint firstItem="Q29-jC-si2" firstAttribute="trailing" secondItem="7Eq-HK-G37" secondAttribute="trailing" id="Xmz-qn-bl5"/>
+                <constraint firstItem="KWf-YQ-D13" firstAttribute="top" secondItem="w9h-79-42G" secondAttribute="bottom" constant="10" id="YHd-xG-REf"/>
+                <constraint firstItem="YQr-Vf-9ai" firstAttribute="trailing" secondItem="Q29-jC-si2" secondAttribute="trailing" id="brW-qu-cje"/>
+                <constraint firstItem="7Eq-HK-G37" firstAttribute="leading" secondItem="Q29-jC-si2" secondAttribute="leading" id="c1L-6w-PQ6"/>
+                <constraint firstItem="E41-Sv-4J0" firstAttribute="centerX" secondItem="Taa-cD-Lot" secondAttribute="centerX" id="lUD-gk-fY9"/>
+                <constraint firstItem="KWf-YQ-D13" firstAttribute="leading" secondItem="Taa-cD-Lot" secondAttribute="leading" id="ld0-td-qQR"/>
+                <constraint firstItem="w9h-79-42G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pmo-7c-8ra"/>
+                <constraint firstItem="w9h-79-42G" firstAttribute="top" secondItem="7Eq-HK-G37" secondAttribute="bottom" constant="13" id="rOF-lf-Hbi"/>
+                <constraint firstItem="KWf-YQ-D13" firstAttribute="trailing" secondItem="w9h-79-42G" secondAttribute="trailing" id="uXP-5T-H6Z"/>
+                <constraint firstItem="KWf-YQ-D13" firstAttribute="trailing" secondItem="Taa-cD-Lot" secondAttribute="trailing" id="x2z-DR-bFC"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
