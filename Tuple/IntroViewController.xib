@@ -16,13 +16,13 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Tuple!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urP-OW-zNg">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tuple!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urP-OW-zNg">
                     <rect key="frame" x="78" y="33" width="164" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWU-oT-wss">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWU-oT-wss">
                     <rect key="frame" x="101" y="469" width="119" height="30"/>
                     <state key="normal" title="Make an account">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,17 +31,17 @@
                         <action selector="makeNewAccount" destination="-1" eventType="touchUpInside" id="tzJ-TB-Gyr"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RBk-fT-lhG">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RBk-fT-lhG">
                     <rect key="frame" x="78" y="122" width="164" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cT1-pq-fRO">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cT1-pq-fRO">
                     <rect key="frame" x="78" y="179" width="164" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMX-RK-4v1">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMX-RK-4v1">
                     <rect key="frame" x="141" y="228" width="38" height="30"/>
                     <state key="normal" title="Login">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,6 +52,21 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bWU-oT-wss" secondAttribute="bottom" constant="69" id="0AK-yn-XsT"/>
+                <constraint firstItem="cT1-pq-fRO" firstAttribute="top" secondItem="RBk-fT-lhG" secondAttribute="bottom" constant="27" id="5zo-zu-VtN"/>
+                <constraint firstItem="RBk-fT-lhG" firstAttribute="leading" secondItem="cT1-pq-fRO" secondAttribute="leading" id="7zF-dG-f1A"/>
+                <constraint firstItem="cT1-pq-fRO" firstAttribute="trailing" secondItem="RBk-fT-lhG" secondAttribute="trailing" id="BSo-Fg-aWN"/>
+                <constraint firstItem="urP-OW-zNg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="CeL-iH-5Xp"/>
+                <constraint firstItem="RBk-fT-lhG" firstAttribute="trailing" secondItem="urP-OW-zNg" secondAttribute="trailing" id="Jhq-Mo-rlb"/>
+                <constraint firstItem="RBk-fT-lhG" firstAttribute="top" secondItem="urP-OW-zNg" secondAttribute="bottom" constant="68" id="KIL-1o-8yk"/>
+                <constraint firstItem="RBk-fT-lhG" firstAttribute="leading" secondItem="urP-OW-zNg" secondAttribute="leading" id="VMh-50-2XM"/>
+                <constraint firstItem="RBk-fT-lhG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vka-0K-ein"/>
+                <constraint firstItem="cT1-pq-fRO" firstAttribute="centerX" secondItem="kMX-RK-4v1" secondAttribute="centerX" id="Yh1-hX-gtn"/>
+                <constraint firstItem="urP-OW-zNg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="78" id="cse-0g-gHO"/>
+                <constraint firstItem="kMX-RK-4v1" firstAttribute="top" secondItem="cT1-pq-fRO" secondAttribute="bottom" constant="19" id="ip3-JQ-ATh"/>
+                <constraint firstItem="bWU-oT-wss" firstAttribute="centerX" secondItem="kMX-RK-4v1" secondAttribute="centerX" id="uRH-Er-eZ6"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

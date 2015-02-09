@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Tuple": {
+            "applicationId": "A5W56JpbUSdejJfl15K72x6OfAbUPpPZ2JHXq19c", 
+            "masterKey": "oGYQzOhQBgIM2sWMggSEFhdJiiON7wIZyvwHInmP"
+        }, 
+        "_default": {
+            "link": "Tuple"
+        }
+    }
+}
