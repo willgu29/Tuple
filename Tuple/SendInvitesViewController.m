@@ -13,7 +13,6 @@
 
 @interface SendInvitesViewController ()
 
-@property (nonatomic, strong) PullFromFriendsList *pullFromFriends;
 @property (nonatomic, strong) PullFromContactsList *pullFromContacts;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -25,9 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _pullFromFriends = [[PullFromFriendsList alloc] init];
-    _pullFromFriends.delegate = self;
-    [_pullFromFriends fetchAllFriendsFromParse];
     _pullFromContacts = [[PullFromContactsList alloc] init];
     _pullFromContacts.delegate = self;
     [_pullFromContacts fetchTableViewData];
@@ -49,16 +45,6 @@
     
 }
 
-#pragma mark - Friends List Delegate
--(void)friendsListFetchSuccess:(NSArray *)friendsListArray
-{
-    NSLog(@"Fetch Friends List Success!");
-    [self.displayInfoArray addObjectsFromArray:friendsListArray];
-}
--(void)friendsListFetchFailure:(NSError *)error
-{
-    
-}
 
 #pragma mark - Contact List Delegate
 -(void)contactListFetchSuccess:(NSArray *)contactListArray
