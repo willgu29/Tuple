@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate, UITextFieldDelegate, CreateFriendsListDelegate {
+class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate, UITextFieldDelegate {
 
     var createAccountObject = CreateAccountOnServer()
     
@@ -34,10 +34,10 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if (textField == phoneNumber)
         {
-            [PhoneTextField .textField(textField, shouldChangeCharactersInRange: range, replacementString: string)]
-            
+            PhoneTextField.textField(textField, shouldChangeCharactersInRange: range, replacementString: string)
+            return false;
         }
-        return false;
+        return true;
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -61,19 +61,9 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
         }
     }
     
-    
-    //Account delegation -> FriendsList -> Segue VC
+    //Successful account creation makes a PFUser in Parse Database w/ all necessary information
     func createAccountSuccess() {
         
-        var createFriendsListObject = CreateFriendsList();
-        createFriendsListObject.delegate = self;
-        createFriendsListObject.createParseFriendsListWithUser(username.text);
-    }
-    func createAccountWithFailure(error: NSError!) {
-    
-    }
-    
-    func createFriendsListSuccess() {
         PFUser.logInWithUsernameInBackground(username.text, password: password.text) { (var user: PFUser!, var error: NSError!) -> Void in
             if ((user) != nil)
             {
@@ -88,9 +78,10 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
             }
         }
     }
-    func createFriendsListFailure(error: NSError!) {
-        
+    func createAccountWithFailure(error: NSError!) {
+    
     }
+    
     
     
 

@@ -64,6 +64,9 @@
 		84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD71A888F1500463B7E /* AddFriendRelation.m */; };
 		84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADB1A88A05000463B7E /* PhoneTextField.m */; };
 		84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */; };
+		84821AE31A88AF6B00463B7E /* CreateConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE21A88AF6B00463B7E /* CreateConversation.m */; };
+		84821AE61A893BFA00463B7E /* SendMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE51A893BFA00463B7E /* SendMessages.m */; };
+		84821AE91A8943E000463B7E /* QueryForConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE81A8943E000463B7E /* QueryForConversation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +164,12 @@
 		84821ADB1A88A05000463B7E /* PhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTextField.m; sourceTree = "<group>"; };
 		84821ADD1A88AA0300463B7E /* PhoneNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberConvert.h; sourceTree = "<group>"; };
 		84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberConvert.m; sourceTree = "<group>"; };
+		84821AE11A88AF6B00463B7E /* CreateConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateConversation.h; sourceTree = "<group>"; };
+		84821AE21A88AF6B00463B7E /* CreateConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateConversation.m; sourceTree = "<group>"; };
+		84821AE41A893BFA00463B7E /* SendMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessages.h; sourceTree = "<group>"; };
+		84821AE51A893BFA00463B7E /* SendMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessages.m; sourceTree = "<group>"; };
+		84821AE71A8943E000463B7E /* QueryForConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryForConversation.h; sourceTree = "<group>"; };
+		84821AE81A8943E000463B7E /* QueryForConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryForConversation.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -230,6 +239,7 @@
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
 				84821A931A87DC4E00463B7E /* GlobalData */,
 				84821A171A873BAB00463B7E /* Converters */,
+				84821AE01A88AF4900463B7E /* LayerConversationAPI */,
 				84821AA51A87F20E00463B7E /* GetPeopleAPI */,
 				84821A1B1A873BDB00463B7E /* FirstUserSteps */,
 				84821A1C1A873BE100463B7E /* MainInterface */,
@@ -477,6 +487,19 @@
 			name = CustomTextField;
 			sourceTree = "<group>";
 		};
+		84821AE01A88AF4900463B7E /* LayerConversationAPI */ = {
+			isa = PBXGroup;
+			children = (
+				84821AE11A88AF6B00463B7E /* CreateConversation.h */,
+				84821AE21A88AF6B00463B7E /* CreateConversation.m */,
+				84821AE41A893BFA00463B7E /* SendMessages.h */,
+				84821AE51A893BFA00463B7E /* SendMessages.m */,
+				84821AE71A8943E000463B7E /* QueryForConversation.h */,
+				84821AE81A8943E000463B7E /* QueryForConversation.m */,
+			);
+			name = LayerConversationAPI;
+			sourceTree = "<group>";
+		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,7 +667,9 @@
 			files = (
 				84821A471A873CAE00463B7E /* ReportBug.m in Sources */,
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
+				84821AE31A88AF6B00463B7E /* CreateConversation.m in Sources */,
 				84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */,
+				84821AE61A893BFA00463B7E /* SendMessages.m in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
@@ -667,6 +692,7 @@
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
+				84821AE91A8943E000463B7E /* QueryForConversation.m in Sources */,
 				84821A271A873C2600463B7E /* MakeNewAccountViewController.swift in Sources */,
 				84821A9C1A87DD5700463B7E /* PostSendData.m in Sources */,
 			);

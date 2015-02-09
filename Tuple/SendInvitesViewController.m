@@ -10,9 +10,11 @@
 #import "MessagingViewController.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
+#import "PushToParseCloud.h"
 
 @interface SendInvitesViewController ()
 
+@property (nonatomic, strong) PushToParseCloud *pushToParseCloud;
 @property (nonatomic, strong) PullFromContactsList *pullFromContacts;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -27,7 +29,7 @@
     _pullFromContacts = [[PullFromContactsList alloc] init];
     _pullFromContacts.delegate = self;
     [_pullFromContacts fetchTableViewData];
-    
+    _pushToParseCloud = [[PushToParseCloud alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

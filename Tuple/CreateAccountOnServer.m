@@ -9,14 +9,20 @@
 #import "CreateAccountOnServer.h"
 #import <Parse/Parse.h>
 #import "PhoneNumberConvert.h"
+#import "CreateConversation.h"
 @interface CreateAccountOnServer()
 
 @end
 
 @implementation CreateAccountOnServer
 
+
+
 -(void)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andPhoneNumber:(NSString *)phoneNumber
 {
+    
+    NSURL * convoID = [CreateConversation createInitialConversation];
+
     
     PFUser *newUser = [PFUser user];
     newUser.username = username;
@@ -26,6 +32,7 @@
     newUser[@"lastName"] = lastName;
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
     newUser[@"phoneNumber"] = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:phoneNumber];
+    newUser[@"conversationID"] = convoID.absoluteString;
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.

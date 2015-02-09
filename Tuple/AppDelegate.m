@@ -27,8 +27,8 @@
     [self setupParse:application withLaunchOptions:launchOptions];
     
     
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) { //user logged in
+//    PFUser *currentUser = [PFUser currentUser];
+    if (false) { //user logged in
         WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:whereWhenVC];
         self.window.rootViewController = navVC;
