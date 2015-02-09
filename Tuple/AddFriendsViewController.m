@@ -8,7 +8,8 @@
 
 #import "AddFriendsViewController.h"
 #import "PullFromContactsList.h"
-
+#import "FetchUserData.h"
+#import "UserCellInfo.h"
 @interface AddFriendsViewController ()
 
 @property (nonatomic, strong) PullFromContactsList *pullFromContacts;
@@ -32,7 +33,32 @@
 
 -(IBAction)backButton:(UIButton *)sender
 {
+    //TODO: Add friends
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+#pragma mark - Table view delegate
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    PFUser *user = [FetchUserData lookupUsername:textField.text];
+    if (user)
+    {
+        UserCellInfo *userInfo = [[UserCellInfo alloc] init];
+        userInfo.username = user.username;
+        userInfo.firstName = user[@"firstName"];
+        userInfo.lastName = user[@"lastName"];
+        userInfo.emailVerified = (BOOL)user[@"emailVerified"];
+        [self.displayInfoArray insertObject:userInfo atIndex:0];
+    }
+    [textField resignFirstResponder];
+    return YES;
 }
 
 
@@ -48,5 +74,7 @@
     [self.navigationController popViewControllerAnimated:YES];
     [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
+
+
 
 @end

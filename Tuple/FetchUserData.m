@@ -10,7 +10,7 @@
 
 @implementation FetchUserData
 
--(PFUser *)lookupUsername:(NSString *)username
++(PFUser *)lookupUsername:(NSString *)username
 {
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:username];
@@ -19,7 +19,7 @@
     
 }
 
--(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber
++(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber
 {
     PFQuery *query = [PFUser query];
     [query whereKey:@"phoneNumber" equalTo:phoneNumber];

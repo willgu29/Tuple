@@ -15,7 +15,6 @@
 @interface PullFromContactsList()
 
 @property (nonatomic, strong) NSMutableArray *contactListArray;
-@property (nonatomic, strong) FetchUserData *fetchUserData;
 
 @end
 
@@ -27,7 +26,6 @@
     if (self)
     {
         _contactListArray = [[NSMutableArray alloc] init];
-        _fetchUserData = [[FetchUserData alloc] init];
     }
     return self;
 }

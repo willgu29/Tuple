@@ -11,7 +11,7 @@
 
 @interface FetchUserData : NSObject
 
--(PFUser *)lookupUsername:(NSString *)username;
--(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber;
++(PFUser *)lookupUsername:(NSString *)username;
++(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber;
 
 @end

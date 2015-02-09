@@ -14,7 +14,6 @@
 @interface PullFromFriendsList()
 
 @property (nonatomic, strong) NSMutableArray *friendsListArray;
-@property (nonatomic, strong) FetchUserData *fetchUserData;
 
 @end
 
@@ -28,11 +27,10 @@
         if (object)
         {
             _friendsListArray = [[NSMutableArray alloc] init];
-            _fetchUserData = [[FetchUserData alloc] init];
             
             for (NSString* friendUsername in object[@"friendsList"])
             {
-                PFUser *user = [_fetchUserData lookupUsername:friendUsername];
+                PFUser *user = [FetchUserData lookupUsername:friendUsername];
                 UserCellInfo *userInfo = [[UserCellInfo alloc] init];
                 userInfo.username = user.username;
                 userInfo.emailVerified = (BOOL)user[@"emailVerified"];

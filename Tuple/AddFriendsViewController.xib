@@ -23,6 +23,11 @@
                         <action selector="backButton:" destination="-1" eventType="touchUpInside" id="fJk-LM-ab4"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for users" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Xx-KF-ra5">
+                    <rect key="frame" x="8" y="25" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frH-Gx-ReD">
                     <rect key="frame" x="0.0" y="57" width="320" height="454"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

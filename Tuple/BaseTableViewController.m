@@ -8,6 +8,7 @@
 
 #import "BaseTableViewController.h"
 #import "UserCellInfo.h"
+#import "FetchUserData.h"
 
 @interface BaseTableViewController ()
 
@@ -20,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _displayInfoArray = [[NSMutableArray alloc] init];
+    _selectedPeopleArray = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +29,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)updateSelectedRow
+{
+    
+}
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -43,6 +49,26 @@
     }
     
     return cell;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
+    
+    
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [_selectedPeopleArray removeObject:userInfo];
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [_selectedPeopleArray addObject:userInfo];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {

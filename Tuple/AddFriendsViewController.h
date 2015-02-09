@@ -10,6 +10,6 @@
 #import "BaseTableViewController.h"
 #import "PullFromContactsList.h"
 
-@interface AddFriendsViewController : BaseTableViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate>
+@interface AddFriendsViewController : BaseTableViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate, UITextFieldDelegate>
 
 @end

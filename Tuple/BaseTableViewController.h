@@ -11,7 +11,9 @@
 @interface BaseTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *displayInfoArray;
+@property (nonatomic, strong) NSMutableArray *selectedPeopleArray;
 
 @end
 
-/* Subclasses of BaseTableViewController should assign something to displayInfoArray, else nothing will be displayed. */
+/* Subclasses of BaseTableViewController should assign something to displayInfoArray, else nothing will be displayed. 
+All selected rows will be assigned to selectedPeopleArray with objects of UserInfoCell in them. */
