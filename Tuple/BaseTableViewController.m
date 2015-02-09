@@ -39,7 +39,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
     
     return cell;
@@ -47,6 +47,16 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserCellInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
+    
+    if (userInfo.username)
+    {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.username];
+    }
+    else
+    {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.phoneNumber];
+    }
+    
     if (userInfo.lastName == nil)
     {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", userInfo.firstName];
@@ -58,6 +68,7 @@
         return;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", userInfo.firstName, userInfo.lastName];
+    
 }
 
 

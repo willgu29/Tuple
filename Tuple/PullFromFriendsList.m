@@ -29,6 +29,7 @@
         {
             _friendsListArray = [[NSMutableArray alloc] init];
             _fetchUserData = [[FetchUserData alloc] init];
+            
             for (NSString* friendUsername in object[@"friendsList"])
             {
                 PFUser *user = [_fetchUserData lookupUsername:friendUsername];

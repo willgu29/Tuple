@@ -14,14 +14,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frH-Gx-ReD">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="ZaR-VR-XCJ"/>
-                        <outlet property="delegate" destination="-1" id="iiZ-na-BBI"/>
-                    </connections>
-                </tableView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10j-TA-Bqk">
                     <rect key="frame" x="249" y="503" width="63" height="57"/>
                     <state key="normal" title="Back">
@@ -31,6 +23,14 @@
                         <action selector="backButton:" destination="-1" eventType="touchUpInside" id="fJk-LM-ab4"/>
                     </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frH-Gx-ReD">
+                    <rect key="frame" x="0.0" y="57" width="320" height="454"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ZaR-VR-XCJ"/>
+                        <outlet property="delegate" destination="-1" id="iiZ-na-BBI"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

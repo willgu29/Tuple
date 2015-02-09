@@ -19,4 +19,12 @@
     
 }
 
+-(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber
+{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"phoneNumber" equalTo:phoneNumber];
+    PFUser *user = (PFUser *)[query getFirstObject];
+    return user;
+}
+
 @end

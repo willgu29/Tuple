@@ -11,9 +11,11 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
+#import "FetchUserData.h"
 @interface PullFromContactsList()
 
 @property (nonatomic, strong) NSMutableArray *contactListArray;
+@property (nonatomic, strong) FetchUserData *fetchUserData;
 
 @end
 
@@ -25,6 +27,7 @@
     if (self)
     {
         _contactListArray = [[NSMutableArray alloc] init];
+        _fetchUserData = [[FetchUserData alloc] init];
     }
     return self;
 }
@@ -71,6 +74,7 @@
     }
     NSArray *allPeople = CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
     NSInteger nPeople = [allPeople count];
+    
     for (int i = 0; i < nPeople; i++)
     {
         ABRecordRef person = (__bridge ABRecordRef)allPeople[i];
@@ -82,17 +86,17 @@
         NSString *phoneNumber = nil;
         for (CFIndex i = 0; i < numberOfPhoneNumbers; i++) {
             phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, i));
-            
+            //TODO: Get all phone numbers for name
         }
         CFRelease(phoneNumbers);
 
         if (phoneNumber && (firstName || lastName))
         {
             UserCellInfo *userInfo = [[UserCellInfo alloc] init];
-            userInfo.username = nil;
+            userInfo.phoneNumber = phoneNumber;
             userInfo.firstName = firstName;
             userInfo.lastName = lastName;
-            userInfo.phoneNumber = phoneNumber;
+            userInfo.username = nil;
             userInfo.userType = IS_CONTACT_NO_APP;
             [_contactListArray addObject:userInfo];
         }
@@ -102,5 +106,6 @@
     }
     [_delegate contactListFetchSuccess:_contactListArray];
 }
+
 
 @end
