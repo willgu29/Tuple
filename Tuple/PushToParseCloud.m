@@ -61,25 +61,12 @@
 -(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    int diningHallInt;
-    NSString *hostUsername;
-    NSString *inviter;
-    NSString *timeToEat;
-    if (delegate.sendData.clientType == 1)
-    {
-        PFUser *user = [PFUser currentUser];
-        hostUsername = user.username;
-        inviter = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
-        diningHallInt = delegate.sendData.diningHallInt;
-        timeToEat = delegate.sendData.theTimeToEat;
-        
-    }
-    else if (delegate.sendData.clientType == 2)
-    {
-        
-    }
-    delegate.sendData.hostUsername = hostUsername;
-    delegate.sendData.inviter = inviter;
+   
+    NSString *inviter = delegate.sendData.hostName;
+    NSString *hostUsername = delegate.sendData.hostUsername;
+    int diningHallInt = delegate.sendData.diningHallInt;
+    NSString *timeToEat = delegate.sendData.theTimeToEat;
+    
     NSString *diningHallString = [NSString stringWithFormat:@"%d", diningHallInt];
     [PFCloud callFunctionInBackground:@"hello"
                        withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"diningHall": diningHallString, @"timeToEat": timeToEat}
