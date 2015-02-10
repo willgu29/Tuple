@@ -20,7 +20,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.navigationController?.navigationBarHidden = true;
     }
     override func viewWillAppear(animated: Bool) {
-        delegate.preSendData.minutesTillMeetup = -1;
+        delegate.sendData.minutesTillMeetup = -1;
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +29,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func errorCheckSuccess() -> Bool {
-        if (delegate.preSendData.minutesTillMeetup == -1)
+        if (delegate.sendData.minutesTillMeetup == -1)
         {
             //TODO: Alert, please click a time!
             return false;
@@ -41,30 +41,30 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func sendInvites() {
         if (errorCheckSuccess() == true)
         {
-            delegate.preSendData.clientType = 1;
+            delegate.sendData.clientType = 1;
             var sendInviteVC = SendInvitesViewController(nibName: "SendInvitesViewController", bundle: nil);
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }
     }
     @IBAction func timeButtonNowClicked()
     {
-        delegate.preSendData.minutesTillMeetup = 0;
+        delegate.sendData.minutesTillMeetup = 0;
     }
     @IBAction func timeButton15Clicked()
     {
-        delegate.preSendData.minutesTillMeetup = 15;
+        delegate.sendData.minutesTillMeetup = 15;
     }
     @IBAction func timeButton30Clicked()
     {
-        delegate.preSendData.minutesTillMeetup = 30;
+        delegate.sendData.minutesTillMeetup = 30;
     }
     @IBAction func timeButton45Clicked()
     {
-        delegate.preSendData.minutesTillMeetup = 45;
+        delegate.sendData.minutesTillMeetup = 45;
     }
     @IBAction func timeButton60Clicked()
     {
-        delegate.preSendData.minutesTillMeetup = 60;
+        delegate.sendData.minutesTillMeetup = 60;
 
     }
     
@@ -83,7 +83,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //Save dining hall
         NSLog("Picker row: %d", row);
-        delegate.preSendData.diningHallInt = Int32(row);
+        delegate.sendData.diningHallInt = Int32(row);
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PreSendData.h"
+#import "SendData.h"
 
 @class LYRClient;
 
@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) LYRClient *layerClient;
-@property (strong, nonatomic) PreSendData *preSendData;
+@property (strong, nonatomic) SendData *sendData;
 
 @end
 

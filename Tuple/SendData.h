@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PreSendData : NSObject
+@interface SendData : NSObject
 
+@property (nonatomic, strong) NSString *hostName; //Not set yet...
 @property (nonatomic) int minutesTillMeetup;
 @property (nonatomic) int diningHallInt;
 @property (nonatomic) int clientType; //1 = host, 2 = attendee
 
 @end
 
-/* Pre send data will deal with the data of the initiator. This person that wants to start the chatroom and event time. */
+/* send data will deal with the data pertaining to the meetup event and the client type. This information must be filled out for the initiator and attendees. */

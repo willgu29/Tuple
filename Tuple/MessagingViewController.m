@@ -11,6 +11,8 @@
 #import "QueryForConversation.h"
 #import "SendMessages.h"
 #import "AppDelegate.h"
+#import "DiningHallConvert.h"
+#import "FetchUserData.h"
 @interface MessagingViewController ()
 
 @property (nonatomic, strong) LYRConversation *conversation;
@@ -30,13 +32,13 @@
     [super viewDidLoad];
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    if (delegate.preSendData.clientType == 1)
+    if (delegate.sendData.clientType == 1)
     {
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
 
     }
-    else if (delegate.preSendData.clientType == 2)
+    else if (delegate.sendData.clientType == 2)
     {
         //Get ConvoID from info.
     }
@@ -55,6 +57,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Setup Labels
+-(void)setupLabels
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSString *diningHall =[DiningHallConvert convertDiningHallIntToString:delegate.sendData.diningHallInt];
+    
+    _hostName.text = [NSString stringWithFormat:@"Host: %@", delegate.sendData.hostName];
+    _diningHallAndTime.text = [NSString stringWithFormat:@"%@ @ %@", diningHall, nil];
 }
 
 #pragma mark -IBActions
@@ -231,11 +243,14 @@
     }
     else
     {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",[message sentByUserID], messageString];
+        PFUser *user = [FetchUserData lookupDeviceToken:[message sentByUserID]];
+        NSString *name = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",name,messageString];
     }
     
     
 }
+
 
 
 

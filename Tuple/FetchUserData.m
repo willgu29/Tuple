@@ -28,7 +28,13 @@
     PFUser *user = (PFUser *)[query getFirstObject];
     return user;
 }
-
++(PFUser *)lookupDeviceToken:(NSString *)deviceToken
+{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"deviceToken" equalTo:deviceToken];
+    PFUser *user = (PFUser *)[query getFirstObject];
+    return user;
+}
 
 
 @end

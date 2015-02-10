@@ -60,21 +60,23 @@
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     int diningHallInt;
     NSString *hostName;
-    if (delegate.preSendData.clientType == 1)
+    int minutesTillMeetup;
+    if (delegate.sendData.clientType == 1)
     {
         PFUser *user = [PFUser currentUser];
         hostName = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
-        diningHallInt = delegate.preSendData.diningHallInt;
+        diningHallInt = delegate.sendData.diningHallInt;
+        minutesTillMeetup = delegate.sendData.minutesTillMeetup;
     }
-    else if (delegate.preSendData.clientType == 2)
+    else if (delegate.sendData.clientType == 2)
     {
         
     }
-    
+    delegate.sendData.hostName = hostName;
     NSString *diningHallString = [NSString stringWithFormat:@"%d", diningHallInt];
-    
+    NSString *minutesString = [NSString stringWithFormat:@"%d", minutesTillMeetup];
     [PFCloud callFunctionInBackground:@"hello"
-                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"hostName":hostName , @"diningHall": diningHallString}
+                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"hostName":hostName , @"diningHall": diningHallString, @"inMinutes": minutesString}
                                 block:^(id object, NSError *error) {
                                     if (!error) {
                                         // this is where you handle the results and change the UI.
