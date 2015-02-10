@@ -61,13 +61,13 @@
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     int diningHallInt;
-    NSString *hostName;
+    NSString *hostUsername;
     NSString *inviter;
     NSString *timeToEat;
     if (delegate.sendData.clientType == 1)
     {
         PFUser *user = [PFUser currentUser];
-        hostName = user.username;
+        hostUsername = user.username;
         inviter = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
         diningHallInt = delegate.sendData.diningHallInt;
         timeToEat = delegate.sendData.theTimeToEat;
@@ -77,11 +77,11 @@
     {
         
     }
-    delegate.sendData.hostUsername = hostName;
+    delegate.sendData.hostUsername = hostUsername;
     delegate.sendData.inviter = inviter;
     NSString *diningHallString = [NSString stringWithFormat:@"%d", diningHallInt];
     [PFCloud callFunctionInBackground:@"hello"
-                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostName":hostName , @"diningHall": diningHallString, @"timeToEat": timeToEat}
+                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"diningHall": diningHallString, @"timeToEat": timeToEat}
                                 block:^(id object, NSError *error) {
                                     if (!error) {
                                         // this is where you handle the results and change the UI.

@@ -27,6 +27,15 @@
     [self setupParse:application withLaunchOptions:launchOptions];
     
     
+    NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotif)
+    {
+        //Handle remote notification
+        NSString *hostName = [remoteNotif objectForKey:@"hostName"];
+        
+    }
+    
+    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) { //user logged in
         WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
@@ -87,7 +96,15 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive)
+    {
+//        [PFPush handlePush:userInfo];
+    }
+    else
+    {
+        //Background
+    }
 }
 
 #pragma mark - Parse Methods
