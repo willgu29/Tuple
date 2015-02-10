@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LayerKit/LayerKit.h>
 
-@interface MessagingViewController : UIViewController
+@interface MessagingViewController : UIViewController <UIAlertViewDelegate,LYRQueryControllerDelegate, UITextFieldDelegate>
 
 @end

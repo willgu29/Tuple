@@ -243,6 +243,7 @@
 				84821AA51A87F20E00463B7E /* GetPeopleAPI */,
 				84821A1B1A873BDB00463B7E /* FirstUserSteps */,
 				84821A1C1A873BE100463B7E /* MainInterface */,
+				84821AEA1A89590500463B7E /* AcceptInvitesInterface */,
 				84821AC01A881D2000463B7E /* AddFriendsInterface */,
 				84821A1D1A873BE700463B7E /* SendInvitesInterface */,
 				84821A1E1A873C0100463B7E /* MessagingGroup */,
@@ -310,9 +311,6 @@
 			children = (
 				84821A291A873C4A00463B7E /* WhereWhenViewController.swift */,
 				84821A2A1A873C4A00463B7E /* WhereWhenViewController.xib */,
-				84821AA11A87F14F00463B7E /* GetInvitesAPI */,
-				84821A9D1A87E02F00463B7E /* GetInvitesViewController.swift */,
-				84821A9E1A87E02F00463B7E /* GetInvitesViewController.xib */,
 			);
 			name = MainInterface;
 			sourceTree = "<group>";
@@ -498,6 +496,16 @@
 				84821AE81A8943E000463B7E /* QueryForConversation.m */,
 			);
 			name = LayerConversationAPI;
+			sourceTree = "<group>";
+		};
+		84821AEA1A89590500463B7E /* AcceptInvitesInterface */ = {
+			isa = PBXGroup;
+			children = (
+				84821AA11A87F14F00463B7E /* GetInvitesAPI */,
+				84821A9D1A87E02F00463B7E /* GetInvitesViewController.swift */,
+				84821A9E1A87E02F00463B7E /* GetInvitesViewController.xib */,
+			);
+			name = AcceptInvitesInterface;
 			sourceTree = "<group>";
 		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {

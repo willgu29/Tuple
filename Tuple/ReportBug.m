@@ -24,9 +24,9 @@
     {
         NSString *emailTitle = @"Feedback";
         // Email Content
-        NSString *messageBody = @"Thanks for using Lingo! Please let us know if you have any comments or suggestions; your feedback is highly valued.";
+        NSString *messageBody = @"Thanks for using Tuple! Please let us know if you have any comments or suggestions; your feedback is highly valued.";
         // To address
-        NSArray *toRecipents = [NSArray arrayWithObject:@"support@trendsetting.me"];
+        NSArray *toRecipents = [NSArray arrayWithObject:@"support@tupleapp.com"];
         MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
         mc.mailComposeDelegate = self;
         [mc setSubject:emailTitle];
@@ -39,7 +39,7 @@
     else
     {
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:@"Mail is not configured on this account. Please email lingoucla@gmail.com. Your feedback is highly valued."
+                                                            message:@"Mail is not configured on this account. Please email support@tupleapp.com. Your feedback is highly valued."
                                                            delegate:nil
                                                   cancelButtonTitle:@"Ok"
                                                   otherButtonTitles:nil];
