@@ -35,6 +35,13 @@
     PFUser *user = (PFUser *)[query getFirstObject];
     return user;
 }
++(PFObject *)lookupEventWithHost:(NSString *)hostUsername
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Events"];
+    [query whereKey:@"hostUsername" equalTo:hostUsername];
+    PFObject *eventObject =[query getFirstObject];
+    return eventObject;
+}
 
 
 @end

@@ -12,7 +12,6 @@
 #import <Parse/Parse.h>
 #import "NSDataConvert.h"
 
-
 @interface AppDelegate ()
 
 @end
@@ -26,13 +25,20 @@
 
     [self setupParse:application withLaunchOptions:launchOptions];
     
+    _sendData =  [[SendData alloc] init];
+
     
     NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (remoteNotif)
     {
         //Handle remote notification
-        NSString *hostName = [remoteNotif objectForKey:@"hostName"];
-        
+        self.sendData.hostUsername = [remoteNotif objectForKey:@"hostUsername"];
+        self.sendData.inviter = [remoteNotif objectForKey:@"inviter"];
+        WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:whereWhenVC];
+        self.window.rootViewController = navVC;
+        GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
+        [navVC presentViewController:getInvitesVC animated:YES completion:nil];
     }
     
     
@@ -46,7 +52,6 @@
         self.window.rootViewController = introVC;
     }
     
-    _sendData =  [[SendData alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

@@ -109,7 +109,7 @@
         
     
     PFObject *event = [PFObject objectWithClassName:@"Events"];
-    event[@"hostName"] = delegate.sendData.hostUsername;
+    event[@"hostUsername"] = delegate.sendData.hostUsername;
     event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
     event[@"peopleInChatRoom"] = [NSString stringWithFormat:@"1"];

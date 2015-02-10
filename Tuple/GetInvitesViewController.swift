@@ -10,10 +10,14 @@ import UIKit
 
 class GetInvitesViewController: UIViewController {
 
+    var delegate = UIApplication.sharedApplication().delegate as AppDelegate;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var eventObject = FetchUserData.lookupEventWithHost(delegate.sendData.hostUsername);
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -14,5 +14,6 @@
 +(PFUser *)lookupUsername:(NSString *)username;
 +(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber;
 +(PFUser *)lookupDeviceToken:(NSString *)deviceToken;
++(PFObject *)lookupEventWithHost:(NSString *)hostUsername;
 
 @end
