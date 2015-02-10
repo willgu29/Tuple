@@ -82,7 +82,6 @@
     delegate.sendData.hostName = hostName;
     delegate.sendData.inviter = inviter;
     NSString *diningHallString = [NSString stringWithFormat:@"%d", diningHallInt];
-    NSString *minutesString = [NSString stringWithFormat:@"%d", minutesTillMeetup];
     [PFCloud callFunctionInBackground:@"hello"
                        withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostName":hostName , @"diningHall": diningHallString, @"timeToEat": timeToEat}
                                 block:^(id object, NSError *error) {

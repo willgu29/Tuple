@@ -57,23 +57,14 @@
 {
     UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
 
-    //TODO: remove at index and readd at index after lookupNumber
     PFUser *user = [FetchUserData lookupPhoneNumber:userInfo.phoneNumber];
     if (user)
     {
-//        UserCellInfo *updatedUserInfo = [[UserCellInfo alloc] init];
         userInfo.username = user.username;
-//        updatedUserInfo.firstName = user[@"firstName"];
-//        updatedUserInfo.lastName = user[@"lastName"];
-//        updatedUserInfo.email = user.email;
-//        updatedUserInfo.phoneNumber = user[@"phoneNumber"];
         userInfo.deviceToken = user[@"deviceToken"];
-//        updatedUserInfo.emailVerified = (BOOL)user[@"emailVerified"];
         userInfo.phoneVerified = (BOOL)user[@"phoneVerified"];
         userInfo.userType = IS_CONTACT_WITH_APP;
         
-//        [self.displayInfoArray removeObjectAtIndex:indexPath.row];
-//        [self.displayInfoArray insertObject:updatedUserInfo atIndex:indexPath.row];
     }
     else
     {

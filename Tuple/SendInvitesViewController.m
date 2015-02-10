@@ -72,6 +72,7 @@
 {
     NSLog(@"Fetch Contact List Success!");
     [self.displayInfoArray addObjectsFromArray:contactListArray];
+    [_tableView reloadData];
 }
 -(void)contactListFetchFailure:(NSError *)error
 {

@@ -37,7 +37,6 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return true;
     }
     
-    //IBActions
     func saveDate(){
         var date = TimeNumberConvert.convertTimeMinutesToDate(delegate.sendData.minutesTillMeetup);
         var dateLocal = TimeNumberConvert.convertDateToCurrentTimeZone(date);
@@ -51,7 +50,8 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         var hostName = NSString(format: "%@ %@", firstName, lastName)
         delegate.sendData.hostName = hostName;
     }
-    
+    //IBActions
+
     @IBAction func sendInvites() {
         if (errorCheckSuccess() == true)
         {
@@ -86,19 +86,16 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func checkInvites(){
         //TODO: not using the navigation controller
+        delegate.sendData.clientType = 2;
         var getInvitesVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle: nil);
-        self.presentViewController(getInvitesVC, animated: true, completion: nil);
+        self.navigationController?.pushViewController(getInvitesVC, animated: true)
     }
     
     @IBAction func logoutButton(){
         PFUser.logOut();
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
     }
-    
-    @IBAction func addFriends(){
-        var addFriendsVC = AddFriendsViewController(nibName:"AddFriendsViewController", bundle: nil);
-        self.navigationController?.pushViewController(addFriendsVC, animated: true);
-    }
+ 
     
     //Dining Hall Picker
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
