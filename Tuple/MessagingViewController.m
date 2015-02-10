@@ -28,7 +28,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.conversation = [QueryForConversation queryForConversationWithConvoID:[[NSUserDefaults standardUserDefaults] objectForKey:@"convoID"]];
+    if (self.clientType == 1)
+    {
+        NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
+        self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
+
+    }
+    else if (self.clientType == 2)
+    {
+        //Get ConvoID from info.
+    }
     if (self.conversation)
     {
         [self setupQueryController];

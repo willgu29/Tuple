@@ -43,6 +43,7 @@
 {
     
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
+    messageVC.clientType = 1;
     [self.navigationController pushViewController:messageVC animated:YES];
     
 }
