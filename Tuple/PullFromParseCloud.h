@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
+@class PullFromParseCloud;
+@protocol PullFromParseCloudDelegate
+
+-(void)pullEventSuccess:(NSArray *)eventsInvitedTo;
+-(void)pullEventFailure:(NSError *)error;
+
+@end
+
 @interface PullFromParseCloud : NSObject
+
+@property (nonatomic, assign) id delegate;
 
 @end
