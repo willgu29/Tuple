@@ -11,7 +11,8 @@
 @interface SendData : NSObject
 
 @property (nonatomic, strong) NSString *theTimeToEat;
-@property (nonatomic, strong) NSString *hostName; //Not set yet...
+@property (nonatomic, strong) NSString *hostUsername;
+@property (nonatomic, strong) NSString *hostName;
 @property (nonatomic, strong) NSString *inviter;
 @property (nonatomic) int minutesTillMeetup;
 @property (nonatomic) int diningHallInt;

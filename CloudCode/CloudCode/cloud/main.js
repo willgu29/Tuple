@@ -11,7 +11,7 @@ Parse.Cloud.define("hello", function(request, response) {
 		var timeToEat = request.params.timeToEat;
 		var diningHall = request.params.diningHall;
 		var inviter = request.params.inviter;
-		var messageString = inviter + " would like to eat at " + timeToEat;
+		var messageString = inviter + ": eat at" + timeToEat+ "?";
 		for (var i = 0; i < arrayLength; i++)
 		{
 			PushNotifications.sendPushNotification(inviter, timeToEat,diningHall,hostName,deviceTokenArray[i], messageString, {

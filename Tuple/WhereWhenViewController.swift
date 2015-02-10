@@ -48,6 +48,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         var firstName: String = user["firstName"] as String;
         var lastName:String = user["lastName"] as String;
         var hostName = NSString(format: "%@ %@", firstName, lastName)
+        delegate.sendData.hostUsername = user.username;
         delegate.sendData.hostName = hostName;
     }
     //IBActions

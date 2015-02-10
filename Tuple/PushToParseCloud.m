@@ -64,14 +64,12 @@
     NSString *hostName;
     NSString *inviter;
     NSString *timeToEat;
-    int minutesTillMeetup;
     if (delegate.sendData.clientType == 1)
     {
         PFUser *user = [PFUser currentUser];
-        hostName = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
-        inviter = hostName;
+        hostName = user.username;
+        inviter = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
         diningHallInt = delegate.sendData.diningHallInt;
-        minutesTillMeetup = delegate.sendData.minutesTillMeetup;
         timeToEat = delegate.sendData.theTimeToEat;
         
     }
@@ -79,7 +77,7 @@
     {
         
     }
-    delegate.sendData.hostName = hostName;
+    delegate.sendData.hostUsername = hostName;
     delegate.sendData.inviter = inviter;
     NSString *diningHallString = [NSString stringWithFormat:@"%d", diningHallInt];
     [PFCloud callFunctionInBackground:@"hello"
@@ -111,7 +109,7 @@
         
     
     PFObject *event = [PFObject objectWithClassName:@"Events"];
-    event[@"hostName"] = delegate.sendData.hostName;
+    event[@"hostName"] = delegate.sendData.hostUsername;
     event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
     event[@"peopleInChatRoom"] = [NSString stringWithFormat:@"1"];
