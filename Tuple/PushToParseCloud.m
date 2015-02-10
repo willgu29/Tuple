@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) NSMutableArray *phoneNumbersArray; //those without the app
 @property (nonatomic, strong) NSMutableArray *deviceTokensArray; //those with the app
-
+@property (nonatomic, strong) NSMutableArray *usernamesArray; //those with app
 @end
 
 @implementation PushToParseCloud
@@ -30,6 +30,7 @@
     {
         _phoneNumbersArray = [[NSMutableArray alloc] init];
         _deviceTokensArray = [[NSMutableArray alloc] init];
+        _usernamesArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -51,10 +52,10 @@
         else if (userInfo.userType == IS_CONTACT_WITH_APP)
         {
             [_deviceTokensArray addObject:userInfo.deviceToken];
+            [_usernamesArray addObject:userInfo.username];
         }
     }
-    [self sendDeviceTokensToCloud:_deviceTokensArray];
-    [self sendMessageToPhoneNumbers:_phoneNumbersArray];
+    [self pushEventToParse:_usernamesArray];
 }
 
 -(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
@@ -103,7 +104,7 @@
 }
 
 #pragma mark - Push Event To Cloud
--(void)pushEventToParse
+-(void)pushEventToParse:(NSArray *)usernames
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         
@@ -113,10 +114,12 @@
     event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
     event[@"peopleInChatRoom"] = [NSString stringWithFormat:@"1"];
+    event[@"usersInvited"] = usernames;
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [_delegate pushEventToParseSuccess];
+            [self sendDeviceTokensToCloud:_deviceTokensArray];
+            [self sendMessageToPhoneNumbers:_phoneNumbersArray];
         } else {
             [_delegate pushEventToParseFailure:error];
         }

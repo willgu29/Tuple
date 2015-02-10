@@ -42,15 +42,12 @@
 {
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _pushToParseCloud.delegate = self;
-    [_pushToParseCloud pushEventToParse];
+    [_pushToParseCloud separateAppUsersFromContactsAndSendPush:self.selectedPeopleArray];
   
 }
 
 #pragma mark - Push To Cloud Delegate
--(void)pushEventToParseSuccess
-{
-    [_pushToParseCloud separateAppUsersFromContactsAndSendPush:self.selectedPeopleArray];
-}
+
 -(void)pushEventToParseFailure:(NSError *)error
 {
     

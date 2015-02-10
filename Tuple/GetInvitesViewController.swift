@@ -15,7 +15,6 @@ class GetInvitesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var eventObject = FetchUserData.lookupEventWithHost(delegate.sendData.hostUsername);
         
         
     }
