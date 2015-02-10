@@ -10,7 +10,6 @@
 #import "MessagingViewController.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
-#import "PushToParseCloud.h"
 
 @interface SendInvitesViewController ()
 
@@ -41,13 +40,25 @@
 
 -(IBAction)sendInvites:(UIButton *)sender
 {
+    _pushToParseCloud = [[PushToParseCloud alloc] init];
+    _pushToParseCloud.delegate = self;
+    [_pushToParseCloud separateAppUsersFromContacts:self.selectedPeopleArray];
     
-    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
-    messageVC.clientType = 1;
-    [self.navigationController pushViewController:messageVC animated:YES];
     
+  
 }
 
+#pragma mark - Push To Cloud Delegate
+-(void)sendInvitesSuccess
+{
+    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
+    [self.navigationController pushViewController:messageVC animated:YES];
+}
+
+-(void)sendInvitesFailure:(NSError *)error
+{
+    
+}
 
 #pragma mark - Contact List Delegate
 -(void)contactListFetchSuccess:(NSArray *)contactListArray

@@ -9,6 +9,8 @@
 #import "PushToParseCloud.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
+#import <Parse/Parse.h>
+#import "AppDelegate.h"
 
 @interface PushToParseCloud()
 
@@ -32,6 +34,12 @@
 
 -(void)separateAppUsersFromContacts:(NSArray *)selectedArray
 {
+    if ([selectedArray count] == 0)
+    {
+        NSError *error = [[NSError alloc] initWithDomain:@"Please select people to send invites to!" code:15 userInfo:nil];
+        [_delegate sendInvitesFailure:error];
+        return;
+    }
     for (UserCellInfo *userInfo in selectedArray)
     {
         if (userInfo.userType == IS_CONTACT_NO_APP)
@@ -43,10 +51,42 @@
             [_deviceTokensArray addObject:userInfo.deviceToken];
         }
     }
+    [self sendDeviceTokensToCloud:_deviceTokensArray];
+    [self sendMessageToPhoneNumbers:_phoneNumbersArray];
 }
 
--(void)sendDeviceTokensToCloud:(NSArray *)peopleArray
+-(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
 {
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int diningHallInt;
+    NSString *hostName;
+    if (delegate.preSendData.clientType == 1)
+    {
+        PFUser *user = [PFUser currentUser];
+        hostName = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
+        diningHallInt = delegate.preSendData.diningHallInt;
+    }
+    else if (delegate.preSendData.clientType == 2)
+    {
+        
+    }
+    
+    NSString *diningHallString = [NSString stringWithFormat:@"%d", diningHallInt];
+    
+    [PFCloud callFunctionInBackground:@"hello"
+                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"hostName":hostName , @"diningHall": diningHallString}
+                                block:^(id object, NSError *error) {
+                                    if (!error) {
+                                        // this is where you handle the results and change the UI.
+                                        NSLog(@"RESULTS: %@", object);
+                                        [_delegate sendInvitesSuccess];
+                                    }
+                                    else
+                                    {
+                                        [_delegate sendInvitesFailure:error];
+                                    }
+                                    
+                                }];
     
 }
 

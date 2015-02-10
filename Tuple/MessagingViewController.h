@@ -11,6 +11,4 @@
 
 @interface MessagingViewController : UIViewController <UIAlertViewDelegate,LYRQueryControllerDelegate, UITextFieldDelegate>
 
-@property (nonatomic) int clientType; //PREVIOUS VC MUST SET THIS (1 for host, 2 for attendee)
-
 @end

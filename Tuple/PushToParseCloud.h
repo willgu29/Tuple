@@ -8,8 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class PushToParseCloud;
+@protocol PushToParseCloudDelegate
+
+-(void)sendInvitesSuccess;
+-(void)sendInvitesFailure:(NSError *)error;
+
+@end
+
 @interface PushToParseCloud : NSObject
 
--(void)sendDeviceTokensToCloud:(NSArray *)peopleArray;
+@property (nonatomic, assign) id delegate;
+-(void)separateAppUsersFromContacts:(NSArray *)selectedArray;
 
 @end

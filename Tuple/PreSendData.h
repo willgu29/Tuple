@@ -11,8 +11,8 @@
 @interface PreSendData : NSObject
 
 @property (nonatomic) int minutesTillMeetup;
-@property (nonatomic, strong) NSArray *prePushNotificationsDeviceTokensArray;
 @property (nonatomic) int diningHallInt;
+@property (nonatomic) int clientType; //1 = host, 2 = attendee
 
 @end
 

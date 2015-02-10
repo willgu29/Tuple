@@ -41,6 +41,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func sendInvites() {
         if (errorCheckSuccess() == true)
         {
+            delegate.preSendData.clientType = 1;
             var sendInviteVC = SendInvitesViewController(nibName: "SendInvitesViewController", bundle: nil);
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }

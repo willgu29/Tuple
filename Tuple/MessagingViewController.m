@@ -10,6 +10,7 @@
 #import "Tuple-Swift.h"
 #import "QueryForConversation.h"
 #import "SendMessages.h"
+#import "AppDelegate.h"
 @interface MessagingViewController ()
 
 @property (nonatomic, strong) LYRConversation *conversation;
@@ -28,13 +29,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.clientType == 1)
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    if (delegate.preSendData.clientType == 1)
     {
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
 
     }
-    else if (self.clientType == 2)
+    else if (delegate.preSendData.clientType == 2)
     {
         //Get ConvoID from info.
     }
