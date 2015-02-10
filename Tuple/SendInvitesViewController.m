@@ -42,15 +42,22 @@
 {
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _pushToParseCloud.delegate = self;
-    [_pushToParseCloud separateAppUsersFromContacts:self.selectedPeopleArray];
-    
-    
+    [_pushToParseCloud pushEventToParse];
   
 }
 
 #pragma mark - Push To Cloud Delegate
+-(void)pushEventToParseSuccess
+{
+    [_pushToParseCloud separateAppUsersFromContactsAndSendPush:self.selectedPeopleArray];
+}
+-(void)pushEventToParseFailure:(NSError *)error
+{
+    
+}
 -(void)sendInvitesSuccess
 {
+    
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
     [self.navigationController pushViewController:messageVC animated:YES];
 }

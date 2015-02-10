@@ -67,6 +67,7 @@
 		84821AE61A893BFA00463B7E /* SendMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE51A893BFA00463B7E /* SendMessages.m */; };
 		84821AE91A8943E000463B7E /* QueryForConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE81A8943E000463B7E /* QueryForConversation.m */; };
 		84821AED1A899AA000463B7E /* DiningHallConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEC1A899AA000463B7E /* DiningHallConvert.m */; };
+		84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEF1A89A93200463B7E /* TimeNumberConvert.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,8 @@
 		84821AE81A8943E000463B7E /* QueryForConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryForConversation.m; sourceTree = "<group>"; };
 		84821AEB1A899AA000463B7E /* DiningHallConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningHallConvert.h; sourceTree = "<group>"; };
 		84821AEC1A899AA000463B7E /* DiningHallConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningHallConvert.m; sourceTree = "<group>"; };
+		84821AEE1A89A93200463B7E /* TimeNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeNumberConvert.h; sourceTree = "<group>"; };
+		84821AEF1A89A93200463B7E /* TimeNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeNumberConvert.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -291,6 +294,8 @@
 				84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */,
 				84821AEB1A899AA000463B7E /* DiningHallConvert.h */,
 				84821AEC1A899AA000463B7E /* DiningHallConvert.m */,
+				84821AEE1A89A93200463B7E /* TimeNumberConvert.h */,
+				84821AEF1A89A93200463B7E /* TimeNumberConvert.m */,
 			);
 			name = Converters;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
 				84821AD31A88247300463B7E /* FetchUserData.m in Sources */,
+				84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,

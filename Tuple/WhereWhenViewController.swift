@@ -38,17 +38,33 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     //IBActions
+    func saveDate(){
+        var date = TimeNumberConvert.convertTimeMinutesToDate(delegate.sendData.minutesTillMeetup);
+        var dateLocal = TimeNumberConvert.convertDateToCurrentTimeZone(date);
+        delegate.sendData.theTimeToEat = TimeNumberConvert.formatDateTo12HoursPmAm(date)
+    }
+    func saveHostName()
+    {
+        var user = PFUser.currentUser();
+        var firstName: String = user["firstName"] as String;
+        var lastName:String = user["lastName"] as String;
+        var hostName = NSString(format: "%@ %@", firstName, lastName)
+        delegate.sendData.hostName = hostName;
+    }
+    
     @IBAction func sendInvites() {
         if (errorCheckSuccess() == true)
         {
+            saveDate();
+            saveHostName();
             delegate.sendData.clientType = 1;
             var sendInviteVC = SendInvitesViewController(nibName: "SendInvitesViewController", bundle: nil);
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }
     }
-    @IBAction func timeButtonNowClicked()
+    @IBAction func timeButton5Clicked()
     {
-        delegate.sendData.minutesTillMeetup = 0;
+        delegate.sendData.minutesTillMeetup = 5;
     }
     @IBAction func timeButton15Clicked()
     {
@@ -72,6 +88,11 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         //TODO: not using the navigation controller
         var getInvitesVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle: nil);
         self.presentViewController(getInvitesVC, animated: true, completion: nil);
+    }
+    
+    @IBAction func logoutButton(){
+        PFUser.logOut();
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
     }
     
     @IBAction func addFriends(){

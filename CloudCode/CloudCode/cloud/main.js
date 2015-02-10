@@ -8,12 +8,13 @@ Parse.Cloud.define("hello", function(request, response) {
 		var deviceTokenArray = request.params.deviceTokenArray;
 		var arrayLength = deviceTokenArray.length;
 		var hostName = request.params.hostName;
-		var inMinutes = request.params.inMinutes;
+		var timeToEat = request.params.timeToEat;
 		var diningHall = request.params.diningHall;
-		var messageString = request.params.hostName + " would like to eat in "+ request.params.inMinutes +" minutes!";
+		var inviter = request.params.inviter;
+		var messageString = request.params.inviter + " would like to eat at " + timeToEat;
 		for (var i = 0; i < arrayLength; i++)
 		{
-			PushNotifications.sendPushNotification(inMinutes,diningHall,hostName,deviceTokenArray[i], messageString, {
+			PushNotifications.sendPushNotification(inviter, timeToEat,diningHall,hostName,deviceTokenArray[i], messageString, {
 				success: function(){
 
 				},

@@ -13,12 +13,17 @@
 
 -(void)sendInvitesSuccess;
 -(void)sendInvitesFailure:(NSError *)error;
+-(void)pushEventToParseSuccess;
+-(void)pushEventToParseFailure:(NSError *)error;
 
 @end
 
 @interface PushToParseCloud : NSObject
 
 @property (nonatomic, assign) id delegate;
--(void)separateAppUsersFromContacts:(NSArray *)selectedArray;
+-(void)separateAppUsersFromContactsAndSendPush:(NSArray *)selectedArray;
+-(void)pushEventToParse;
 
 @end
+
+/* Data Flow: -> Call pushEventToParse, on success, call separateAppUsersFromContacts, on success -> Segue */

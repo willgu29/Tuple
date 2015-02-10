@@ -67,15 +67,6 @@
                         <action selector="timeButton60Clicked" destination="-1" eventType="touchUpInside" id="DBW-Lt-M5h"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-z0-mYN">
-                    <rect key="frame" x="67" y="318" width="32" height="30"/>
-                    <state key="normal" title="Now">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="timeButtonNowClicked" destination="-1" eventType="touchUpInside" id="jgj-Dc-pjS"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x04-bD-D2L">
                     <rect key="frame" x="253" y="8" width="59" height="48"/>
                     <state key="normal" title="Invites">
@@ -85,13 +76,22 @@
                         <action selector="checkInvites" destination="-1" eventType="touchUpInside" id="ySi-P7-bqr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hd-b5-FwQ">
-                    <rect key="frame" x="8" y="8" width="84" height="47"/>
-                    <state key="normal" title="Add Friends">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te0-4E-C9L">
+                    <rect key="frame" x="8" y="8" width="61" height="47"/>
+                    <state key="normal" title="Logout">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="addFriends" destination="-1" eventType="touchUpInside" id="1zJ-tC-oWI"/>
+                        <action selector="logoutButton" destination="-1" eventType="touchUpInside" id="kNx-ub-Uqy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-z0-mYN">
+                    <rect key="frame" x="69" y="318" width="30" height="30"/>
+                    <state key="normal" title="5">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="timeButton5Clicked" destination="-1" eventType="touchUpInside" id="RMz-F6-b0g"/>
                     </connections>
                 </button>
             </subviews>
