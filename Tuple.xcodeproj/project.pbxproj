@@ -47,8 +47,6 @@
 		84821A8D1A873FE000463B7E /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A871A873FE000463B7E /* Twitter.framework */; };
 		84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */; };
 		84821A991A87DCCE00463B7E /* SendData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A981A87DCCE00463B7E /* SendData.m */; };
-		84821A9F1A87E02F00463B7E /* GetInvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84821A9D1A87E02F00463B7E /* GetInvitesViewController.swift */; };
-		84821AA01A87E02F00463B7E /* GetInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821A9E1A87E02F00463B7E /* GetInvitesViewController.xib */; };
 		84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AA31A87F1BB00463B7E /* PullFromParseCloud.m */; };
 		84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AA71A87F22B00463B7E /* PullFromContactsList.m */; };
 		84821AAB1A87F33800463B7E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821AA91A87F33700463B7E /* AddressBook.framework */; };
@@ -68,6 +66,9 @@
 		84821AE91A8943E000463B7E /* QueryForConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE81A8943E000463B7E /* QueryForConversation.m */; };
 		84821AED1A899AA000463B7E /* DiningHallConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEC1A899AA000463B7E /* DiningHallConvert.m */; };
 		84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEF1A89A93200463B7E /* TimeNumberConvert.m */; };
+		84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */; };
+		84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */; };
+		84BFE0921A8C613D00721F88 /* AcceptInvite.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0911A8C613D00721F88 /* AcceptInvite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,8 +136,6 @@
 		84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountOnServer.m; sourceTree = "<group>"; };
 		84821A971A87DCCE00463B7E /* SendData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendData.h; sourceTree = "<group>"; };
 		84821A981A87DCCE00463B7E /* SendData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendData.m; sourceTree = "<group>"; };
-		84821A9D1A87E02F00463B7E /* GetInvitesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInvitesViewController.swift; sourceTree = "<group>"; };
-		84821A9E1A87E02F00463B7E /* GetInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetInvitesViewController.xib; sourceTree = "<group>"; };
 		84821AA21A87F1BB00463B7E /* PullFromParseCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullFromParseCloud.h; sourceTree = "<group>"; };
 		84821AA31A87F1BB00463B7E /* PullFromParseCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullFromParseCloud.m; sourceTree = "<group>"; };
 		84821AA61A87F22B00463B7E /* PullFromContactsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullFromContactsList.h; sourceTree = "<group>"; };
@@ -173,6 +172,11 @@
 		84821AEC1A899AA000463B7E /* DiningHallConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningHallConvert.m; sourceTree = "<group>"; };
 		84821AEE1A89A93200463B7E /* TimeNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeNumberConvert.h; sourceTree = "<group>"; };
 		84821AEF1A89A93200463B7E /* TimeNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeNumberConvert.m; sourceTree = "<group>"; };
+		84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvitesViewController.h; sourceTree = "<group>"; };
+		84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetInvitesViewController.m; sourceTree = "<group>"; };
+		84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetInvitesViewController.xib; sourceTree = "<group>"; };
+		84BFE0901A8C613D00721F88 /* AcceptInvite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptInvite.h; sourceTree = "<group>"; };
+		84BFE0911A8C613D00721F88 /* AcceptInvite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcceptInvite.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -425,6 +429,8 @@
 			children = (
 				84821AA21A87F1BB00463B7E /* PullFromParseCloud.h */,
 				84821AA31A87F1BB00463B7E /* PullFromParseCloud.m */,
+				84BFE0901A8C613D00721F88 /* AcceptInvite.h */,
+				84BFE0911A8C613D00721F88 /* AcceptInvite.m */,
 			);
 			name = GetInvitesAPI;
 			sourceTree = "<group>";
@@ -507,8 +513,9 @@
 			isa = PBXGroup;
 			children = (
 				84821AA11A87F14F00463B7E /* GetInvitesAPI */,
-				84821A9D1A87E02F00463B7E /* GetInvitesViewController.swift */,
-				84821A9E1A87E02F00463B7E /* GetInvitesViewController.xib */,
+				84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */,
+				84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */,
+				84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */,
 			);
 			name = AcceptInvitesInterface;
 			sourceTree = "<group>";
@@ -622,10 +629,10 @@
 				84821A401A873CA600463B7E /* MessagingViewController.xib in Resources */,
 				84821A3B1A873C7D00463B7E /* SendInvitesViewController.xib in Resources */,
 				848219FF1A873B0F00463B7E /* Images.xcassets in Resources */,
+				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
 				84821ACA1A881F2900463B7E /* AddFriendsViewController.xib in Resources */,
 				84821A281A873C2600463B7E /* MakeNewAccountViewController.xib in Resources */,
 				84821A361A873C7500463B7E /* BlastOffTableViewCell.xib in Resources */,
-				84821AA01A87E02F00463B7E /* GetInvitesViewController.xib in Resources */,
 				84821A261A873C2600463B7E /* IntroViewController.xib in Resources */,
 				84821A461A873CAE00463B7E /* FeedbackViewController.xib in Resources */,
 			);
@@ -686,6 +693,7 @@
 				84821AE61A893BFA00463B7E /* SendMessages.m in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
+				84BFE0921A8C613D00721F88 /* AcceptInvite.m in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
 				84821AD31A88247300463B7E /* FetchUserData.m in Sources */,
 				84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */,
@@ -693,11 +701,11 @@
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
 				848219F41A873B0F00463B7E /* main.m in Sources */,
-				84821A9F1A87E02F00463B7E /* GetInvitesViewController.swift in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
 				84821A3F1A873CA600463B7E /* MessagingViewController.m in Sources */,
 				84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */,
 				84821AC91A881F2900463B7E /* AddFriendsViewController.m in Sources */,
+				84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
 				84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */,

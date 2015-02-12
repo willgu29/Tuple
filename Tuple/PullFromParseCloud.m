@@ -10,6 +10,7 @@
 
 @implementation PullFromParseCloud
 
+
 -(void)findEventsThatUsernameIsInvitedTo:(NSString *)username
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Events"];
@@ -18,6 +19,7 @@
        if (objects)
        {
            [_delegate pullEventSuccess:objects];
+            //TODO: Parse data to display easily.
        }
        else
        {
@@ -25,5 +27,7 @@
        }
     }];
 }
+
+
 
 @end

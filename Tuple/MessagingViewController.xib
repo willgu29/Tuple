@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessagingViewController">
@@ -18,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-FE-ejp">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-FE-ejp">
                     <rect key="frame" x="0.0" y="79" width="320" height="395"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -26,7 +27,7 @@
                         <outlet property="delegate" destination="-1" id="kR8-m4-ERk"/>
                     </connections>
                 </tableView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say: YO, SUP, HEYO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNB-UT-XXY">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say: YO, SUP, HEYO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNB-UT-XXY">
                     <rect key="frame" x="8" y="482" width="260" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -34,8 +35,11 @@
                         <outlet property="delegate" destination="-1" id="HUY-uD-EBj"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-lW-5Gv">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-lW-5Gv">
                     <rect key="frame" x="276" y="482" width="36" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="pTT-6W-K5g"/>
+                    </constraints>
                     <state key="normal" title="Send">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -43,7 +47,7 @@
                         <action selector="sendButton:" destination="-1" eventType="touchUpInside" id="mLr-dB-nM4"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWL-Ut-9jD">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWL-Ut-9jD">
                     <rect key="frame" x="111" y="530" width="99" height="30"/>
                     <state key="normal" title="Done Chatting">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,20 +56,45 @@
                         <action selector="doneChatting:" destination="-1" eventType="touchUpInside" id="E6F-pR-3XX"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Host: Host Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfK-g9-pbP">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host: Host Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfK-g9-pbP">
                     <rect key="frame" x="8" y="16" width="304" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="8ZJ-0c-PCd"/>
+                    </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dining Hall @ Time:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlT-jk-iry">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dining Hall @ Time:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlT-jk-iry">
                     <rect key="frame" x="8" y="45" width="304" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="yao-Ym-KQS"/>
+                    </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="MWL-Ut-9jD" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="5t0-4t-anc"/>
+                <constraint firstItem="MWL-Ut-9jD" firstAttribute="top" secondItem="KNB-UT-XXY" secondAttribute="bottom" constant="18" id="Go2-mh-AVZ"/>
+                <constraint firstItem="0bG-FE-ejp" firstAttribute="centerX" secondItem="wlT-jk-iry" secondAttribute="centerX" id="IaZ-fR-aRo"/>
+                <constraint firstItem="tfK-g9-pbP" firstAttribute="trailing" secondItem="wlT-jk-iry" secondAttribute="trailing" id="M1c-uG-mh8"/>
+                <constraint firstItem="wlT-jk-iry" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="RGT-Xx-gKK"/>
+                <constraint firstAttribute="trailing" secondItem="0bG-FE-ejp" secondAttribute="trailing" id="Yzs-A5-J7F"/>
+                <constraint firstItem="0bG-FE-ejp" firstAttribute="centerX" secondItem="MWL-Ut-9jD" secondAttribute="centerX" id="aIZ-No-UFD"/>
+                <constraint firstItem="tEe-lW-5Gv" firstAttribute="trailing" secondItem="wlT-jk-iry" secondAttribute="trailing" id="aX2-4u-cng"/>
+                <constraint firstItem="0bG-FE-ejp" firstAttribute="top" secondItem="wlT-jk-iry" secondAttribute="bottom" constant="13" id="cZ8-PK-ZTr"/>
+                <constraint firstItem="0bG-FE-ejp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dlY-nP-RVZ"/>
+                <constraint firstItem="tEe-lW-5Gv" firstAttribute="leading" secondItem="KNB-UT-XXY" secondAttribute="trailing" constant="8" symbolic="YES" id="feB-ve-853"/>
+                <constraint firstItem="KNB-UT-XXY" firstAttribute="top" secondItem="0bG-FE-ejp" secondAttribute="bottom" constant="8" symbolic="YES" id="gZi-6M-8ll"/>
+                <constraint firstItem="tEe-lW-5Gv" firstAttribute="top" secondItem="KNB-UT-XXY" secondAttribute="top" id="p8P-Ut-gff"/>
+                <constraint firstItem="tfK-g9-pbP" firstAttribute="leading" secondItem="wlT-jk-iry" secondAttribute="leading" id="svY-Ai-V9O"/>
+                <constraint firstItem="tfK-g9-pbP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="uR7-Zm-OyE"/>
+                <constraint firstItem="wlT-jk-iry" firstAttribute="top" secondItem="tfK-g9-pbP" secondAttribute="bottom" constant="8" symbolic="YES" id="zr8-BI-vHR"/>
+                <constraint firstItem="wlT-jk-iry" firstAttribute="leading" secondItem="KNB-UT-XXY" secondAttribute="leading" id="zwj-3T-QIQ"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="241" y="276"/>
         </view>

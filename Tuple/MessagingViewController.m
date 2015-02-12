@@ -40,11 +40,17 @@
     }
     else if (delegate.sendData.clientType == 2)
     {
-        //Get ConvoID from info.
+        NSURL *identifier = [FetchUserData lookupConvoIDWithUsername:delegate.sendData.hostUsername];
+        self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
+        
     }
     if (self.conversation)
     {
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+        NSError *error = nil;
+        BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
         [self setupQueryController];
+        [self setupLabels];
     }
     else
     {
@@ -64,9 +70,9 @@
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSString *diningHall =[DiningHallConvert convertDiningHallIntToString:delegate.sendData.diningHallInt];
-    
+    NSString *timeToEat = delegate.sendData.theTimeToEat;
     _hostName.text = [NSString stringWithFormat:@"Host: %@", delegate.sendData.hostName];
-    _diningHallAndTime.text = [NSString stringWithFormat:@"%@ @ %@", diningHall, nil];
+    _diningHallAndTime.text = [NSString stringWithFormat:@"%@ @ %@", diningHall, timeToEat];
 }
 
 #pragma mark -IBActions
@@ -120,7 +126,10 @@
     NSLog(@"Button Index: %d", buttonIndex);
     if (buttonIndex == 0)
     {
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
         [SendMessages sendMessage:@"has left the conversation" ToConversation:self.conversation];
+        NSError *error = nil;
+        BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:deviceToken] error:&error];
         [self pushToFeedbackVC];
     }
 }

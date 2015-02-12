@@ -62,7 +62,7 @@
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
    
-    NSString *inviter = delegate.sendData.hostName;
+    NSString *inviter = delegate.sendData.inviterName;
     NSString *hostUsername = delegate.sendData.hostUsername;
     int diningHallInt = delegate.sendData.diningHallInt;
     NSString *timeToEat = delegate.sendData.theTimeToEat;
@@ -96,8 +96,29 @@
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         
     
+    if (delegate.sendData.clientType == 2)
+    {
+        PFQuery *query = [PFQuery queryWithClassName:@"Events"];
+        [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
+        PFObject *eventObject = (PFObject *)[query getFirstObject];
+        NSMutableArray *usersInvited = eventObject[@"usersInvited"];
+        [usersInvited addObjectsFromArray:usernames];
+        eventObject[@"usersInvited"] = usersInvited;
+        [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [self sendDeviceTokensToCloud:_deviceTokensArray];
+                [self sendMessageToPhoneNumbers:_phoneNumbersArray];
+            } else {
+                [_delegate pushEventToParseFailure:error];
+            }
+        }];
+        return;
+    }
+    
     PFObject *event = [PFObject objectWithClassName:@"Events"];
+    event[@"inviterName"] = delegate.sendData.inviterName;
     event[@"hostUsername"] = delegate.sendData.hostUsername;
+    event[@"hostName"] = delegate.sendData.hostName;
     event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
     event[@"peopleInChatRoom"] = [NSString stringWithFormat:@"1"];

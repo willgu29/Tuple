@@ -20,5 +20,7 @@
 @interface PullFromParseCloud : NSObject
 
 @property (nonatomic, assign) id delegate;
+-(void)findEventsThatUsernameIsInvitedTo:(NSString *)username;
+
 
 @end

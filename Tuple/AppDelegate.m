@@ -33,12 +33,12 @@
     {
         //Handle remote notification
         self.sendData.hostUsername = [remoteNotif objectForKey:@"hostUsername"];
-        self.sendData.inviter = [remoteNotif objectForKey:@"inviter"];
+        self.sendData.inviterName = [remoteNotif objectForKey:@"inviter"];
         WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:whereWhenVC];
         self.window.rootViewController = navVC;
         GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
-        [navVC presentViewController:getInvitesVC animated:YES completion:nil];
+        [navVC pushViewController:getInvitesVC animated:YES];
     }
     
     

@@ -50,6 +50,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         var hostName = NSString(format: "%@ %@", firstName, lastName)
         delegate.sendData.hostUsername = user.username;
         delegate.sendData.hostName = hostName;
+        delegate.sendData.inviterName = hostName; //inviter is also host in this case
     }
     //IBActions
 
@@ -87,6 +88,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func checkInvites(){
         //TODO: not using the navigation controller
+        delegate.sendData.currentUsername = PFUser.currentUser().username;
         delegate.sendData.clientType = 2;
         var getInvitesVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle: nil);
         self.navigationController?.pushViewController(getInvitesVC, animated: true)
@@ -94,7 +96,9 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func logoutButton(){
         PFUser.logOut();
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+//        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+        var introVC = IntroViewController(nibName:"IntroViewController", bundle: nil);
+        self.presentViewController(introVC, animated: true, completion: nil);
     }
  
     

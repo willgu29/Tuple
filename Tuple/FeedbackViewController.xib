@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackViewController" customModule="Degrees" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackViewController" customModule="Tuple" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -14,49 +14,49 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Awesome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vT-Zi-VgO">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awesome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vT-Zi-VgO">
                     <rect key="frame" x="120" y="31" width="80" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let us know how it went!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2N-PA-ZTz">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let us know how it went!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2N-PA-ZTz">
                     <rect key="frame" x="65" y="116" width="191" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tg9-fx-Dr8">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tg9-fx-Dr8">
                     <rect key="frame" x="107" y="178" width="30" height="30"/>
                     <state key="normal" title="2">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRb-iS-aus">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRb-iS-aus">
                     <rect key="frame" x="69" y="178" width="30" height="30"/>
                     <state key="normal" title="1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-69-ufn">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-69-ufn">
                     <rect key="frame" x="178" y="178" width="30" height="30"/>
                     <state key="normal" title="4">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNT-4W-7Cy">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNT-4W-7Cy">
                     <rect key="frame" x="145" y="178" width="30" height="30"/>
                     <state key="normal" title="3">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="085-ne-Fsc">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="085-ne-Fsc">
                     <rect key="frame" x="216" y="178" width="30" height="30"/>
                     <state key="normal" title="5">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO8-dz-778">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO8-dz-778">
                     <rect key="frame" x="124" y="304" width="72" height="30"/>
                     <state key="normal" title="do it again">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,7 +65,7 @@
                         <action selector="doItAgainButton" destination="-1" eventType="touchUpInside" id="1rr-NW-9Re"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcS-cb-Zev">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcS-cb-Zev">
                     <rect key="frame" x="105" y="140" width="110" height="30"/>
                     <state key="normal" title="Email Feedback">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,6 +76,26 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1mc-69-ufn" firstAttribute="baseline" secondItem="085-ne-Fsc" secondAttribute="baseline" id="3zT-Nw-Ier"/>
+                <constraint firstItem="1vT-Zi-VgO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="31" id="6LT-fX-HZb"/>
+                <constraint firstItem="Tg9-fx-Dr8" firstAttribute="baseline" secondItem="vNT-4W-7Cy" secondAttribute="baseline" id="8ly-Uq-lcA"/>
+                <constraint firstItem="I2N-PA-ZTz" firstAttribute="top" secondItem="1vT-Zi-VgO" secondAttribute="bottom" constant="64" id="8nc-ou-ycQ"/>
+                <constraint firstItem="vO8-dz-778" firstAttribute="top" secondItem="Tg9-fx-Dr8" secondAttribute="bottom" constant="96" id="CUY-Yc-a9z"/>
+                <constraint firstItem="I2N-PA-ZTz" firstAttribute="centerX" secondItem="WcS-cb-Zev" secondAttribute="centerX" id="IjH-Zl-izc"/>
+                <constraint firstItem="Tg9-fx-Dr8" firstAttribute="baseline" secondItem="ZRb-iS-aus" secondAttribute="baseline" id="SO8-mk-E3I"/>
+                <constraint firstItem="1vT-Zi-VgO" firstAttribute="centerX" secondItem="I2N-PA-ZTz" secondAttribute="centerX" id="TUM-Vi-xPN"/>
+                <constraint firstItem="1vT-Zi-VgO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UEe-3z-PAh"/>
+                <constraint firstItem="WcS-cb-Zev" firstAttribute="top" secondItem="I2N-PA-ZTz" secondAttribute="bottom" constant="3" id="UVM-Vo-reO"/>
+                <constraint firstItem="vNT-4W-7Cy" firstAttribute="baseline" secondItem="1mc-69-ufn" secondAttribute="baseline" id="Z4l-x1-vhG"/>
+                <constraint firstItem="Tg9-fx-Dr8" firstAttribute="leading" secondItem="ZRb-iS-aus" secondAttribute="trailing" constant="8" symbolic="YES" id="dSM-7P-Tgw"/>
+                <constraint firstItem="085-ne-Fsc" firstAttribute="leading" secondItem="1mc-69-ufn" secondAttribute="trailing" constant="8" symbolic="YES" id="ePt-ba-HLJ"/>
+                <constraint firstItem="vNT-4W-7Cy" firstAttribute="centerX" secondItem="vO8-dz-778" secondAttribute="centerX" id="fJ8-sD-QK9"/>
+                <constraint firstItem="vNT-4W-7Cy" firstAttribute="centerX" secondItem="WcS-cb-Zev" secondAttribute="centerX" id="fcR-gG-p5M"/>
+                <constraint firstItem="Tg9-fx-Dr8" firstAttribute="top" secondItem="WcS-cb-Zev" secondAttribute="bottom" constant="8" symbolic="YES" id="iVY-6p-zP7"/>
+                <constraint firstItem="vNT-4W-7Cy" firstAttribute="leading" secondItem="Tg9-fx-Dr8" secondAttribute="trailing" constant="8" symbolic="YES" id="rNx-nN-JVI"/>
+                <constraint firstItem="1mc-69-ufn" firstAttribute="leading" secondItem="vNT-4W-7Cy" secondAttribute="trailing" constant="3" id="xKS-lG-6ew"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

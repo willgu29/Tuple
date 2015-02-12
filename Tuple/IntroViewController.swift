@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class IntroViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
@@ -35,6 +35,10 @@ class IntroViewController: UIViewController {
         self.presentViewController(makeAccountVC, animated: true, completion: nil);
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
+    }
     
     
     func loginToParse(){

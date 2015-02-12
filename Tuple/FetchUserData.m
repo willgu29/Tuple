@@ -43,5 +43,13 @@
     return eventObject;
 }
 
++(NSURL *)lookupConvoIDWithUsername:(NSString *)username
+{
+    PFUser *user = [FetchUserData lookupUsername:username];
+    NSString *convoID =  user[@"conversationID"];
+    NSURL *convoIDNSURL  = [NSURL fileURLWithPath:[convoID stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return convoIDNSURL;
+}
+
 
 @end
