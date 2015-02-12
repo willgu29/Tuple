@@ -26,7 +26,11 @@
 
 @end
 
+const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
+
+
 @implementation MessagingViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +40,8 @@
     {
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
+//        NSTimeInterval secondsTillDelete = ((delegate.sendData.minutesTillMeetup*60)+(10*60));
+//        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:secondsTillDelete target:delegate selector:@selector(deleteMessagesAndEvent) userInfo:<#(id)#> repeats:NO];
 
     }
     else if (delegate.sendData.clientType == 2)
@@ -44,11 +50,16 @@
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
         
     }
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+    NSError *error = nil;
+    BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     if (self.conversation)
     {
-        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-        NSError *error = nil;
-        BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
         [self setupQueryController];
         [self setupLabels];
     }
@@ -57,7 +68,6 @@
         //TODO: ALERT ERROR
         NSLog(@"No conversation found ERROR");
     }
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,6 +102,22 @@
     [[[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"You will not be able to re-enter the chatroom." delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:@"Cancel", nil] show];
 }
 
+#pragma mark - AlertView Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Button Index: %d", buttonIndex);
+    if (buttonIndex == 0)
+    {
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+        [SendMessages sendMessage:@"has left the conversation" ToConversation:self.conversation];
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        
+        NSError *error = nil;
+        BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:deviceToken] error:&error];
+        [self pushToFeedbackVC];
+    }
+}
+
 #pragma mark - UITextField Delegate
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -120,19 +146,7 @@
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
-#pragma mark - AlertView Delegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"Button Index: %d", buttonIndex);
-    if (buttonIndex == 0)
-    {
-        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-        [SendMessages sendMessage:@"has left the conversation" ToConversation:self.conversation];
-        NSError *error = nil;
-        BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:deviceToken] error:&error];
-        [self pushToFeedbackVC];
-    }
-}
+
 
 #pragma mark - VC Methods
 
@@ -144,7 +158,7 @@
 
 -(void)moveVC
 {
-    [self.view setFrame:CGRectMake(0, -166, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, -200, self.view.frame.size.width, self.view.frame.size.height)];
 }
 
 -(void)revertVC
@@ -162,6 +176,8 @@
     LYRQuery *query = [LYRQuery queryWithClass:[LYRMessage class]];
     query.predicate = [LYRPredicate predicateWithProperty:@"conversation" operator:LYRPredicateOperatorIsEqualTo value:self.conversation];
     query.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES]];
+//    query.limit = MAX_CONVERSATION_MESSAGES_FROM_QUERY;
+//    query.offset = 0;
     self.queryController = [delegate.layerClient queryControllerWithQuery:query];
     self.queryController.delegate = self;
     
@@ -220,7 +236,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     // Return number of objects in queryController
     return [self.queryController numberOfObjectsInSection:section];
 }
@@ -255,6 +270,7 @@
         PFUser *user = [FetchUserData lookupDeviceToken:[message sentByUserID]];
         NSString *name = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
         cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",name,messageString];
+        
     }
     
     

@@ -13,6 +13,10 @@
 
 +(PFUser *)lookupUsername:(NSString *)username
 {
+    if (username == nil)
+    {
+        return nil;
+    }
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:username];
     PFUser *user = (PFUser *)[query getFirstObject];
@@ -30,6 +34,10 @@
 }
 +(PFUser *)lookupDeviceToken:(NSString *)deviceToken
 {
+    if (deviceToken == nil)
+    {
+        return nil;
+    }
     PFQuery *query = [PFUser query];
     [query whereKey:@"deviceToken" equalTo:deviceToken];
     PFUser *user = (PFUser *)[query getFirstObject];
@@ -37,6 +45,10 @@
 }
 +(PFObject *)lookupEventWithHost:(NSString *)hostUsername
 {
+    if (hostUsername == nil)
+    {
+        return nil;
+    }
     PFQuery *query = [PFQuery queryWithClassName:@"Events"];
     [query whereKey:@"hostUsername" equalTo:hostUsername];
     PFObject *eventObject =[query getFirstObject];

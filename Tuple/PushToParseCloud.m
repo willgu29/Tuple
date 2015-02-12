@@ -98,10 +98,13 @@
     
     if (delegate.sendData.clientType == 2)
     {
+        PFUser *user = [PFUser currentUser];
         PFQuery *query = [PFQuery queryWithClassName:@"Events"];
         [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
         PFObject *eventObject = (PFObject *)[query getFirstObject];
         NSMutableArray *usersInvited = eventObject[@"usersInvited"];
+        NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatRoom"];
+        [peopleInChatroom addObject:user.username];
         [usersInvited addObjectsFromArray:usernames];
         eventObject[@"usersInvited"] = usersInvited;
         [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -121,7 +124,7 @@
     event[@"hostName"] = delegate.sendData.hostName;
     event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
-    event[@"peopleInChatRoom"] = [NSString stringWithFormat:@"1"];
+    event[@"peopleInChatRoom"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
     event[@"usersInvited"] = usernames;
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

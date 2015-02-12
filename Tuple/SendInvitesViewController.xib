@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendInvitesViewController">
@@ -25,7 +24,11 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csc-RF-ae0">
-                    <rect key="frame" x="276" y="530" width="36" height="30"/>
+                    <rect key="frame" x="256" y="518" width="64" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="cUy-zk-hM9"/>
+                        <constraint firstAttribute="height" constant="50" id="rFj-TZ-BV2"/>
+                    </constraints>
                     <state key="normal" title="Send">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -36,12 +39,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="2Zb-gU-U67"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="7Lk-ps-176"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="top" secondItem="uxX-wM-v5W" secondAttribute="bottom" constant="12" id="BT9-HN-waH"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QzJ-CD-0bD"/>
-                <constraint firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="apv-ap-Wq1"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fxk-QJ-EOz"/>
+                <constraint firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="7NQ-Xi-4hH"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LQY-CC-ZYr"/>
+                <constraint firstAttribute="bottom" secondItem="csc-RF-ae0" secondAttribute="bottom" id="aTn-2N-3HG"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="top" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="heb-JO-YxH"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="xgm-Qe-sT1"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yeX-3T-dm2"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
