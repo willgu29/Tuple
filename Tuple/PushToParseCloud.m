@@ -14,6 +14,7 @@
 #import "TimeNumberConvert.h"
 #import "FetchUserData.h"
 #import "DeleteParseObject.h"
+#import "AFNetworking.h"
 
 @interface PushToParseCloud()
 
@@ -93,7 +94,19 @@
 
 -(void)sendMessageToPhoneNumbers:(NSArray *)phoneArray
 {
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSString *messageToSend = [NSString stringWithFormat:@"%@ would like to eat at %@", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    for (NSString *phoneNumber in phoneArray)
+    {
+        NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=%@&text=%@", phoneNumber, messageToSend]; //Requires UTF8 encoded (URL and UTF8) (AFNetworking does this automatically)
+        [manager GET:postURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"JSON: %@", responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+    }
 }
 
 #pragma mark - Push Event To Cloud
