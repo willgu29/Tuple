@@ -36,13 +36,18 @@
     if (remoteNotif)
     {
         //Handle remote notification
-        self.sendData.hostUsername = [remoteNotif objectForKey:@"hostUsername"];
-        self.sendData.inviterName = [remoteNotif objectForKey:@"inviter"];
-        WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
-        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:whereWhenVC];
-        self.window.rootViewController = navVC;
-        GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
-        [navVC pushViewController:getInvitesVC animated:YES];
+        if ([remoteNotif objectForKey:@"hostUsername"])
+        {
+            WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
+            UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:whereWhenVC];
+            self.window.rootViewController = navVC;
+            GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
+            [navVC pushViewController:getInvitesVC animated:YES];
+            self.window.backgroundColor = [UIColor whiteColor];
+            [self.window makeKeyAndVisible];
+            
+            return YES;
+        }
     }
     
     
@@ -109,10 +114,15 @@
     if (state == UIApplicationStateActive)
     {
 //        [PFPush handlePush:userInfo];
+        
     }
     else
     {
         //Background
+        self.sendData.currentUsername = [PFUser currentUser].username;
+        self.sendData.clientType = 2;
+        GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
+        [(UINavigationController *)self.window.rootViewController pushViewController:getInvitesVC animated:YES];
     }
 }
 

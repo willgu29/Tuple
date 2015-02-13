@@ -59,7 +59,7 @@
 {
     PFUser *user = [FetchUserData lookupUsername:username];
     NSString *convoID =  user[@"conversationID"];
-    NSURL *convoIDNSURL  = [NSURL fileURLWithPath:[convoID stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURL *convoIDNSURL  = [NSURL URLWithString:convoID];
     return convoIDNSURL;
 }
 
