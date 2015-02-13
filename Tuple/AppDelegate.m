@@ -11,6 +11,8 @@
 #import <LayerKit/LayerKit.h>
 #import <Parse/Parse.h>
 #import "NSDataConvert.h"
+#import "DeleteParseObject.h"
+#import "DeleteMessages.h"
 
 @interface AppDelegate ()
 
@@ -18,9 +20,20 @@
 
 @implementation AppDelegate
 
--(void)deleteMessagesAndEvent
+-(void)setUpTimerToDeleteEventAndMessages
 {
+    NSTimeInterval secondsTillDelete = ((self.sendData.minutesTillMeetup*60) + (10*60));
+    NSTimer *deleteTimer = [NSTimer timerWithTimeInterval:secondsTillDelete target:self selector:@selector(deleteEvent) userInfo:nil repeats:NO];
     
+}
+-(void)deleteEvent
+{
+    [DeleteParseObject deleteCurrentUserEventFromParse];
+    NSTimer *deleteTimer = [NSTimer timerWithTimeInterval:1200 target:self selector:@selector(deleteMessages) userInfo:nil repeats:NO];
+}
+-(void)deleteMessages
+{
+    [DeleteMessages deleteMessagesInCurrentUserConversation];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

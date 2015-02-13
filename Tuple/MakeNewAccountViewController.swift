@@ -8,15 +8,14 @@
 
 import UIKit
 
-class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDelegate, UITextFieldDelegate {
+class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, CreateAccountOnServerDelegate {
 
-    var createAccountObject = CreateAccountOnServer()
+    
+    var createAccountObject = CreateAccountOnServer();
     
     @IBOutlet var username: UITextField!
     @IBOutlet var firstName: UITextField!
     @IBOutlet var lastName: UITextField!
-    @IBOutlet var email: UITextField!
-    @IBOutlet var phoneNumber: UITextField!
     @IBOutlet var password: UITextField!
     
     override func viewDidLoad() {
@@ -32,11 +31,6 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if (textField == phoneNumber)
-        {
-            PhoneTextField.textField(textField, shouldChangeCharactersInRange: range, replacementString: string)
-            return false;
-        }
         return true;
     }
     
@@ -48,17 +42,30 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
         self.view.resignFirstResponder();
     }
     
+    @IBAction func backButton() {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
     @IBAction func createAccount() {
-        if (username.text.isEmpty || firstName.text.isEmpty || lastName.text.isEmpty || email.text.isEmpty || password.text.isEmpty || phoneNumber.text.isEmpty)
+       
+        createAccountObject.delegate = self;
+        var success: Bool = createAccountObject.saveUserWithUsername(username.text, andPassword: password.text, andFirstName: firstName.text, andLastName: lastName.text);
+        if (success)
         {
-            //Alert, please fill out all forms!
+            var verificationVC = VerificationStepViewController(nibName:"VerificationStepViewController", bundle:nil);
+            verificationVC.createAccountObject = createAccountObject;
+            self.presentViewController(verificationVC, animated: true, completion: nil);
         }
         else
         {
-            createAccountObject.delegate = self;
-            //TODO: Display loading/spinner
-            createAccountObject.saveUserWithUsername(username.text, andPassword: password.text, andEmail: email.text, andFirstName: firstName.text, andLastName: lastName.text, andPhoneNumber: phoneNumber.text);
+            //TODO: Display error
         }
+    
+    }
+    
+    func receivedPhoneNumber(phoneNumber:NSString, andEmail email: NSString)
+    {
+    
     }
     
     //Successful account creation makes a PFUser in Parse Database w/ all necessary information
@@ -67,6 +74,7 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
         PFUser.logInWithUsernameInBackground(username.text, password: password.text) { (var user: PFUser!, var error: NSError!) -> Void in
             if ((user) != nil)
             {
+                self.dismissViewControllerAnimated(true, completion: nil);
                 //Login success
                 var whereWhenVC = WhereWhenViewController(nibName:"WhereWhenViewController", bundle:nil)
                 var navigationController = UINavigationController(rootViewController: whereWhenVC);
@@ -79,8 +87,10 @@ class MakeNewAccountViewController: UIViewController, CreateAccountOnServerDeleg
         }
     }
     func createAccountWithFailure(error: NSError!) {
-    
+        
     }
+    
+   
     
     
     

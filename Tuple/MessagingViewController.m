@@ -40,9 +40,7 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     {
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
-//        NSTimeInterval secondsTillDelete = ((delegate.sendData.minutesTillMeetup*60)+(10*60));
-//        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:secondsTillDelete target:delegate selector:@selector(deleteMessagesAndEvent) userInfo:<#(id)#> repeats:NO];
-
+        [delegate setUpTimerToDeleteEventAndMessages];
     }
     else if (delegate.sendData.clientType == 2)
     {
@@ -50,16 +48,12 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
         
     }
-    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-    NSError *error = nil;
-    BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
-
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
+    
     if (self.conversation)
     {
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+        NSError *error = nil;
+        BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
         [self setupQueryController];
         [self setupLabels];
     }
@@ -68,6 +62,13 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
         //TODO: ALERT ERROR
         NSLog(@"No conversation found ERROR");
     }
+ 
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,26 +12,63 @@
 #import "CreateConversation.h"
 @interface CreateAccountOnServer()
 
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *phoneNumber;
+
 @end
 
 @implementation CreateAccountOnServer
 
-
-
--(void)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andPhoneNumber:(NSString *)phoneNumber
+-(BOOL)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andFirstName:(NSString *)firstName andLastName:(NSString *)lastName
 {
     
-    NSURL * convoID = [CreateConversation createInitialConversation];
+    if (firstName && lastName && username && password)
+    {
+        _firstName = firstName;
+        _lastName = lastName;
+        _password = password;
+        _username = username;
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+    
+}
 
+
+-(BOOL)savePhoneNumber:(NSString *)phoneNumber andEmail:(NSString *)emailAddress
+{
+    if (emailAddress && phoneNumber)
+    {
+        _email = emailAddress;
+        _phoneNumber = phoneNumber;
+        //TODO: Phone + Email Verification
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+-(void)createAccount
+{
+    NSURL * convoID = [CreateConversation createInitialConversation];
     
     PFUser *newUser = [PFUser user];
-    newUser.username = username;
-    newUser.password = password;
-    newUser.email = email;
-    newUser[@"firstName"] = firstName;
-    newUser[@"lastName"] = lastName;
+    newUser.username = _username;
+    newUser.password = _password;
+    newUser.email = _email;
+    newUser[@"firstName"] = _firstName;
+    newUser[@"lastName"] = _lastName;
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-    newUser[@"phoneNumber"] = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:phoneNumber];
+    newUser[@"phoneNumber"] = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:_phoneNumber];
     newUser[@"conversationID"] = convoID.absoluteString;
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -42,7 +79,6 @@
             // Show the errorString somewhere and let the user try again.
         }
     }];
-    
 }
 
 
