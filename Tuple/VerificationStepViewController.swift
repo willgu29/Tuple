@@ -13,7 +13,7 @@ protocol VerificationStepViewControllerDelegate
     
 }
 
-class VerificationStepViewController: UIViewController {
+class VerificationStepViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var phoneNumber : UITextField!
     @IBOutlet var emailAddress : UITextField!
@@ -30,6 +30,15 @@ class VerificationStepViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
+
+    }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if (textField == phoneNumber)
@@ -48,7 +57,8 @@ class VerificationStepViewController: UIViewController {
         }
         else
         {
-            //TODO: Alert!
+            var alert = UIAlertView(title: "Hm...", message: "Please enter a phone number and email address.", delegate: nil, cancelButtonTitle: "On it!")
+            alert.show()
         }
     }
     

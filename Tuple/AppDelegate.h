@@ -16,7 +16,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) LYRClient *layerClient;
 @property (strong, nonatomic) SendData *sendData;
-@property (strong, nonatomic) CreateAccountOnServer *createAccount;
 
 -(void)setUpTimerToDeleteEventAndMessages;
 

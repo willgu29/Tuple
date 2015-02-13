@@ -94,12 +94,12 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.navigationController?.pushViewController(getInvitesVC, animated: true)
     }
     
-    @IBAction func logoutButton(){
-        PFUser.logOut();
-//        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
-        var introVC = IntroViewController(nibName:"IntroViewController", bundle: nil);
-        self.presentViewController(introVC, animated: true, completion: nil);
+    @IBAction func profileButton(){
+        var userVC = UserProfileViewController(nibName:"UserProfileViewController", bundle:nil);
+        self.presentViewController(userVC, animated: true, completion: nil);
     }
+    
+ 
  
     
     //Dining Hall Picker

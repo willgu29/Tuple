@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "TimeNumberConvert.h"
 #import "FetchUserData.h"
+#import "DeleteParseObject.h"
 
 @interface PushToParseCloud()
 
@@ -33,6 +34,11 @@
         _usernamesArray = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+-(void)getRidOfDuplicates
+{
+    
 }
 
 -(void)separateAppUsersFromContactsAndSendPush:(NSArray *)selectedArray
@@ -102,7 +108,7 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Events"];
         [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
         PFObject *eventObject = (PFObject *)[query getFirstObject];
-        NSMutableArray *usersInvited = eventObject[@"usersInvited"];
+        NSMutableSet *usersInvited = eventObject[@"usersInvited"];
         NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatRoom"];
         [peopleInChatroom addObject:user.username];
         [usersInvited addObjectsFromArray:usernames];
@@ -117,6 +123,8 @@
         }];
         return;
     }
+    
+    [DeleteParseObject deleteCurrentUserEventFromParse];
     
     PFObject *event = [PFObject objectWithClassName:@"Events"];
     event[@"inviterName"] = delegate.sendData.inviterName;

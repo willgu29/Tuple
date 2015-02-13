@@ -12,6 +12,7 @@
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
 #import "FetchUserData.h"
+#import "ArraySorter.h"
 @interface PullFromContactsList()
 
 @property (nonatomic, strong) NSMutableArray *contactListArray;
@@ -99,10 +100,10 @@
             [_contactListArray addObject:userInfo];
         }
         
-        
-        
     }
-    [_delegate contactListFetchSuccess:_contactListArray];
+    NSArray *sortedArray = [ArraySorter sortArrayAlphabetically:_contactListArray];
+    
+    [_delegate contactListFetchSuccess:sortedArray];
 }
 
 

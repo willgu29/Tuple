@@ -73,6 +73,9 @@
 		84BFE09B1A8DD92700721F88 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE09A1A8DD91B00721F88 /* avenir-light.ttf */; };
 		84BFE0A61A8DF0E300721F88 /* VerificationStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0A41A8DF0E300721F88 /* VerificationStepViewController.swift */; };
 		84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE0A51A8DF0E300721F88 /* VerificationStepViewController.xib */; };
+		84BFE0AA1A8DF6E700721F88 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0A81A8DF6E700721F88 /* UserProfileViewController.swift */; };
+		84BFE0AB1A8DF6E700721F88 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE0A91A8DF6E700721F88 /* UserProfileViewController.xib */; };
+		84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0AE1A8DF94500721F88 /* ArraySorter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +189,10 @@
 		84BFE09A1A8DD91B00721F88 /* avenir-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avenir-light.ttf"; sourceTree = "<group>"; };
 		84BFE0A41A8DF0E300721F88 /* VerificationStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationStepViewController.swift; sourceTree = "<group>"; };
 		84BFE0A51A8DF0E300721F88 /* VerificationStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerificationStepViewController.xib; sourceTree = "<group>"; };
+		84BFE0A81A8DF6E700721F88 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		84BFE0A91A8DF6E700721F88 /* UserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
+		84BFE0AD1A8DF94500721F88 /* ArraySorter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArraySorter.h; sourceTree = "<group>"; };
+		84BFE0AE1A8DF94500721F88 /* ArraySorter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArraySorter.m; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -252,6 +259,8 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				84BFE0B01A8E995400721F88 /* AlertMessages */,
+				84BFE0AC1A8DF93100721F88 /* Sorters */,
 				84BFE0931A8DCE5300721F88 /* DeleteCleanUpAPI */,
 				84821ACB1A88201700463B7E /* BaseTableViewInterface */,
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
@@ -335,6 +344,8 @@
 			children = (
 				84821A291A873C4A00463B7E /* WhereWhenViewController.swift */,
 				84821A2A1A873C4A00463B7E /* WhereWhenViewController.xib */,
+				84BFE0A81A8DF6E700721F88 /* UserProfileViewController.swift */,
+				84BFE0A91A8DF6E700721F88 /* UserProfileViewController.xib */,
 			);
 			name = MainInterface;
 			sourceTree = "<group>";
@@ -542,6 +553,22 @@
 			name = DeleteCleanUpAPI;
 			sourceTree = "<group>";
 		};
+		84BFE0AC1A8DF93100721F88 /* Sorters */ = {
+			isa = PBXGroup;
+			children = (
+				84BFE0AD1A8DF94500721F88 /* ArraySorter.h */,
+				84BFE0AE1A8DF94500721F88 /* ArraySorter.m */,
+			);
+			name = Sorters;
+			sourceTree = "<group>";
+		};
+		84BFE0B01A8E995400721F88 /* AlertMessages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AlertMessages;
+			sourceTree = "<group>";
+		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +681,7 @@
 				848219FF1A873B0F00463B7E /* Images.xcassets in Resources */,
 				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
+				84BFE0AB1A8DF6E700721F88 /* UserProfileViewController.xib in Resources */,
 				84821ACA1A881F2900463B7E /* AddFriendsViewController.xib in Resources */,
 				84821A281A873C2600463B7E /* MakeNewAccountViewController.xib in Resources */,
 				84821A361A873C7500463B7E /* BlastOffTableViewCell.xib in Resources */,
@@ -724,8 +752,10 @@
 				84821AD31A88247300463B7E /* FetchUserData.m in Sources */,
 				84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
+				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
+				84BFE0AA1A8DF6E700721F88 /* UserProfileViewController.swift in Sources */,
 				848219F41A873B0F00463B7E /* main.m in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
 				84821A3F1A873CA600463B7E /* MessagingViewController.m in Sources */,

@@ -64,7 +64,11 @@
 
 -(void)sendInvitesFailure:(NSError *)error
 {
-    
+    if (error.code == 15)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tuple with your friends!" message:@"Please invite some friends" delegate:nil cancelButtonTitle:@"Yah!" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 #pragma mark - Contact List Delegate
@@ -79,6 +83,8 @@
     [self.navigationController popViewControllerAnimated:YES];
     [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
+
+
 
 
 

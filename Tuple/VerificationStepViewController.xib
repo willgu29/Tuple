@@ -16,9 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="FRT-kA-Tr1">
-                    <rect key="frame" x="-182" y="-243" width="640" height="1136"/>
-                </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhL-kA-aDd">
                     <rect key="frame" x="38" y="151" width="244" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -44,6 +41,15 @@
                         <action selector="enterButton" destination="-1" eventType="touchUpInside" id="aKH-eF-QAN"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tuple" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aew-GU-G3G">
+                    <rect key="frame" x="104" y="76" width="113" height="67"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="48"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="FRT-kA-Tr1">
+                    <rect key="frame" x="-182" y="-243" width="640" height="1136"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

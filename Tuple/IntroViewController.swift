@@ -40,11 +40,16 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         return true;
     }
     
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        NSLog("Touches began");
+        UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
+    }
     
     func loginToParse(){
         if (username.text.isEmpty || password.text.isEmpty)
         {
-            
+            var alert = UIAlertView(title: "Oops!", message: "Please enter a username and password", delegate: nil, cancelButtonTitle: "Okay!")
+            alert.show()
         }
         else
         {
@@ -55,7 +60,17 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
                 }
                 else
                 {
-                    //TODO: Display alert or animation
+                    if (error.code == 101)
+                    {
+                        var alert = UIAlertView(title: "Uh oh...", message: "You've entered an incorrect username/password", delegate: nil, cancelButtonTitle: "Alright!")
+                        alert.show()
+                    }
+                    else
+                    {
+                        var alert = UIAlertView(title: "We couldn't login...", message: "Please check your internet.", delegate: nil, cancelButtonTitle: "Sounds good")
+                        alert.show()
+                    }
+                    
                 }
             })
         }

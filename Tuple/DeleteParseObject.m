@@ -16,7 +16,14 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Events"];
     [query whereKey:@"hostUsername" equalTo:[PFUser currentUser].username];
     PFObject *eventObject = [query getFirstObject];
-    [eventObject deleteInBackground];
+    if (eventObject)
+    {
+        [eventObject deleteInBackground]; 
+    }
+    else
+    {
+        
+    }
 }
 
 @end
