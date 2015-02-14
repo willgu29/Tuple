@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendInvitesViewController">
@@ -15,38 +16,60 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uxX-wM-v5W">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="d0A-vA-JSz"/>
-                        <outlet property="delegate" destination="-1" id="fRg-o1-xce"/>
-                    </connections>
-                </tableView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="HeaderRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Q3x-93-kEi">
+                    <rect key="frame" x="0.0" y="0.0" width="321" height="59"/>
+                    <color key="backgroundColor" red="0.76887363195419312" green="0.76898378133773804" blue="0.76886790990829468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csc-RF-ae0">
-                    <rect key="frame" x="256" y="518" width="64" height="50"/>
+                    <rect key="frame" x="248" y="10" width="64" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="64" id="cUy-zk-hM9"/>
-                        <constraint firstAttribute="height" constant="50" id="rFj-TZ-BV2"/>
+                        <constraint firstAttribute="width" constant="64" id="6gE-Kz-sbx"/>
                     </constraints>
                     <state key="normal" title="Send">
+                        <color key="titleColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="sendInvites:" destination="-1" eventType="touchUpInside" id="Gj8-US-EuZ"/>
                     </connections>
                 </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="BackArrowButton" translatesAutoresizingMaskIntoConstraints="NO" id="sJO-bb-K9x">
+                    <rect key="frame" x="11" y="22" width="48" height="26"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tuple" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzJ-4M-cGd">
+                    <rect key="frame" x="115" y="19" width="91" height="32"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="36"/>
+                    <color key="textColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uxX-wM-v5W">
+                    <rect key="frame" x="0.0" y="60" width="320" height="508"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="d0A-vA-JSz"/>
+                        <outlet property="delegate" destination="-1" id="fRg-o1-xce"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="7NQ-Xi-4hH"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LQY-CC-ZYr"/>
-                <constraint firstAttribute="bottom" secondItem="csc-RF-ae0" secondAttribute="bottom" id="aTn-2N-3HG"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="top" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="heb-JO-YxH"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="xgm-Qe-sT1"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yeX-3T-dm2"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="centerY" secondItem="sJO-bb-K9x" secondAttribute="centerY" id="5DX-ia-gYY"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8ig-31-gif"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="BM9-U8-Qdk"/>
+                <constraint firstItem="Q3x-93-kEi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JBu-zP-Cse"/>
+                <constraint firstItem="Q3x-93-kEi" firstAttribute="centerX" secondItem="uxX-wM-v5W" secondAttribute="centerX" id="d0s-00-fat"/>
+                <constraint firstItem="Q3x-93-kEi" firstAttribute="leading" secondItem="uxX-wM-v5W" secondAttribute="leading" id="hhh-6C-KIY"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="csc-RF-ae0" secondAttribute="bottom" id="mP1-6V-J0a"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="Q3x-93-kEi" secondAttribute="bottom" constant="1" id="rah-E7-fTg"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="sJO-bb-K9x" secondAttribute="bottom" constant="12" id="s7j-ky-ods"/>
+                <constraint firstAttribute="bottom" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="yie-8M-Co2"/>
+                <constraint firstItem="sJO-bb-K9x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="zP6-Sb-RcJ"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="BackArrowButton" width="48" height="26"/>
+        <image name="HeaderRectangle" width="321" height="59"/>
+    </resources>
 </document>

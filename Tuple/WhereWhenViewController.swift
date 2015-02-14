@@ -80,31 +80,31 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if (sender.tag == 0)
         {
             delegate.sendData.minutesTillMeetup = 5;
-            var buttonImage = UIImage(contentsOfFile: "5hMinButton.png");
+            var buttonImage = UIImage(named:"5hMinButton.png");
             sender.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 1)
         {
             delegate.sendData.minutesTillMeetup = 15;
-            var buttonImage = UIImage(contentsOfFile: "15HMinButton.png");
+            var buttonImage = UIImage(named: "15HMinButton.png");
             sender.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 2)
         {
             delegate.sendData.minutesTillMeetup = 30;
-            var buttonImage = UIImage(contentsOfFile: "30HMinButton.png");
+            var buttonImage = UIImage(named: "30HMinButton.png");
             min30.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 3)
         {
             delegate.sendData.minutesTillMeetup = 45;
-            var buttonImage = UIImage(contentsOfFile: "45HMinButton.png");
+            var buttonImage = UIImage(named: "45HMinButton.png");
             min45.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 4)
         {
             delegate.sendData.minutesTillMeetup = 60;
-            var buttonImage = UIImage(contentsOfFile: "60HMinButton.png");
+            var buttonImage = UIImage(named: "60HMinButton.png");
             min60.setImage(buttonImage, forState: UIControlState.Normal);
         }
      
@@ -153,11 +153,11 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func resetAllButtonImages(){
-        var buttonImage0 = UIImage(contentsOfFile: "5MinButton.png");
-        var buttonImage1 = UIImage(contentsOfFile: "15MinButton.png");
-        var buttonImage2 = UIImage(contentsOfFile: "30MinButton.png");
-        var buttonImage3 = UIImage(contentsOfFile: "45MinButton.png");
-        var buttonImage4 = UIImage(contentsOfFile: "60MinButton.png");
+        var buttonImage0 = UIImage(named: "5MinButton.png");
+        var buttonImage1 = UIImage(named: "15MinButton.png");
+        var buttonImage2 = UIImage(named: "30MinButton.png");
+        var buttonImage3 = UIImage(named: "45MinButton.png");
+        var buttonImage4 = UIImage(named: "60MinButton.png");
 
         min5.setBackgroundImage(buttonImage0, forState: UIControlState.Normal);
         min15.setBackgroundImage(buttonImage1, forState: UIControlState.Normal);
