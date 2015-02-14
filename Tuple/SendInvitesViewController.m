@@ -38,6 +38,10 @@
 
 #pragma mark - IBActions
 
+-(IBAction)backButton:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(IBAction)sendInvites:(UIButton *)sender
 {
     _pushToParseCloud = [[PushToParseCloud alloc] init];

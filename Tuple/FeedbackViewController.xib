@@ -18,6 +18,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7b8-KN-GDj">
+                    <rect key="frame" x="-1" y="0.0" width="320" height="568"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let us know how it went!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2N-PA-ZTz">
                     <rect key="frame" x="65" y="442" width="191" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -123,6 +126,7 @@
         <image name="BracketOpenUp" width="175" height="41"/>
         <image name="HeaderRectangle" width="321" height="59"/>
         <image name="HomeButton" width="54" height="28"/>
+        <image name="PaperTextureBackground" width="320" height="568"/>
         <image name="WhiteRingWShadow" width="77" height="76"/>
     </resources>
 </document>

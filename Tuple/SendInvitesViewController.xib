@@ -29,13 +29,6 @@
                         <action selector="sendInvites:" destination="-1" eventType="touchUpInside" id="Gj8-US-EuZ"/>
                     </connections>
                 </button>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="BackArrowButton" translatesAutoresizingMaskIntoConstraints="NO" id="sJO-bb-K9x">
-                    <rect key="frame" x="11" y="22" width="48" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="48" id="jTV-be-Pc9"/>
-                        <constraint firstAttribute="height" constant="26" id="ux3-6E-JoY"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tuple" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzJ-4M-cGd">
                     <rect key="frame" x="115" y="19" width="91" height="32"/>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="36"/>
@@ -50,25 +43,38 @@
                         <outlet property="delegate" destination="-1" id="fRg-o1-xce"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSv-hn-wWG">
+                    <rect key="frame" x="10" y="19" width="53" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="lqJ-y8-52g"/>
+                        <constraint firstAttribute="width" constant="53" id="v15-de-elX"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="BackArrowButton">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backButton:" destination="-1" eventType="touchUpInside" id="kXi-MK-q1r"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9r5-Bt-Uuw"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="centerY" secondItem="SzJ-4M-cGd" secondAttribute="centerY" id="B6p-tN-JOC"/>
-                <constraint firstItem="Q3x-93-kEi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bde-f6-wvZ"/>
-                <constraint firstItem="SzJ-4M-cGd" firstAttribute="leading" secondItem="sJO-bb-K9x" secondAttribute="trailing" constant="56" id="O44-Du-jJM"/>
-                <constraint firstItem="SzJ-4M-cGd" firstAttribute="centerX" secondItem="Q3x-93-kEi" secondAttribute="centerX" id="OGV-l5-bCK"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="leading" secondItem="SzJ-4M-cGd" secondAttribute="trailing" constant="50" id="ONW-nv-9Th"/>
-                <constraint firstItem="SzJ-4M-cGd" firstAttribute="centerX" secondItem="uxX-wM-v5W" secondAttribute="centerX" id="QQV-gx-mDd"/>
-                <constraint firstItem="sJO-bb-K9x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="R9F-Ng-vy0"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="csc-RF-ae0" secondAttribute="bottom" id="VMG-AH-6ab"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="SzJ-4M-cGd" secondAttribute="bottom" constant="9" id="ZEL-NB-w28"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="sJO-bb-K9x" secondAttribute="bottom" constant="12" id="ZjP-b9-ZXN"/>
-                <constraint firstItem="sJO-bb-K9x" firstAttribute="centerY" secondItem="SzJ-4M-cGd" secondAttribute="centerY" id="kwf-Q9-6Us"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="kyt-SS-f6R"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="Q3x-93-kEi" secondAttribute="bottom" constant="1" id="mFS-lp-r6L"/>
-                <constraint firstAttribute="bottom" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="oV6-Ew-VCW"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="Q3x-93-kEi" secondAttribute="leading" id="yM4-pm-jef"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="leading" secondItem="SzJ-4M-cGd" secondAttribute="trailing" constant="50" id="1Fb-8F-rAG"/>
+                <constraint firstItem="SzJ-4M-cGd" firstAttribute="leading" secondItem="CSv-hn-wWG" secondAttribute="trailing" constant="52" id="5fh-Bw-lgW"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="Q3x-93-kEi" secondAttribute="bottom" constant="1" id="8U6-7P-9vw"/>
+                <constraint firstItem="SzJ-4M-cGd" firstAttribute="centerX" secondItem="Q3x-93-kEi" secondAttribute="centerX" id="DLq-vr-sfj"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="trailing" secondItem="csc-RF-ae0" secondAttribute="trailing" id="F8x-Xh-NJJ"/>
+                <constraint firstItem="SzJ-4M-cGd" firstAttribute="centerY" secondItem="csc-RF-ae0" secondAttribute="centerY" id="G7Z-dR-ctf"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="CSv-hn-wWG" secondAttribute="bottom" constant="12" id="Kp9-sB-Ujt"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="csc-RF-ae0" secondAttribute="bottom" id="N3H-vt-vx9"/>
+                <constraint firstItem="CSv-hn-wWG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Tkb-Rh-KrY"/>
+                <constraint firstItem="SzJ-4M-cGd" firstAttribute="top" secondItem="CSv-hn-wWG" secondAttribute="top" id="UPH-6F-1Xr"/>
+                <constraint firstItem="Q3x-93-kEi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XAn-M9-xVE"/>
+                <constraint firstAttribute="bottom" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="Zni-9O-gpC"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="SzJ-4M-cGd" secondAttribute="bottom" constant="9" id="bGi-hZ-svn"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="centerX" secondItem="SzJ-4M-cGd" secondAttribute="centerX" id="kRD-Xr-ysg"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pq6-xp-Oph"/>
+                <constraint firstItem="Q3x-93-kEi" firstAttribute="leading" secondItem="uxX-wM-v5W" secondAttribute="leading" id="q6y-XA-rm2"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

@@ -46,10 +46,8 @@ class FeedbackViewController: UIViewController {
         {
             var buttonImage = UIImage(named:"Rating1Click.png");
             sender.setImage(buttonImage, forState: UIControlState.Normal);
-            UIView.animateWithDuration(2.0, animations: { () -> Void in
-                self.explainerLabel.alpha = 0;
-            })
             UIView.animateWithDuration(2, animations: { () -> Void in
+                self.explainerLabel.alpha = 0;
                 self.messageLabel.alpha = 1
                 self.messageLabel.text = "no love"
             })

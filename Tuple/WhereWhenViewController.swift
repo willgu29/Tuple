@@ -29,6 +29,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     override func viewWillAppear(animated: Bool) {
         delegate.sendData.minutesTillMeetup = -1;
+        resetAllButtonImages();
     }
 
     override func didReceiveMemoryWarning() {

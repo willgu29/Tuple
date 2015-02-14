@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "WhiteRingWShadow.png"
+      "filename" : "Rating0Click.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "WhiteRingWShadow@2x.png"
+      "filename" : "Rating0Click@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "WhiteRingWShadow@3x.png"
+      "filename" : "Rating0Click@3x.png"
     }
   ],
   "info" : {
