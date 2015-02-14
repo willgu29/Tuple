@@ -59,7 +59,7 @@
 
 -(void)createAccount
 {
-    NSURL * convoID = [CreateConversation createInitialConversation];
+    NSURL * convoID = [CreateConversation createInitialConversationWithTitle:_username];
     
     PFUser *newUser = [PFUser user];
     newUser.username = _username;

@@ -99,11 +99,13 @@
 {
     PFObject *eventObject = [_eventsInvitedTo objectAtIndex:indexPath.row];
     
+    NSArray *peopleAttending = eventObject[@"peopleInChatRoom"];
     NSString *diningHall = eventObject[@"diningHall"];
     NSString *timeToEat = eventObject[@"whenToEat"];
-    
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.text = [NSString stringWithFormat:@"Host: %@ Inviter: %@", eventObject[@"hostName"], eventObject[@"inviterName"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@", [DiningHallConvert convertDiningHallIntToString:diningHall.intValue], timeToEat];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@, %d Attending", [DiningHallConvert convertDiningHallIntToString:diningHall.intValue], timeToEat, [peopleAttending count]];
 }
 
 

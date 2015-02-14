@@ -13,6 +13,6 @@
 @interface QueryForConversation : NSObject
 
 +(LYRConversation *)queryForConversationWithConvoID:(NSURL *)convoID;
-
++(LYRConversation *)queryForConversationWithHostName:(NSString *)hostName;
 
 @end

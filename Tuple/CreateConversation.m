@@ -19,7 +19,7 @@
 
 @implementation CreateConversation
 
-+(NSURL *)createInitialConversation
++(NSURL *)createInitialConversationWithTitle:(NSString *)titleName
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSString *deviceTokenString = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
@@ -33,6 +33,8 @@
     
     [SendMessages sendMessage:@"Welcome to Tuple!" ToConversation:conversation];
     [SendMessages sendMessage:@"Say hi!" ToConversation:conversation];
+    
+    [conversation setValue:titleName forKey:@"title"];
     
     [[NSUserDefaults standardUserDefaults] setURL:conversation.identifier forKey:@"convoID"];
     

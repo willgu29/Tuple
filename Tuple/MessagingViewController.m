@@ -44,16 +44,16 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     }
     else if (delegate.sendData.clientType == 2)
     {
-        NSURL *identifier = [FetchUserData lookupConvoIDWithUsername:delegate.sendData.hostUsername];
-        self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
-        
+        self.conversation = [QueryForConversation queryForConversationWithHostName:delegate.sendData.hostUsername];
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+        NSError *error = nil;
+        BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
+
     }
     
     if (self.conversation)
     {
-        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-        NSError *error = nil;
-        BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
+
         [self setupQueryController];
         [self setupLabels];
     }
@@ -114,7 +114,10 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         
         NSError *error = nil;
-        BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:deviceToken] error:&error];
+        if (delegate.sendData.clientType == 2)
+        {
+            BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:deviceToken] error:&error];
+        }
         [self pushToFeedbackVC];
     }
 }
@@ -260,6 +263,8 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     // Set cell text to "<Sender>: <Message Contents>"
     LYRMessagePart *messagePart = message.parts[0];
     NSString *messageString = [[NSString alloc] initWithData:messagePart.data encoding:NSUTF8StringEncoding];
+    
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
     
     if ([messageString isEqualToString:@"Welcome to Tuple!"] || [messageString isEqualToString:@"Say hi!"])
     {

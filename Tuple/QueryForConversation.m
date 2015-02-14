@@ -39,5 +39,39 @@
     }
 }
 
++(LYRConversation *)queryForConversationWithHostName:(NSString *)hostName
+{
+    LYRQuery *query = [LYRQuery queryWithClass:[LYRConversation class]];
+    query.predicate = [LYRPredicate predicateWithProperty:@"participants" operator:LYRPredicateOperatorIsIn value:hostName];
+    query.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO] ];
+    
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSError *error;
+    NSOrderedSet *conversations = [delegate.layerClient executeQuery:query error:&error];
+    if (!error) {
+        NSLog(@"%tu conversations with participants %@", conversations.count, @[ @"<PARTICIPANT>" ]);
+    } else {
+        NSLog(@"Query failed with error %@", error);
+    }
+    
+    
+    // Retrieve the last conversation
+    if (conversations.count) {
+        for (LYRConversation *conversation in conversations)
+        {
+            NSString *convoID = [conversation.metadata valueForKey:@"title"];
+            if ([convoID isEqualToString:hostName])
+            {
+                return conversation;
+            }
+        }
+        return nil;
+    }
+    else
+    {
+        return nil;
+    }
+}
+
 
 @end

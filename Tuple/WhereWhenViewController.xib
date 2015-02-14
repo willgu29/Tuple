@@ -15,6 +15,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="U2y-pt-f47">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="HeaderRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="W2R-86-8PM">
+                    <rect key="frame" x="0.0" y="0.0" width="321" height="59"/>
+                </imageView>
                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SK6-g9-xFb">
                     <rect key="frame" x="48" y="117" width="224" height="162"/>
                     <connections>
@@ -22,36 +28,36 @@
                         <outlet property="delegate" destination="-1" id="JwG-Fc-ckF"/>
                     </connections>
                 </pickerView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-Td-WUn">
-                    <rect key="frame" x="107" y="318" width="30" height="30"/>
-                    <state key="normal" title="15">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-Td-WUn">
+                    <rect key="frame" x="93" y="303" width="45" height="45"/>
+                    <state key="normal" backgroundImage="15MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="timeButton15Clicked" destination="-1" eventType="touchUpInside" id="Htj-hl-f44"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-PP-JqY">
-                    <rect key="frame" x="145" y="318" width="30" height="30"/>
-                    <state key="normal" title="30">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-PP-JqY">
+                    <rect key="frame" x="138" y="303" width="45" height="45"/>
+                    <state key="normal" backgroundImage="30MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="timeButton30Clicked" destination="-1" eventType="touchUpInside" id="utr-qJ-A0T"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYP-uI-7Ly">
-                    <rect key="frame" x="183" y="318" width="30" height="30"/>
-                    <state key="normal" title="45">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYP-uI-7Ly">
+                    <rect key="frame" x="183" y="303" width="45" height="45"/>
+                    <state key="normal" backgroundImage="45MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="timeButton45Clicked" destination="-1" eventType="touchUpInside" id="eW3-h7-j7M"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-AB-bsh">
-                    <rect key="frame" x="221" y="318" width="30" height="30"/>
-                    <state key="normal" title="60">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-AB-bsh">
+                    <rect key="frame" x="227" y="303" width="45" height="45"/>
+                    <state key="normal" backgroundImage="60MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -59,28 +65,21 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x04-bD-D2L">
-                    <rect key="frame" x="253" y="8" width="59" height="48"/>
-                    <state key="normal" title="Invites">
+                    <rect key="frame" x="8" y="6" width="59" height="48"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="BellNotification">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="checkInvites" destination="-1" eventType="touchUpInside" id="ySi-P7-bqr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te0-4E-C9L">
-                    <rect key="frame" x="8" y="8" width="61" height="47"/>
-                    <state key="normal" title="Profile">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-z0-mYN">
+                    <rect key="frame" x="48" y="303" width="45" height="45"/>
+                    <state key="normal" backgroundImage="5MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="profileButton" destination="-1" eventType="touchUpInside" id="NQy-dm-5Tt"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-z0-mYN">
-                    <rect key="frame" x="69" y="318" width="30" height="30"/>
-                    <state key="normal" title="5">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="highlighted" backgroundImage="5hMinButton"/>
                     <connections>
                         <action selector="timeButton5Clicked" destination="-1" eventType="touchUpInside" id="RMz-F6-b0g"/>
                     </connections>
@@ -103,13 +102,23 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFK-1z-3Pc">
-                    <rect key="frame" x="120" y="450" width="81" height="30"/>
-                    <state key="normal" title="host a tuple">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFK-1z-3Pc">
+                    <rect key="frame" x="66" y="454" width="188" height="37"/>
+                    <state key="normal" backgroundImage="HostATuple">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="sendInvites" destination="-1" eventType="touchUpInside" id="Dx2-h3-TFx"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te0-4E-C9L">
+                    <rect key="frame" x="251" y="8" width="61" height="47"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="ProfileButton">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="profileButton" destination="-1" eventType="touchUpInside" id="NQy-dm-5Tt"/>
                     </connections>
                 </button>
             </subviews>
@@ -118,4 +127,17 @@
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
+    <resources>
+        <image name="15MinButton" width="45" height="45"/>
+        <image name="30MinButton" width="45" height="45"/>
+        <image name="45MinButton" width="45" height="45"/>
+        <image name="5MinButton" width="45" height="45"/>
+        <image name="5hMinButton" width="47" height="47"/>
+        <image name="60MinButton" width="45" height="45"/>
+        <image name="BellNotification" width="29" height="29"/>
+        <image name="HeaderRectangle" width="321" height="59"/>
+        <image name="HostATuple" width="188" height="37"/>
+        <image name="PaperTextureBackground" width="320" height="568"/>
+        <image name="ProfileButton" width="30" height="28"/>
+    </resources>
 </document>

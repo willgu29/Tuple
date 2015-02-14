@@ -15,6 +15,13 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var diningHallPicker: UIPickerView!
     var dataSourcePicker: NSArray = ["No Preference", "De Neve", "B Plate", "Feast", "Covel", "Rende", "Cafe 1919", "B Cafe"]
     
+    @IBOutlet weak var min5: UIButton!
+    @IBOutlet weak var min15: UIButton!
+    @IBOutlet weak var min30: UIButton!
+    @IBOutlet weak var min45: UIButton!
+    @IBOutlet weak var min60: UIButton!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true;
@@ -64,26 +71,43 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }
     }
-    @IBAction func timeButton5Clicked()
+    @IBAction func timeButtonClicked(var sender: UIButton)
     {
-        delegate.sendData.minutesTillMeetup = 5;
-    }
-    @IBAction func timeButton15Clicked()
-    {
-        delegate.sendData.minutesTillMeetup = 15;
-    }
-    @IBAction func timeButton30Clicked()
-    {
-        delegate.sendData.minutesTillMeetup = 30;
-    }
-    @IBAction func timeButton45Clicked()
-    {
-        delegate.sendData.minutesTillMeetup = 45;
-    }
-    @IBAction func timeButton60Clicked()
-    {
-        delegate.sendData.minutesTillMeetup = 60;
-
+        //TODO: Deselect all
+        resetAllButtonImages();
+        
+        if (sender.tag == 0)
+        {
+            delegate.sendData.minutesTillMeetup = 5;
+            var buttonImage = UIImage(contentsOfFile: "5hMinButton.png");
+            sender.setImage(buttonImage, forState: UIControlState.Normal);
+        }
+        else if (sender.tag == 1)
+        {
+            delegate.sendData.minutesTillMeetup = 15;
+            var buttonImage = UIImage(contentsOfFile: "15HMinButton.png");
+            sender.setImage(buttonImage, forState: UIControlState.Normal);
+        }
+        else if (sender.tag == 2)
+        {
+            delegate.sendData.minutesTillMeetup = 30;
+            var buttonImage = UIImage(contentsOfFile: "30HMinButton.png");
+            sender.setImage(buttonImage, forState: UIControlState.Normal);
+        }
+        else if (sender.tag == 3)
+        {
+            delegate.sendData.minutesTillMeetup = 45;
+            var buttonImage = UIImage(contentsOfFile: "45HMinButton.png");
+            sender.setImage(buttonImage, forState: UIControlState.Normal);
+        }
+        else if (sender.tag == 4)
+        {
+            delegate.sendData.minutesTillMeetup = 60;
+            var buttonImage = UIImage(contentsOfFile: "60HMinButton.png");
+            sender.setImage(buttonImage, forState: UIControlState.Normal);
+        }
+     
+        
     }
     
     @IBAction func checkInvites(){
@@ -122,5 +146,24 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return 1;
     }
     //*********************
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    func resetAllButtonImages(){
+        var buttonImage0 = UIImage(contentsOfFile: "5MinButton.png");
+        var buttonImage1 = UIImage(contentsOfFile: "15MinButton.png");
+        var buttonImage2 = UIImage(contentsOfFile: "30MinButton.png");
+        var buttonImage3 = UIImage(contentsOfFile: "45MinButton.png");
+        var buttonImage4 = UIImage(contentsOfFile: "60MinButton.png");
+
+        min5.setImage(buttonImage0, forState: UIControlState.Normal);
+        min15.setImage(buttonImage1, forState: UIControlState.Normal);
+        min30.setImage(buttonImage2, forState: UIControlState.Normal);
+        min45.setImage(buttonImage3, forState: UIControlState.Normal);
+        min60.setImage(buttonImage4, forState: UIControlState.Normal);
+
+    }
 
 }

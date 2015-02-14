@@ -106,6 +106,8 @@
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    
     UserCellInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
     if (userInfo.lastName == nil)
     {
