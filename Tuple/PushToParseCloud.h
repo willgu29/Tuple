@@ -11,7 +11,7 @@
 @class PushToParseCloud;
 @protocol PushToParseCloudDelegate
 
--(void)sendInvitesSuccess;
+-(void)sendInvitesSuccess:(NSArray *)deviceTokenArray;
 -(void)sendInvitesFailure:(NSError *)error;
 //-(void)pushEventToParseSuccess;
 -(void)pushEventToParseFailure:(NSError *)error;

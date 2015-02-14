@@ -10,6 +10,7 @@
 #import "MessagingViewController.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
+#import "QueryForConversation.h"
 
 @interface SendInvitesViewController ()
 
@@ -47,9 +48,6 @@
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _pushToParseCloud.delegate = self;
     
-    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
-    [self.navigationController pushViewController:messageVC animated:YES];
-    
     [_pushToParseCloud separateAppUsersFromContactsAndSendPush:self.selectedPeopleArray];
 
     
@@ -61,9 +59,11 @@
 {
     
 }
--(void)sendInvitesSuccess
+-(void)sendInvitesSuccess:(NSArray *)deviceTokenArray //add these to conversation after push notification success
 {
-    
+    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
+    messageVC.deviceTokenParticipants = deviceTokenArray;
+    [self.navigationController pushViewController:messageVC animated:YES];
 }
 
 -(void)sendInvitesFailure:(NSError *)error

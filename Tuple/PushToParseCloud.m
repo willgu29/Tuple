@@ -82,7 +82,7 @@
                                     if (!error) {
                                         // this is where you handle the results and change the UI.
                                         NSLog(@"RESULTS: %@", object);
-                                        [_delegate sendInvitesSuccess];
+                                        [_delegate sendInvitesSuccess:deviceTokenArray];
                                     }
                                     else
                                     {
@@ -130,6 +130,7 @@
         [peopleInChatroom addObject:user.username];
         [usersInvited addObjectsFromArray:usernames];
         eventObject[@"usersInvited"] = usersInvited;
+        eventObject[@"peopleInChatroom"] = peopleInChatroom;
         [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 [self sendDeviceTokensToCloud:_deviceTokensArray];

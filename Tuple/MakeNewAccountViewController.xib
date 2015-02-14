@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-jC-si2">
-                    <rect key="frame" x="60" y="136" width="201" height="30"/>
+                    <rect key="frame" x="60" y="136" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="cvk-4m-SWY"/>
                     </constraints>
@@ -30,17 +30,6 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="pp1-ID-jMB"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-HK-G37">
-                    <rect key="frame" x="60" y="174" width="201" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Q93-sJ-tcs"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="idQ-1g-dOQ"/>
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E41-Sv-4J0">
@@ -68,7 +57,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-cD-Lot">
-                    <rect key="frame" x="60" y="250" width="201" height="30"/>
+                    <rect key="frame" x="60" y="250" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="RSQ-8p-md2"/>
                     </constraints>
@@ -79,7 +68,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="YQr-Vf-9ai">
-                    <rect key="frame" x="60" y="212" width="201" height="30"/>
+                    <rect key="frame" x="60" y="212" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="pmA-2N-0pF"/>
                     </constraints>
@@ -89,9 +78,26 @@
                         <outlet property="delegate" destination="-1" id="dsI-vG-wcg"/>
                     </connections>
                 </textField>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="BackButton" translatesAutoresizingMaskIntoConstraints="NO" id="gdi-XM-gMP">
-                    <rect key="frame" x="133" y="497" width="54" height="28"/>
-                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-al-si5">
+                    <rect key="frame" x="133" y="487" width="54" height="28"/>
+                    <state key="normal" backgroundImage="BackButton">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backButton" destination="-1" eventType="touchUpInside" id="ZfQ-uT-jpo"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-HK-G37">
+                    <rect key="frame" x="60" y="174" width="200" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Q93-sJ-tcs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="idQ-1g-dOQ"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -100,7 +106,6 @@
                 <constraint firstItem="E41-Sv-4J0" firstAttribute="top" secondItem="Taa-cD-Lot" secondAttribute="bottom" constant="8" symbolic="YES" id="7b2-GM-TiD"/>
                 <constraint firstItem="7Eq-HK-G37" firstAttribute="trailing" secondItem="YQr-Vf-9ai" secondAttribute="trailing" id="CVK-tx-g9h"/>
                 <constraint firstItem="T7T-Wb-igh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="99" id="Cvr-ff-Wfo"/>
-                <constraint firstItem="gdi-XM-gMP" firstAttribute="centerX" secondItem="E41-Sv-4J0" secondAttribute="centerX" id="LqD-v1-fno"/>
                 <constraint firstItem="Taa-cD-Lot" firstAttribute="top" secondItem="YQr-Vf-9ai" secondAttribute="bottom" constant="8" symbolic="YES" id="Mct-qU-ax7"/>
                 <constraint firstItem="y8O-mE-tec" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OCO-p5-F5X"/>
                 <constraint firstItem="Q29-jC-si2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="Qbg-F0-Vyj"/>
@@ -114,7 +119,6 @@
                 <constraint firstItem="YQr-Vf-9ai" firstAttribute="top" secondItem="7Eq-HK-G37" secondAttribute="bottom" constant="8" symbolic="YES" id="hnz-8C-JQh"/>
                 <constraint firstItem="T7T-Wb-igh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="nGB-MF-z20"/>
                 <constraint firstItem="Q29-jC-si2" firstAttribute="centerX" secondItem="T7T-Wb-igh" secondAttribute="centerX" id="oVZ-M5-L83"/>
-                <constraint firstAttribute="bottom" secondItem="gdi-XM-gMP" secondAttribute="bottom" constant="43" id="pbr-da-NBJ"/>
                 <constraint firstItem="Q29-jC-si2" firstAttribute="top" secondItem="T7T-Wb-igh" secondAttribute="bottom" constant="8" symbolic="YES" id="xCT-2Z-ef3"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

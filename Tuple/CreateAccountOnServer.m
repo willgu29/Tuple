@@ -27,7 +27,11 @@
 -(BOOL)saveUserWithUsername:(NSString *)username andPassword:(NSString *)password andFirstName:(NSString *)firstName andLastName:(NSString *)lastName
 {
     
-    if (firstName && lastName && username && password)
+    if ([firstName isEqualToString:@""] || [lastName isEqualToString:@""] || [username isEqualToString:@""] || [password isEqualToString:@""])
+    {
+        return NO;
+    }
+    else
     {
         _firstName = firstName;
         _lastName = lastName;
@@ -35,26 +39,23 @@
         _username = username;
         return YES;
     }
-    else
-    {
-        return NO;
-    }
     
 }
 
 
 -(BOOL)savePhoneNumber:(NSString *)phoneNumber andEmail:(NSString *)emailAddress
 {
-    if (emailAddress && phoneNumber)
+    if ([emailAddress isEqualToString:@""] || [phoneNumber isEqualToString:@""])
+    {
+        return NO;
+        
+    }
+    else
     {
         _email = emailAddress;
         _phoneNumber = phoneNumber;
         //TODO: Phone + Email Verification
         return YES;
-    }
-    else
-    {
-        return NO;
     }
 }
 

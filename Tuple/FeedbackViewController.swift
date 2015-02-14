@@ -32,11 +32,22 @@ class FeedbackViewController: UIViewController {
     }
     
     @IBAction func doItAgainButton() {
+        self.sendResultsToParse();
         self.navigationController?.popToRootViewControllerAnimated(true);
     }
     
     @IBAction func giveFeedbackButton() {
         reportBug.reportBugWithVC(self);
+    }
+    
+    func sendResultsToParse(){
+        var feedbackObject = PFObject(className: "Feedback");
+        feedbackObject["rating"] = ratingCounter;
+        feedbackObject["fromUser"] = PFUser.currentUser().username;
+        feedbackObject.saveInBackgroundWithBlock { (var success:Bool, var error: NSError!) -> Void in
+            
+        }
+      
     }
     
     //Feedback Button Counter
@@ -101,7 +112,7 @@ class FeedbackViewController: UIViewController {
         }
         else if (ratingCounter == 5)
         {
-            var buttonImage = UIImage(named:"WhiteRingWShadow.png");
+            var buttonImage = UIImage(named:"Rating0Click.png");
             sender.setImage(buttonImage, forState: UIControlState.Normal);
             ratingCounter = -1
             UIView.animateWithDuration(1.5, animations: { () -> Void in

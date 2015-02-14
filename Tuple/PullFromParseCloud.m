@@ -16,14 +16,14 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Events"];
     [query whereKey:@"usersInvited" equalTo:username];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-       if (objects)
+       if (error)
        {
-           [_delegate pullEventSuccess:objects];
-            //TODO: Parse data to display easily.
+           [_delegate pullEventFailure:error];
        }
        else
        {
-           [_delegate pullEventFailure:error];
+           [_delegate pullEventSuccess:objects];
+           //TODO: Parse data to display easily.
        }
     }];
 }

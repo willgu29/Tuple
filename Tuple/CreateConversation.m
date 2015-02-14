@@ -34,7 +34,7 @@
     [SendMessages sendMessage:@"Welcome to Tuple!" ToConversation:conversation];
     [SendMessages sendMessage:@"Say hi!" ToConversation:conversation];
     
-    [conversation setValue:titleName forKey:@"title"];
+    [conversation setValue:titleName forMetadataAtKeyPath:@"title"];
     
     [[NSUserDefaults standardUserDefaults] setURL:conversation.identifier forKey:@"convoID"];
     

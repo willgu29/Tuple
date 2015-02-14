@@ -10,6 +10,9 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
 
+    var reportBug = ReportBug();
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +34,10 @@ class UserProfileViewController: UIViewController {
     
     @IBAction func backButton(){
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    @IBAction func feedbackButton(){
+        reportBug.reportBugWithVC(self);
     }
     
 }

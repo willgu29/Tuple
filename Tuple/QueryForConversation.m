@@ -42,7 +42,6 @@
 +(LYRConversation *)queryForConversationWithHostName:(NSString *)hostName
 {
     LYRQuery *query = [LYRQuery queryWithClass:[LYRConversation class]];
-    query.predicate = [LYRPredicate predicateWithProperty:@"participants" operator:LYRPredicateOperatorIsIn value:hostName];
     query.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO] ];
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
@@ -72,6 +71,10 @@
         return nil;
     }
 }
+
+
+
+
 
 
 @end

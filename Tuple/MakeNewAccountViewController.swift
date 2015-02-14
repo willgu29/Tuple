@@ -57,7 +57,8 @@ class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, Creat
         }
         else
         {
-            //TODO: Display error
+            var alert = UIAlertView(title: "Bummer...", message: "Please fill in all blank fields", delegate: nil, cancelButtonTitle: "Fine")
+            alert.show()
         }
     
     }

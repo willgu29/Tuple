@@ -23,23 +23,23 @@
                         <constraint firstAttribute="height" constant="1136" id="78Z-Ax-gox"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhL-kA-aDd">
-                    <rect key="frame" x="38" y="151" width="244" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email address" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="hhL-kA-aDd">
+                    <rect key="frame" x="60" y="151" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="dch-bh-MXy"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="rVI-jD-w5U"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7U-Tx-bmi">
-                    <rect key="frame" x="38" y="189" width="242" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone number" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="b7U-Tx-bmi">
+                    <rect key="frame" x="60" y="189" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="D7z-rE-H9x"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="bLS-1x-35c"/>
@@ -90,5 +90,6 @@
     <resources>
         <image name="EnterButton" width="73" height="73"/>
         <image name="PaperTextureBackground" width="320" height="568"/>
+        <image name="TextField" width="183" height="30"/>
     </resources>
 </document>

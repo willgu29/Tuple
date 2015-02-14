@@ -36,24 +36,24 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     [super viewDidLoad];
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSError *error;
     if (delegate.sendData.clientType == 1)
     {
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
+        [self.conversation addParticipants:[NSSet setWithArray:_deviceTokenParticipants] error:&error];
         [delegate setUpTimerToDeleteEventAndMessages];
     }
     else if (delegate.sendData.clientType == 2)
     {
         self.conversation = [QueryForConversation queryForConversationWithHostName:delegate.sendData.hostUsername];
-        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-        NSError *error = nil;
-        BOOL success = [self.conversation addParticipants:[NSSet setWithObject:deviceToken] error:&error];
+        [self.conversation addParticipants:[NSSet setWithArray:_deviceTokenParticipants] error:&error];
+
 
     }
     
     if (self.conversation)
     {
-
         [self setupQueryController];
         [self setupLabels];
     }
@@ -117,6 +117,18 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
         if (delegate.sendData.clientType == 2)
         {
             BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:deviceToken] error:&error];
+            
+            PFUser *user = [PFUser currentUser];
+            PFQuery *query = [PFQuery queryWithClassName:@"Events"];
+            [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
+            PFObject *eventObject = (PFObject *)[query getFirstObject];
+            NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatRoom"];
+            [peopleInChatroom removeObject:user.username];
+            eventObject[@"peopleInChatRoom"] = peopleInChatroom;
+            [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    
+            }];
+            
         }
         [self pushToFeedbackVC];
     }
