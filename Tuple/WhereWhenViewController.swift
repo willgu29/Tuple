@@ -25,6 +25,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true;
+
     }
     override func viewWillAppear(animated: Bool) {
         delegate.sendData.minutesTillMeetup = -1;
@@ -74,7 +75,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func timeButtonClicked(var sender: UIButton)
     {
         //TODO: Deselect all
-        resetAllButtonImages();
+//        resetAllButtonImages();
         
         if (sender.tag == 0)
         {
@@ -92,19 +93,19 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         {
             delegate.sendData.minutesTillMeetup = 30;
             var buttonImage = UIImage(contentsOfFile: "30HMinButton.png");
-            sender.setImage(buttonImage, forState: UIControlState.Normal);
+            min30.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 3)
         {
             delegate.sendData.minutesTillMeetup = 45;
             var buttonImage = UIImage(contentsOfFile: "45HMinButton.png");
-            sender.setImage(buttonImage, forState: UIControlState.Normal);
+            min45.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 4)
         {
             delegate.sendData.minutesTillMeetup = 60;
             var buttonImage = UIImage(contentsOfFile: "60HMinButton.png");
-            sender.setImage(buttonImage, forState: UIControlState.Normal);
+            min60.setImage(buttonImage, forState: UIControlState.Normal);
         }
      
         
@@ -158,11 +159,11 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         var buttonImage3 = UIImage(contentsOfFile: "45MinButton.png");
         var buttonImage4 = UIImage(contentsOfFile: "60MinButton.png");
 
-        min5.setImage(buttonImage0, forState: UIControlState.Normal);
-        min15.setImage(buttonImage1, forState: UIControlState.Normal);
-        min30.setImage(buttonImage2, forState: UIControlState.Normal);
-        min45.setImage(buttonImage3, forState: UIControlState.Normal);
-        min60.setImage(buttonImage4, forState: UIControlState.Normal);
+        min5.setBackgroundImage(buttonImage0, forState: UIControlState.Normal);
+        min15.setBackgroundImage(buttonImage1, forState: UIControlState.Normal);
+        min30.setBackgroundImage(buttonImage2, forState: UIControlState.Normal);
+        min45.setBackgroundImage(buttonImage3, forState: UIControlState.Normal);
+        min60.setBackgroundImage(buttonImage4, forState: UIControlState.Normal);
 
     }
 

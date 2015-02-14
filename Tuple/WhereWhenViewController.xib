@@ -7,6 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WhereWhenViewController" customModule="Tuple" customModuleProvider="target">
             <connections>
                 <outlet property="diningHallPicker" destination="SK6-g9-xFb" id="VZm-WC-nvD"/>
+                <outlet property="min15" destination="KZ2-Td-WUn" id="Ewh-FO-E7j"/>
+                <outlet property="min30" destination="fKT-PP-JqY" id="Jox-1F-iX0"/>
+                <outlet property="min45" destination="aYP-uI-7Ly" id="71T-pM-8qj"/>
+                <outlet property="min5" destination="PFb-z0-mYN" id="tbI-xd-eGs"/>
+                <outlet property="min60" destination="tHI-AB-bsh" id="Gw6-K3-287"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="yf3-RI-JCf"/>
             </connections>
         </placeholder>
@@ -15,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="U2y-pt-f47">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="oaJ-k8-gUb">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="HeaderRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="W2R-86-8PM">
@@ -28,44 +33,44 @@
                         <outlet property="delegate" destination="-1" id="JwG-Fc-ckF"/>
                     </connections>
                 </pickerView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-Td-WUn">
-                    <rect key="frame" x="93" y="303" width="45" height="45"/>
-                    <state key="normal" backgroundImage="15MinButton">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-Td-WUn">
+                    <rect key="frame" x="94" y="303" width="45" height="45"/>
+                    <state key="normal" image="15MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="timeButton15Clicked" destination="-1" eventType="touchUpInside" id="Htj-hl-f44"/>
+                        <action selector="timeButtonClicked:" destination="-1" eventType="touchUpInside" id="Lw9-kE-qZC"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-PP-JqY">
-                    <rect key="frame" x="138" y="303" width="45" height="45"/>
-                    <state key="normal" backgroundImage="30MinButton">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-PP-JqY">
+                    <rect key="frame" x="137" y="302" width="47" height="47"/>
+                    <state key="normal" image="30MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="timeButton30Clicked" destination="-1" eventType="touchUpInside" id="utr-qJ-A0T"/>
+                        <action selector="timeButtonClicked:" destination="-1" eventType="touchUpInside" id="W7x-91-A4b"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYP-uI-7Ly">
-                    <rect key="frame" x="183" y="303" width="45" height="45"/>
-                    <state key="normal" backgroundImage="45MinButton">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYP-uI-7Ly">
+                    <rect key="frame" x="181" y="302" width="47" height="47"/>
+                    <state key="normal" image="45MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="timeButton45Clicked" destination="-1" eventType="touchUpInside" id="eW3-h7-j7M"/>
+                        <action selector="timeButtonClicked:" destination="-1" eventType="touchUpInside" id="35h-5B-Ytw"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-AB-bsh">
-                    <rect key="frame" x="227" y="303" width="45" height="45"/>
-                    <state key="normal" backgroundImage="60MinButton">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-AB-bsh">
+                    <rect key="frame" x="226" y="303" width="45" height="45"/>
+                    <state key="normal" image="60MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="timeButton60Clicked" destination="-1" eventType="touchUpInside" id="DBW-Lt-M5h"/>
+                        <action selector="timeButtonClicked:" destination="-1" eventType="touchUpInside" id="VUS-Z7-KiP"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x04-bD-D2L">
-                    <rect key="frame" x="8" y="6" width="59" height="48"/>
+                    <rect key="frame" x="7" y="13" width="59" height="48"/>
                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" image="BellNotification">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,14 +79,24 @@
                         <action selector="checkInvites" destination="-1" eventType="touchUpInside" id="ySi-P7-bqr"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te0-4E-C9L">
+                    <rect key="frame" x="251" y="14" width="61" height="47"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="ProfileButton">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="profileButton" destination="-1" eventType="touchUpInside" id="NQy-dm-5Tt"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-z0-mYN">
-                    <rect key="frame" x="48" y="303" width="45" height="45"/>
-                    <state key="normal" backgroundImage="5MinButton">
+                    <rect key="frame" x="50" y="303" width="45" height="45"/>
+                    <state key="normal" image="5MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="highlighted" backgroundImage="5hMinButton"/>
                     <connections>
-                        <action selector="timeButton5Clicked" destination="-1" eventType="touchUpInside" id="RMz-F6-b0g"/>
+                        <action selector="timeButtonClicked:" destination="-1" eventType="touchUpInside" id="nKr-Ov-VEy"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="let's meet at " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvW-ow-HdT">
@@ -103,22 +118,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFK-1z-3Pc">
-                    <rect key="frame" x="66" y="454" width="188" height="37"/>
-                    <state key="normal" backgroundImage="HostATuple">
+                    <rect key="frame" x="66" y="452" width="188" height="37"/>
+                    <state key="normal" backgroundImage="StartATuple">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="sendInvites" destination="-1" eventType="touchUpInside" id="Dx2-h3-TFx"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te0-4E-C9L">
-                    <rect key="frame" x="251" y="8" width="61" height="47"/>
-                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <state key="normal" image="ProfileButton">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="profileButton" destination="-1" eventType="touchUpInside" id="NQy-dm-5Tt"/>
                     </connections>
                 </button>
             </subviews>
@@ -136,8 +141,8 @@
         <image name="60MinButton" width="45" height="45"/>
         <image name="BellNotification" width="29" height="29"/>
         <image name="HeaderRectangle" width="321" height="59"/>
-        <image name="HostATuple" width="188" height="37"/>
         <image name="PaperTextureBackground" width="320" height="568"/>
         <image name="ProfileButton" width="30" height="28"/>
+        <image name="StartATuple" width="188" height="37"/>
     </resources>
 </document>

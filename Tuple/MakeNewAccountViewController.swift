@@ -20,7 +20,6 @@ class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, Creat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        password.secureTextEntry = true;
 
         // Do any additional setup after loading the view.
     }
@@ -43,7 +42,7 @@ class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, Creat
     }
     
     @IBAction func backButton() {
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil);
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
     }
     
     @IBAction func createAccount() {
