@@ -42,15 +42,17 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    NSString *simpleTableIdentifier = [NSString stringWithFormat:@"%ld_%ld", (long)indexPath.section, (long)indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
+
     }
     
     return cell;
 }
+
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,6 +76,7 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
+    
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [_selectedPeopleArray removeObject:userInfo];
@@ -101,12 +104,13 @@
         
         [_selectedPeopleArray addObject:userInfo];
     }
-    [self tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    
     
     UserCellInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
     if (userInfo.lastName == nil)
@@ -120,7 +124,7 @@
         return;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", userInfo.firstName, userInfo.lastName];
-    
+    cell.detailTextLabel.text = cell.detailTextLabel.text;
 }
 
 
