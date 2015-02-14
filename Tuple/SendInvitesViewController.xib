@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendInvitesViewController">
@@ -21,10 +20,7 @@
                     <color key="backgroundColor" red="0.76887363195419312" green="0.76898378133773804" blue="0.76886790990829468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csc-RF-ae0">
-                    <rect key="frame" x="248" y="10" width="64" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="64" id="6gE-Kz-sbx"/>
-                    </constraints>
+                    <rect key="frame" x="256" y="10" width="64" height="50"/>
                     <state key="normal" title="Send">
                         <color key="titleColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,8 +31,12 @@
                 </button>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="BackArrowButton" translatesAutoresizingMaskIntoConstraints="NO" id="sJO-bb-K9x">
                     <rect key="frame" x="11" y="22" width="48" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="jTV-be-Pc9"/>
+                        <constraint firstAttribute="height" constant="26" id="ux3-6E-JoY"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tuple" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzJ-4M-cGd">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tuple" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzJ-4M-cGd">
                     <rect key="frame" x="115" y="19" width="91" height="32"/>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="36"/>
                     <color key="textColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,17 +53,22 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="centerY" secondItem="sJO-bb-K9x" secondAttribute="centerY" id="5DX-ia-gYY"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8ig-31-gif"/>
-                <constraint firstItem="csc-RF-ae0" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="BM9-U8-Qdk"/>
-                <constraint firstItem="Q3x-93-kEi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JBu-zP-Cse"/>
-                <constraint firstItem="Q3x-93-kEi" firstAttribute="centerX" secondItem="uxX-wM-v5W" secondAttribute="centerX" id="d0s-00-fat"/>
-                <constraint firstItem="Q3x-93-kEi" firstAttribute="leading" secondItem="uxX-wM-v5W" secondAttribute="leading" id="hhh-6C-KIY"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="csc-RF-ae0" secondAttribute="bottom" id="mP1-6V-J0a"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="Q3x-93-kEi" secondAttribute="bottom" constant="1" id="rah-E7-fTg"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="sJO-bb-K9x" secondAttribute="bottom" constant="12" id="s7j-ky-ods"/>
-                <constraint firstAttribute="bottom" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="yie-8M-Co2"/>
-                <constraint firstItem="sJO-bb-K9x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="zP6-Sb-RcJ"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9r5-Bt-Uuw"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="centerY" secondItem="SzJ-4M-cGd" secondAttribute="centerY" id="B6p-tN-JOC"/>
+                <constraint firstItem="Q3x-93-kEi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bde-f6-wvZ"/>
+                <constraint firstItem="SzJ-4M-cGd" firstAttribute="leading" secondItem="sJO-bb-K9x" secondAttribute="trailing" constant="56" id="O44-Du-jJM"/>
+                <constraint firstItem="SzJ-4M-cGd" firstAttribute="centerX" secondItem="Q3x-93-kEi" secondAttribute="centerX" id="OGV-l5-bCK"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="leading" secondItem="SzJ-4M-cGd" secondAttribute="trailing" constant="50" id="ONW-nv-9Th"/>
+                <constraint firstItem="SzJ-4M-cGd" firstAttribute="centerX" secondItem="uxX-wM-v5W" secondAttribute="centerX" id="QQV-gx-mDd"/>
+                <constraint firstItem="sJO-bb-K9x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="R9F-Ng-vy0"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="csc-RF-ae0" secondAttribute="bottom" id="VMG-AH-6ab"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="SzJ-4M-cGd" secondAttribute="bottom" constant="9" id="ZEL-NB-w28"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="sJO-bb-K9x" secondAttribute="bottom" constant="12" id="ZjP-b9-ZXN"/>
+                <constraint firstItem="sJO-bb-K9x" firstAttribute="centerY" secondItem="SzJ-4M-cGd" secondAttribute="centerY" id="kwf-Q9-6Us"/>
+                <constraint firstItem="csc-RF-ae0" firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="kyt-SS-f6R"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="Q3x-93-kEi" secondAttribute="bottom" constant="1" id="mFS-lp-r6L"/>
+                <constraint firstAttribute="bottom" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="oV6-Ew-VCW"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="Q3x-93-kEi" secondAttribute="leading" id="yM4-pm-jef"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

@@ -162,7 +162,7 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
 
 -(void)moveVC
 {
-    [self.view setFrame:CGRectMake(0, -200, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, -230, self.view.frame.size.width, self.view.frame.size.height)];
 }
 
 -(void)revertVC
@@ -280,6 +280,11 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     }
     
     
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 

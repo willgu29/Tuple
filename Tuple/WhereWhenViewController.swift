@@ -39,7 +39,8 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func errorCheckSuccess() -> Bool {
         if (delegate.sendData.minutesTillMeetup == -1)
         {
-            //TODO: Alert, please click a time!
+            var alert = UIAlertView(title: "What? Where? When?", message: "Please select when you want to eat.", delegate: nil, cancelButtonTitle: "Sure")
+            alert.show()
             return false;
         }
         return true;
@@ -75,7 +76,7 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func timeButtonClicked(var sender: UIButton)
     {
         //TODO: Deselect all
-//        resetAllButtonImages();
+        resetAllButtonImages();
         
         if (sender.tag == 0)
         {
@@ -159,11 +160,11 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         var buttonImage3 = UIImage(named: "45MinButton.png");
         var buttonImage4 = UIImage(named: "60MinButton.png");
 
-        min5.setBackgroundImage(buttonImage0, forState: UIControlState.Normal);
-        min15.setBackgroundImage(buttonImage1, forState: UIControlState.Normal);
-        min30.setBackgroundImage(buttonImage2, forState: UIControlState.Normal);
-        min45.setBackgroundImage(buttonImage3, forState: UIControlState.Normal);
-        min60.setBackgroundImage(buttonImage4, forState: UIControlState.Normal);
+        min5.setImage(buttonImage0, forState: UIControlState.Normal);
+        min15.setImage(buttonImage1, forState: UIControlState.Normal);
+        min30.setImage(buttonImage2, forState: UIControlState.Normal);
+        min45.setImage(buttonImage3, forState: UIControlState.Normal);
+        min60.setImage(buttonImage4, forState: UIControlState.Normal);
 
     }
 
