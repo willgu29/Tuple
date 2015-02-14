@@ -65,11 +65,15 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     //IBActions
 
     @IBAction func sendInvites() {
-        var phoneVerification: Bool = PFUser.currentUser()["phoneVerified"] as Bool;
-        if (!phoneVerification)
+       
+        if (!FetchUserData.getPhoneVerificationStatusCurrentUser())
         {
-            
+            var alert = UIAlertView(title: "Tuple Closed Beta", message: "Interested in testing? Email us at support@tupleapp.com with proof that you're a Bruin!", delegate: nil, cancelButtonTitle: "Okay!")
+            alert.show()
+            return;
         }
+        
+        
         if (errorCheckSuccess() == true)
         {
             saveDate();

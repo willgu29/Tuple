@@ -63,5 +63,11 @@
     return convoIDNSURL;
 }
 
++(BOOL)getPhoneVerificationStatusCurrentUser
+{
+    PFUser *user = [FetchUserData lookupUsername:[PFUser currentUser].username];
+    NSNumber *phoneStatus =  user[@"phoneVerified"];
+    return phoneStatus.boolValue;
+}
 
 @end
