@@ -101,6 +101,16 @@ class FeedbackViewController: UIViewController {
                 self.messageLabel.text = "*fist bump*"
             })
         }
+        else if (ratingCounter == 5)
+        {
+            var buttonImage = UIImage(named:"WhiteRingWShadow.png");
+            sender.setImage(buttonImage, forState: UIControlState.Normal);
+            ratingCounter = -1
+            UIView.animateWithDuration(1.5, animations: { () -> Void in
+                self.messageLabel.alpha = 0;
+                self.explainerLabel.alpha = 1;
+            })
+        }
     }
     
 }

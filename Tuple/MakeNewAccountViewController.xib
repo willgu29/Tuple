@@ -19,15 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="wag-aZ-j9J">
-                    <rect key="frame" x="-160" y="-284" width="640" height="1136"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="640" id="8DD-M2-DqM"/>
-                        <constraint firstAttribute="height" constant="1136" id="h8O-L5-Qi2"/>
-                    </constraints>
-                </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="first name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-jC-si2">
-                    <rect key="frame" x="38" y="136" width="244" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-jC-si2">
+                    <rect key="frame" x="60" y="136" width="201" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="m0w-xx-0Ck"/>
                     </constraints>
@@ -37,8 +30,8 @@
                         <outlet property="delegate" destination="-1" id="pp1-ID-jMB"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="last name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-HK-G37">
-                    <rect key="frame" x="38" y="174" width="244" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-HK-G37">
+                    <rect key="frame" x="60" y="174" width="201" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="2j6-dC-YGf"/>
                     </constraints>
@@ -81,8 +74,8 @@
                         <action selector="backButton" destination="-1" eventType="touchUpInside" id="39F-fA-jXb"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-cD-Lot">
-                    <rect key="frame" x="38" y="250" width="244" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-cD-Lot">
+                    <rect key="frame" x="60" y="250" width="201" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="wfs-8d-1Yh"/>
                     </constraints>
@@ -92,8 +85,8 @@
                         <outlet property="delegate" destination="-1" id="bu8-EE-L6o"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YQr-Vf-9ai">
-                    <rect key="frame" x="38" y="212" width="244" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="YQr-Vf-9ai">
+                    <rect key="frame" x="60" y="212" width="201" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="XbY-Hn-2RI"/>
                     </constraints>
@@ -103,6 +96,13 @@
                         <outlet property="delegate" destination="-1" id="dsI-vG-wcg"/>
                     </connections>
                 </textField>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="PaperTextureBackground" translatesAutoresizingMaskIntoConstraints="NO" id="wag-aZ-j9J">
+                    <rect key="frame" x="-160" y="-284" width="640" height="1136"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="640" id="8DD-M2-DqM"/>
+                        <constraint firstAttribute="height" constant="1136" id="h8O-L5-Qi2"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -136,5 +136,6 @@
     <resources>
         <image name="EnterButton" width="73" height="73"/>
         <image name="PaperTextureBackground" width="320" height="568"/>
+        <image name="TextField" width="183" height="30"/>
     </resources>
 </document>
