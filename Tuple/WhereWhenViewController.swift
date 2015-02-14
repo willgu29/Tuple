@@ -65,6 +65,11 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     //IBActions
 
     @IBAction func sendInvites() {
+        var phoneVerification: Bool = PFUser.currentUser()["phoneVerified"] as Bool;
+        if (!phoneVerification)
+        {
+            
+        }
         if (errorCheckSuccess() == true)
         {
             saveDate();

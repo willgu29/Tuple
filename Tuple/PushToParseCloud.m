@@ -38,10 +38,6 @@
     return self;
 }
 
--(void)getRidOfDuplicates
-{
-    
-}
 
 -(void)separateAppUsersFromContactsAndSendPush:(NSArray *)selectedArray
 {
@@ -126,7 +122,7 @@
         [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
         PFObject *eventObject = (PFObject *)[query getFirstObject];
         NSMutableSet *usersInvited = eventObject[@"usersInvited"];
-        NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatRoom"];
+        NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatroom"];
         [peopleInChatroom addObject:user.username];
         [usersInvited addObjectsFromArray:usernames];
         eventObject[@"usersInvited"] = usersInvited;
@@ -150,7 +146,7 @@
     event[@"hostName"] = delegate.sendData.hostName;
     event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
-    event[@"peopleInChatRoom"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
+    event[@"peopleInChatroom"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
     event[@"usersInvited"] = usernames;
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

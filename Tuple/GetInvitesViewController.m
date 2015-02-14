@@ -99,7 +99,7 @@
 {
     PFObject *eventObject = [_eventsInvitedTo objectAtIndex:indexPath.row];
     
-    NSArray *peopleAttending = eventObject[@"peopleInChatRoom"];
+    NSArray *peopleAttending = eventObject[@"peopleInChatroom"];
     NSString *diningHall = eventObject[@"diningHall"];
     NSString *timeToEat = eventObject[@"whenToEat"];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;

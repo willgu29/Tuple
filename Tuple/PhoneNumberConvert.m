@@ -10,12 +10,22 @@
 
 @implementation PhoneNumberConvert
 
+//In form (xxx)-xxx-xxxx
 +(NSString *)convertPhoneNumberToOnlyNumbers:(NSString *)phoneNumber
 {
     NSString *numbersOnlyPhoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet:
                                          [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
                                         componentsJoinedByString:@""];
-    return numbersOnlyPhoneNumber;
+    
+    if (numbersOnlyPhoneNumber.length == 11)
+    {
+        NSString *newStr = [numbersOnlyPhoneNumber substringFromIndex:1];
+        return newStr;
+    }
+    else
+    {
+        return numbersOnlyPhoneNumber;
+    }
 }
 
 @end

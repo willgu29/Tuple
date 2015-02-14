@@ -127,8 +127,7 @@
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive)
     {
-//        [PFPush handlePush:userInfo];
-        
+        [PFPush handlePush:userInfo];
     }
     else
     {
