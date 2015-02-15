@@ -147,12 +147,7 @@
     }
     else
     {
-        //Background
-        //Conflicting with parse and layer pushnotifications (only want this on parse notification)
-//        self.sendData.currentUsername = [PFUser currentUser].username;
-//        self.sendData.clientType = 2;
-//        GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
-//        [(UINavigationController *)self.window.rootViewController pushViewController:getInvitesVC animated:YES];
+   
     }
     
 }
