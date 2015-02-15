@@ -106,6 +106,7 @@
 
 #pragma mark - Register Push Notifications
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+   
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
@@ -116,6 +117,15 @@
     [[NSUserDefaults standardUserDefaults] setObject:hexadecimalString forKey:@"deviceToken"];
 
     [self activiateLayer];
+    
+    
+    NSError *error;
+    BOOL success = [self.layerClient updateRemoteNotificationDeviceToken:deviceToken error:&error];
+    if (success) {
+        NSLog(@"Application did register for remote notifications");
+    } else {
+        NSLog(@"Error updating Layer device token for push:%@", error);
+    }
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -125,17 +135,24 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     UIApplicationState state = [application applicationState];
+    if ([[userInfo valueForKeyPath:@"aps.alert"] isEqualToString:@""])
+    {
+        return;
+    }
     if (state == UIApplicationStateActive)
     {
-        [PFPush handlePush:userInfo];
+        NSLog(@"User Info: %@", userInfo);
+        
+//        [PFPush handlePush:userInfo];
     }
     else
     {
         //Background
-        self.sendData.currentUsername = [PFUser currentUser].username;
-        self.sendData.clientType = 2;
-        GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
-        [(UINavigationController *)self.window.rootViewController pushViewController:getInvitesVC animated:YES];
+        //Conflicting with parse and layer pushnotifications (only want this on parse notification)
+//        self.sendData.currentUsername = [PFUser currentUser].username;
+//        self.sendData.clientType = 2;
+//        GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
+//        [(UINavigationController *)self.window.rootViewController pushViewController:getInvitesVC animated:YES];
     }
     
 }

@@ -19,8 +19,7 @@
     LYRMessagePart *messagePart = [LYRMessagePart messagePartWithText:textString];
     
     // Creates and returns a new message object with the given conversation and array of message parts
-    LYRMessage *message = [delegate.layerClient newMessageWithParts:@[messagePart] options:@{LYRMessageOptionsPushNotificationAlertKey: textString} error:nil];
-    
+    LYRMessage *message = [delegate.layerClient newMessageWithParts:@[messagePart] options:@{LYRMessageOptionsPushNotificationAlertKey: textString, LYRMessageOptionsPushNotificationSoundNameKey: @"default"} error:nil];
     // Sends the specified message
     NSError *error;
     BOOL success = [conversation sendMessage:message error:&error];
