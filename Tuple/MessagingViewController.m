@@ -122,9 +122,9 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
             PFQuery *query = [PFQuery queryWithClassName:@"Events"];
             [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
             PFObject *eventObject = (PFObject *)[query getFirstObject];
-            NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatRoom"];
+            NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatroom"];
             [peopleInChatroom removeObject:user.username];
-            eventObject[@"peopleInChatRoom"] = peopleInChatroom;
+            eventObject[@"peopleInChatroom"] = peopleInChatroom;
             [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     
             }];
