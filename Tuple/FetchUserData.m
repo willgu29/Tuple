@@ -70,4 +70,13 @@
     return phoneStatus.boolValue;
 }
 
++(NSString *)getCurrentUserFirstAndLastNameFormattedString
+{
+    PFUser *user = [PFUser currentUser];
+    NSString *firstName = user[@"firstName"];
+    NSString *lastName = user[@"lastName"];
+    NSString *format = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    return format;
+}
+
 @end

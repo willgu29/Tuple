@@ -9,6 +9,7 @@
 #import "SendMessages.h"
 #import <LayerKit/LayerKit.h>
 #import "AppDelegate.h"
+#import "FetchUserData.h"
 
 @implementation SendMessages
 
@@ -18,8 +19,12 @@
     // Creates a message part with text/plain MIME Type
     LYRMessagePart *messagePart = [LYRMessagePart messagePartWithText:textString];
     
+    
+    NSString *firstLastName = [FetchUserData getCurrentUserFirstAndLastNameFormattedString];
+    NSString *pushNotificationString = [NSString stringWithFormat:@"%@: %@",firstLastName, textString];
+    
     // Creates and returns a new message object with the given conversation and array of message parts
-    LYRMessage *message = [delegate.layerClient newMessageWithParts:@[messagePart] options:@{LYRMessageOptionsPushNotificationAlertKey: textString, LYRMessageOptionsPushNotificationSoundNameKey: @"default"} error:nil];
+    LYRMessage *message = [delegate.layerClient newMessageWithParts:@[messagePart] options:@{LYRMessageOptionsPushNotificationAlertKey: pushNotificationString, LYRMessageOptionsPushNotificationSoundNameKey: @"default"} error:nil];
     // Sends the specified message
     NSError *error;
     BOOL success = [conversation sendMessage:message error:&error];

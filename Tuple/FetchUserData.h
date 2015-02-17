@@ -17,5 +17,6 @@
 +(PFObject *)lookupEventWithHost:(NSString *)hostUsername;
 +(NSURL *)lookupConvoIDWithUsername:(NSString *)username;
 +(BOOL)getPhoneVerificationStatusCurrentUser;
++(NSString *)getCurrentUserFirstAndLastNameFormattedString;
 
 @end
