@@ -10,7 +10,7 @@
 
 @interface CreateConversation : NSObject
 
-+(NSURL *)createInitialConversationWithTitle:(NSString *)titleName;
++(NSURL *)createInitialConversationWithUsername:(NSString *)username;
 
 
 @end

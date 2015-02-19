@@ -42,7 +42,6 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
         [self.conversation addParticipants:[NSSet setWithArray:_deviceTokenParticipants] error:&error];
-        [delegate setUpTimerToDeleteEventAndMessages];
     }
     else if (delegate.sendData.clientType == 2)
     {
@@ -285,9 +284,7 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     }
     else
     {
-        PFUser *user = [FetchUserData lookupDeviceToken:[message sentByUserID]];
-        NSString *name = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",name,messageString];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",[message sentByUserID],messageString];
         
     }
     

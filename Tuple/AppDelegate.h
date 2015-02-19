@@ -17,7 +17,6 @@
 @property (strong, nonatomic) LYRClient *layerClient;
 @property (strong, nonatomic) SendData *sendData;
 
--(void)setUpTimerToDeleteEventAndMessages;
-
+-(void)activiateLayer;
 @end
 

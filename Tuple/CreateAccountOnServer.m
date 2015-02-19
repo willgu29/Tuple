@@ -11,6 +11,7 @@
 #import "PhoneNumberConvert.h"
 #import "CreateConversation.h"
 #import "CreateFriendsList.h"
+#import "AppDelegate.h"
 @interface CreateAccountOnServer()
 
 @property (nonatomic, strong) NSString *firstName;
@@ -66,7 +67,7 @@
     [friendsList createParseFriendsListWithUser:_username];
     
     
-    NSURL * convoID = [CreateConversation createInitialConversationWithTitle:_username];
+    NSURL * convoID = [CreateConversation createInitialConversationWithUsername:_username];
     
     PFUser *newUser = [PFUser user];
     newUser.username = _username;

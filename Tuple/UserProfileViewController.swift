@@ -11,7 +11,7 @@ import UIKit
 class UserProfileViewController: UIViewController {
 
     var reportBug = ReportBug();
-
+    var delegate = UIApplication.sharedApplication().delegate as AppDelegate;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,10 @@ class UserProfileViewController: UIViewController {
     
     @IBAction func logoutButton(){
         PFUser.logOut();
+        delegate.layerClient.deauthenticateWithCompletion { (var success: Bool, var error: NSError!) -> Void in
+            
+        }
+        
         var introVC = IntroViewController(nibName:"IntroViewController", bundle: nil);
         self.presentViewController(introVC, animated: true, completion: nil);
     }

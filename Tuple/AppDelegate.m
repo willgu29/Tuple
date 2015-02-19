@@ -20,22 +20,6 @@
 
 @implementation AppDelegate
 
--(void)setUpTimerToDeleteEventAndMessages
-{
-    NSTimeInterval secondsTillDelete = ((self.sendData.minutesTillMeetup*60) + (10*60));
-    NSTimer *deleteTimer = [NSTimer timerWithTimeInterval:secondsTillDelete target:self selector:@selector(deleteEvent) userInfo:nil repeats:NO];
-    
-}
--(void)deleteEvent
-{
-    [DeleteParseObject deleteCurrentUserEventFromParse];
-    NSTimer *deleteTimer = [NSTimer timerWithTimeInterval:1200 target:self selector:@selector(deleteMessages) userInfo:nil repeats:NO];
-}
--(void)deleteMessages
-{
-    [DeleteMessages deleteMessagesInCurrentUserConversation];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -113,19 +97,29 @@
     [currentInstallation saveInBackground];
     
     NSLog(@"Device token: %@", deviceToken);
+    [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"deviceTokenTypeData"];
     NSString *hexadecimalString = [deviceToken hexadecimalString];
     [[NSUserDefaults standardUserDefaults] setObject:hexadecimalString forKey:@"deviceToken"];
 
-    [self activiateLayer];
+    
+//    if ([PFUser currentUser].username)
+//    {
+//        [self activiateLayer];
+//        NSError *error;
+//        BOOL success = [self.layerClient updateRemoteNotificationDeviceToken:deviceToken error:&error];
+//        if (success) {
+//            NSLog(@"Application did register for remote notifications");
+//        } else {
+//            NSLog(@"Error updating Layer device token for push:%@", error);
+//        }
+//    }
+//    else
+//    {
+//        
+//    }
     
     
-    NSError *error;
-    BOOL success = [self.layerClient updateRemoteNotificationDeviceToken:deviceToken error:&error];
-    if (success) {
-        NSLog(@"Application did register for remote notifications");
-    } else {
-        NSLog(@"Error updating Layer device token for push:%@", error);
-    }
+   
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -186,8 +180,8 @@
 
 -(NSString *)generateUserIDString
 {
-    NSLog(@"Generating Unique ID");
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+    NSLog(@"Generating Unique ID, %@", [PFUser currentUser].username);
+    return [PFUser currentUser].username;
 }
 
 -(void)activiateLayer

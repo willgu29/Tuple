@@ -21,9 +21,25 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var min45: UIButton!
     @IBOutlet weak var min60: UIButton!
 
+    func setupLayer() {
+        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var deviceTokenData: NSData = NSUserDefaults.standardUserDefaults().objectForKey("deviceTokenTypeData") as NSData;
+        var error: NSError?
+        delegate.activiateLayer();
+        
+        var success = delegate.layerClient.updateRemoteNotificationDeviceToken(deviceTokenData, error: &error)
+        if (success) {
+            NSLog("Application did register for remote notifications");
+        } else {
+            NSLog("Error updating Layer device token for push:%@", error!);
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Setup Layer
+        self.setupLayer();
         self.navigationController?.navigationBarHidden = true;
 
     }

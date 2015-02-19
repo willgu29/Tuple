@@ -19,13 +19,12 @@
 
 @implementation CreateConversation
 
-+(NSURL *)createInitialConversationWithTitle:(NSString *)titleName
++(NSURL *)createInitialConversationWithUsername:(NSString *)username
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSString *deviceTokenString = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
 
     NSError *error = nil;
-    LYRConversation *conversation = [delegate.layerClient newConversationWithParticipants:[NSSet setWithArray:@[deviceTokenString, @"TupleUCLA"]] options:nil error:&error];
+    LYRConversation *conversation = [delegate.layerClient newConversationWithParticipants:[NSSet setWithArray:@[username, @"TupleUCLA"]] options:nil error:&error];
     if (error)
     {
         NSLog(@"Create Conversation Error: %@", error);
@@ -34,7 +33,7 @@
     [SendMessages sendMessage:@"Welcome to Tuple!" ToConversation:conversation];
     [SendMessages sendMessage:@"Say hi!" ToConversation:conversation];
     
-    [conversation setValue:titleName forMetadataAtKeyPath:@"title"];
+    [conversation setValue:username forMetadataAtKeyPath:@"title"];
     
     [[NSUserDefaults standardUserDefaults] setURL:conversation.identifier forKey:@"convoID"];
     
