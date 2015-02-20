@@ -5,6 +5,7 @@ pod "AFNetworking", "~> 2.0"
 
 target 'Tuple' do
 pod 'LayerKit'
+pod 'JSQMessagesViewController'
 end
 
 target 'TupleTests' do

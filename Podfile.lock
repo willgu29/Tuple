@@ -20,14 +20,20 @@ PODS:
   - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - JSQMessagesViewController (6.1.3):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - LayerKit (0.9.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - JSQMessagesViewController
   - LayerKit
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  JSQMessagesViewController: e93a288a9662d4519c95a28a8c0eec10beae1bfc
+  JSQSystemSoundPlayer: 55528c699a283aae2220d3ae7b8b527d2ecef4b4
   LayerKit: 0e07ecf202c88c5eb17fa4f52301e0dea89afe7f
 
 COCOAPODS: 0.35.0

@@ -27,7 +27,6 @@
 
 @end
 
-const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
 
 
 @implementation MessagingViewController
