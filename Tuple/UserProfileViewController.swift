@@ -18,13 +18,13 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.submitPictureButton?.hidden = true;
+        self.imagePreview?.hidden = true;
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(animated: Bool) {
-        self.submitPictureButton?.hidden = true;
-        self.imagePreview?.hidden = true;
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +40,7 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
         self.presentViewController(imagePicker, animated: true, completion: nil);
     }
     
-    func imagePickerController(pickGer: UIImagePickerController!, didFinishPickingMediaWithInfo info:NSDictionary!) {
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info:NSDictionary!) {
         var tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as UIImage
         imagePreview?.image = tempImage;
         CreateProfilePicture.transformImageViewIntoCircle(imagePreview);

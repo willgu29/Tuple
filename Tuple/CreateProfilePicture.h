@@ -11,7 +11,9 @@
 
 @interface CreateProfilePicture : NSObject
 
-+(UIImageView *)transformImageViewIntoCircle:(UIImageView *)image;
-
++(UIImageView *)transformImageViewIntoCircle:(UIImageView *)imageView;
++(UIImageView *)transformImageViewIntoRoundedRectangle:(UIImageView *)imageView;
++(UIImage *)scaleImageDownToHalf:(UIImage *)image;
++(UIImage *)scaleImageDownToFourth:(UIImage *)image;
 
 @end
