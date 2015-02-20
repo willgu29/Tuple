@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		09630052F5A7AC28705A72CD /* libPods-Tuple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A16768E974AACC91909089AD /* libPods-Tuple.a */; };
 		14BE0C6511E807B3B541E470 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6173AC9A3E0B23079BBBB0E6 /* libPods.a */; };
+		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
+		842B33A31A96FD3D0049EEB1 /* SavePhotoToServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* SavePhotoToServer.m */; };
 		8437551F1A96BD54003CFD45 /* ThisUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437551D1A96BD54003CFD45 /* ThisUserTableViewCell.swift */; };
 		843755201A96BD54003CFD45 /* ThisUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437551E1A96BD54003CFD45 /* ThisUserTableViewCell.xib */; };
 		843755231A96BD66003CFD45 /* OtherUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843755211A96BD66003CFD45 /* OtherUserTableViewCell.swift */; };
@@ -99,6 +101,10 @@
 /* Begin PBXFileReference section */
 		20EFEE7D5C0804330ACE15AB /* Pods-Tuple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.release.xcconfig"; sourceTree = "<group>"; };
 		6173AC9A3E0B23079BBBB0E6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		842B339D1A96FB6C0049EEB1 /* CreateProfilePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProfilePicture.h; sourceTree = "<group>"; };
+		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
+		842B33A11A96FD3D0049EEB1 /* SavePhotoToServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavePhotoToServer.h; sourceTree = "<group>"; };
+		842B33A21A96FD3D0049EEB1 /* SavePhotoToServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavePhotoToServer.m; sourceTree = "<group>"; };
 		8437551D1A96BD54003CFD45 /* ThisUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisUserTableViewCell.swift; sourceTree = "<group>"; };
 		8437551E1A96BD54003CFD45 /* ThisUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThisUserTableViewCell.xib; sourceTree = "<group>"; };
 		843755211A96BD66003CFD45 /* OtherUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserTableViewCell.swift; sourceTree = "<group>"; };
@@ -256,6 +262,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842B339C1A96FB500049EEB1 /* ImageManipulations */ = {
+			isa = PBXGroup;
+			children = (
+				842B339D1A96FB6C0049EEB1 /* CreateProfilePicture.h */,
+				842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */,
+			);
+			name = ImageManipulations;
+			sourceTree = "<group>";
+		};
+		842B33A01A96FD040049EEB1 /* SaveUserData */ = {
+			isa = PBXGroup;
+			children = (
+				842B33A11A96FD3D0049EEB1 /* SavePhotoToServer.h */,
+				842B33A21A96FD3D0049EEB1 /* SavePhotoToServer.m */,
+			);
+			name = SaveUserData;
+			sourceTree = "<group>";
+		};
 		843755101A96B6D0003CFD45 /* MessageCellDesign */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +325,8 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				842B33A01A96FD040049EEB1 /* SaveUserData */,
+				842B339C1A96FB500049EEB1 /* ImageManipulations */,
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
 				84BFE0AC1A8DF93100721F88 /* Sorters */,
 				84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */,
@@ -785,6 +811,7 @@
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
 				84821AE31A88AF6B00463B7E /* CreateConversation.m in Sources */,
 				84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */,
+				842B33A31A96FD3D0049EEB1 /* SavePhotoToServer.m in Sources */,
 				84821AED1A899AA000463B7E /* DiningHallConvert.m in Sources */,
 				84BFE0A61A8DF0E300721F88 /* VerificationStepViewController.swift in Sources */,
 				84821AE61A893BFA00463B7E /* SendMessages.m in Sources */,
@@ -815,6 +842,7 @@
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
 				84821A991A87DCCE00463B7E /* SendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
+				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
 				84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
 				8437551F1A96BD54003CFD45 /* ThisUserTableViewCell.swift in Sources */,

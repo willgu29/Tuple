@@ -35,6 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self loadConversationAndMessages];
+}
+
+-(void)loadConversationAndMessages
+{
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSError *error;
     if (delegate.sendData.clientType == 1)
@@ -55,28 +60,25 @@
     {
         self.conversation = [QueryForConversation queryForConversationWithHostName:delegate.sendData.hostUsername];
         [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
-
-
+        
+        
     }
     
     if (self.conversation)
     {
         [self setupQueryController];
         [self setupLabels];
+        [_tableView reloadData];
     }
     else
     {
         //TODO: ALERT ERROR
         NSLog(@"No conversation found ERROR");
+        [self performSelector:@selector(loadConversationAndMessages) withObject:self afterDelay:1];
     }
- 
 
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -113,7 +115,7 @@
 #pragma mark - AlertView Delegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"Button Index: %d", buttonIndex);
+    NSLog(@"Button Index: %ld", (long)buttonIndex);
     if (buttonIndex == 0)
     {
         NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
@@ -187,7 +189,7 @@
 -(void)revertVC
 {
     [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    
+    [self resignKeyboard];
 }
 
 #pragma mark -Layer methods and calls

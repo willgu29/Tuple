@@ -1,4 +1,4 @@
-exports.sendPushNotification = function(inviter,timeToEat,diningHallInt, hostName, deviceToken, message, response)
+exports.sendPushNotification = function(inviter,timeToEat,diningHallInt, hostUsername, deviceToken, message, response)
 {
 	var query =  new Parse.Query(Parse.Installation);
 	query.equalTo('deviceToken', deviceToken);
@@ -7,7 +7,7 @@ exports.sendPushNotification = function(inviter,timeToEat,diningHallInt, hostNam
 		data: {
 			alert: message,
 			sound: "default",
-			hostName: hostName,
+			hostUsername: hostUsername,
 			inviter: inviter
 		}
 	}, {
