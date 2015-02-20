@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <LayerKit/LayerKit.h>
-#import <JSQMessagesViewController/JSQMessages.h>
 
 
 @interface MessagingViewController : UIViewController <UIAlertViewDelegate,LYRQueryControllerDelegate, UITextFieldDelegate>
