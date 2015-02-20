@@ -11,7 +11,7 @@
 
 @interface MessagingViewController : UIViewController <UIAlertViewDelegate,LYRQueryControllerDelegate, UITextFieldDelegate>
 
-@property (nonatomic, strong) NSArray *deviceTokenParticipants;
+@property (nonatomic, strong) NSArray *usernameParticipants;
 
 
 @end

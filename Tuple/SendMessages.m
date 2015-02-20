@@ -13,7 +13,25 @@
 
 @implementation SendMessages
 
-+(void)sendMessage:(NSString *)textString ToConversation:(LYRConversation *)conversation
++(void)sendMessageWithoutPush:(NSString *)textString ToConversation:(LYRConversation *)conversation
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    // Creates a message part with text/plain MIME Type
+    LYRMessagePart *messagePart = [LYRMessagePart messagePartWithText:textString];
+    
+    // Creates and returns a new message object with the given conversation and array of message parts
+    LYRMessage *message = [delegate.layerClient newMessageWithParts:@[messagePart] options:nil error:nil];
+    // Sends the specified message
+    NSError *error;
+    BOOL success = [conversation sendMessage:message error:&error];
+    if (success) {
+        NSLog(@"Message queued to be sent: %@", textString);
+    } else {
+        NSLog(@"Message send failed: %@", error);
+    }
+}
+
++(void)sendMessageWithPush:(NSString *)textString ToConversation:(LYRConversation *)conversation
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     // Creates a message part with text/plain MIME Type

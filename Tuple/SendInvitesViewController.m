@@ -59,10 +59,10 @@
 {
     
 }
--(void)sendInvitesSuccess:(NSArray *)deviceTokenArray //add these to conversation after push notification success
+-(void)sendInvitesSuccess:(NSArray *)usernamesArray //add these to conversation after push notification success
 {
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
-    messageVC.deviceTokenParticipants = deviceTokenArray;
+    messageVC.usernameParticipants = usernamesArray;
     [self.navigationController pushViewController:messageVC animated:YES];
 }
 

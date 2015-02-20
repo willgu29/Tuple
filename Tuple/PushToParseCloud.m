@@ -78,7 +78,6 @@
                                     if (!error) {
                                         // this is where you handle the results and change the UI.
                                         NSLog(@"RESULTS: %@", object);
-                                        [_delegate sendInvitesSuccess:deviceTokenArray];
                                     }
                                     else
                                     {
@@ -129,6 +128,7 @@
         eventObject[@"peopleInChatroom"] = peopleInChatroom;
         [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
+                [_delegate sendInvitesSuccess:_usernamesArray];
                 [self sendDeviceTokensToCloud:_deviceTokensArray];
                 [self sendMessageToPhoneNumbers:_phoneNumbersArray];
             } else {
@@ -151,6 +151,7 @@
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
+            [_delegate sendInvitesSuccess:_usernamesArray];
             [self sendDeviceTokensToCloud:_deviceTokensArray];
             [self sendMessageToPhoneNumbers:_phoneNumbersArray];
         } else {
@@ -159,6 +160,7 @@
         
     }];
 }
+
 
 
 

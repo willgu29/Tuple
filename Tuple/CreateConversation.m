@@ -22,7 +22,7 @@
 +(NSURL *)createInitialConversationWithUsername:(NSString *)username
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-
+    
     NSError *error = nil;
     LYRConversation *conversation = [delegate.layerClient newConversationWithParticipants:[NSSet setWithArray:@[username, @"TupleUCLA"]] options:nil error:&error];
     if (error)
@@ -30,8 +30,8 @@
         NSLog(@"Create Conversation Error: %@", error);
     }
     
-    [SendMessages sendMessage:@"Welcome to Tuple!" ToConversation:conversation];
-    [SendMessages sendMessage:@"Say hi!" ToConversation:conversation];
+    [SendMessages sendMessageWithoutPush:@"Welcome to Tuple!" ToConversation:conversation];
+    [SendMessages sendMessageWithoutPush:@"Say hi!" ToConversation:conversation];
     
     [conversation setValue:username forMetadataAtKeyPath:@"title"];
     

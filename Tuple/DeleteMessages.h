@@ -10,7 +10,7 @@
 
 @interface DeleteMessages : NSObject
 
-+(void)deleteMessagesInCurrentUserConversation;
++(void)deleteMessagesInConversationID:(NSURL *)convoID; //for host usage only
 
 @end
 

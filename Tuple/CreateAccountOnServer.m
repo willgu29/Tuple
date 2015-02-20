@@ -65,10 +65,7 @@
     
     CreateFriendsList *friendsList = [[CreateFriendsList alloc] init];
     [friendsList createParseFriendsListWithUser:_username];
-    
-    
-    NSURL * convoID = [CreateConversation createInitialConversationWithUsername:_username];
-    
+
     PFUser *newUser = [PFUser user];
     newUser.username = _username;
     newUser.password = _password;
@@ -77,7 +74,6 @@
     newUser[@"lastName"] = _lastName;
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
     newUser[@"phoneNumber"] = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:_phoneNumber];
-    newUser[@"conversationID"] = convoID.absoluteString;
     newUser[@"phoneVerified"] = [NSNumber numberWithBool:NO];
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {

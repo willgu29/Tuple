@@ -270,11 +270,10 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
-				84BFE0B01A8E995400721F88 /* AlertMessages */,
-				84BFE0AC1A8DF93100721F88 /* Sorters */,
-				84BFE0931A8DCE5300721F88 /* DeleteCleanUpAPI */,
-				84821ACB1A88201700463B7E /* BaseTableViewInterface */,
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
+				84BFE0AC1A8DF93100721F88 /* Sorters */,
+				84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */,
+				84821ACB1A88201700463B7E /* BaseTableViewInterface */,
 				84821A931A87DC4E00463B7E /* GlobalData */,
 				84821A171A873BAB00463B7E /* Converters */,
 				84821AE01A88AF4900463B7E /* LayerConversationAPI */,
@@ -558,7 +557,7 @@
 			name = AcceptInvitesInterface;
 			sourceTree = "<group>";
 		};
-		84BFE0931A8DCE5300721F88 /* DeleteCleanUpAPI */ = {
+		84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */ = {
 			isa = PBXGroup;
 			children = (
 				84BFE0941A8DCE6A00721F88 /* DeleteParseObject.h */,
@@ -566,7 +565,7 @@
 				84BFE0971A8DD0E300721F88 /* DeleteMessages.h */,
 				84BFE0981A8DD0E300721F88 /* DeleteMessages.m */,
 			);
-			name = DeleteCleanUpAPI;
+			name = DeleteUpdateAPI;
 			sourceTree = "<group>";
 		};
 		84BFE0AC1A8DF93100721F88 /* Sorters */ = {
@@ -576,13 +575,6 @@
 				84BFE0AE1A8DF94500721F88 /* ArraySorter.m */,
 			);
 			name = Sorters;
-			sourceTree = "<group>";
-		};
-		84BFE0B01A8E995400721F88 /* AlertMessages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = AlertMessages;
 			sourceTree = "<group>";
 		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {

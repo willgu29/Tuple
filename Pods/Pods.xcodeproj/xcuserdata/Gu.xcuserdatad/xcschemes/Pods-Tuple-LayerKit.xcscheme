@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0AACB60A2FE0E1DF28C07C2D"
+               BlueprintIdentifier = "60A36629255F6F0F96CA3047"
                BuildableName = "libPods-Tuple-LayerKit.a"
                BlueprintName = "Pods-Tuple-LayerKit"
                ReferencedContainer = "container:Pods.xcodeproj">

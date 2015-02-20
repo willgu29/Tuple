@@ -15,9 +15,8 @@
 
 @implementation DeleteMessages
 
-+(void)deleteMessagesInCurrentUserConversation
++(void)deleteMessagesInConversationID:(NSURL *)convoID
 {
-    NSURL *convoID = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
     LYRConversation *conversation = [QueryForConversation queryForConversationWithConvoID:convoID];
     if (conversation)
     {
@@ -35,7 +34,8 @@
             {
                 BOOL success = [message delete:LYRDeletionModeAllParticipants error:&error];
             }
-            [SendMessages sendMessage:@"Welcome to Tuple!" ToConversation:conversation];
+            [SendMessages sendMessageWithoutPush:@"Welcome to Tuple!" ToConversation:conversation];
+            [SendMessages sendMessageWithoutPush:@"Say hi!" ToConversation:conversation];
         } else {
             NSLog(@"Query failed with error %@", error);
         }

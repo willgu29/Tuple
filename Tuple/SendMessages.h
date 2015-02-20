@@ -12,6 +12,7 @@
 
 @interface SendMessages : NSObject
 
-+(void)sendMessage:(NSString *)textString ToConversation:(LYRConversation *)conversation;
++(void)sendMessageWithoutPush:(NSString *)textString ToConversation:(LYRConversation *)conversation;
++(void)sendMessageWithPush:(NSString *)textString ToConversation:(LYRConversation *)conversation;
 
 @end

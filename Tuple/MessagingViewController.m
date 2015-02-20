@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "DiningHallConvert.h"
 #import "FetchUserData.h"
+#import "DeleteMessages.h"
 @interface MessagingViewController ()
 
 @property (nonatomic, strong) LYRConversation *conversation;
@@ -40,13 +41,21 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     if (delegate.sendData.clientType == 1)
     {
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
+        if (identifier == nil)
+        {
+            identifier = [CreateConversation createInitialConversationWithUsername:[PFUser currentUser].username];
+        }
+        else
+        {
+            [DeleteMessages deleteMessagesInConversationID:identifier];
+        }
         self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
-        [self.conversation addParticipants:[NSSet setWithArray:_deviceTokenParticipants] error:&error];
+        [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
     }
     else if (delegate.sendData.clientType == 2)
     {
         self.conversation = [QueryForConversation queryForConversationWithHostName:delegate.sendData.hostUsername];
-        [self.conversation addParticipants:[NSSet setWithArray:_deviceTokenParticipants] error:&error];
+        [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
 
 
     }
@@ -93,7 +102,7 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     {
         return;
     }
-    [SendMessages sendMessage:_textField.text ToConversation:self.conversation];
+    [SendMessages sendMessageWithPush:_textField.text ToConversation:self.conversation];
     _textField.text = @"";
 }
 
@@ -109,7 +118,7 @@ const int MAX_CONVERSATION_MESSAGES_FROM_QUERY = 50;
     if (buttonIndex == 0)
     {
         NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-        [SendMessages sendMessage:@"has left the conversation" ToConversation:self.conversation];
+        [SendMessages sendMessageWithoutPush:@"has left the conversation" ToConversation:self.conversation];
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         
         NSError *error = nil;
