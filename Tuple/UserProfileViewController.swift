@@ -51,7 +51,11 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
     }
     
     @IBAction func submitPicture() {
-        SavePhotoToServer.sendImageToServer(imagePreview?.image);
+        PhotoServer.sendImageToServer(imagePreview?.image);
+    }
+    
+    @IBAction func getPicture() {
+        PhotoServer.fetchImageFromServerForUsername(PFUser.currentUser().username);
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController!) {

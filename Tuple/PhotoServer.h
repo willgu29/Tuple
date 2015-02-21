@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SavePhotoToServer : NSObject
+@interface PhotoServer : NSObject
 
 +(void)sendImageToServer:(UIImage *)image;
++(void)fetchImageFromServerForUsername:(NSString *)username;
 
 @end

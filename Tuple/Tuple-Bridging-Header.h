@@ -18,4 +18,4 @@
 #import "PullFromParseCloud.h"
 #import "GetInvitesViewController.h"
 #import "CreateProfilePicture.h"
-#import "SavePhotoToServer.h"
+#import "PhotoServer.h"

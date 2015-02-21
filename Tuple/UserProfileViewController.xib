@@ -76,6 +76,15 @@
                         <action selector="takePicture" destination="-1" eventType="touchUpInside" id="cUk-4W-ifa"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ2-2I-3rb">
+                    <rect key="frame" x="135" y="208" width="51" height="30"/>
+                    <state key="normal" title="Get Pic">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="getPicture" destination="-1" eventType="touchUpInside" id="TX5-n8-bth"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
