@@ -8,7 +8,7 @@
 
 #import "CreateAccountOnServer.h"
 #import <Parse/Parse.h>
-#import "PhoneNumberConvert.h"
+#import "Converter.h"
 #import "LayerConversation.h"
 #import "CreateFriendsList.h"
 #import "AppDelegate.h"
@@ -73,7 +73,7 @@
     newUser[@"firstName"] = _firstName;
     newUser[@"lastName"] = _lastName;
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-    newUser[@"phoneNumber"] = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:_phoneNumber];
+    newUser[@"phoneNumber"] = [Converter convertPhoneNumberToOnlyNumbers:_phoneNumber];
     newUser[@"phoneVerified"] = [NSNumber numberWithBool:NO];
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {

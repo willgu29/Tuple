@@ -64,9 +64,9 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func saveDate(){
-        var date = TimeNumberConvert.convertTimeMinutesToDate(delegate.sendData.minutesTillMeetup);
-        var dateLocal = TimeNumberConvert.convertDateToCurrentTimeZone(date);
-        delegate.sendData.theTimeToEat = TimeNumberConvert.formatDateTo12HoursPmAm(date)
+        var date = Converter.convertTimeMinutesToDate(delegate.sendData.minutesTillMeetup);
+        var dateLocal = Converter.convertDateToCurrentTimeZone(date);
+        delegate.sendData.theTimeToEat = Converter.formatDateTo12HoursPmAm(date)
     }
     func saveHostName()
     {

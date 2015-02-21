@@ -7,7 +7,7 @@
 //
 
 #import "ParseDatabase.h"
-#import "PhoneNumberConvert.h"
+#import "Converter.h"
 
 @implementation ParseDatabase
 
@@ -26,7 +26,7 @@
 
 +(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber
 {
-    NSString *justNumbersPhoneNumber = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:phoneNumber];
+    NSString *justNumbersPhoneNumber = [Converter convertPhoneNumberToOnlyNumbers:phoneNumber];
     PFQuery *query = [PFUser query];
     [query whereKey:@"phoneNumber" equalTo:justNumbersPhoneNumber];
     PFUser *user = (PFUser *)[query getFirstObject];

@@ -17,6 +17,7 @@
 		843755241A96BD66003CFD45 /* OtherUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843755221A96BD66003CFD45 /* OtherUserTableViewCell.xib */; };
 		843755271A96BED6003CFD45 /* BaseMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */; };
 		844432431A992DD20052747E /* LayerConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432421A992DD20052747E /* LayerConversation.m */; };
+		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -69,10 +70,7 @@
 		84821AD31A88247300463B7E /* ParseDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD21A88247300463B7E /* ParseDatabase.m */; };
 		84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD71A888F1500463B7E /* AddFriendRelation.m */; };
 		84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADB1A88A05000463B7E /* PhoneTextField.m */; };
-		84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */; };
 		84821AE61A893BFA00463B7E /* SendMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE51A893BFA00463B7E /* SendMessages.m */; };
-		84821AED1A899AA000463B7E /* DiningHallConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEC1A899AA000463B7E /* DiningHallConvert.m */; };
-		84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEF1A89A93200463B7E /* TimeNumberConvert.m */; };
 		84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */; };
 		84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */; };
 		84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0951A8DCE6A00721F88 /* DeleteParseObject.m */; };
@@ -112,6 +110,8 @@
 		843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMessageTableViewCell.m; sourceTree = "<group>"; };
 		844432411A992DD20052747E /* LayerConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerConversation.h; sourceTree = "<group>"; };
 		844432421A992DD20052747E /* LayerConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerConversation.m; sourceTree = "<group>"; };
+		844432441A9932600052747E /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
+		844432451A9932600052747E /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -189,14 +189,8 @@
 		84821AD71A888F1500463B7E /* AddFriendRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendRelation.m; sourceTree = "<group>"; };
 		84821ADA1A88A05000463B7E /* PhoneTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTextField.h; sourceTree = "<group>"; };
 		84821ADB1A88A05000463B7E /* PhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTextField.m; sourceTree = "<group>"; };
-		84821ADD1A88AA0300463B7E /* PhoneNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberConvert.h; sourceTree = "<group>"; };
-		84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberConvert.m; sourceTree = "<group>"; };
 		84821AE41A893BFA00463B7E /* SendMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessages.h; sourceTree = "<group>"; };
 		84821AE51A893BFA00463B7E /* SendMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessages.m; sourceTree = "<group>"; };
-		84821AEB1A899AA000463B7E /* DiningHallConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningHallConvert.h; sourceTree = "<group>"; };
-		84821AEC1A899AA000463B7E /* DiningHallConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningHallConvert.m; sourceTree = "<group>"; };
-		84821AEE1A89A93200463B7E /* TimeNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeNumberConvert.h; sourceTree = "<group>"; };
-		84821AEF1A89A93200463B7E /* TimeNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeNumberConvert.m; sourceTree = "<group>"; };
 		84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvitesViewController.h; sourceTree = "<group>"; };
 		84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetInvitesViewController.m; sourceTree = "<group>"; };
 		84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetInvitesViewController.xib; sourceTree = "<group>"; };
@@ -376,14 +370,10 @@
 		84821A171A873BAB00463B7E /* Converters */ = {
 			isa = PBXGroup;
 			children = (
+				844432441A9932600052747E /* Converter.h */,
+				844432451A9932600052747E /* Converter.m */,
 				84821A181A873BD800463B7E /* NSDataConvert.h */,
 				84821A191A873BD800463B7E /* NSDataConvert.m */,
-				84821ADD1A88AA0300463B7E /* PhoneNumberConvert.h */,
-				84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */,
-				84821AEB1A899AA000463B7E /* DiningHallConvert.h */,
-				84821AEC1A899AA000463B7E /* DiningHallConvert.m */,
-				84821AEE1A89A93200463B7E /* TimeNumberConvert.h */,
-				84821AEF1A89A93200463B7E /* TimeNumberConvert.m */,
 			);
 			name = Converters;
 			sourceTree = "<group>";
@@ -806,7 +796,6 @@
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
 				84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */,
 				842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */,
-				84821AED1A899AA000463B7E /* DiningHallConvert.m in Sources */,
 				84BFE0A61A8DF0E300721F88 /* VerificationStepViewController.swift in Sources */,
 				84821AE61A893BFA00463B7E /* SendMessages.m in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
@@ -814,7 +803,6 @@
 				84BFE0991A8DD0E300721F88 /* DeleteMessages.m in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
 				84821AD31A88247300463B7E /* ParseDatabase.m in Sources */,
-				84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
@@ -838,10 +826,10 @@
 				84821A991A87DCCE00463B7E /* SendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
-				84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
 				8437551F1A96BD54003CFD45 /* ThisUserTableViewCell.swift in Sources */,
 				84821A271A873C2600463B7E /* MakeNewAccountViewController.swift in Sources */,
+				844432461A9932600052747E /* Converter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

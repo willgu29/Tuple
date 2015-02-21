@@ -11,11 +11,9 @@
 #import "UserTypeEnums.h"
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
-#import "TimeNumberConvert.h"
-//#import "FetchUserData.h"
+#import "Converter.h"
 #import "DeleteParseObject.h"
 #import "AFNetworking.h"
-#import "PhoneNumberConvert.h"
 
 @interface PushToParseCloud()
 
@@ -96,7 +94,7 @@
     
     for (NSString *phoneNumber in phoneArray)
     {
-        NSString *numbersOnly = [PhoneNumberConvert convertPhoneNumberToOnlyNumbers:phoneNumber];
+        NSString *numbersOnly = [Converter convertPhoneNumberToOnlyNumbers:phoneNumber];
         NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=1%@&text=%@", numbersOnly, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
         NSString *encoded = [postURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 

@@ -11,7 +11,7 @@
 #import "CreateFriendsList.h"
 #import "AddFriendsViewController.h"
 #import "PhoneTextField.h"
-#import "TimeNumberConvert.h"
+#import "Converter.h"
 #import "SendData.h"
 #import "ParseDatabase.h"
 #import "PullFromParseCloud.h"

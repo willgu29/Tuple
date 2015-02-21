@@ -11,8 +11,7 @@
 #import "LayerConversation.h"
 #import "SendMessages.h"
 #import "AppDelegate.h"
-#import "DiningHallConvert.h"
-//#import "FetchUserData.h"
+#import "Converter.h"
 #import "DeleteMessages.h"
 @interface MessagingViewController ()
 
@@ -89,7 +88,7 @@
 -(void)setupLabels
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSString *diningHall =[DiningHallConvert convertDiningHallIntToString:delegate.sendData.diningHallInt];
+    NSString *diningHall =[Converter convertDiningHallIntToString:delegate.sendData.diningHallInt];
     NSString *timeToEat = delegate.sendData.theTimeToEat;
     _hostName.text = [NSString stringWithFormat:@"Host: %@", delegate.sendData.hostName];
     _diningHallAndTime.text = [NSString stringWithFormat:@"%@ @ %@", diningHall, timeToEat];
