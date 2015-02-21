@@ -10,7 +10,7 @@
 #import "MessagingViewController.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
-#import "QueryForConversation.h"
+//#import "LayerConversation.h"
 
 @interface SendInvitesViewController ()
 

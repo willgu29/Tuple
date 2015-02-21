@@ -11,7 +11,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
-#import "FetchUserData.h"
+//#import "FetchUserData.h"
 #import "ArraySorter.h"
 @interface PullFromContactsList()
 

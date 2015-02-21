@@ -9,7 +9,7 @@
 #import "DeleteMessages.h"
 #import <LayerKit/LayerKit.h>
 #import <Parse/Parse.h>
-#import "QueryForConversation.h"
+#import "LayerConversation.h"
 #import "AppDelegate.h"
 #import "SendMessages.h"
 
@@ -17,7 +17,7 @@
 
 +(void)deleteMessagesInConversationID:(NSURL *)convoID
 {
-    LYRConversation *conversation = [QueryForConversation queryForConversationWithConvoID:convoID];
+    LYRConversation *conversation = [LayerConversation queryForConversationWithConvoID:convoID];
     if (conversation)
     {
         // Fetches all messages for a given conversation

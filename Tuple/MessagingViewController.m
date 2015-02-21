@@ -8,11 +8,11 @@
 
 #import "MessagingViewController.h"
 #import "Tuple-Swift.h"
-#import "QueryForConversation.h"
+#import "LayerConversation.h"
 #import "SendMessages.h"
 #import "AppDelegate.h"
 #import "DiningHallConvert.h"
-#import "FetchUserData.h"
+//#import "FetchUserData.h"
 #import "DeleteMessages.h"
 @interface MessagingViewController ()
 
@@ -47,18 +47,18 @@
         NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
         if (identifier == nil)
         {
-            identifier = [CreateConversation createInitialConversationWithUsername:[PFUser currentUser].username];
+            identifier = [LayerConversation createInitialConversationWithUsername:[PFUser currentUser].username];
         }
         else
         {
             [DeleteMessages deleteMessagesInConversationID:identifier];
         }
-        self.conversation = [QueryForConversation queryForConversationWithConvoID:identifier];
+        self.conversation = [LayerConversation queryForConversationWithConvoID:identifier];
         [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
     }
     else if (delegate.sendData.clientType == 2)
     {
-        self.conversation = [QueryForConversation queryForConversationWithHostName:delegate.sendData.hostUsername];
+        self.conversation = [LayerConversation queryForConversationWithHostName:delegate.sendData.hostUsername];
         [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
         
         

@@ -12,7 +12,7 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "TimeNumberConvert.h"
-#import "FetchUserData.h"
+//#import "FetchUserData.h"
 #import "DeleteParseObject.h"
 #import "AFNetworking.h"
 #import "PhoneNumberConvert.h"

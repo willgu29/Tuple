@@ -9,7 +9,7 @@
 #import "SendMessages.h"
 #import <LayerKit/LayerKit.h>
 #import "AppDelegate.h"
-#import "FetchUserData.h"
+#import "ParseDatabase.h"
 
 @implementation SendMessages
 
@@ -38,7 +38,7 @@
     LYRMessagePart *messagePart = [LYRMessagePart messagePartWithText:textString];
     
     
-    NSString *firstLastName = [FetchUserData getCurrentUserFirstAndLastNameFormattedString];
+    NSString *firstLastName = [ParseDatabase getCurrentUserFirstAndLastNameFormattedString];
     NSString *pushNotificationString = [NSString stringWithFormat:@"%@: %@",firstLastName, textString];
     
     // Creates and returns a new message object with the given conversation and array of message parts

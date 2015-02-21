@@ -16,6 +16,7 @@
 		843755231A96BD66003CFD45 /* OtherUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843755211A96BD66003CFD45 /* OtherUserTableViewCell.swift */; };
 		843755241A96BD66003CFD45 /* OtherUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843755221A96BD66003CFD45 /* OtherUserTableViewCell.xib */; };
 		843755271A96BED6003CFD45 /* BaseMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */; };
+		844432431A992DD20052747E /* LayerConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432421A992DD20052747E /* LayerConversation.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -65,13 +66,11 @@
 		84821AC91A881F2900463B7E /* AddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AC71A881F2900463B7E /* AddFriendsViewController.m */; };
 		84821ACA1A881F2900463B7E /* AddFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821AC81A881F2900463B7E /* AddFriendsViewController.xib */; };
 		84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ACD1A88203500463B7E /* BaseTableViewController.m */; };
-		84821AD31A88247300463B7E /* FetchUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD21A88247300463B7E /* FetchUserData.m */; };
+		84821AD31A88247300463B7E /* ParseDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD21A88247300463B7E /* ParseDatabase.m */; };
 		84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD71A888F1500463B7E /* AddFriendRelation.m */; };
 		84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADB1A88A05000463B7E /* PhoneTextField.m */; };
 		84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */; };
-		84821AE31A88AF6B00463B7E /* CreateConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE21A88AF6B00463B7E /* CreateConversation.m */; };
 		84821AE61A893BFA00463B7E /* SendMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE51A893BFA00463B7E /* SendMessages.m */; };
-		84821AE91A8943E000463B7E /* QueryForConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AE81A8943E000463B7E /* QueryForConversation.m */; };
 		84821AED1A899AA000463B7E /* DiningHallConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEC1A899AA000463B7E /* DiningHallConvert.m */; };
 		84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AEF1A89A93200463B7E /* TimeNumberConvert.m */; };
 		84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */; };
@@ -111,6 +110,8 @@
 		843755221A96BD66003CFD45 /* OtherUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserTableViewCell.xib; sourceTree = "<group>"; };
 		843755251A96BED6003CFD45 /* BaseMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMessageTableViewCell.h; sourceTree = "<group>"; };
 		843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMessageTableViewCell.m; sourceTree = "<group>"; };
+		844432411A992DD20052747E /* LayerConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerConversation.h; sourceTree = "<group>"; };
+		844432421A992DD20052747E /* LayerConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerConversation.m; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -182,20 +183,16 @@
 		84821AC81A881F2900463B7E /* AddFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendsViewController.xib; sourceTree = "<group>"; };
 		84821ACC1A88203500463B7E /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		84821ACD1A88203500463B7E /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
-		84821AD11A88247300463B7E /* FetchUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchUserData.h; sourceTree = "<group>"; };
-		84821AD21A88247300463B7E /* FetchUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchUserData.m; sourceTree = "<group>"; };
+		84821AD11A88247300463B7E /* ParseDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDatabase.h; sourceTree = "<group>"; };
+		84821AD21A88247300463B7E /* ParseDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDatabase.m; sourceTree = "<group>"; };
 		84821AD61A888F1500463B7E /* AddFriendRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendRelation.h; sourceTree = "<group>"; };
 		84821AD71A888F1500463B7E /* AddFriendRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendRelation.m; sourceTree = "<group>"; };
 		84821ADA1A88A05000463B7E /* PhoneTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTextField.h; sourceTree = "<group>"; };
 		84821ADB1A88A05000463B7E /* PhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTextField.m; sourceTree = "<group>"; };
 		84821ADD1A88AA0300463B7E /* PhoneNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberConvert.h; sourceTree = "<group>"; };
 		84821ADE1A88AA0300463B7E /* PhoneNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberConvert.m; sourceTree = "<group>"; };
-		84821AE11A88AF6B00463B7E /* CreateConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateConversation.h; sourceTree = "<group>"; };
-		84821AE21A88AF6B00463B7E /* CreateConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateConversation.m; sourceTree = "<group>"; };
 		84821AE41A893BFA00463B7E /* SendMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessages.h; sourceTree = "<group>"; };
 		84821AE51A893BFA00463B7E /* SendMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessages.m; sourceTree = "<group>"; };
-		84821AE71A8943E000463B7E /* QueryForConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryForConversation.h; sourceTree = "<group>"; };
-		84821AE81A8943E000463B7E /* QueryForConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryForConversation.m; sourceTree = "<group>"; };
 		84821AEB1A899AA000463B7E /* DiningHallConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningHallConvert.h; sourceTree = "<group>"; };
 		84821AEC1A899AA000463B7E /* DiningHallConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningHallConvert.m; sourceTree = "<group>"; };
 		84821AEE1A89A93200463B7E /* TimeNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeNumberConvert.h; sourceTree = "<group>"; };
@@ -538,8 +535,8 @@
 				84821AAE1A87F73E00463B7E /* PullFromFriendsList.m */,
 				84821AA61A87F22B00463B7E /* PullFromContactsList.h */,
 				84821AA71A87F22B00463B7E /* PullFromContactsList.m */,
-				84821AD11A88247300463B7E /* FetchUserData.h */,
-				84821AD21A88247300463B7E /* FetchUserData.m */,
+				84821AD11A88247300463B7E /* ParseDatabase.h */,
+				84821AD21A88247300463B7E /* ParseDatabase.m */,
 			);
 			name = GetPeopleAPI;
 			sourceTree = "<group>";
@@ -595,12 +592,10 @@
 		84821AE01A88AF4900463B7E /* LayerConversationAPI */ = {
 			isa = PBXGroup;
 			children = (
-				84821AE11A88AF6B00463B7E /* CreateConversation.h */,
-				84821AE21A88AF6B00463B7E /* CreateConversation.m */,
+				844432411A992DD20052747E /* LayerConversation.h */,
+				844432421A992DD20052747E /* LayerConversation.m */,
 				84821AE41A893BFA00463B7E /* SendMessages.h */,
 				84821AE51A893BFA00463B7E /* SendMessages.m */,
-				84821AE71A8943E000463B7E /* QueryForConversation.h */,
-				84821AE81A8943E000463B7E /* QueryForConversation.m */,
 			);
 			name = LayerConversationAPI;
 			sourceTree = "<group>";
@@ -809,7 +804,6 @@
 			files = (
 				84821A471A873CAE00463B7E /* ReportBug.m in Sources */,
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
-				84821AE31A88AF6B00463B7E /* CreateConversation.m in Sources */,
 				84821AD81A888F1500463B7E /* AddFriendRelation.m in Sources */,
 				842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */,
 				84821AED1A899AA000463B7E /* DiningHallConvert.m in Sources */,
@@ -819,7 +813,7 @@
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
 				84BFE0991A8DD0E300721F88 /* DeleteMessages.m in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
-				84821AD31A88247300463B7E /* FetchUserData.m in Sources */,
+				84821AD31A88247300463B7E /* ParseDatabase.m in Sources */,
 				84821AF01A89A93200463B7E /* TimeNumberConvert.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
@@ -839,6 +833,7 @@
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
 				84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */,
 				84821A351A873C7500463B7E /* BlastOffTableViewCell.m in Sources */,
+				844432431A992DD20052747E /* LayerConversation.m in Sources */,
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
 				84821A991A87DCCE00463B7E /* SendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
@@ -846,7 +841,6 @@
 				84821ADF1A88AA0300463B7E /* PhoneNumberConvert.m in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
 				8437551F1A96BD54003CFD45 /* ThisUserTableViewCell.swift in Sources */,
-				84821AE91A8943E000463B7E /* QueryForConversation.m in Sources */,
 				84821A271A873C2600463B7E /* MakeNewAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

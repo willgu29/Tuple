@@ -8,8 +8,8 @@
 
 #import "AddFriendsViewController.h"
 #import "PullFromContactsList.h"
-#import "FetchUserData.h"
 #import "UserCellInfo.h"
+#import "ParseDatabase.h"
 @interface AddFriendsViewController ()
 
 @property (nonatomic, strong) PullFromContactsList *pullFromContacts;
@@ -47,7 +47,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    PFUser *user = [FetchUserData lookupUsername:textField.text];
+    PFUser *user = [ParseDatabase lookupUsername:textField.text];
     if (user)
     {
         UserCellInfo *userInfo = [[UserCellInfo alloc] init];

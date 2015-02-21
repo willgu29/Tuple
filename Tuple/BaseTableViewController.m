@@ -8,7 +8,7 @@
 
 #import "BaseTableViewController.h"
 #import "UserCellInfo.h"
-#import "FetchUserData.h"
+#import "ParseDatabase.h"
 #import "UserTypeEnums.h"
 
 @interface BaseTableViewController ()
@@ -59,7 +59,7 @@
 {
     UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
 
-    PFUser *user = [FetchUserData lookupPhoneNumber:userInfo.phoneNumber];
+    PFUser *user = [ParseDatabase lookupPhoneNumber:userInfo.phoneNumber];
     if (user)
     {
         userInfo.username = user.username;

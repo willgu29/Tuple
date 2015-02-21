@@ -9,7 +9,7 @@
 #import "PullFromFriendsList.h"
 #import <Parse/Parse.h>
 #import "UserCellInfo.h"
-#import "FetchUserData.h"
+#import "ParseDatabase.h"
 #import "UserTypeEnums.h"
 @interface PullFromFriendsList()
 
@@ -30,7 +30,7 @@
             
             for (NSString* friendUsername in object[@"friendsList"])
             {
-                PFUser *user = [FetchUserData lookupUsername:friendUsername];
+                PFUser *user = [ParseDatabase lookupUsername:friendUsername];
                 UserCellInfo *userInfo = [[UserCellInfo alloc] init];
                 userInfo.username = user.username;
                 userInfo.email = user.email;

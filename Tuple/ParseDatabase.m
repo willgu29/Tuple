@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 William Gu. All rights reserved.
 //
 
-#import "FetchUserData.h"
+#import "ParseDatabase.h"
 #import "PhoneNumberConvert.h"
 
-@implementation FetchUserData
+@implementation ParseDatabase
 
 +(PFUser *)lookupUsername:(NSString *)username
 {
@@ -58,7 +58,7 @@
 
 +(BOOL)getPhoneVerificationStatusCurrentUser
 {
-    PFUser *user = [FetchUserData lookupUsername:[PFUser currentUser].username];
+    PFUser *user = [self lookupUsername:[PFUser currentUser].username];
     NSNumber *phoneStatus =  user[@"phoneVerified"];
     return phoneStatus.boolValue;
 }

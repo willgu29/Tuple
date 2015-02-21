@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface FetchUserData : NSObject
+@interface ParseDatabase : NSObject
 
 +(PFUser *)lookupUsername:(NSString *)username;
 +(PFUser *)lookupPhoneNumber:(NSString *)phoneNumber;
