@@ -89,7 +89,7 @@
 -(void)sendMessageToPhoneNumbers:(NSArray *)phoneArray
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSString *messageToSend = [NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@!  Download Tuple on the App Store or visit tupleapp.com", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
+    NSString *messageToSend = [NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@ via tuple, a new social app at UCLA.", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     for (NSString *phoneNumber in phoneArray)
