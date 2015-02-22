@@ -36,7 +36,6 @@
 +(LYRConversation *)queryForConversationWithHostName:(NSString *)hostName
 {
     LYRQuery *query = [LYRQuery queryWithClass:[LYRConversation class]];
-    query.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO] ];
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSError *error;
@@ -71,7 +70,7 @@
 {
     LYRQuery *query = [LYRQuery queryWithClass:[LYRConversation class]];
     query.predicate = [LYRPredicate predicateWithProperty:@"identifier" operator:LYRPredicateOperatorIsEqualTo value:convoID];
-    query.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO] ];
+    query.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES] ];
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSError *error;

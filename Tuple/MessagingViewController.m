@@ -41,30 +41,17 @@
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSError *error;
+    NSURL *convoID = delegate.sendData.conversationID;
     if (delegate.sendData.clientType == 1)
     {
-        NSURL *identifier = [[NSUserDefaults standardUserDefaults] URLForKey:@"convoID"];
-        if (identifier == nil)
-        {
-            identifier = [LayerConversation createInitialConversationWithUsername:[PFUser currentUser].username];
-        }
-        else
-        {
-            [DeleteMessages deleteMessagesInConversationID:identifier];
-        }
-        self.conversation = [LayerConversation queryForConversationWithConvoID:identifier];
-        [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
+        [DeleteMessages deleteMessagesInConversationID:convoID];
     }
-    else if (delegate.sendData.clientType == 2)
-    {
-        self.conversation = [LayerConversation queryForConversationWithHostName:delegate.sendData.hostUsername];
-        [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
-        
-        
-    }
+
+    self.conversation = [LayerConversation queryForConversationWithConvoID:convoID];
     
     if (self.conversation)
     {
+        [self.conversation addParticipants:[NSSet setWithArray:_usernameParticipants] error:&error];
         [self setupQueryController];
         [self setupLabels];
         [_tableView reloadData];
@@ -73,7 +60,18 @@
     {
         //TODO: ALERT ERROR
         NSLog(@"No conversation found ERROR");
-        [self performSelector:@selector(loadConversationAndMessages) withObject:self afterDelay:1];
+        if (delegate.sendData.clientType == 1)
+        {
+            NSURL *identifier = [LayerConversation createInitialConversationWithUsername:[PFUser currentUser].username];
+            self.conversation = [LayerConversation queryForConversationWithConvoID:identifier];
+            [self setupQueryController];
+            [self setupLabels];
+            [_tableView reloadData];
+        }
+        else
+        {
+            [self performSelector:@selector(loadConversationAndMessages) withObject:self afterDelay:1];
+        }
     }
 
 }
@@ -119,7 +117,6 @@
     {
         [SendMessages sendMessageWithoutPush:@"has left the conversation" ToConversation:self.conversation];
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-        
         NSError *error = nil;
         if (delegate.sendData.clientType == 2)
         {

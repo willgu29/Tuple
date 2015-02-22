@@ -14,6 +14,7 @@
 #import "Converter.h"
 #import "DeleteParseObject.h"
 #import "AFNetworking.h"
+#import "LayerConversation.h"
 
 @interface PushToParseCloud()
 
@@ -89,28 +90,34 @@
 -(void)sendMessageToPhoneNumbers:(NSArray *)phoneArray
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSString *messageToSend = [NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@ via tuple, a new social app at UCLA.", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
+    NSString *messageToSend = [NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@ via tupleapp.com", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    for (NSString *phoneNumber in phoneArray)
-    {
-        NSString *numbersOnly = [Converter convertPhoneNumberToOnlyNumbers:phoneNumber];
-        NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=1%@&text=%@", numbersOnly, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
-        NSString *encoded = [postURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-        [manager GET:encoded parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"JSON: %@", responseObject);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
-    }
+        for (NSString *phoneNumber in phoneArray)
+        {
+            NSString *numbersOnly = [Converter convertPhoneNumberToOnlyNumbers:phoneNumber];
+            NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=1%@&text=%@", numbersOnly, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
+            NSString *encoded = [postURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            [manager GET:encoded parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"JSON: %@", responseObject);
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }];
+            sleep(2);
+        }
+        
+        
+    });
+   
 }
 
 #pragma mark - Push Event To Cloud
 -(void)pushEventToParse:(NSArray *)usernames
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-        
+   
     
     if (delegate.sendData.clientType == 2)
     {
@@ -124,6 +131,9 @@
         [usersInvited addObjectsFromArray:usernames];
         eventObject[@"usersInvited"] = usersInvited;
         eventObject[@"peopleInChatroom"] = peopleInChatroom;
+        NSString *convoID = eventObject[@"conversationID"];
+        
+        delegate.sendData.conversationID = [NSURL URLWithString:convoID];
         [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 [_delegate sendInvitesSuccess:_usernamesArray];
@@ -138,6 +148,8 @@
     
     [DeleteParseObject deleteCurrentUserEventFromParse];
     
+    NSURL *identifier = [LayerConversation createInitialConversationWithUsername:[PFUser currentUser].username];
+    
     PFObject *event = [PFObject objectWithClassName:@"Events"];
     event[@"inviterName"] = delegate.sendData.inviterName;
     event[@"hostUsername"] = delegate.sendData.hostUsername;
@@ -146,6 +158,8 @@
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
     event[@"peopleInChatroom"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
     event[@"usersInvited"] = usernames;
+    event[@"conversationID"] = identifier.absoluteString;
+    delegate.sendData.conversationID = identifier;
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

@@ -10,6 +10,7 @@
 
 @interface SendData : NSObject
 
+@property (nonatomic, strong) NSURL *conversationID;
 @property (nonatomic, strong) NSString *theTimeToEat;
 @property (nonatomic, strong) NSString *hostUsername;
 @property (nonatomic, strong) NSString *hostName; //first name last name
