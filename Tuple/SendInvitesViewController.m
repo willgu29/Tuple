@@ -35,6 +35,7 @@
     _pullFromContacts.delegate = self;
     [_pullFromContacts fetchTableViewData];
     _pushToParseCloud = [[PushToParseCloud alloc] init];
+    _searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
 }
 
 - (void)didReceiveMemoryWarning {

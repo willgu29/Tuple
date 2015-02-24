@@ -138,28 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tuple/SendInvitesViewController.m"
-            timestampString = "446450927.673642"
+            timestampString = "446454347.8452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "-textFieldShouldClear:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tuple/SendInvitesViewController.m"
-            timestampString = "446450927.673642"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "-touchesBegan:withEvent:"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-sendInvites:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

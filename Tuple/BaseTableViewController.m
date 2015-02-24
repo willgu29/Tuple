@@ -78,36 +78,11 @@
     {
         
     }
-  
-    
-
     
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         userInfo.isSelected = NO;
-//        cell.accessoryType = UITableViewCellAccessoryNone;
         [_selectedPeopleArray removeObject:userInfo];
-//        cell.detailTextLabel.alpha = 1;
-//        [UIView animateWithDuration:1.0 animations:^{
-//            cell.detailTextLabel.alpha = 0;
-//        }];
-//        cell.detailTextLabel.text = @"";
-
-    }
-    else {
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//        cell.detailTextLabel.alpha = 0;
-//        if (userInfo.username)
-//        {
-//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.username];
-//        }
-//        else
-//        {
-//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.phoneNumber];
-//        }
-//        [UIView animateWithDuration:1.5 animations:^{
-//            cell.detailTextLabel.alpha = 1;
-//        }];
-//
+    } else {
         userInfo.isSelected = YES;
         [_selectedPeopleArray addObject:userInfo];
     }
@@ -139,6 +114,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.detailTextLabel.text = @"";
     }
+    
     if (userInfo.lastName == nil)
     {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", userInfo.firstName];
@@ -150,7 +126,6 @@
         return;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", userInfo.firstName, userInfo.lastName];
-//    cell.detailTextLabel.text = cell.detailTextLabel.text;
 
 }
 
