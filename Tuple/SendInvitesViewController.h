@@ -11,6 +11,6 @@
 #import "BaseTableViewController.h"
 #import "PushToParseCloud.h"
 
-@interface SendInvitesViewController : BaseTableViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate, PushToParseCloudDelegate>
+@interface SendInvitesViewController : BaseTableViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate, PushToParseCloudDelegate, UITextFieldDelegate>
 
 @end

@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _displayInfoArray = [[NSMutableArray alloc] init];
+    _cellData = [[NSMutableArray alloc] init];
     _selectedPeopleArray = [[NSMutableArray alloc] init];
 }
 
@@ -47,6 +48,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
+        cell.tag = indexPath.row;
 
     }
     
@@ -57,7 +59,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    
+    UserCellInfo *userInfo = [self.cellData objectAtIndex:cell.tag];
+
+    NSLog(@"Id: %d", cell.tag);
 
     PFUser *user = [ParseDatabase lookupPhoneNumber:userInfo.phoneNumber];
     if (user)
@@ -74,7 +82,6 @@
     }
   
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
     
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
@@ -111,8 +118,7 @@
 {
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     
-    
-    UserCellInfo *userInfo = [_displayInfoArray objectAtIndex:indexPath.row];
+    UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
     if (userInfo.lastName == nil)
     {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", userInfo.firstName];

@@ -10,6 +10,7 @@
 #import "MessagingViewController.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
+#import "ArraySearcher.h"
 //#import "LayerConversation.h"
 
 @interface SendInvitesViewController ()
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) PullFromContactsList *pullFromContacts;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITextField *searchBar;
 
 @end
 
@@ -79,6 +81,7 @@
 -(void)contactListFetchSuccess:(NSArray *)contactListArray
 {
     NSLog(@"Fetch Contact List Success!");
+    [self.cellData addObjectsFromArray:contactListArray];
     [self.displayInfoArray addObjectsFromArray:contactListArray];
     [_tableView reloadData];
 }
@@ -93,6 +96,40 @@
     return UIStatusBarStyleLightContent;
 }
 
+#pragma mark - TextFieldDelegate
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    
+    NSString *substring = _searchBar.text;
+    substring = [substring stringByReplacingCharactersInRange:range withString:string];
+    NSArray *results = [ArraySearcher getTextThatBeginsWith:substring inArray:self.cellData withPath:@"self.firstName"];
+    self.displayInfoArray = results.mutableCopy;
+    [_tableView reloadData];
+    
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    self.displayInfoArray = self.cellData;
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([textField.text isEqualToString:@""])
+    {
+        self.displayInfoArray = self.cellData;
+        [_tableView reloadData];
+    }
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+     
+}
 
 @end

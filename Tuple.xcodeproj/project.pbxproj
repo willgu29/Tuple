@@ -18,6 +18,7 @@
 		843755271A96BED6003CFD45 /* BaseMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */; };
 		844432431A992DD20052747E /* LayerConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432421A992DD20052747E /* LayerConversation.m */; };
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
+		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -112,6 +113,8 @@
 		844432421A992DD20052747E /* LayerConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerConversation.m; sourceTree = "<group>"; };
 		844432441A9932600052747E /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
 		844432451A9932600052747E /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
+		844432481A9C06380052747E /* ArraySearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArraySearcher.h; sourceTree = "<group>"; };
+		844432491A9C06380052747E /* ArraySearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArraySearcher.m; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -291,6 +294,15 @@
 			name = MessageCellLogic;
 			sourceTree = "<group>";
 		};
+		844432471A9C06070052747E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				844432481A9C06380052747E /* ArraySearcher.h */,
+				844432491A9C06380052747E /* ArraySearcher.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		848219E51A873B0F00463B7E = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +328,7 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				844432471A9C06070052747E /* Search */,
 				842B33A01A96FD040049EEB1 /* PhotoServer */,
 				842B339C1A96FB500049EEB1 /* ImageManipulations */,
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
@@ -800,6 +813,7 @@
 				84821AE61A893BFA00463B7E /* SendMessages.m in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
+				8444324A1A9C06380052747E /* ArraySearcher.m in Sources */,
 				84BFE0991A8DD0E300721F88 /* DeleteMessages.m in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
 				84821AD31A88247300463B7E /* ParseDatabase.m in Sources */,

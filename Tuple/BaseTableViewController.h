@@ -11,6 +11,7 @@
 @interface BaseTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *displayInfoArray;
+@property (nonatomic, strong) NSMutableArray *cellData;
 @property (nonatomic, strong) NSMutableArray *selectedPeopleArray;
 
 @end

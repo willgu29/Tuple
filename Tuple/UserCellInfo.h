@@ -19,5 +19,7 @@
 @property (nonatomic) BOOL phoneVerified;
 @property (nonatomic) BOOL emailVerified;
 @property (nonatomic) int userType; //check UserTypeEnums for types
+@property (nonatomic) BOOL isSelected;
+@property (nonatomic) int cellID;
 
 @end
