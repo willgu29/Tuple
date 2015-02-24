@@ -48,7 +48,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
-        cell.tag = indexPath.row;
 
     }
     
@@ -63,9 +62,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
     
-    UserCellInfo *userInfo = [self.cellData objectAtIndex:cell.tag];
+    UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
 
-    NSLog(@"Id: %d", cell.tag);
 
     PFUser *user = [ParseDatabase lookupPhoneNumber:userInfo.phoneNumber];
     if (user)
@@ -85,33 +83,37 @@
 
     
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        userInfo.isSelected = NO;
+//        cell.accessoryType = UITableViewCellAccessoryNone;
         [_selectedPeopleArray removeObject:userInfo];
-        cell.detailTextLabel.alpha = 1;
-        [UIView animateWithDuration:1.0 animations:^{
-            cell.detailTextLabel.alpha = 0;
-        }];
-        cell.detailTextLabel.text = @"";
+//        cell.detailTextLabel.alpha = 1;
+//        [UIView animateWithDuration:1.0 animations:^{
+//            cell.detailTextLabel.alpha = 0;
+//        }];
+//        cell.detailTextLabel.text = @"";
 
     }
     else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        cell.detailTextLabel.alpha = 0;
-        if (userInfo.username)
-        {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.username];
-        }
-        else
-        {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.phoneNumber];
-        }
-        [UIView animateWithDuration:1.5 animations:^{
-            cell.detailTextLabel.alpha = 1;
-        }];
-        
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//        cell.detailTextLabel.alpha = 0;
+//        if (userInfo.username)
+//        {
+//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.username];
+//        }
+//        else
+//        {
+//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", userInfo.phoneNumber];
+//        }
+//        [UIView animateWithDuration:1.5 animations:^{
+//            cell.detailTextLabel.alpha = 1;
+//        }];
+//
+        userInfo.isSelected = YES;
         [_selectedPeopleArray addObject:userInfo];
     }
 
+    [self.cellData replaceObjectAtIndex:userInfo.cellID withObject:userInfo];
+    [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,6 +121,24 @@
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     
     UserCellInfo *userInfo = [self.displayInfoArray objectAtIndex:indexPath.row];
+    if (userInfo.isSelected)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        if (userInfo.username)
+        {
+            cell.detailTextLabel.text = userInfo.username;
+        }
+        else
+        {
+            cell.detailTextLabel.text = userInfo.phoneNumber;
+        }
+
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.detailTextLabel.text = @"";
+    }
     if (userInfo.lastName == nil)
     {
         cell.textLabel.text = [NSString stringWithFormat:@"%@", userInfo.firstName];
@@ -130,7 +150,8 @@
         return;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", userInfo.firstName, userInfo.lastName];
-    cell.detailTextLabel.text = cell.detailTextLabel.text;
+//    cell.detailTextLabel.text = cell.detailTextLabel.text;
+
 }
 
 

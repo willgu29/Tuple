@@ -11,6 +11,7 @@
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
 #import "ArraySearcher.h"
+#import "UserCellInfo.h"
 //#import "LayerConversation.h"
 
 @interface SendInvitesViewController ()
@@ -20,6 +21,8 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *searchBar;
+
+@property (nonatomic) BOOL isClearing;
 
 @end
 
@@ -80,7 +83,13 @@
 #pragma mark - Contact List Delegate
 -(void)contactListFetchSuccess:(NSArray *)contactListArray
 {
+    int i = 0;
     NSLog(@"Fetch Contact List Success!");
+    for (UserCellInfo *cellInfo in contactListArray)
+    {
+        cellInfo.cellID = i;
+        i++;
+    }
     [self.cellData addObjectsFromArray:contactListArray];
     [self.displayInfoArray addObjectsFromArray:contactListArray];
     [_tableView reloadData];
@@ -112,10 +121,10 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    self.displayInfoArray = self.cellData;
     [textField resignFirstResponder];
     return YES;
 }
+
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -126,10 +135,25 @@
     }
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+-(BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    
+    if ([textField.text isEqualToString:@""])
+    {
+        return NO;
+    }
+    [textField resignFirstResponder];
+    return YES;
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
-     
 }
 
 @end
