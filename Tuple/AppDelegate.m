@@ -13,6 +13,7 @@
 #import "NSDataConvert.h"
 #import "DeleteParseObject.h"
 #import "DeleteMessages.h"
+#import "Branch.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,13 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    
+    Branch *branch = [Branch getInstance];
+    [branch initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary *params, NSError *error) {
+        // params are the deep linked params associated with the link that the user clicked before showing up.
+        NSLog(@"deep link data: %@", [params description]);
+    }];
+    
     [self setupParse:application withLaunchOptions:launchOptions];
     
     _sendData =  [[SendData alloc] init];
@@ -86,6 +94,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[Branch getInstance] handleDeepLink:url]) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Register Push Notifications

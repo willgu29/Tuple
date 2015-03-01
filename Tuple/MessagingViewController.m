@@ -118,22 +118,20 @@
         [SendMessages sendMessageWithoutPush:@"has left the conversation" ToConversation:self.conversation];
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         NSError *error = nil;
-        if (delegate.sendData.clientType == 2)
-        {
-            BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:[PFUser currentUser].username] error:&error];
+       
+        BOOL success = [self.conversation removeParticipants:[NSSet setWithObject:[PFUser currentUser].username] error:&error];
             
-            PFUser *user = [PFUser currentUser];
-            PFQuery *query = [PFQuery queryWithClassName:@"Events"];
-            [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
-            PFObject *eventObject = (PFObject *)[query getFirstObject];
-            NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatroom"];
-            [peopleInChatroom removeObject:user.username];
-            eventObject[@"peopleInChatroom"] = peopleInChatroom;
-            [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        PFUser *user = [PFUser currentUser];
+        PFQuery *query = [PFQuery queryWithClassName:@"Events"];
+        [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
+        PFObject *eventObject = (PFObject *)[query getFirstObject];
+        NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatroom"];
+        [peopleInChatroom removeObject:user.username];
+        eventObject[@"peopleInChatroom"] = peopleInChatroom;
+        [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     
-            }];
+        }];
             
-        }
         [self pushToFeedbackVC];
     }
 }

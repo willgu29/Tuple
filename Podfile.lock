@@ -20,14 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Branch (0.4.4)
   - LayerKit (0.9.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - Branch
   - LayerKit
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  Branch: 84ed8e5b3bd887e3f5172cedda7d0568fe33bb1b
   LayerKit: 0e07ecf202c88c5eb17fa4f52301e0dea89afe7f
 
 COCOAPODS: 0.35.0

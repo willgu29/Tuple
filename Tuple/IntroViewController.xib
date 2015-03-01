@@ -70,7 +70,7 @@
                         <constraint firstAttribute="height" constant="32" id="dpC-dV-T9s"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
-                    <state key="normal" title="make an account" backgroundImage="TextField">
+                    <state key="normal" title="create account" backgroundImage="TextField">
                         <color key="titleColor" red="0.53156844429347827" green="0.53156844429347827" blue="0.53156844429347827" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" red="1" green="0.99449046050000001" blue="0.91228473880000005" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
