@@ -112,11 +112,19 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
     
+    
     NSLog(@"Device token: %@", deviceToken);
     [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"deviceTokenTypeData"];
     NSString *hexadecimalString = [deviceToken hexadecimalString];
     [[NSUserDefaults standardUserDefaults] setObject:hexadecimalString forKey:@"deviceToken"];
 
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser)
+    {
+        currentUser[@"deviceToken"] = hexadecimalString;
+        [currentUser saveInBackground];
+    }
+    
     
 //    if ([PFUser currentUser].username)
 //    {
