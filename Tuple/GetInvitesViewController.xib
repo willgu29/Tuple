@@ -28,8 +28,8 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nc-Nq-R5h">
                     <rect key="frame" x="262" y="511" width="50" height="49"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="NGN-sn-E9k"/>
-                        <constraint firstAttribute="height" constant="49" id="bEa-zx-z0c"/>
+                        <constraint firstAttribute="height" constant="49" id="c8A-QF-Zwe"/>
+                        <constraint firstAttribute="width" constant="50" id="kpu-De-Ahy"/>
                     </constraints>
                     <state key="normal" title="Back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,12 +41,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BBx-TY-15R"/>
-                <constraint firstItem="8nc-Nq-R5h" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="MVJ-dk-hyw"/>
-                <constraint firstAttribute="trailing" secondItem="mrv-tX-4aN" secondAttribute="trailing" id="Vor-XI-6ZP"/>
-                <constraint firstItem="8nc-Nq-R5h" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="d1p-90-SJg"/>
-                <constraint firstItem="8nc-Nq-R5h" firstAttribute="top" secondItem="mrv-tX-4aN" secondAttribute="bottom" constant="15" id="srk-4W-emV"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="u3z-Xc-bnk"/>
+                <constraint firstItem="8nc-Nq-R5h" firstAttribute="top" secondItem="mrv-tX-4aN" secondAttribute="bottom" constant="15" id="1FK-dG-NBq"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3TA-eU-6s4"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4xm-EN-fNP"/>
+                <constraint firstItem="8nc-Nq-R5h" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="6DZ-Pt-69G"/>
+                <constraint firstItem="8nc-Nq-R5h" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="Z5E-6o-KjM"/>
+                <constraint firstAttribute="trailing" secondItem="mrv-tX-4aN" secondAttribute="trailing" id="ztg-BU-405"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

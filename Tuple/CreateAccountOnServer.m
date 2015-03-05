@@ -34,10 +34,10 @@
     }
     else
     {
-        _firstName = firstName;
-        _lastName = lastName;
-        _password = password;
-        _username = username;
+        _firstName = [firstName stringByReplacingOccurrencesOfString:@" " withString:@""];
+        _lastName = [lastName stringByReplacingOccurrencesOfString:@" " withString:@""];
+        _password = [password stringByReplacingOccurrencesOfString:@" " withString:@""];
+        _username = [username stringByReplacingOccurrencesOfString:@" " withString:@""];
         return YES;
     }
     

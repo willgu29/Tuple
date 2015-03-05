@@ -52,7 +52,10 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         }
         else
         {
-            PFUser.logInWithUsernameInBackground(username.text, password: password.text, block: { (var user: PFUser!, var error: NSError!) -> Void in
+            
+            var loginUsername = username.text.stringByReplacingOccurrencesOfString(" ", withString: "");
+            var loginPassword = password.text.stringByReplacingOccurrencesOfString(" ", withString: "");
+            PFUser.logInWithUsernameInBackground(loginUsername, password: loginPassword, block: { (var user: PFUser!, var error: NSError!) -> Void in
                 if (user != nil)
                 {
                     self.segueToMainVC();

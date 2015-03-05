@@ -50,7 +50,8 @@
     {
         if (userInfo.userType == IS_CONTACT_NO_APP)
         {
-            [_phoneNumbersArray addObject:userInfo.phoneNumber];
+            NSString *numbersOnly = [Converter convertPhoneNumberToOnlyNumbers:userInfo.phoneNumber];
+            [_phoneNumbersArray addObject:numbersOnly];
         }
         else if (userInfo.userType == IS_CONTACT_WITH_APP)
         {
@@ -63,8 +64,12 @@
 
 -(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
 {
+//    
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-   
+//
+//    NSString *textMessage = [NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@. Check tuple and click the bell icon to accept %@'s invite!", delegate.sendData.inviterName, delegate.sendData.theTimeToEat, delegate.sendData.inviterName];
+//    [self sendMessage:textMessage ToPhoneNumbers:_temporaryPushArray];
+    
     NSString *inviter = delegate.sendData.inviterName;
     NSString *hostUsername = delegate.sendData.hostUsername;
     int diningHallInt = delegate.sendData.diningHallInt;
@@ -87,17 +92,16 @@
     
 }
 
--(void)sendMessageToPhoneNumbers:(NSArray *)phoneArray
+//phoneArray already parsed to 10 digits
+-(void)sendMessage:(NSString *)message  ToPhoneNumbers:(NSArray *)phoneArray
 {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSString *messageToSend = [NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@ via tupleapp.com", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
+    NSString *messageToSend = message; //[NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@ via tupleapp.com", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         for (NSString *phoneNumber in phoneArray)
         {
-            NSString *numbersOnly = [Converter convertPhoneNumberToOnlyNumbers:phoneNumber];
-            NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=1%@&text=%@", numbersOnly, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
+            NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=%@&text=%@", phoneNumber, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
             NSString *encoded = [postURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             [manager GET:encoded parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -105,7 +109,8 @@
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
             }];
-            sleep(2);
+            
+            [NSThread sleepForTimeInterval:2];
         }
         
         
@@ -117,20 +122,27 @@
 -(void)pushEventToParse:(NSArray *)usernames
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-   
+    PFUser *user = [PFUser currentUser];
+
+    NSString *diningHall = [Converter convertDiningHallIntToString:delegate.sendData.diningHallInt];
+    NSString *textMessage = [NSString stringWithFormat:@"%@ wants to eat with you at %@ at %@ via tuple.", delegate.sendData.inviterName, delegate.sendData.theTimeToEat, diningHall];
+    
     
     if (delegate.sendData.clientType == 2)
     {
-        PFUser *user = [PFUser currentUser];
         PFQuery *query = [PFQuery queryWithClassName:@"Events"];
         [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
         PFObject *eventObject = (PFObject *)[query getFirstObject];
         NSMutableSet *usersInvited = eventObject[@"usersInvited"];
         NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatroom"];
+        NSMutableSet *phonesInvited = eventObject[@"phoneNumbersInvited"];
         [peopleInChatroom addObject:user.username];
         [usersInvited addObjectsFromArray:usernames];
+        [phonesInvited addObjectsFromArray:_phoneNumbersArray];
         eventObject[@"usersInvited"] = usersInvited;
         eventObject[@"peopleInChatroom"] = peopleInChatroom;
+        eventObject[@"phoneNumbersInvited"] = phonesInvited;
+
         NSString *convoID = eventObject[@"conversationID"];
         
         delegate.sendData.conversationID = [NSURL URLWithString:convoID];
@@ -138,7 +150,7 @@
             if (succeeded) {
                 [_delegate sendInvitesSuccess:_usernamesArray];
                 [self sendDeviceTokensToCloud:_deviceTokensArray];
-                [self sendMessageToPhoneNumbers:_phoneNumbersArray];
+                [self sendMessage:textMessage  ToPhoneNumbers:_phoneNumbersArray];
             } else {
                 [_delegate pushEventToParseFailure:error];
             }
@@ -157,6 +169,8 @@
     event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
     event[@"whenToEat"] = delegate.sendData.theTimeToEat;
     event[@"peopleInChatroom"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
+    event[@"phoneNumbersInvited"] = [NSArray arrayWithArray:_phoneNumbersArray];
+    event[@"hostPhoneNumber"] = user[@"phoneNumber"];
     event[@"usersInvited"] = usernames;
     event[@"conversationID"] = identifier.absoluteString;
     delegate.sendData.conversationID = identifier;
@@ -165,7 +179,7 @@
         if (succeeded) {
             [_delegate sendInvitesSuccess:_usernamesArray];
             [self sendDeviceTokensToCloud:_deviceTokensArray];
-            [self sendMessageToPhoneNumbers:_phoneNumbersArray];
+            [self sendMessage:textMessage ToPhoneNumbers:_phoneNumbersArray];
         } else {
             [_delegate pushEventToParseFailure:error];
         }

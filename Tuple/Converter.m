@@ -35,7 +35,7 @@
 
 #pragma mark - Phone number convert
 
-//In form (xxx)-xxx-xxxx
+//In form 1-(xxx)-xxx-xxxx
 +(NSString *)convertPhoneNumberToOnlyNumbers:(NSString *)phoneNumber
 {
     NSString *numbersOnlyPhoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet:
@@ -44,12 +44,12 @@
     
     if (numbersOnlyPhoneNumber.length == 11)
     {
-        NSString *newStr = [numbersOnlyPhoneNumber substringFromIndex:1];
-        return newStr;
+        return phoneNumber;
     }
     else
     {
-        return numbersOnlyPhoneNumber;
+        NSString *newStr = [NSString stringWithFormat:@"1%@",numbersOnlyPhoneNumber];
+        return newStr;
     }
 }
 

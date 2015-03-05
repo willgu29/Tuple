@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tuple/MessagingViewController.m"
-            timestampString = "446286255.114252"
+            timestampString = "447135627.08569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-sendButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -145,6 +145,52 @@
             endingLineNumber = "57"
             landmarkName = "-sendInvites:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tuple/PushToParseCloud.m"
+            timestampString = "447205909.251571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-sendMessage:ToPhoneNumbers:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PushToParseCloud sendMessage:ToPhoneNumbers:]"
+                  moduleName = "Tuple"
+                  urlString = "file:///Users/Gu/TheGuSystem/Work/Programming/MobileProjects/Tuple/Tuple/Tuple/PushToParseCloud.m"
+                  timestampString = "447203137.137106"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[PushToParseCloud sendMessage:ToPhoneNumbers:]_block_invoke"
+                  moduleName = "Tuple"
+                  urlString = "file:///Users/Gu/TheGuSystem/Work/Programming/MobileProjects/Tuple/Tuple/Tuple/PushToParseCloud.m"
+                  timestampString = "447203137.150773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

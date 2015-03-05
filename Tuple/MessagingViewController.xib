@@ -26,14 +26,6 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="UserRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="FMd-hY-GNQ">
                     <rect key="frame" x="0.0" y="60" width="321" height="44"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-FE-ejp">
-                    <rect key="frame" x="0.0" y="104" width="320" height="401"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="XQx-ri-NT6"/>
-                        <outlet property="delegate" destination="-1" id="kR8-m4-ERk"/>
-                    </connections>
-                </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-lW-5Gv">
                     <rect key="frame" x="276" y="513" width="36" height="30"/>
                     <constraints>
@@ -88,6 +80,14 @@
                         <outlet property="delegate" destination="-1" id="HUY-uD-EBj"/>
                     </connections>
                 </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-FE-ejp">
+                    <rect key="frame" x="0.0" y="104" width="320" height="401"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="XQx-ri-NT6"/>
+                        <outlet property="delegate" destination="-1" id="kR8-m4-ERk"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

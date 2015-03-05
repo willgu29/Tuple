@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		09630052F5A7AC28705A72CD /* libPods-Tuple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A16768E974AACC91909089AD /* libPods-Tuple.a */; };
 		14BE0C6511E807B3B541E470 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6173AC9A3E0B23079BBBB0E6 /* libPods.a */; };
+		84242A071AA6B17600129411 /* ResendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84242A051AA6B17600129411 /* ResendViewController.m */; };
+		84242A081AA6B17600129411 /* ResendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A061AA6B17600129411 /* ResendViewController.xib */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
 		842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* PhotoServer.m */; };
 		8437551F1A96BD54003CFD45 /* ThisUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437551D1A96BD54003CFD45 /* ThisUserTableViewCell.swift */; };
@@ -99,6 +101,9 @@
 /* Begin PBXFileReference section */
 		20EFEE7D5C0804330ACE15AB /* Pods-Tuple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.release.xcconfig"; sourceTree = "<group>"; };
 		6173AC9A3E0B23079BBBB0E6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84242A041AA6B17600129411 /* ResendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResendViewController.h; sourceTree = "<group>"; };
+		84242A051AA6B17600129411 /* ResendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResendViewController.m; sourceTree = "<group>"; };
+		84242A061AA6B17600129411 /* ResendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResendViewController.xib; sourceTree = "<group>"; };
 		842B339D1A96FB6C0049EEB1 /* CreateProfilePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProfilePicture.h; sourceTree = "<group>"; };
 		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
 		842B33A11A96FD3D0049EEB1 /* PhotoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoServer.h; sourceTree = "<group>"; };
@@ -256,6 +261,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84242A031AA6A8A400129411 /* ResendInvitesInterface */ = {
+			isa = PBXGroup;
+			children = (
+				84242A041AA6B17600129411 /* ResendViewController.h */,
+				84242A051AA6B17600129411 /* ResendViewController.m */,
+				84242A061AA6B17600129411 /* ResendViewController.xib */,
+			);
+			name = ResendInvitesInterface;
+			sourceTree = "<group>";
+		};
 		842B339C1A96FB500049EEB1 /* ImageManipulations */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +343,7 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				84242A031AA6A8A400129411 /* ResendInvitesInterface */,
 				844432471A9C06070052747E /* Search */,
 				842B33A01A96FD040049EEB1 /* PhotoServer */,
 				842B339C1A96FB500049EEB1 /* ImageManipulations */,
@@ -749,6 +765,7 @@
 				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
 				84BFE0AB1A8DF6E700721F88 /* UserProfileViewController.xib in Resources */,
+				84242A081AA6B17600129411 /* ResendViewController.xib in Resources */,
 				84821ACA1A881F2900463B7E /* AddFriendsViewController.xib in Resources */,
 				84821A281A873C2600463B7E /* MakeNewAccountViewController.xib in Resources */,
 				84821A361A873C7500463B7E /* BlastOffTableViewCell.xib in Resources */,
@@ -830,6 +847,7 @@
 				84821AC91A881F2900463B7E /* AddFriendsViewController.m in Sources */,
 				84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */,
 				843755231A96BD66003CFD45 /* OtherUserTableViewCell.swift in Sources */,
+				84242A071AA6B17600129411 /* ResendViewController.m in Sources */,
 				84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
@@ -1027,8 +1045,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Gu (X8C323275L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Gu (X8C323275L)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

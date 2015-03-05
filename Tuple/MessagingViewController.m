@@ -94,6 +94,11 @@
 
 #pragma mark -IBActions
 
+-(IBAction)inviteMore:(UIButton *)sender
+{
+    
+}
+
 -(IBAction)sendButton:(UIButton *)sender
 {
     if ([_textField.text isEqualToString:@""])
@@ -108,6 +113,8 @@
 {
     [[[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"You will not be able to re-enter the chatroom." delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:@"Cancel", nil] show];
 }
+
+
 
 #pragma mark - AlertView Delegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
