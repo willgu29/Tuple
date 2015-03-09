@@ -1,0 +1,1 @@
+[{"symbol":"SendData","kind":"ObjCImplementationDecl","children":[]}]

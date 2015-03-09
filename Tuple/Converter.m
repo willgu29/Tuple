@@ -44,7 +44,7 @@
     
     if (numbersOnlyPhoneNumber.length == 11)
     {
-        return phoneNumber;
+        return numbersOnlyPhoneNumber;
     }
     else
     {

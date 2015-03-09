@@ -60,3 +60,9 @@
 #define COCOAPODS_VERSION_MINOR_LayerKit 9
 #define COCOAPODS_VERSION_PATCH_LayerKit 6
 
+// Rollout.io
+#define COCOAPODS_POD_AVAILABLE_Rollout_io
+#define COCOAPODS_VERSION_MAJOR_Rollout_io 0
+#define COCOAPODS_VERSION_MINOR_Rollout_io 7
+#define COCOAPODS_VERSION_PATCH_Rollout_io 2
+

@@ -48,3 +48,9 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// Rollout.io
+#define COCOAPODS_POD_AVAILABLE_Rollout_io
+#define COCOAPODS_VERSION_MAJOR_Rollout_io 0
+#define COCOAPODS_VERSION_MINOR_Rollout_io 7
+#define COCOAPODS_VERSION_PATCH_Rollout_io 2
+

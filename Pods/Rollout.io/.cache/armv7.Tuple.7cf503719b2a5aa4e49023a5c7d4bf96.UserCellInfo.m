@@ -1,0 +1,1 @@
+[{"symbol":"UserCellInfo","kind":"ObjCImplementationDecl","children":[]}]

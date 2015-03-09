@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Rollout.io.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Tuple-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,12 +29,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Tuple-Rollout.io.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Tuple.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-TupleTests-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TupleTests-Rollout.io.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08F159904B47D016F1CE8602</key>
+		<key>33CDEAB45B63040AF0C1ACA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>176838CC332A323800ED7A7C</key>
+		<key>5ECAE21D1A0A54BD6CEE6BE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>431872B1593E8FB74921FBED</key>
+		<key>789CD8219FABD751C9C802F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DE1F54D4C30F33B4C2BEDE9</key>
+		<key>7D3117A691F96621C8D71593</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9484A1BC511D841185BC5897</key>
+		<key>8F42E40B5A8CC9A20551E89E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BFB6E73769A60EABE723A313</key>
+		<key>A243D3FE51B6789BEF0EBB3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDA90A473478B6EA22B045D8</key>
+		<key>AB2119AB16A9E00CA56E6BD6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB4E0A908886FC733369AE72</key>
+		<key>CBF0C495F62401C8E25D5CC2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D409D939BD6CEC05C35F6CC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3E4E3827C0ACE511882FDE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5E804F3EA6623CDDC15BAF8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
