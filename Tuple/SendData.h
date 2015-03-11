@@ -19,8 +19,8 @@
 @property (nonatomic) int minutesTillMeetup;
 @property (nonatomic) int diningHallInt;
 @property (nonatomic) int clientType; //1 = host, 2 = attendee
-
-
+@property (nonatomic, strong) NSString *event;
+@property (nonatomic, strong) NSString *eventLocation;
 
 @end
 

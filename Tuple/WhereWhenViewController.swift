@@ -8,19 +8,22 @@
 
 import UIKit
 
-class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
-    var delegate = UIApplication.sharedApplication().delegate as AppDelegate;
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var diningHallPicker: UIPickerView!
-    var dataSourcePicker: NSArray = ["No Preference", "De Neve", "B Plate", "Feast", "Covel", "Rende", "Cafe 1919", "B Cafe"]
     
-    @IBOutlet weak var min5: UIButton!
+    let PLACEHOLDER_TEXTVIEWTEXT = "What do you wanna do?";
+    
+    var delegate = UIApplication.sharedApplication().delegate as AppDelegate;
+    
+    @IBOutlet weak var lbl_count : UILabel!
     @IBOutlet weak var min15: UIButton!
     @IBOutlet weak var min30: UIButton!
-    @IBOutlet weak var min45: UIButton!
-    @IBOutlet weak var min60: UIButton!
-
+    @IBOutlet weak var min1hr: UIButton!
+    @IBOutlet weak var min2hr: UIButton!
+    @IBOutlet weak var min3hr: UIButton!
+    @IBOutlet weak var eventXIB : UITextView!
+    @IBOutlet weak var eventLocationXIB : UITextField!
+    
     func setupLayer() {
         var delegate = UIApplication.sharedApplication().delegate as AppDelegate
         var deviceTokenData: NSData = NSUserDefaults.standardUserDefaults().objectForKey("deviceTokenTypeData") as NSData;
@@ -78,6 +81,27 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         delegate.sendData.hostName = hostName;
         delegate.sendData.inviterName = hostName; //inviter is also host in this case
     }
+    
+    func saveLocation() {
+        if (eventXIB.text == PLACEHOLDER_TEXTVIEWTEXT)
+        {
+            var alert = UIAlertView(title: "No event?", message: "Tuple is better when there is an event!", delegate: nil, cancelButtonTitle:"Oops!");
+            alert.show();
+            return;
+        }
+        delegate.sendData.event = eventXIB.text;
+    }
+    
+    func saveActivity() {
+        if (eventLocationXIB.text.isEmpty)
+        {
+            var alert = UIAlertView(title: "Hm...", message: "Please enter a location!", delegate: nil, cancelButtonTitle: "Sure!");
+            alert.show();
+            return;
+        }
+        delegate.sendData.eventLocation = eventLocationXIB.text;
+    }
+    
     //IBActions
 
     @IBAction func sendInvites() {
@@ -103,38 +127,34 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     {
         //TODO: Deselect all
         resetAllButtonImages();
-        
+        var buttonImage: UIImage?
         if (sender.tag == 0)
         {
             delegate.sendData.minutesTillMeetup = 15;
-            var buttonImage = UIImage(named:"15HMinButton.png");
-            sender.setImage(buttonImage, forState: UIControlState.Normal);
+            buttonImage = UIImage(named:"15HMinButton.png");
         }
         else if (sender.tag == 1)
         {
             delegate.sendData.minutesTillMeetup = 30;
-            var buttonImage = UIImage(named: "30HMinButton.png");
-            sender.setImage(buttonImage, forState: UIControlState.Normal);
+            buttonImage = UIImage(named: "30HMinButton.png");
         }
         else if (sender.tag == 2)
         {
             delegate.sendData.minutesTillMeetup = 60;
-            var buttonImage = UIImage(named: "1hrButtonH.png");
-            min30.setImage(buttonImage, forState: UIControlState.Normal);
+            buttonImage = UIImage(named: "1hrButtonH.png");
         }
         else if (sender.tag == 3)
         {
             delegate.sendData.minutesTillMeetup = 120;
-            var buttonImage = UIImage(named: "2hrButtonH.png");
-            min45.setImage(buttonImage, forState: UIControlState.Normal);
+            buttonImage = UIImage(named: "2hrButtonH.png");
         }
         else if (sender.tag == 4)
         {
             delegate.sendData.minutesTillMeetup = 180;
-            var buttonImage = UIImage(named: "3hrButtonH.png");
-            min60.setImage(buttonImage, forState: UIControlState.Normal);
+            buttonImage = UIImage(named: "3hrButtonH.png");
         }
-     
+        sender.setImage(buttonImage, forState: UIControlState.Normal);
+
         
     }
     
@@ -151,30 +171,43 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.presentViewController(userVC, animated: true, completion: nil);
     }
     
- 
- 
-    
-    //Dining Hall Picker
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //Save dining hall
-        NSLog("Picker row: %d", row);
-        delegate.sendData.diningHallInt = Int32(row);
+    func textViewDidBeginEditing(textView: UITextView) {
+        if (textView.text == PLACEHOLDER_TEXTVIEWTEXT)
+        {
+            textView.text = "";
+            textView.textColor = UIColor.blackColor()
+        }
+        textView.becomeFirstResponder();
     }
     
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let dataString = dataSourcePicker.objectAtIndex(row) as String;
-        return NSAttributedString(string: dataString, attributes: [NSForegroundColorAttributeName:UIColor.blackColor()])
+    func textViewDidEndEditing(textView: UITextView) {
+        if (textView.text.isEmpty)
+        {
+            textView.text = PLACEHOLDER_TEXTVIEWTEXT;
+            textView.textColor = UIColor.lightGrayColor();
+        }
+        textView.resignFirstResponder();
+    }
+    func textViewDidChange(textView: UITextView) {
+        var len =  countElements(textView.text)
+        lbl_count.text = NSString(format: "%i", 70-len)
+        
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataSourcePicker.count;
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (countElements(text) == 0)
+        {
+            if (countElements(textView.text) != 0)
+            {
+                return true;
+            }
+        }
+        else if (countElements(textView.text) > 69)
+        {
+            return false;
+        }
+        return true;
     }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1;
-    }
-    //*********************
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -186,12 +219,17 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         var buttonImage3 = UIImage(named: "2hrButton.png");
         var buttonImage4 = UIImage(named: "3hrButton.png");
 
-        min5.setImage(buttonImage0, forState: UIControlState.Normal);
-        min15.setImage(buttonImage1, forState: UIControlState.Normal);
-        min30.setImage(buttonImage2, forState: UIControlState.Normal);
-        min45.setImage(buttonImage3, forState: UIControlState.Normal);
-        min60.setImage(buttonImage4, forState: UIControlState.Normal);
+        min15.setImage(buttonImage0, forState: UIControlState.Normal);
+        min30.setImage(buttonImage1, forState: UIControlState.Normal);
+        min1hr.setImage(buttonImage2, forState: UIControlState.Normal);
+        min2hr.setImage(buttonImage3, forState: UIControlState.Normal);
+        min3hr.setImage(buttonImage4, forState: UIControlState.Normal);
 
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        eventXIB.resignFirstResponder();
+        eventLocationXIB.resignFirstResponder();
     }
 
 }
