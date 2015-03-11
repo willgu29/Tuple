@@ -106,32 +106,32 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         if (sender.tag == 0)
         {
-            delegate.sendData.minutesTillMeetup = 5;
-            var buttonImage = UIImage(named:"5hMinButton.png");
+            delegate.sendData.minutesTillMeetup = 15;
+            var buttonImage = UIImage(named:"15HMinButton.png");
             sender.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 1)
         {
-            delegate.sendData.minutesTillMeetup = 15;
-            var buttonImage = UIImage(named: "15HMinButton.png");
+            delegate.sendData.minutesTillMeetup = 30;
+            var buttonImage = UIImage(named: "30HMinButton.png");
             sender.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 2)
         {
-            delegate.sendData.minutesTillMeetup = 30;
-            var buttonImage = UIImage(named: "30HMinButton.png");
+            delegate.sendData.minutesTillMeetup = 60;
+            var buttonImage = UIImage(named: "1hrButtonH.png");
             min30.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 3)
         {
-            delegate.sendData.minutesTillMeetup = 45;
-            var buttonImage = UIImage(named: "45HMinButton.png");
+            delegate.sendData.minutesTillMeetup = 120;
+            var buttonImage = UIImage(named: "2hrButtonH.png");
             min45.setImage(buttonImage, forState: UIControlState.Normal);
         }
         else if (sender.tag == 4)
         {
-            delegate.sendData.minutesTillMeetup = 60;
-            var buttonImage = UIImage(named: "60HMinButton.png");
+            delegate.sendData.minutesTillMeetup = 180;
+            var buttonImage = UIImage(named: "3hrButtonH.png");
             min60.setImage(buttonImage, forState: UIControlState.Normal);
         }
      
@@ -180,11 +180,11 @@ class WhereWhenViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func resetAllButtonImages(){
-        var buttonImage0 = UIImage(named: "5MinButton.png");
-        var buttonImage1 = UIImage(named: "15MinButton.png");
-        var buttonImage2 = UIImage(named: "30MinButton.png");
-        var buttonImage3 = UIImage(named: "45MinButton.png");
-        var buttonImage4 = UIImage(named: "60MinButton.png");
+        var buttonImage0 = UIImage(named: "15MinButton.png");
+        var buttonImage1 = UIImage(named: "30MinButton.png");
+        var buttonImage2 = UIImage(named: "1hrButton.png");
+        var buttonImage3 = UIImage(named: "2hrButton.png");
+        var buttonImage4 = UIImage(named: "3hrButton.png");
 
         min5.setImage(buttonImage0, forState: UIControlState.Normal);
         min15.setImage(buttonImage1, forState: UIControlState.Normal);

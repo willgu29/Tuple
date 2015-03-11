@@ -38,7 +38,7 @@
                 </pickerView>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-Td-WUn">
                     <rect key="frame" x="94" y="311" width="45" height="45"/>
-                    <state key="normal" image="15MinButton">
+                    <state key="normal" image="30MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -47,7 +47,7 @@
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-PP-JqY">
                     <rect key="frame" x="138" y="311" width="45" height="45"/>
-                    <state key="normal" image="30MinButton">
+                    <state key="normal" image="1hrButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -56,7 +56,7 @@
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYP-uI-7Ly">
                     <rect key="frame" x="182" y="311" width="45" height="45"/>
-                    <state key="normal" image="45MinButton">
+                    <state key="normal" image="2hrButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -65,7 +65,7 @@
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-AB-bsh">
                     <rect key="frame" x="226" y="311" width="45" height="45"/>
-                    <state key="normal" image="60MinButton">
+                    <state key="normal" image="3hrButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -99,7 +99,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-z0-mYN">
                     <rect key="frame" x="50" y="311" width="45" height="45"/>
-                    <state key="normal" image="5MinButton">
+                    <state key="normal" image="15MinButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="highlighted" backgroundImage="5hMinButton"/>
@@ -199,11 +199,11 @@
     </objects>
     <resources>
         <image name="15MinButton" width="45" height="45"/>
+        <image name="1hrButton" width="45" height="45"/>
+        <image name="2hrButton" width="45" height="45"/>
         <image name="30MinButton" width="45" height="45"/>
-        <image name="45MinButton" width="45" height="45"/>
-        <image name="5MinButton" width="45" height="45"/>
+        <image name="3hrButton" width="45" height="45"/>
         <image name="5hMinButton" width="47" height="47"/>
-        <image name="60MinButton" width="45" height="45"/>
         <image name="BellNotification" width="29" height="29"/>
         <image name="HeaderRectangle" width="321" height="59"/>
         <image name="PaperTextureBackground" width="320" height="568"/>
