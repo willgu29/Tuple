@@ -169,12 +169,12 @@
                   symbolName = "-[PushToParseCloud sendMessage:ToPhoneNumbers:]"
                   moduleName = "Tuple"
                   urlString = "file:///Users/Gu/TheGuSystem/Work/Programming/MobileProjects/Tuple/Tuple/Tuple/PushToParseCloud.m"
-                  timestampString = "447320235.767886"
+                  timestampString = "447725167.440867"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "100"
                   endingLineNumber = "100"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "120">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -183,12 +183,12 @@
                   symbolName = "__47-[PushToParseCloud sendMessage:ToPhoneNumbers:]_block_invoke"
                   moduleName = "Tuple"
                   urlString = "file:///Users/Gu/TheGuSystem/Work/Programming/MobileProjects/Tuple/Tuple/Tuple/PushToParseCloud.m"
-                  timestampString = "447320235.768034"
+                  timestampString = "447725167.441004"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "100"
                   endingLineNumber = "100"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -232,28 +232,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tuple/BaseTableViewController.m"
-            timestampString = "447320322.190772"
+            timestampString = "447724936.033393"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tuple/ParseDatabase.m"
-            timestampString = "447320376.695345"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "+lookupPhoneNumber:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

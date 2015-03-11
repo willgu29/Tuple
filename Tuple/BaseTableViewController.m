@@ -10,7 +10,7 @@
 #import "UserCellInfo.h"
 #import "ParseDatabase.h"
 #import "UserTypeEnums.h"
-
+#import "Converter.h"
 @interface BaseTableViewController ()
 
 
@@ -66,6 +66,15 @@
 
 
     PFUser *user = [ParseDatabase lookupPhoneNumber:userInfo.phoneNumber];
+    if (!user)
+    {
+        //TODO: Remove on version release and add 1 to all parse data
+        PFQuery *query = [PFUser query];
+        NSString *number = [Converter convertPhoneNumberToOnlyNumbers:userInfo.phoneNumber];
+        NSString *noOne = [number substringFromIndex:1];
+        [query whereKey:@"phoneNumber" equalTo:noOne];
+        user = (PFUser *)[query getFirstObject];
+    }
     if (user)
     {
         userInfo.username = user.username;
