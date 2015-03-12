@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "SendInvitesViewController.h"
 #import "CreateFriendsList.h"
-#import "AddFriendsViewController.h"
 #import "PhoneTextField.h"
 #import "Converter.h"
 #import "SendData.h"

@@ -64,11 +64,7 @@
 
 -(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
 {
-//    
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-//
-//    NSString *textMessage = [NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@. Check tuple and click the bell icon to accept %@'s invite!", delegate.sendData.inviterName, delegate.sendData.theTimeToEat, delegate.sendData.inviterName];
-//    [self sendMessage:textMessage ToPhoneNumbers:_temporaryPushArray];
     
     NSString *inviter = delegate.sendData.inviterName;
     NSString *hostUsername = delegate.sendData.hostUsername;

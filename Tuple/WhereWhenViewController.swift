@@ -44,6 +44,11 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
         //Setup Layer
         self.setupLayer();
         self.navigationController?.navigationBarHidden = true;
+        
+        var imageLayer = eventXIB.layer;
+        imageLayer.cornerRadius = 10;
+        imageLayer.borderWidth = 1;
+        imageLayer.borderColor = UIColor.lightGrayColor().CGColor;
 
     }
     override func viewWillAppear(animated: Bool) {
