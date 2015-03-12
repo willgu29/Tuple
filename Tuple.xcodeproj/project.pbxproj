@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		09630052F5A7AC28705A72CD /* libPods-Tuple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A16768E974AACC91909089AD /* libPods-Tuple.a */; };
 		14BE0C6511E807B3B541E470 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6173AC9A3E0B23079BBBB0E6 /* libPods.a */; };
+		8400295C1AB2543B00696105 /* DisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400295A1AB2543B00696105 /* DisplayViewController.m */; };
+		8400295D1AB2543B00696105 /* DisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8400295B1AB2543B00696105 /* DisplayViewController.xib */; };
 		84242A071AA6B17600129411 /* ResendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84242A051AA6B17600129411 /* ResendViewController.m */; };
 		84242A081AA6B17600129411 /* ResendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A061AA6B17600129411 /* ResendViewController.xib */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
@@ -99,6 +101,9 @@
 /* Begin PBXFileReference section */
 		20EFEE7D5C0804330ACE15AB /* Pods-Tuple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.release.xcconfig"; sourceTree = "<group>"; };
 		6173AC9A3E0B23079BBBB0E6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		840029591AB2543B00696105 /* DisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayViewController.h; sourceTree = "<group>"; };
+		8400295A1AB2543B00696105 /* DisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayViewController.m; sourceTree = "<group>"; };
+		8400295B1AB2543B00696105 /* DisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayViewController.xib; sourceTree = "<group>"; };
 		84242A041AA6B17600129411 /* ResendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResendViewController.h; sourceTree = "<group>"; };
 		84242A051AA6B17600129411 /* ResendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResendViewController.m; sourceTree = "<group>"; };
 		84242A061AA6B17600129411 /* ResendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResendViewController.xib; sourceTree = "<group>"; };
@@ -608,6 +613,9 @@
 				84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */,
 				84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */,
 				84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */,
+				840029591AB2543B00696105 /* DisplayViewController.h */,
+				8400295A1AB2543B00696105 /* DisplayViewController.m */,
+				8400295B1AB2543B00696105 /* DisplayViewController.xib */,
 			);
 			name = AcceptInvitesInterface;
 			sourceTree = "<group>";
@@ -754,6 +762,7 @@
 				84BFE09B1A8DD92700721F88 /* avenir-light.ttf in Resources */,
 				84821A261A873C2600463B7E /* IntroViewController.xib in Resources */,
 				84821A461A873CAE00463B7E /* FeedbackViewController.xib in Resources */,
+				8400295D1AB2543B00696105 /* DisplayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +842,7 @@
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
+				8400295C1AB2543B00696105 /* DisplayViewController.m in Sources */,
 				84BFE0AA1A8DF6E700721F88 /* UserProfileViewController.swift in Sources */,
 				848219F41A873B0F00463B7E /* main.m in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
