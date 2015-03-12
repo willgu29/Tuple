@@ -8,13 +8,15 @@ Parse.Cloud.define("hello", function(request, response) {
 		var deviceTokenArray = request.params.deviceTokenArray;
 		var arrayLength = deviceTokenArray.length;
 		var hostUsername = request.params.hostUsername;
-		var timeToEat = request.params.timeToEat;
-		var diningHall = request.params.diningHall;
+		var event = request.params.event;
+		var eventTime = request.params.eventTime;
+		var eventLocation = request.params.eventLocation;
 		var inviter = request.params.inviter;
-		var messageString = inviter + " would like to eat at " + timeToEat;
+		//var messageString = inviter + " would like to eat at " + timeToEat;
+		var messageString = "You've received a new event invite!";
 		for (var i = 0; i < arrayLength; i++)
 		{
-			PushNotifications.sendPushNotification(inviter, timeToEat,diningHall,hostUsername,deviceTokenArray[i], messageString, {
+			PushNotifications.sendPushNotification(inviter, event, eventLocation, eventTime ,hostUsername,deviceTokenArray[i], messageString, {
 				success: function(){
 
 				},
