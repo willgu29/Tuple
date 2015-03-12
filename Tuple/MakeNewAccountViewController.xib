@@ -28,7 +28,7 @@
                         <constraint firstAttribute="height" constant="30" id="Wi0-IC-wUP"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="pp1-ID-jMB"/>
                     </connections>
@@ -63,7 +63,7 @@
                         <constraint firstAttribute="height" constant="30" id="Eaz-6s-H4n"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="bu8-EE-L6o"/>
                     </connections>
@@ -74,7 +74,7 @@
                         <constraint firstAttribute="height" constant="30" id="3Ms-vV-ky4"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="dsI-vG-wcg"/>
                     </connections>
@@ -94,7 +94,7 @@
                         <constraint firstAttribute="height" constant="30" id="GlZ-ld-qc0"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="idQ-1g-dOQ"/>
                     </connections>

@@ -11,13 +11,12 @@
 @interface SendData : NSObject
 
 @property (nonatomic, strong) NSURL *conversationID;
-@property (nonatomic, strong) NSString *theTimeToEat;
+@property (nonatomic, strong) NSString *eventTime;
 @property (nonatomic, strong) NSString *hostUsername;
 @property (nonatomic, strong) NSString *hostName; //first name last name
 @property (nonatomic, strong) NSString *currentUsername;
 @property (nonatomic, strong) NSString *inviterName; //First name last name
 @property (nonatomic) int minutesTillMeetup;
-@property (nonatomic) int diningHallInt;
 @property (nonatomic) int clientType; //1 = host, 2 = attendee
 @property (nonatomic, strong) NSString *event;
 @property (nonatomic, strong) NSString *eventLocation;

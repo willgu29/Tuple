@@ -59,7 +59,7 @@
             [_usernamesArray addObject:userInfo.username];
         }
     }
-    [self pushEventToParse:_usernamesArray];
+    [self pushEventToParse:_usernamesArray andNumbers:_phoneNumbersArray];
 }
 
 -(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
@@ -68,12 +68,12 @@
     
     NSString *inviter = delegate.sendData.inviterName;
     NSString *hostUsername = delegate.sendData.hostUsername;
-    int diningHallInt = delegate.sendData.diningHallInt;
-    NSString *timeToEat = delegate.sendData.theTimeToEat;
+    NSString *eventTime = delegate.sendData.eventTime;
+    NSString *event = delegate.sendData.event;
+    NSString *eventLocation = delegate.sendData.eventLocation;
     
-    NSString *diningHallString = [NSString stringWithFormat:@"%d", diningHallInt];
     [PFCloud callFunctionInBackground:@"hello"
-                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"diningHall": diningHallString, @"timeToEat": timeToEat}
+                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"event" : event, @"eventLocation": eventLocation, @"eventTime": eventTime}
                                 block:^(id object, NSError *error) {
                                     if (!error) {
                                         // this is where you handle the results and change the UI.
@@ -104,6 +104,7 @@
                 NSLog(@"JSON: %@", responseObject);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
+                //TODO: re-try failed numbers
             }];
             
             [NSThread sleepForTimeInterval:2];
@@ -115,61 +116,47 @@
 }
 
 #pragma mark - Push Event To Cloud
--(void)pushEventToParse:(NSArray *)usernames
+-(void)pushEventToParse:(NSArray *)usernames andNumbers:(NSArray *)phoneNumbers
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     PFUser *user = [PFUser currentUser];
 
-    NSString *diningHall = [Converter convertDiningHallIntToString:delegate.sendData.diningHallInt];
-    NSString *textMessage = [NSString stringWithFormat:@"%@ wants to eat with you at %@ at %@ via tuple.", delegate.sendData.inviterName, delegate.sendData.theTimeToEat, diningHall];
+    NSString *textMessage = [NSString stringWithFormat:@"%@ wants to %@ at %@ at %@ via tuple.",  delegate.sendData.inviterName, delegate.sendData.event, delegate.sendData.eventLocation, delegate.sendData.eventTime];
     
+    PFObject *event;
     
-    if (delegate.sendData.clientType == 2)
+    if (delegate.sendData.clientType == 1) //create event
+    {
+        [DeleteParseObject deleteCurrentUserEventFromParse];
+        NSURL *identifier = [LayerConversation createInitialConversationWithUsername:[PFUser currentUser].username];
+        event = [PFObject objectWithClassName:@"Events"];
+        event[@"inviterName"] = delegate.sendData.inviterName;
+        event[@"hostUsername"] = delegate.sendData.hostUsername;
+        event[@"hostName"] = delegate.sendData.hostName;
+        event[@"eventLocation"] = delegate.sendData.eventLocation;
+        event[@"eventTime"] = delegate.sendData.eventTime;
+        event[@"peopleAttending"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
+        event[@"phoneNumbersInvited"] = [NSArray arrayWithArray:_phoneNumbersArray];
+        event[@"hostPhoneNumber"] = user[@"phoneNumber"];
+        event[@"usersInvited"] = usernames;
+        event[@"conversationID"] = identifier.absoluteString;
+        delegate.sendData.conversationID = identifier;
+        
+    }
+    else if (delegate.sendData.clientType == 2) //update event
     {
         PFQuery *query = [PFQuery queryWithClassName:@"Events"];
         [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
-        PFObject *eventObject = (PFObject *)[query getFirstObject];
-        NSMutableSet *usersInvited = eventObject[@"usersInvited"];
-        NSMutableArray *peopleInChatroom = eventObject[@"peopleInChatroom"];
-        NSMutableSet *phonesInvited = eventObject[@"phoneNumbersInvited"];
-        [peopleInChatroom addObject:user.username];
-        [usersInvited addObjectsFromArray:usernames];
-        [phonesInvited addObjectsFromArray:_phoneNumbersArray];
-        eventObject[@"usersInvited"] = usersInvited;
-        eventObject[@"peopleInChatroom"] = peopleInChatroom;
-        eventObject[@"phoneNumbersInvited"] = phonesInvited;
-
-        NSString *convoID = eventObject[@"conversationID"];
-        
+        event = (PFObject *)[query getFirstObject];
+        [event addUniqueObject:user.username forKey:@"peopleAttending"];
+        [event addUniqueObjectsFromArray:usernames forKey:@"usersInvited"];
+        [event addUniqueObjectsFromArray:phoneNumbers forKey:@"phoneNumbersInvited"];
+        NSString *convoID = event[@"conversationID"];
         delegate.sendData.conversationID = [NSURL URLWithString:convoID];
-        [eventObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                [_delegate sendInvitesSuccess:_usernamesArray];
-                [self sendDeviceTokensToCloud:_deviceTokensArray];
-                [self sendMessage:textMessage  ToPhoneNumbers:_phoneNumbersArray];
-            } else {
-                [_delegate pushEventToParseFailure:error];
-            }
-        }];
-        return;
+
+        
     }
     
-    [DeleteParseObject deleteCurrentUserEventFromParse];
-    
-    NSURL *identifier = [LayerConversation createInitialConversationWithUsername:[PFUser currentUser].username];
-    
-    PFObject *event = [PFObject objectWithClassName:@"Events"];
-    event[@"inviterName"] = delegate.sendData.inviterName;
-    event[@"hostUsername"] = delegate.sendData.hostUsername;
-    event[@"hostName"] = delegate.sendData.hostName;
-    event[@"diningHall"] = [NSString stringWithFormat:@"%d", delegate.sendData.diningHallInt];
-    event[@"whenToEat"] = delegate.sendData.theTimeToEat;
-    event[@"peopleInChatroom"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
-    event[@"phoneNumbersInvited"] = [NSArray arrayWithArray:_phoneNumbersArray];
-    event[@"hostPhoneNumber"] = user[@"phoneNumber"];
-    event[@"usersInvited"] = usernames;
-    event[@"conversationID"] = identifier.absoluteString;
-    delegate.sendData.conversationID = identifier;
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -181,6 +168,10 @@
         }
         
     }];
+    
+    
+ 
+    
 }
 
 

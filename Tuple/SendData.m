@@ -9,7 +9,7 @@
 #import "SendData.h"
 
 @implementation SendData
-@synthesize theTimeToEat;
+@synthesize eventTime;
 
 
 @end

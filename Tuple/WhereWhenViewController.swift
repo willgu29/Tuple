@@ -86,7 +86,7 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     func saveDate(){
         var date = Converter.convertTimeMinutesToDate(delegate.sendData.minutesTillMeetup);
         var dateLocal = Converter.convertDateToCurrentTimeZone(date);
-        delegate.sendData.theTimeToEat = Converter.formatDateTo12HoursPmAm(date)
+        delegate.sendData.eventTime = Converter.formatDateTo12HoursPmAm(date)
     }
     func saveHostName()
     {

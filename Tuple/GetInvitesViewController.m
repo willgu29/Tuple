@@ -81,9 +81,10 @@
     PFObject *eventObject = [_eventsInvitedTo objectAtIndex:indexPath.row];
     delegate.sendData.hostName = eventObject[@"hostName"];
     delegate.sendData.hostUsername = eventObject[@"hostUsername"];
-    delegate.sendData.theTimeToEat = eventObject[@"whenToEat"];
+    delegate.sendData.eventTime = eventObject[@"eventTime"];
+    delegate.sendData.event = eventObject[@"event"];
+    delegate.sendData.eventLocation = eventObject[@"eventLocation"];
     NSString *stringDiningInt =  eventObject[@"diningHall"];
-    delegate.sendData.diningHallInt = stringDiningInt.intValue;
     delegate.sendData.clientType = 2;
     
     PFUser *user = [PFUser currentUser];

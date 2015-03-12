@@ -86,10 +86,10 @@
 -(void)setupLabels
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSString *diningHall =[Converter convertDiningHallIntToString:delegate.sendData.diningHallInt];
-    NSString *timeToEat = delegate.sendData.theTimeToEat;
+    NSString *eventTime = delegate.sendData.eventTime;
+    NSString *eventLocation = delegate.sendData.eventLocation;
     _hostName.text = [NSString stringWithFormat:@"Host: %@", delegate.sendData.hostName];
-    _diningHallAndTime.text = [NSString stringWithFormat:@"%@ @ %@", diningHall, timeToEat];
+    _diningHallAndTime.text = [NSString stringWithFormat:@"%@ @ %@", eventLocation, eventTime];
 }
 
 #pragma mark -IBActions
