@@ -63,6 +63,18 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
             alert.show()
             return false;
         }
+        else if (eventLocationXIB.text.isEmpty)
+        {
+            var alert = UIAlertView(title: "Hm...", message: "Please enter a location!", delegate: nil, cancelButtonTitle: "Sure!");
+            alert.show();
+            return false;
+        }
+        else if (eventXIB.text == PLACEHOLDER_TEXTVIEWTEXT)
+        {
+            var alert = UIAlertView(title: "Huh..", message: "Please enter what you want to do!", delegate: nil, cancelButtonTitle:"Oops!");
+            alert.show();
+            return false;
+        }
         return true;
     }
     
@@ -83,22 +95,10 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     }
     
     func saveLocation() {
-        if (eventXIB.text == PLACEHOLDER_TEXTVIEWTEXT)
-        {
-            var alert = UIAlertView(title: "No event?", message: "Tuple is better when there is an event!", delegate: nil, cancelButtonTitle:"Oops!");
-            alert.show();
-            return;
-        }
         delegate.sendData.event = eventXIB.text;
     }
     
-    func saveActivity() {
-        if (eventLocationXIB.text.isEmpty)
-        {
-            var alert = UIAlertView(title: "Hm...", message: "Please enter a location!", delegate: nil, cancelButtonTitle: "Sure!");
-            alert.show();
-            return;
-        }
+    func saveEvent() {
         delegate.sendData.eventLocation = eventLocationXIB.text;
     }
     
@@ -118,6 +118,8 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
         {
             saveDate();
             saveHostName();
+            saveLocation();
+            saveEvent();
             delegate.sendData.clientType = 1;
             var sendInviteVC = SendInvitesViewController(nibName: "SendInvitesViewController", bundle: nil);
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
