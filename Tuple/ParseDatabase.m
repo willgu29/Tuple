@@ -54,6 +54,17 @@
     PFObject *eventObject =[query getFirstObject];
     return eventObject;
 }
++(PFObject *)lookupEventWithID:(NSString *)uuid
+{
+    if (uuid == nil)
+    {
+        return nil;
+    }
+    PFQuery *query = [PFQuery queryWithClassName:@"Events"];
+    [query whereKey:@"eventID" equalTo:uuid];
+    PFObject *eventObject =[query getFirstObject];
+    return eventObject;
+}
 
 
 +(BOOL)getPhoneVerificationStatusCurrentUser

@@ -7,8 +7,18 @@
 //
 
 #import "DisplayViewController.h"
+#import "AppDelegate.h"
+#import "ParseDatabase.h"
 
 @interface DisplayViewController ()
+
+@property (nonatomic, weak) IBOutlet UILabel *event;
+@property (nonatomic, weak) IBOutlet UILabel *eventLocation;
+@property (nonatomic, weak) IBOutlet UILabel *eventTime;
+@property (nonatomic, weak) IBOutlet UILabel *peopleAttending;
+
+
+
 
 @end
 
@@ -17,6 +27,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (_uuid == nil)
+    {
+        NSLog(@"ERROR: Please pass down a uuid");
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self setupLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +43,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)setupLabel
+{
+     PFObject *event = [ParseDatabase lookupEventWithID:_uuid];
+    _event.text = event[@"event"];
+    _eventLocation.text = event[@"eventLocation"];
+    _eventTime.text = event[@"eventTime"];
+    _peopleAttending.text = event[@"peopleAttending"];
 }
-*/
 
 @end

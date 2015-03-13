@@ -9,7 +9,7 @@
 #import "GetInvitesViewController.h"
 #import "AppDelegate.h"
 #import "Converter.h"
-#import "SendInvitesViewController.h"
+#import "DisplayViewController.h"
 
 @interface GetInvitesViewController ()
 
@@ -94,8 +94,9 @@
     NSString *inviterName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     delegate.sendData.inviterName = inviterName;
     
-    SendInvitesViewController *sendInvitesVC = [[SendInvitesViewController alloc] init];
-    [self.navigationController pushViewController:sendInvitesVC animated:YES];
+    DisplayViewController *displayVC = [[DisplayViewController alloc] initWithNibName:@"DisplayViewController" bundle:nil];
+    displayVC.uuid = delegate.sendData.eventID;
+    [self.navigationController pushViewController:displayVC animated:YES];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {

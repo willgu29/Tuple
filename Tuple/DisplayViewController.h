@@ -10,4 +10,7 @@
 
 @interface DisplayViewController : UIViewController
 
+@property (nonatomic, strong) NSString *uuid;
+
+
 @end
