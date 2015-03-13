@@ -33,5 +33,9 @@
     self.notAttendingLabel.text = self.notAttending;
 }
 
+-(IBAction)backButton:(UIButton *)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "AttendeeViewController.h"
+#import "ParseDatabase.h"
 #import <AFNetworking/AFNetworking.h>
+#import "SendInvitesViewController.h"
 
 @interface AttendeeViewController ()
 
@@ -33,24 +35,28 @@
 -(IBAction)attend:(UIButton *)sender
 {
     //TODO: update
+    PFUser *user = [PFUser currentUser];
+    PFObject *event = [ParseDatabase lookupEventWithID:self.uuid];
+    [event addUniqueObject:user.username forKey:@"peopleAttending"];
+    [event saveInBackground];
+    SendInvitesViewController *sendInvites = [[SendInvitesViewController alloc] initWithNibName:@"SendInvitesViewController" bundle:nil];
+    [self.navigationController pushViewController:sendInvites animated:YES];
+    
 }
 -(IBAction)decline:(UIButton *)sender
 {
     //TODO: update
+    PFUser *user = [PFUser currentUser];
+    PFObject *event = [ParseDatabase lookupEventWithID:self.uuid];
+    [event addUniqueObject:user.username forKey:@"peopleDeclined"];
+    [event saveInBackground];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Okay" message:@"Your status has been confirmed!" delegate:nil cancelButtonTitle:@"Sure" otherButtonTitles:nil];
+    [alert show];
+}
+-(IBAction)backButton:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
--(IBAction)testText:(UIButton *)sender
-{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *url = [NSString stringWithFormat:@"http://tupleapp.com/twilio/sms/"];
-    NSString *encoded = [NSString stringWithUTF8String:[url UTF8String]];
-    NSString *number = @"16032756869";
-    NSString *message = @"Whatever I wanted to say";
-    NSDictionary *dictionary = @{@"number" : number};
-    [manager POST:encoded parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error %@" ,error);
-    }];
-}
+
 @end

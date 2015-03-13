@@ -12,6 +12,7 @@
 #import "ArraySearcher.h"
 #import "UserCellInfo.h"
 #import "HostViewController.h"
+#import "AppDelegate.h"
 
 @interface SendInvitesViewController ()
 
@@ -42,6 +43,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    BOOL isReturningUser = [[NSUserDefaults standardUserDefaults] boolForKey:@"isReturningUser"];
+    if (! isReturningUser) //onboarding process
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Welcome to Tuple!" message:@"Tuple requires you to invite at least one friend to an event, whether your the host or attendee. It's just better that way." delegate:nil cancelButtonTitle:@"Got it!" otherButtonTitles:nil];
+        [alertView show];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isReturningUser"];
+    }
+}
+
 #pragma mark - IBActions
 
 -(IBAction)backButton:(UIButton *)sender
@@ -62,9 +74,19 @@
 
 -(void)pushEventToParseSuccess:(NSString *)uuid
 {
-    HostViewController *hostVC = [[HostViewController alloc] initWithNibName:@"HostViewController" bundle:nil];
-    hostVC.uuid = uuid;
-    [self.navigationController pushViewController:hostVC animated:YES];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    if (delegate.sendData.clientType == 1)
+    {
+        HostViewController *hostVC = [[HostViewController alloc] initWithNibName:@"HostViewController" bundle:nil];
+        hostVC.uuid = uuid;
+        [self.navigationController pushViewController:hostVC animated:YES];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your invites were sent." delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles:nil];
+        [alertView show];
+    }
 
 }
 

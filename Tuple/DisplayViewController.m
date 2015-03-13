@@ -48,10 +48,6 @@
     _notAttending = [NSString stringWithFormat:@"%d", [notAttending count]];
 }
 
--(IBAction)backButton:(UIButton *)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 
 
