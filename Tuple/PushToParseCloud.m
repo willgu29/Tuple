@@ -14,7 +14,6 @@
 #import "Converter.h"
 #import "DeleteParseObject.h"
 #import "AFNetworking.h"
-#import "LayerConversation.h"
 
 @interface PushToParseCloud()
 
@@ -124,19 +123,21 @@
     NSString *textMessage = [NSString stringWithFormat:@"%@ wants to %@ at %@ at %@ via tuple.",  delegate.sendData.inviterName, delegate.sendData.event, delegate.sendData.eventLocation, delegate.sendData.eventTime];
     
     PFObject *event;
-    
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+
     if (delegate.sendData.clientType == 1) //create event
     {
-        NSString *uuid = [[NSUUID UUID] UUIDString];
 
         [DeleteParseObject deleteCurrentUserEventFromParse];
         event = [PFObject objectWithClassName:@"Events"];
         event[@"inviterName"] = delegate.sendData.inviterName;
         event[@"hostUsername"] = delegate.sendData.hostUsername;
         event[@"hostName"] = delegate.sendData.hostName;
+        event[@"event"] = delegate.sendData.event;
         event[@"eventLocation"] = delegate.sendData.eventLocation;
         event[@"eventTime"] = delegate.sendData.eventTime;
         event[@"peopleAttending"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
+        event[@"peopleDeclined"] = @[];
         event[@"phoneNumbersInvited"] = [NSArray arrayWithArray:_phoneNumbersArray];
         event[@"hostPhoneNumber"] = user[@"phoneNumber"];
         event[@"usersInvited"] = usernames;
@@ -157,7 +158,7 @@
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [_delegate sendInvitesSuccess:_usernamesArray];
+            [_delegate pushEventToParseSuccess:uuid];
             [self sendDeviceTokensToCloud:_deviceTokensArray];
             [self sendMessage:textMessage ToPhoneNumbers:_phoneNumbersArray];
         } else {

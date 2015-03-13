@@ -9,8 +9,7 @@
 #import "GetInvitesViewController.h"
 #import "AppDelegate.h"
 #import "Converter.h"
-#import "DisplayViewController.h"
-
+#import "AttendeeViewController.h"
 @interface GetInvitesViewController ()
 
 @property (nonatomic, strong) PullFromParseCloud *pullFromParseCloud;
@@ -94,7 +93,7 @@
     NSString *inviterName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     delegate.sendData.inviterName = inviterName;
     
-    DisplayViewController *displayVC = [[DisplayViewController alloc] initWithNibName:@"DisplayViewController" bundle:nil];
+    AttendeeViewController *displayVC = [[AttendeeViewController alloc] initWithNibName:@"AttendeeViewController" bundle:nil];
     displayVC.uuid = delegate.sendData.eventID;
     [self.navigationController pushViewController:displayVC animated:YES];
 }

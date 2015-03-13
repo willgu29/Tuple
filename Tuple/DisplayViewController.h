@@ -11,6 +11,8 @@
 @interface DisplayViewController : UIViewController
 
 @property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, strong) NSString *notAttending;
 
+-(void)setupLabel;
 
 @end

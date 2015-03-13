@@ -18,8 +18,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *peopleAttending;
 
 
-
-
 @end
 
 @implementation DisplayViewController
@@ -33,11 +31,6 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [self setupLabel];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -49,7 +42,18 @@
     _event.text = event[@"event"];
     _eventLocation.text = event[@"eventLocation"];
     _eventTime.text = event[@"eventTime"];
-    _peopleAttending.text = event[@"peopleAttending"];
+    NSArray *attending = event[@"peopleAttending"];
+    _peopleAttending.text = [NSString stringWithFormat:@"%d",[attending count]];
+    NSArray *notAttending = event[@"peopleDeclined"];
+    _notAttending = [NSString stringWithFormat:@"%d", [notAttending count]];
 }
+
+-(IBAction)backButton:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
 
 @end

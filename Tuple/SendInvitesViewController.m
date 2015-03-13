@@ -11,7 +11,7 @@
 #import "UserTypeEnums.h"
 #import "ArraySearcher.h"
 #import "UserCellInfo.h"
-#import "DisplayViewController.h"
+#import "HostViewController.h"
 
 @interface SendInvitesViewController ()
 
@@ -60,14 +60,17 @@
 
 #pragma mark - Push To Cloud Delegate
 
+-(void)pushEventToParseSuccess:(NSString *)uuid
+{
+    HostViewController *hostVC = [[HostViewController alloc] initWithNibName:@"HostViewController" bundle:nil];
+    hostVC.uuid = uuid;
+    [self.navigationController pushViewController:hostVC animated:YES];
+
+}
+
 -(void)pushEventToParseFailure:(NSError *)error
 {
     
-}
--(void)sendInvitesSuccess:(NSArray *)usernamesArray //add these to conversation after push notification success
-{
-    DisplayViewController *displayVC = [[DisplayViewController alloc] init];
-    [self.navigationController pushViewController:displayVC animated:YES];
 }
 
 -(void)sendInvitesFailure:(NSError *)error
