@@ -90,26 +90,21 @@
 //phoneArray already parsed to 10 digits
 -(void)sendMessage:(NSString *)message  ToPhoneNumbers:(NSArray *)phoneArray
 {
-    NSString *messageToSend = message; //[NSString stringWithFormat:@"Your friend %@ has invited you to eat at %@ via tupleapp.com", delegate.sendData.inviterName, delegate.sendData.theTimeToEat];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *tuple = @"http://tupleapp.com/twilio/sms/";
+    NSString *encoded = [NSString stringWithUTF8String:[tuple UTF8String]];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
         for (NSString *phoneNumber in phoneArray)
         {
-            NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=%@&text=%@", phoneNumber, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
-            NSString *encoded = [postURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            
-            [manager GET:encoded parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+            NSDictionary *body = @{@"number" : phoneNumber, @"message" : message};
+            [manager POST:encoded parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Error: %@", error);
-                //TODO: re-try failed numbers
+                
             }];
-            
-            [NSThread sleepForTimeInterval:2];
+        
         }
-        
-        
     });
    
 }
@@ -173,6 +168,9 @@
 }
 
 
+//Nexmo
+//NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=%@&text=%@", phoneNumber, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
+//NSString *encoded = [postURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
 
 

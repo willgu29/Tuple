@@ -7,6 +7,7 @@
 //
 
 #import "AttendeeViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface AttendeeViewController ()
 
@@ -36,5 +37,20 @@
 -(IBAction)decline:(UIButton *)sender
 {
     //TODO: update
+}
+
+-(IBAction)testText:(UIButton *)sender
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *url = [NSString stringWithFormat:@"http://tupleapp.com/twilio/sms/"];
+    NSString *encoded = [NSString stringWithUTF8String:[url UTF8String]];
+    NSString *number = @"16032756869";
+    NSString *message = @"Whatever I wanted to say";
+    NSDictionary *dictionary = @{@"number" : number};
+    [manager POST:encoded parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error %@" ,error);
+    }];
 }
 @end
