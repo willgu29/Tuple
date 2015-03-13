@@ -13,7 +13,7 @@
 @interface GetInvitesViewController ()
 
 @property (nonatomic, strong) PullFromParseCloud *pullFromParseCloud;
-@property (nonatomic, strong) NSArray *eventsInvitedTo;
+@property (nonatomic, strong) NSMutableArray *eventsInvitedTo;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end

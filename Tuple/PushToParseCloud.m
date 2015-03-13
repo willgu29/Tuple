@@ -122,7 +122,8 @@
 
     if (delegate.sendData.clientType == 1) //create event
     {
-
+        NSMutableArray *invitedAndHost = [NSMutableArray arrayWithArray:usernames];
+        [invitedAndHost addObject:user.username];
         [DeleteParseObject deleteCurrentUserEventFromParse];
         event = [PFObject objectWithClassName:@"Events"];
         event[@"inviterName"] = delegate.sendData.inviterName;
@@ -135,7 +136,7 @@
         event[@"peopleDeclined"] = @[];
         event[@"phoneNumbersInvited"] = [NSArray arrayWithArray:_phoneNumbersArray];
         event[@"hostPhoneNumber"] = user[@"phoneNumber"];
-        event[@"usersInvited"] = usernames;
+        event[@"usersInvited"] = invitedAndHost;
         event[@"eventID"] = uuid;
 
         delegate.sendData.eventID = uuid;

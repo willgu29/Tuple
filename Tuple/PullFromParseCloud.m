@@ -28,6 +28,23 @@
     }];
 }
 
+-(void)findEventsThatUsernameIsHosting:(NSString *)username
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Events"];
+    [query whereKey:@"hostUsername" equalTo:username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error)
+        {
+            [_delegate pullEventFailure:error];
+        }
+        else
+        {
+            [_delegate pullEventSuccess:objects];
+            //TODO: Parse data to display easily.
+        }
+    }];
+}
+
 
 
 @end
