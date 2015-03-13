@@ -1,2 +1,0 @@
-PODS_ROLLOUT_IO_FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PODS_ROOT)/Rollout.io/Rollout"
-PODS_ROLLOUT_IO_OTHER_LDFLAGS = -framework "Rollout"

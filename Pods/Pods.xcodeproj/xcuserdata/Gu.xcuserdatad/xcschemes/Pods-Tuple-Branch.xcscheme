@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E3E4E3827C0ACE511882FDE0"
+               BlueprintIdentifier = "9AADA86BFA65546D295BE04D"
                BuildableName = "libPods-Tuple-Branch.a"
                BlueprintName = "Pods-Tuple-Branch"
                ReferencedContainer = "container:Pods.xcodeproj">
