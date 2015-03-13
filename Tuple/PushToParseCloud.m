@@ -127,8 +127,9 @@
     
     if (delegate.sendData.clientType == 1) //create event
     {
+        NSString *uuid = [[NSUUID UUID] UUIDString];
+
         [DeleteParseObject deleteCurrentUserEventFromParse];
-        NSURL *identifier = [LayerConversation createInitialConversationWithUsername:[PFUser currentUser].username];
         event = [PFObject objectWithClassName:@"Events"];
         event[@"inviterName"] = delegate.sendData.inviterName;
         event[@"hostUsername"] = delegate.sendData.hostUsername;
@@ -139,22 +140,18 @@
         event[@"phoneNumbersInvited"] = [NSArray arrayWithArray:_phoneNumbersArray];
         event[@"hostPhoneNumber"] = user[@"phoneNumber"];
         event[@"usersInvited"] = usernames;
-        event[@"conversationID"] = identifier.absoluteString;
-        delegate.sendData.conversationID = identifier;
-        
+        event[@"eventID"] = uuid;
+
+        delegate.sendData.eventID = uuid;
     }
     else if (delegate.sendData.clientType == 2) //update event
     {
         PFQuery *query = [PFQuery queryWithClassName:@"Events"];
-        [query whereKey:@"hostUsername" equalTo:delegate.sendData.hostUsername];
+        [query whereKey:@"eventID" equalTo:delegate.sendData.eventID];
         event = (PFObject *)[query getFirstObject];
         [event addUniqueObject:user.username forKey:@"peopleAttending"];
         [event addUniqueObjectsFromArray:usernames forKey:@"usersInvited"];
         [event addUniqueObjectsFromArray:phoneNumbers forKey:@"phoneNumbersInvited"];
-        NSString *convoID = event[@"conversationID"];
-        delegate.sendData.conversationID = [NSURL URLWithString:convoID];
-
-        
     }
     
     

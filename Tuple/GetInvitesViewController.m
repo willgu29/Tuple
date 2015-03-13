@@ -84,7 +84,8 @@
     delegate.sendData.eventTime = eventObject[@"eventTime"];
     delegate.sendData.event = eventObject[@"event"];
     delegate.sendData.eventLocation = eventObject[@"eventLocation"];
-    NSString *stringDiningInt =  eventObject[@"diningHall"];
+    delegate.sendData.eventTime = eventObject[@"eventTime"];
+    delegate.sendData.eventID = eventObject[@"eventID"];
     delegate.sendData.clientType = 2;
     
     PFUser *user = [PFUser currentUser];
@@ -100,13 +101,14 @@
 {
     PFObject *eventObject = [_eventsInvitedTo objectAtIndex:indexPath.row];
     
-    NSArray *peopleAttending = eventObject[@"peopleInChatroom"];
-    NSString *diningHall = eventObject[@"diningHall"];
-    NSString *timeToEat = eventObject[@"whenToEat"];
+    NSArray *peopleAttending = eventObject[@"peopleAttending"];
+    NSString *event = eventObject[@"event"];
+    NSString *eventLocation = eventObject[@"eventLocation"];
+    NSString *eventTime = eventObject[@"eventTime"];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.text = [NSString stringWithFormat:@"Host: %@ Inviter: %@", eventObject[@"hostName"], eventObject[@"inviterName"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@, %d Attending", [Converter convertDiningHallIntToString:diningHall.intValue], timeToEat, [peopleAttending count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@, %d Attending", event, eventTime, [peopleAttending count]];
 }
 
 
