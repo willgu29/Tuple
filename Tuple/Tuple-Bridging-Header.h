@@ -16,4 +16,3 @@
 #import "GetInvitesViewController.h"
 #import "CreateProfilePicture.h"
 #import "PhotoServer.h"
-#import "LayerConversation.h"

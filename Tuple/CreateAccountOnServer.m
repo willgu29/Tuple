@@ -9,7 +9,6 @@
 #import "CreateAccountOnServer.h"
 #import <Parse/Parse.h>
 #import "Converter.h"
-#import "LayerConversation.h"
 #import "CreateFriendsList.h"
 #import "AppDelegate.h"
 @interface CreateAccountOnServer()

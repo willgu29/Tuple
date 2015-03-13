@@ -12,7 +12,6 @@
 #import <Parse/Parse.h>
 #import "NSDataConvert.h"
 #import "DeleteParseObject.h"
-#import "DeleteMessages.h"
 #import "Branch.h"
 
 @interface AppDelegate ()
