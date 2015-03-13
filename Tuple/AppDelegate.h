@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SendData.h"
 
-@class LYRClient;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) LYRClient *layerClient;
 @property (strong, nonatomic) SendData *sendData;
 
--(void)activiateLayer;
 @end
 

@@ -7,12 +7,11 @@
 //
 
 #import "SendInvitesViewController.h"
-#import "MessagingViewController.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
 #import "ArraySearcher.h"
 #import "UserCellInfo.h"
-//#import "LayerConversation.h"
+#import "DisplayViewController.h"
 
 @interface SendInvitesViewController ()
 
@@ -67,9 +66,8 @@
 }
 -(void)sendInvitesSuccess:(NSArray *)usernamesArray //add these to conversation after push notification success
 {
-    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
-    messageVC.usernameParticipants = usernamesArray;
-    [self.navigationController pushViewController:messageVC animated:YES];
+    DisplayViewController *displayVC = [[DisplayViewController alloc] init];
+    [self.navigationController pushViewController:displayVC animated:YES];
 }
 
 -(void)sendInvitesFailure:(NSError *)error

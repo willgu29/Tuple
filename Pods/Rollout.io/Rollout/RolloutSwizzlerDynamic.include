@@ -1707,233 +1707,21 @@
   };
 }
 
-- (id)blockFor_instanceMethod_Void___BOOL___BOOL_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
+- (id)blockFor_classMethod_BOOL___ObjCObjectPointer___Record_struct_RolloutSpace__NSRange___ObjCObjectPointer_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
 {
-  return ^void(id rcv, BOOL arg0, BOOL arg1) {
-    void (*originalFunction)(id rcv, SEL _cmd, BOOL arg0, BOOL arg1) = (void *) originalImplementation;
-
-    NSArray *originalArguments = @[     [[RolloutTypeWrapper alloc] initWithBool:arg0], 
-     [[RolloutTypeWrapper alloc] initWithBool:arg1], 
-];
-    NSArray *tweakConfiguration = _configuration.configurationsByMethodId[methodId];
-    RolloutInvocationsList *invocationsList = [_invocationsListFactory invocationsListFromTweakConfiguration:tweakConfiguration];
-    RolloutInvocation *inv = [invocationsList invocationForArguments:originalArguments];
-    
-    if(!inv) {
-       originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0, arg1); return;
-    }
-
-    if(inv.forceMainThreadType == RolloutInvocation_ForceMainThreadType_off || [NSThread isMainThread]) {
-        
-        [inv runBefore];
-    
-        inv.originalArguments = originalArguments;
-        NSArray *arguments = inv.tweakedArguments;
-    
-        switch ([inv type]) {
-            case RolloutInvocationTypeDisable:
-                
-                break;
-            case RolloutInvocationTypeTryCatch:
-                @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);
-                  
-                }
-                @catch(id e){
-                    [inv runAfterExceptionCaught];
-                    
-                }
-                break;
-            case RolloutInvocationTypeNormal:
-            default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);;
-                  
-                break;
-        }
-        return;
-    }
-
-    void (^swizzleBlock)() = ^void() {
-        
-        [inv runBefore];
-    
-        inv.originalArguments = originalArguments;
-        NSArray *arguments = inv.tweakedArguments;
-    
-        switch ([inv type]) {
-            case RolloutInvocationTypeDisable:
-                
-                break;
-            case RolloutInvocationTypeTryCatch:
-                @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);
-                  
-                }
-                @catch(id e){
-                    [inv runAfterExceptionCaught];
-                    
-                }
-                break;
-            case RolloutInvocationTypeNormal:
-            default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);;
-                  
-                break;
-        }
-        return;
-    };
-
-    switch(inv.forceMainThreadType) {
-        case RolloutInvocation_ForceMainThreadType_sync: {
-            
-            id exception = nil, __strong *exceptionPointer = &exception;
-
-            dispatch_sync(dispatch_get_main_queue(), ^{
-	        @try {
-                    swizzleBlock();
-                } @catch(id exception) {
-                    *exceptionPointer = exception;
-                }
-            });
-            if(exception) {
-                @throw exception;
-            }
-            return;
-        }
-        case RolloutInvocation_ForceMainThreadType_async: {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                swizzleBlock();
-            });
-            return;
-        }
-        case RolloutInvocation_ForceMainThreadType_off:
-        case RolloutInvocation_ForceMainThreadTypesCount:
-            break;
-    }
-    swizzleBlock(); return;
-  };
-}
-
-- (id)blockFor_instanceMethod_Void___ObjCObjectPointer___Int_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
-{
-  return ^void(id rcv, id arg0, int arg1) {
-    void (*originalFunction)(id rcv, SEL _cmd, id arg0, int arg1) = (void *) originalImplementation;
+  return ^BOOL(id rcv, id arg0, struct _NSRange arg1, id arg2) {
+    BOOL (*originalFunction)(id rcv, SEL _cmd, id arg0, struct _NSRange arg1, id arg2) = (void *) originalImplementation;
 
     NSArray *originalArguments = @[     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg0], 
-     [[RolloutTypeWrapper alloc] initWithInt:arg1], 
+     [[RolloutTypeWrapper alloc] initWithRecordPointer:&arg1 ofSize:sizeof(struct _NSRange) shouldBeFreedInDealloc:NO], 
+     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg2], 
 ];
     NSArray *tweakConfiguration = _configuration.configurationsByMethodId[methodId];
     RolloutInvocationsList *invocationsList = [_invocationsListFactory invocationsListFromTweakConfiguration:tweakConfiguration];
     RolloutInvocation *inv = [invocationsList invocationForArguments:originalArguments];
     
     if(!inv) {
-       originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0, arg1); return;
-    }
-
-    if(inv.forceMainThreadType == RolloutInvocation_ForceMainThreadType_off || [NSThread isMainThread]) {
-        
-        [inv runBefore];
-    
-        inv.originalArguments = originalArguments;
-        NSArray *arguments = inv.tweakedArguments;
-    
-        switch ([inv type]) {
-            case RolloutInvocationTypeDisable:
-                
-                break;
-            case RolloutInvocationTypeTryCatch:
-                @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).intValue);
-                  
-                }
-                @catch(id e){
-                    [inv runAfterExceptionCaught];
-                    
-                }
-                break;
-            case RolloutInvocationTypeNormal:
-            default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).intValue);;
-                  
-                break;
-        }
-        return;
-    }
-
-    void (^swizzleBlock)() = ^void() {
-        
-        [inv runBefore];
-    
-        inv.originalArguments = originalArguments;
-        NSArray *arguments = inv.tweakedArguments;
-    
-        switch ([inv type]) {
-            case RolloutInvocationTypeDisable:
-                
-                break;
-            case RolloutInvocationTypeTryCatch:
-                @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).intValue);
-                  
-                }
-                @catch(id e){
-                    [inv runAfterExceptionCaught];
-                    
-                }
-                break;
-            case RolloutInvocationTypeNormal:
-            default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).intValue);;
-                  
-                break;
-        }
-        return;
-    };
-
-    switch(inv.forceMainThreadType) {
-        case RolloutInvocation_ForceMainThreadType_sync: {
-            
-            id exception = nil, __strong *exceptionPointer = &exception;
-
-            dispatch_sync(dispatch_get_main_queue(), ^{
-	        @try {
-                    swizzleBlock();
-                } @catch(id exception) {
-                    *exceptionPointer = exception;
-                }
-            });
-            if(exception) {
-                @throw exception;
-            }
-            return;
-        }
-        case RolloutInvocation_ForceMainThreadType_async: {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                swizzleBlock();
-            });
-            return;
-        }
-        case RolloutInvocation_ForceMainThreadType_off:
-        case RolloutInvocation_ForceMainThreadTypesCount:
-            break;
-    }
-    swizzleBlock(); return;
-  };
-}
-
-- (id)blockFor_instanceMethod_BOOL___ObjCObjectPointer_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
-{
-  return ^BOOL(id rcv, id arg0) {
-    BOOL (*originalFunction)(id rcv, SEL _cmd, id arg0) = (void *) originalImplementation;
-
-    NSArray *originalArguments = @[     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg0], 
-];
-    NSArray *tweakConfiguration = _configuration.configurationsByMethodId[methodId];
-    RolloutInvocationsList *invocationsList = [_invocationsListFactory invocationsListFromTweakConfiguration:tweakConfiguration];
-    RolloutInvocation *inv = [invocationsList invocationForArguments:originalArguments];
-    
-    if(!inv) {
-       return originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0);
+       return originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0, arg1, arg2);
     }
 
     if(inv.forceMainThreadType == RolloutInvocation_ForceMainThreadType_off || [NSThread isMainThread]) {
@@ -1949,7 +1737,7 @@
                 break;
             case RolloutInvocationTypeTryCatch:
                 @try{
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];
                   __rollout_r =   [inv conditionalReturnValue];
                 }
                 @catch(id e){
@@ -1959,7 +1747,7 @@
                 break;
             case RolloutInvocationTypeNormal:
             default:
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];;
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];;
                   __rollout_r =   [inv conditionalReturnValue];
                 break;
         }
@@ -1979,7 +1767,7 @@
                 break;
             case RolloutInvocationTypeTryCatch:
                 @try{
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];
                   __rollout_r =   [inv conditionalReturnValue];
                 }
                 @catch(id e){
@@ -1989,7 +1777,7 @@
                 break;
             case RolloutInvocationTypeNormal:
             default:
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];;
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];;
                   __rollout_r =   [inv conditionalReturnValue];
                 break;
         }
@@ -2027,23 +1815,18 @@
   };
 }
 
-- (id)blockFor_instanceMethod_Void___ObjCObjectPointer___ObjCObjectPointer___ObjCObjectPointer___Enum___ObjCObjectPointer_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
+- (id)blockFor_classMethod_Void_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
 {
-  return ^void(id rcv, id arg0, id arg1, id arg2, __rollout_enum arg3, id arg4) {
-    void (*originalFunction)(id rcv, SEL _cmd, id arg0, id arg1, id arg2, __rollout_enum arg3, id arg4) = (void *) originalImplementation;
+  return ^void(id rcv) {
+    void (*originalFunction)(id rcv, SEL _cmd) = (void *) originalImplementation;
 
-    NSArray *originalArguments = @[     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg0], 
-     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg1], 
-     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg2], 
-     [[RolloutTypeWrapper alloc] initWithEnum:arg3], 
-     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg4], 
-];
+    NSArray *originalArguments = @[];
     NSArray *tweakConfiguration = _configuration.configurationsByMethodId[methodId];
     RolloutInvocationsList *invocationsList = [_invocationsListFactory invocationsListFromTweakConfiguration:tweakConfiguration];
     RolloutInvocation *inv = [invocationsList invocationForArguments:originalArguments];
     
     if(!inv) {
-       originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0, arg1, arg2, arg3, arg4); return;
+       originalFunction(rcv, NSSelectorFromString(methodId.selector)); return;
     }
 
     if(inv.forceMainThreadType == RolloutInvocation_ForceMainThreadType_off || [NSThread isMainThread]) {
@@ -2051,7 +1834,7 @@
         [inv runBefore];
     
         inv.originalArguments = originalArguments;
-        NSArray *arguments = inv.tweakedArguments;
+        
     
         switch ([inv type]) {
             case RolloutInvocationTypeDisable:
@@ -2059,7 +1842,7 @@
                 break;
             case RolloutInvocationTypeTryCatch:
                 @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[3]).enumValue, ((RolloutTypeWrapper*)arguments[4]).objCObjectPointerValue);
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector));
                   
                 }
                 @catch(id e){
@@ -2069,7 +1852,7 @@
                 break;
             case RolloutInvocationTypeNormal:
             default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[3]).enumValue, ((RolloutTypeWrapper*)arguments[4]).objCObjectPointerValue);;
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector));;
                   
                 break;
         }
@@ -2081,7 +1864,7 @@
         [inv runBefore];
     
         inv.originalArguments = originalArguments;
-        NSArray *arguments = inv.tweakedArguments;
+        
     
         switch ([inv type]) {
             case RolloutInvocationTypeDisable:
@@ -2089,7 +1872,7 @@
                 break;
             case RolloutInvocationTypeTryCatch:
                 @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[3]).enumValue, ((RolloutTypeWrapper*)arguments[4]).objCObjectPointerValue);
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector));
                   
                 }
                 @catch(id e){
@@ -2099,7 +1882,7 @@
                 break;
             case RolloutInvocationTypeNormal:
             default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[1]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue, ((RolloutTypeWrapper*)arguments[3]).enumValue, ((RolloutTypeWrapper*)arguments[4]).objCObjectPointerValue);;
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector));;
                   
                 break;
         }
@@ -2459,6 +2242,113 @@
   };
 }
 
+- (id)blockFor_instanceMethod_Void___BOOL___BOOL_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
+{
+  return ^void(id rcv, BOOL arg0, BOOL arg1) {
+    void (*originalFunction)(id rcv, SEL _cmd, BOOL arg0, BOOL arg1) = (void *) originalImplementation;
+
+    NSArray *originalArguments = @[     [[RolloutTypeWrapper alloc] initWithBool:arg0], 
+     [[RolloutTypeWrapper alloc] initWithBool:arg1], 
+];
+    NSArray *tweakConfiguration = _configuration.configurationsByMethodId[methodId];
+    RolloutInvocationsList *invocationsList = [_invocationsListFactory invocationsListFromTweakConfiguration:tweakConfiguration];
+    RolloutInvocation *inv = [invocationsList invocationForArguments:originalArguments];
+    
+    if(!inv) {
+       originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0, arg1); return;
+    }
+
+    if(inv.forceMainThreadType == RolloutInvocation_ForceMainThreadType_off || [NSThread isMainThread]) {
+        
+        [inv runBefore];
+    
+        inv.originalArguments = originalArguments;
+        NSArray *arguments = inv.tweakedArguments;
+    
+        switch ([inv type]) {
+            case RolloutInvocationTypeDisable:
+                
+                break;
+            case RolloutInvocationTypeTryCatch:
+                @try{
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);
+                  
+                }
+                @catch(id e){
+                    [inv runAfterExceptionCaught];
+                    
+                }
+                break;
+            case RolloutInvocationTypeNormal:
+            default:
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);;
+                  
+                break;
+        }
+        return;
+    }
+
+    void (^swizzleBlock)() = ^void() {
+        
+        [inv runBefore];
+    
+        inv.originalArguments = originalArguments;
+        NSArray *arguments = inv.tweakedArguments;
+    
+        switch ([inv type]) {
+            case RolloutInvocationTypeDisable:
+                
+                break;
+            case RolloutInvocationTypeTryCatch:
+                @try{
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);
+                  
+                }
+                @catch(id e){
+                    [inv runAfterExceptionCaught];
+                    
+                }
+                break;
+            case RolloutInvocationTypeNormal:
+            default:
+                  originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).boolValue, ((RolloutTypeWrapper*)arguments[1]).boolValue);;
+                  
+                break;
+        }
+        return;
+    };
+
+    switch(inv.forceMainThreadType) {
+        case RolloutInvocation_ForceMainThreadType_sync: {
+            
+            id exception = nil, __strong *exceptionPointer = &exception;
+
+            dispatch_sync(dispatch_get_main_queue(), ^{
+	        @try {
+                    swizzleBlock();
+                } @catch(id exception) {
+                    *exceptionPointer = exception;
+                }
+            });
+            if(exception) {
+                @throw exception;
+            }
+            return;
+        }
+        case RolloutInvocation_ForceMainThreadType_async: {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                swizzleBlock();
+            });
+            return;
+        }
+        case RolloutInvocation_ForceMainThreadType_off:
+        case RolloutInvocation_ForceMainThreadTypesCount:
+            break;
+    }
+    swizzleBlock(); return;
+  };
+}
+
 - (id)blockFor_instanceMethod_Enum_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
 {
   return ^__rollout_enum(id rcv) {
@@ -2564,7 +2454,7 @@
   };
 }
 
-- (id)blockFor_classMethod_BOOL___ObjCObjectPointer___Record_struct_RolloutSpace__NSRange___ObjCObjectPointer_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
+- (id)blockFor_instanceMethod_BOOL___ObjCObjectPointer___Record_struct_RolloutSpace__NSRange___ObjCObjectPointer_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
 {
   return ^BOOL(id rcv, id arg0, struct _NSRange arg1, id arg2) {
     BOOL (*originalFunction)(id rcv, SEL _cmd, id arg0, struct _NSRange arg1, id arg2) = (void *) originalImplementation;
@@ -2672,126 +2562,19 @@
   };
 }
 
-- (id)blockFor_classMethod_Void_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
+- (id)blockFor_instanceMethod_BOOL___ObjCObjectPointer_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
 {
-  return ^void(id rcv) {
-    void (*originalFunction)(id rcv, SEL _cmd) = (void *) originalImplementation;
-
-    NSArray *originalArguments = @[];
-    NSArray *tweakConfiguration = _configuration.configurationsByMethodId[methodId];
-    RolloutInvocationsList *invocationsList = [_invocationsListFactory invocationsListFromTweakConfiguration:tweakConfiguration];
-    RolloutInvocation *inv = [invocationsList invocationForArguments:originalArguments];
-    
-    if(!inv) {
-       originalFunction(rcv, NSSelectorFromString(methodId.selector)); return;
-    }
-
-    if(inv.forceMainThreadType == RolloutInvocation_ForceMainThreadType_off || [NSThread isMainThread]) {
-        
-        [inv runBefore];
-    
-        inv.originalArguments = originalArguments;
-        
-    
-        switch ([inv type]) {
-            case RolloutInvocationTypeDisable:
-                
-                break;
-            case RolloutInvocationTypeTryCatch:
-                @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector));
-                  
-                }
-                @catch(id e){
-                    [inv runAfterExceptionCaught];
-                    
-                }
-                break;
-            case RolloutInvocationTypeNormal:
-            default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector));;
-                  
-                break;
-        }
-        return;
-    }
-
-    void (^swizzleBlock)() = ^void() {
-        
-        [inv runBefore];
-    
-        inv.originalArguments = originalArguments;
-        
-    
-        switch ([inv type]) {
-            case RolloutInvocationTypeDisable:
-                
-                break;
-            case RolloutInvocationTypeTryCatch:
-                @try{
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector));
-                  
-                }
-                @catch(id e){
-                    [inv runAfterExceptionCaught];
-                    
-                }
-                break;
-            case RolloutInvocationTypeNormal:
-            default:
-                  originalFunction(rcv, NSSelectorFromString(methodId.selector));;
-                  
-                break;
-        }
-        return;
-    };
-
-    switch(inv.forceMainThreadType) {
-        case RolloutInvocation_ForceMainThreadType_sync: {
-            
-            id exception = nil, __strong *exceptionPointer = &exception;
-
-            dispatch_sync(dispatch_get_main_queue(), ^{
-	        @try {
-                    swizzleBlock();
-                } @catch(id exception) {
-                    *exceptionPointer = exception;
-                }
-            });
-            if(exception) {
-                @throw exception;
-            }
-            return;
-        }
-        case RolloutInvocation_ForceMainThreadType_async: {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                swizzleBlock();
-            });
-            return;
-        }
-        case RolloutInvocation_ForceMainThreadType_off:
-        case RolloutInvocation_ForceMainThreadTypesCount:
-            break;
-    }
-    swizzleBlock(); return;
-  };
-}
-
-- (id)blockFor_instanceMethod_BOOL___ObjCObjectPointer___Record_struct_RolloutSpace__NSRange___ObjCObjectPointer_withOriginalImplementation:(IMP)originalImplementation methodId:(RolloutMethodId *)methodId
-{
-  return ^BOOL(id rcv, id arg0, struct _NSRange arg1, id arg2) {
-    BOOL (*originalFunction)(id rcv, SEL _cmd, id arg0, struct _NSRange arg1, id arg2) = (void *) originalImplementation;
+  return ^BOOL(id rcv, id arg0) {
+    BOOL (*originalFunction)(id rcv, SEL _cmd, id arg0) = (void *) originalImplementation;
 
     NSArray *originalArguments = @[     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg0], 
-     [[RolloutTypeWrapper alloc] initWithRecordPointer:&arg1 ofSize:sizeof(struct _NSRange) shouldBeFreedInDealloc:NO], 
-     [[RolloutTypeWrapper alloc] initWithObjCObjectPointer:arg2], 
 ];
     NSArray *tweakConfiguration = _configuration.configurationsByMethodId[methodId];
     RolloutInvocationsList *invocationsList = [_invocationsListFactory invocationsListFromTweakConfiguration:tweakConfiguration];
     RolloutInvocation *inv = [invocationsList invocationForArguments:originalArguments];
     
     if(!inv) {
-       return originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0, arg1, arg2);
+       return originalFunction(rcv, NSSelectorFromString(methodId.selector), arg0);
     }
 
     if(inv.forceMainThreadType == RolloutInvocation_ForceMainThreadType_off || [NSThread isMainThread]) {
@@ -2807,7 +2590,7 @@
                 break;
             case RolloutInvocationTypeTryCatch:
                 @try{
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];
                   __rollout_r =   [inv conditionalReturnValue];
                 }
                 @catch(id e){
@@ -2817,7 +2600,7 @@
                 break;
             case RolloutInvocationTypeNormal:
             default:
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];;
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];;
                   __rollout_r =   [inv conditionalReturnValue];
                 break;
         }
@@ -2837,7 +2620,7 @@
                 break;
             case RolloutInvocationTypeTryCatch:
                 @try{
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];
                   __rollout_r =   [inv conditionalReturnValue];
                 }
                 @catch(id e){
@@ -2847,7 +2630,7 @@
                 break;
             case RolloutInvocationTypeNormal:
             default:
-                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue, *(struct _NSRange*)((RolloutTypeWrapper*)arguments[1]).recordPointer, ((RolloutTypeWrapper*)arguments[2]).objCObjectPointerValue)];;
+                  inv.originalReturnValue = [[RolloutTypeWrapper alloc] initWithBool:originalFunction(rcv, NSSelectorFromString(methodId.selector), ((RolloutTypeWrapper*)arguments[0]).objCObjectPointerValue)];;
                   __rollout_r =   [inv conditionalReturnValue];
                 break;
         }

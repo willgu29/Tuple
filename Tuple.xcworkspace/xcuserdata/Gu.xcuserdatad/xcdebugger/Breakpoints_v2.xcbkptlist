@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tuple/SendInvitesViewController.m"
-            timestampString = "446454347.8452"
+            timestampString = "447918761.479536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-sendInvites:"
             landmarkType = "5">
          </BreakpointContent>
@@ -169,11 +169,11 @@
                   symbolName = "-[PushToParseCloud sendMessage:ToPhoneNumbers:]"
                   moduleName = "Tuple"
                   urlString = "file:///Users/Gu/TheGuSystem/Work/Programming/MobileProjects/Tuple/Tuple/Tuple/PushToParseCloud.m"
-                  timestampString = "447725167.440867"
+                  timestampString = "447919011.190391"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
                   offsetFromSymbolStart = "120">
                </Location>
                <Location
@@ -183,11 +183,11 @@
                   symbolName = "__47-[PushToParseCloud sendMessage:ToPhoneNumbers:]_block_invoke"
                   moduleName = "Tuple"
                   urlString = "file:///Users/Gu/TheGuSystem/Work/Programming/MobileProjects/Tuple/Tuple/Tuple/PushToParseCloud.m"
-                  timestampString = "447725167.441004"
+                  timestampString = "447919011.190525"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
                   offsetFromSymbolStart = "44">
                </Location>
             </Locations>

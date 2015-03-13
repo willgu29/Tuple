@@ -65,10 +65,6 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
     
     @IBAction func logoutButton(){
         PFUser.logOut();
-        delegate.layerClient.deauthenticateWithCompletion { (var success: Bool, var error: NSError!) -> Void in
-            
-        }
-        
         var introVC = IntroViewController(nibName:"IntroViewController", bundle: nil);
         self.presentViewController(introVC, animated: true, completion: nil);
     }

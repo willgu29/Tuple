@@ -24,25 +24,11 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     @IBOutlet weak var eventXIB : UITextView!
     @IBOutlet weak var eventLocationXIB : UITextField!
     
-    func setupLayer() {
-        var delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        var deviceTokenData: NSData = NSUserDefaults.standardUserDefaults().objectForKey("deviceTokenTypeData") as NSData;
-        var error: NSError?
-        delegate.activiateLayer();
-        
-        var success = delegate.layerClient.updateRemoteNotificationDeviceToken(deviceTokenData, error: &error)
-        if (success) {
-            NSLog("Application did register for remote notifications");
-        } else {
-            NSLog("Error updating Layer device token for push:%@", error!);
-        }
-        
-    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup Layer
-        self.setupLayer();
         self.navigationController?.navigationBarHidden = true;
         
         var imageLayer = eventXIB.layer;

@@ -14,7 +14,6 @@
 #import "DeleteParseObject.h"
 #import "DeleteMessages.h"
 #import "Branch.h"
-#import <Rollout/Rollout.h>
 
 @interface AppDelegate ()
 
@@ -23,11 +22,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    #if defined( DEBUG )
-        [Rollout setupWithDebug:YES];
-    #else
-        [Rollout setupWithDebug:NO];
-    #endif
+  
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 

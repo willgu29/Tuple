@@ -15,11 +15,6 @@
 		84242A081AA6B17600129411 /* ResendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A061AA6B17600129411 /* ResendViewController.xib */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
 		842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* PhotoServer.m */; };
-		8437551F1A96BD54003CFD45 /* ThisUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437551D1A96BD54003CFD45 /* ThisUserTableViewCell.swift */; };
-		843755201A96BD54003CFD45 /* ThisUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437551E1A96BD54003CFD45 /* ThisUserTableViewCell.xib */; };
-		843755231A96BD66003CFD45 /* OtherUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843755211A96BD66003CFD45 /* OtherUserTableViewCell.swift */; };
-		843755241A96BD66003CFD45 /* OtherUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843755221A96BD66003CFD45 /* OtherUserTableViewCell.xib */; };
-		843755271A96BED6003CFD45 /* BaseMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */; };
 		844432431A992DD20052747E /* LayerConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432421A992DD20052747E /* LayerConversation.m */; };
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
@@ -38,8 +33,6 @@
 		84821A361A873C7500463B7E /* BlastOffTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821A341A873C7500463B7E /* BlastOffTableViewCell.xib */; };
 		84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A381A873C7D00463B7E /* SendInvitesViewController.m */; };
 		84821A3B1A873C7D00463B7E /* SendInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821A391A873C7D00463B7E /* SendInvitesViewController.xib */; };
-		84821A3F1A873CA600463B7E /* MessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A3D1A873CA600463B7E /* MessagingViewController.m */; };
-		84821A401A873CA600463B7E /* MessagingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821A3E1A873CA600463B7E /* MessagingViewController.xib */; };
 		84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84821A411A873CAE00463B7E /* FeedbackViewController.swift */; };
 		84821A461A873CAE00463B7E /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821A421A873CAE00463B7E /* FeedbackViewController.xib */; };
 		84821A471A873CAE00463B7E /* ReportBug.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A441A873CAE00463B7E /* ReportBug.m */; };
@@ -111,12 +104,6 @@
 		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
 		842B33A11A96FD3D0049EEB1 /* PhotoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoServer.h; sourceTree = "<group>"; };
 		842B33A21A96FD3D0049EEB1 /* PhotoServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoServer.m; sourceTree = "<group>"; };
-		8437551D1A96BD54003CFD45 /* ThisUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisUserTableViewCell.swift; sourceTree = "<group>"; };
-		8437551E1A96BD54003CFD45 /* ThisUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThisUserTableViewCell.xib; sourceTree = "<group>"; };
-		843755211A96BD66003CFD45 /* OtherUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserTableViewCell.swift; sourceTree = "<group>"; };
-		843755221A96BD66003CFD45 /* OtherUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserTableViewCell.xib; sourceTree = "<group>"; };
-		843755251A96BED6003CFD45 /* BaseMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMessageTableViewCell.h; sourceTree = "<group>"; };
-		843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMessageTableViewCell.m; sourceTree = "<group>"; };
 		844432411A992DD20052747E /* LayerConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerConversation.h; sourceTree = "<group>"; };
 		844432421A992DD20052747E /* LayerConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerConversation.m; sourceTree = "<group>"; };
 		844432441A9932600052747E /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
@@ -147,9 +134,6 @@
 		84821A371A873C7D00463B7E /* SendInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendInvitesViewController.h; sourceTree = "<group>"; };
 		84821A381A873C7D00463B7E /* SendInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendInvitesViewController.m; sourceTree = "<group>"; };
 		84821A391A873C7D00463B7E /* SendInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendInvitesViewController.xib; sourceTree = "<group>"; };
-		84821A3C1A873CA600463B7E /* MessagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagingViewController.h; sourceTree = "<group>"; };
-		84821A3D1A873CA600463B7E /* MessagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagingViewController.m; sourceTree = "<group>"; };
-		84821A3E1A873CA600463B7E /* MessagingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagingViewController.xib; sourceTree = "<group>"; };
 		84821A411A873CAE00463B7E /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		84821A421A873CAE00463B7E /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		84821A431A873CAE00463B7E /* ReportBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportBug.h; sourceTree = "<group>"; };
@@ -296,26 +280,6 @@
 			name = PhotoServer;
 			sourceTree = "<group>";
 		};
-		843755101A96B6D0003CFD45 /* MessageCellDesign */ = {
-			isa = PBXGroup;
-			children = (
-				8437551D1A96BD54003CFD45 /* ThisUserTableViewCell.swift */,
-				8437551E1A96BD54003CFD45 /* ThisUserTableViewCell.xib */,
-				843755211A96BD66003CFD45 /* OtherUserTableViewCell.swift */,
-				843755221A96BD66003CFD45 /* OtherUserTableViewCell.xib */,
-			);
-			name = MessageCellDesign;
-			sourceTree = "<group>";
-		};
-		843755281A96BEDD003CFD45 /* MessageCellLogic */ = {
-			isa = PBXGroup;
-			children = (
-				843755251A96BED6003CFD45 /* BaseMessageTableViewCell.h */,
-				843755261A96BED6003CFD45 /* BaseMessageTableViewCell.m */,
-			);
-			name = MessageCellLogic;
-			sourceTree = "<group>";
-		};
 		844432471A9C06070052747E /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +331,6 @@
 				84821A1C1A873BE100463B7E /* MainInterface */,
 				84821AEA1A89590500463B7E /* AcceptInvitesInterface */,
 				84821A1D1A873BE700463B7E /* SendInvitesInterface */,
-				84821A1E1A873C0100463B7E /* MessagingGroup */,
 				84821A1F1A873C0800463B7E /* FeedbackInterface */,
 				84821A481A873CB900463B7E /* AppDelegate.h */,
 				84821A491A873CB900463B7E /* AppDelegate.m */,
@@ -451,18 +414,6 @@
 				84821A391A873C7D00463B7E /* SendInvitesViewController.xib */,
 			);
 			name = SendInvitesInterface;
-			sourceTree = "<group>";
-		};
-		84821A1E1A873C0100463B7E /* MessagingGroup */ = {
-			isa = PBXGroup;
-			children = (
-				843755281A96BEDD003CFD45 /* MessageCellLogic */,
-				843755101A96B6D0003CFD45 /* MessageCellDesign */,
-				84821A3C1A873CA600463B7E /* MessagingViewController.h */,
-				84821A3D1A873CA600463B7E /* MessagingViewController.m */,
-				84821A3E1A873CA600463B7E /* MessagingViewController.xib */,
-			);
-			name = MessagingGroup;
 			sourceTree = "<group>";
 		};
 		84821A1F1A873C0800463B7E /* FeedbackInterface */ = {
@@ -748,11 +699,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84821A2C1A873C4A00463B7E /* WhereWhenViewController.xib in Resources */,
-				843755201A96BD54003CFD45 /* ThisUserTableViewCell.xib in Resources */,
-				84821A401A873CA600463B7E /* MessagingViewController.xib in Resources */,
 				84821A3B1A873C7D00463B7E /* SendInvitesViewController.xib in Resources */,
 				848219FF1A873B0F00463B7E /* Images.xcassets in Resources */,
-				843755241A96BD66003CFD45 /* OtherUserTableViewCell.xib in Resources */,
 				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
 				84BFE0AB1A8DF6E700721F88 /* UserProfileViewController.xib in Resources */,
@@ -846,11 +794,8 @@
 				84BFE0AA1A8DF6E700721F88 /* UserProfileViewController.swift in Sources */,
 				848219F41A873B0F00463B7E /* main.m in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
-				843755271A96BED6003CFD45 /* BaseMessageTableViewCell.m in Sources */,
-				84821A3F1A873CA600463B7E /* MessagingViewController.m in Sources */,
 				84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */,
 				84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */,
-				843755231A96BD66003CFD45 /* OtherUserTableViewCell.swift in Sources */,
 				84242A071AA6B17600129411 /* ResendViewController.m in Sources */,
 				84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
@@ -863,7 +808,6 @@
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
-				8437551F1A96BD54003CFD45 /* ThisUserTableViewCell.swift in Sources */,
 				84821A271A873C2600463B7E /* MakeNewAccountViewController.swift in Sources */,
 				844432461A9932600052747E /* Converter.m in Sources */,
 				B3A4227A6ABF402E9DB2402A /* RolloutDynamic.m in Sources */,
