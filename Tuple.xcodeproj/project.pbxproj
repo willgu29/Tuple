@@ -18,6 +18,8 @@
 		84242A081AA6B17600129411 /* ResendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A061AA6B17600129411 /* ResendViewController.xib */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
 		842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* PhotoServer.m */; };
+		843A1AE41AB3C31C00745D2F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A1AE21AB3C31C00745D2F /* Bolts.framework */; };
+		843A1AE51AB3C31C00745D2F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A1AE31AB3C31C00745D2F /* Parse.framework */; };
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
@@ -39,8 +41,6 @@
 		84821A461A873CAE00463B7E /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84821A421A873CAE00463B7E /* FeedbackViewController.xib */; };
 		84821A471A873CAE00463B7E /* ReportBug.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A441A873CAE00463B7E /* ReportBug.m */; };
 		84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A491A873CB900463B7E /* AppDelegate.m */; };
-		84821A6E1A873EDF00463B7E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A6C1A873EDF00463B7E /* Bolts.framework */; };
-		84821A6F1A873EDF00463B7E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A6D1A873EDF00463B7E /* Parse.framework */; };
 		84821A741A873FA700463B7E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A711A873FA700463B7E /* Accelerate.framework */; };
 		84821A751A873FA700463B7E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A721A873FA700463B7E /* Accounts.framework */; };
 		84821A7C1A873FCB00463B7E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A761A873FCB00463B7E /* AudioToolbox.framework */; };
@@ -108,6 +108,8 @@
 		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
 		842B33A11A96FD3D0049EEB1 /* PhotoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoServer.h; sourceTree = "<group>"; };
 		842B33A21A96FD3D0049EEB1 /* PhotoServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoServer.m; sourceTree = "<group>"; };
+		843A1AE21AB3C31C00745D2F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		843A1AE31AB3C31C00745D2F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		844432441A9932600052747E /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
 		844432451A9932600052747E /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		844432481A9C06380052747E /* ArraySearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArraySearcher.h; sourceTree = "<group>"; };
@@ -142,8 +144,6 @@
 		84821A441A873CAE00463B7E /* ReportBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportBug.m; sourceTree = "<group>"; };
 		84821A481A873CB900463B7E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84821A491A873CB900463B7E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84821A6C1A873EDF00463B7E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		84821A6D1A873EDF00463B7E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		84821A711A873FA700463B7E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		84821A721A873FA700463B7E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		84821A761A873FCB00463B7E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -221,12 +221,12 @@
 				84821A7E1A873FCB00463B7E /* CoreData.framework in Frameworks */,
 				84821A7F1A873FCB00463B7E /* CoreLocation.framework in Frameworks */,
 				84821A801A873FCB00463B7E /* libsqlite3.dylib in Frameworks */,
+				843A1AE41AB3C31C00745D2F /* Bolts.framework in Frameworks */,
 				84821A811A873FCB00463B7E /* libz.dylib in Frameworks */,
 				84821A741A873FA700463B7E /* Accelerate.framework in Frameworks */,
 				84821A751A873FA700463B7E /* Accounts.framework in Frameworks */,
-				84821A6F1A873EDF00463B7E /* Parse.framework in Frameworks */,
 				09630052F5A7AC28705A72CD /* libPods-Tuple.a in Frameworks */,
-				84821A6E1A873EDF00463B7E /* Bolts.framework in Frameworks */,
+				843A1AE51AB3C31C00745D2F /* Parse.framework in Frameworks */,
 				14BE0C6511E807B3B541E470 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +447,8 @@
 		84821A4B1A873E9100463B7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				843A1AE21AB3C31C00745D2F /* Bolts.framework */,
+				843A1AE31AB3C31C00745D2F /* Parse.framework */,
 				84BFE0C01A8EB0A900721F88 /* Foundation.framework */,
 				84BFE0BE1A8EB09500721F88 /* CoreGraphics.framework */,
 				84BFE0B61A8EB01B00721F88 /* libPods-Tuple-AFNetworking.a */,
@@ -467,8 +469,6 @@
 				84821A7B1A873FCB00463B7E /* libz.dylib */,
 				84821A711A873FA700463B7E /* Accelerate.framework */,
 				84821A721A873FA700463B7E /* Accounts.framework */,
-				84821A6C1A873EDF00463B7E /* Bolts.framework */,
-				84821A6D1A873EDF00463B7E /* Parse.framework */,
 				6173AC9A3E0B23079BBBB0E6 /* libPods.a */,
 			);
 			name = Frameworks;

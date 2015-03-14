@@ -8,7 +8,6 @@
 
 #import "Tuple-Swift.h"
 #import "AppDelegate.h"
-#import <LayerKit/LayerKit.h>
 #import <Parse/Parse.h>
 #import "NSDataConvert.h"
 #import "DeleteParseObject.h"

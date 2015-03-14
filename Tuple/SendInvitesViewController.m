@@ -48,7 +48,7 @@
     BOOL isReturningUser = [[NSUserDefaults standardUserDefaults] boolForKey:@"isReturningUser"];
     if (! isReturningUser) //onboarding process
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Welcome to Tuple!" message:@"Tuple requires you to invite at least one friend to an event, whether your the host or attendee. It's just better that way." delegate:nil cancelButtonTitle:@"Got it!" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Welcome to Tuple!" message:@"Tuple requires you to invite at least one friend to an event, whether your the host or attendee. It's just better that way!" delegate:nil cancelButtonTitle:@"Got it!" otherButtonTitles:nil];
         [alertView show];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isReturningUser"];
     }

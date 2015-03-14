@@ -146,9 +146,17 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Events"];
         [query whereKey:@"eventID" equalTo:delegate.sendData.eventID];
         event = (PFObject *)[query getFirstObject];
-        [event addUniqueObject:user.username forKey:@"peopleAttending"];
-        [event addUniqueObjectsFromArray:usernames forKey:@"usersInvited"];
-        [event addUniqueObjectsFromArray:phoneNumbers forKey:@"phoneNumbersInvited"];
+        if (delegate.sendData.isAttending)
+        {
+            [event addUniqueObject:user.username forKey:@"peopleAttending"];
+            [event addUniqueObjectsFromArray:usernames forKey:@"usersInvited"];
+            [event addUniqueObjectsFromArray:phoneNumbers forKey:@"phoneNumbersInvited"];
+        }
+        else
+        {
+            [event addUniqueObject:user.username forKey:@"peopleDeclined"];
+        }
+        
     }
     
     

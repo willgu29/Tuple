@@ -10,6 +10,7 @@
 #import "ParseDatabase.h"
 #import <AFNetworking/AFNetworking.h>
 #import "SendInvitesViewController.h"
+#import "AppDelegate.h"
 
 @interface AttendeeViewController ()
 
@@ -35,10 +36,8 @@
 -(IBAction)attend:(UIButton *)sender
 {
     //TODO: update
-    PFUser *user = [PFUser currentUser];
-    PFObject *event = [ParseDatabase lookupEventWithID:self.uuid];
-    [event addUniqueObject:user.username forKey:@"peopleAttending"];
-    [event saveInBackground];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.sendData.isAttending = YES;
     SendInvitesViewController *sendInvites = [[SendInvitesViewController alloc] initWithNibName:@"SendInvitesViewController" bundle:nil];
     [self.navigationController pushViewController:sendInvites animated:YES];
     
@@ -46,10 +45,8 @@
 -(IBAction)decline:(UIButton *)sender
 {
     //TODO: update
-    PFUser *user = [PFUser currentUser];
-    PFObject *event = [ParseDatabase lookupEventWithID:self.uuid];
-    [event addUniqueObject:user.username forKey:@"peopleDeclined"];
-    [event saveInBackground];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.sendData.isAttending = NO;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Okay" message:@"Your status has been confirmed!" delegate:nil cancelButtonTitle:@"Sure" otherButtonTitles:nil];
     [alert show];
 }

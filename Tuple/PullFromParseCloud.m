@@ -15,6 +15,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Events"];
     [query whereKey:@"usersInvited" equalTo:username];
+    [query whereKey:@"peopleDeclined" notEqualTo:username];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
        if (error)
        {
