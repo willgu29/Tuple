@@ -35,24 +35,7 @@
     
     _sendData =  [[SendData alloc] init];
 
-    
-    NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if (remoteNotif)
-    {
-        //Handle remote notification
-        if ([remoteNotif objectForKey:@"hostUsername"])
-        {
-            WhereWhenViewController *whereWhenVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
-            UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:whereWhenVC];
-            self.window.rootViewController = navVC;
-            GetInvitesViewController *getInvitesVC = [[GetInvitesViewController alloc] initWithNibName:@"GetInvitesViewController" bundle:nil];
-            [navVC pushViewController:getInvitesVC animated:YES];
-            self.window.backgroundColor = [UIColor whiteColor];
-            [self.window makeKeyAndVisible];
-            
-            return YES;
-        }
-    }
+
     
     
     PFUser *currentUser = [PFUser currentUser];

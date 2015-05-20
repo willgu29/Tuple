@@ -108,7 +108,7 @@
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.text = [NSString stringWithFormat:@"Host: %@ Inviter: %@", eventObject[@"hostName"], eventObject[@"inviterName"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@, %d Attending", event, eventTime, [peopleAttending count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@, %lu Attending", event, eventTime, (unsigned long)[peopleAttending count]];
 }
 
 

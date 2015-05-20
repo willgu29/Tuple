@@ -29,6 +29,7 @@
 }
 +(UIImage *)scaleImageDownToHalf:(UIImage *)image
 {
+    
     CGSize size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(0.5, 0.5));
     BOOL hasAlpha = NO;
     CGFloat scale = 0.0; //automatically use scale factor of main screen
