@@ -17,6 +17,12 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if ((PFUser.currentUser()) != nil)
+        {
+            var whereWhenVC = WhereWhenViewController(nibName:"WhereWhenViewController", bundle:nil);
+            var navVC = UINavigationController(rootViewController: whereWhenVC);
+            self.presentViewController(navVC, animated: true, completion: nil);
+        }
     }
 
     override func didReceiveMemoryWarning() {
