@@ -67,6 +67,8 @@
 		84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ACD1A88203500463B7E /* BaseTableViewController.m */; };
 		84821AD31A88247300463B7E /* ParseDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AD21A88247300463B7E /* ParseDatabase.m */; };
 		84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADB1A88A05000463B7E /* PhoneTextField.m */; };
+		84ADDBF31B0E79B9006A6C46 /* Tuple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */; };
+		84ADDBF61B0E7B85006A6C46 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBF51B0E7B85006A6C46 /* Event.m */; };
 		84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */; };
 		84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */; };
 		84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0951A8DCE6A00721F88 /* DeleteParseObject.m */; };
@@ -181,6 +183,9 @@
 		84821AD21A88247300463B7E /* ParseDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDatabase.m; sourceTree = "<group>"; };
 		84821ADA1A88A05000463B7E /* PhoneTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTextField.h; sourceTree = "<group>"; };
 		84821ADB1A88A05000463B7E /* PhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTextField.m; sourceTree = "<group>"; };
+		84ADDBF21B0E79B9006A6C46 /* Tuple.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tuple.xcdatamodel; sourceTree = "<group>"; };
+		84ADDBF41B0E7B85006A6C46 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		84ADDBF51B0E7B85006A6C46 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvitesViewController.h; sourceTree = "<group>"; };
 		84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetInvitesViewController.m; sourceTree = "<group>"; };
 		84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetInvitesViewController.xib; sourceTree = "<group>"; };
@@ -334,6 +339,9 @@
 				84821A491A873CB900463B7E /* AppDelegate.m */,
 				848219FE1A873B0F00463B7E /* Images.xcassets */,
 				848219F11A873B0F00463B7E /* Supporting Files */,
+				84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */,
+				84ADDBF41B0E7B85006A6C46 /* Event.h */,
+				84ADDBF51B0E7B85006A6C46 /* Event.m */,
 			);
 			path = Tuple;
 			sourceTree = "<group>";
@@ -756,9 +764,11 @@
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
 				8444324A1A9C06380052747E /* ArraySearcher.m in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
+				84ADDBF31B0E79B9006A6C46 /* Tuple.xcdatamodeld in Sources */,
 				840029671AB2E7E300696105 /* AttendeeViewController.m in Sources */,
 				84821AD31A88247300463B7E /* ParseDatabase.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
+				84ADDBF61B0E7B85006A6C46 /* Event.m in Sources */,
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
@@ -1010,6 +1020,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84ADDBF21B0E79B9006A6C46 /* Tuple.xcdatamodel */,
+			);
+			currentVersion = 84ADDBF21B0E79B9006A6C46 /* Tuple.xcdatamodel */;
+			path = Tuple.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 848219E61A873B0F00463B7E /* Project object */;
 }
