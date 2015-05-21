@@ -11,7 +11,6 @@
 #import <Parse/Parse.h>
 #import "NSDataConvert.h"
 #import "DeleteParseObject.h"
-#import "Branch.h"
 #import "Event.h"
 @interface AppDelegate ()
 
@@ -41,12 +40,7 @@
     for (Event *info in fetchedObjects) {
         NSLog(@"Text: %@", info.title);
     }
-    
-    Branch *branch = [Branch getInstance];
-    [branch initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary *params, NSError *error) {
-        // params are the deep linked params associated with the link that the user clicked before showing up.
-        NSLog(@"deep link data: %@", [params description]);
-    }];
+
     
     [self setupParse:application withLaunchOptions:launchOptions];
     
@@ -88,9 +82,6 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    if ([[Branch getInstance] handleDeepLink:url]) {
-        return YES;
-    }
     return NO;
 }
 

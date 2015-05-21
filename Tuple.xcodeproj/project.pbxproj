@@ -318,17 +318,14 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
+				84ADDBF71B0E7CCA006A6C46 /* APIs */,
 				8400295E1AB2BAC400696105 /* HostInterface */,
 				84242A031AA6A8A400129411 /* ResendInvitesInterface */,
-				844432471A9C06070052747E /* Search */,
-				842B33A01A96FD040049EEB1 /* PhotoServer */,
 				842B339C1A96FB500049EEB1 /* ImageManipulations */,
-				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
-				84BFE0AC1A8DF93100721F88 /* Sorters */,
 				84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */,
 				84821ACB1A88201700463B7E /* BaseViewControllers */,
 				84821A931A87DC4E00463B7E /* GlobalData */,
-				84821A171A873BAB00463B7E /* Converters */,
 				84821AA51A87F20E00463B7E /* GetPeopleAPI */,
 				84821A1B1A873BDB00463B7E /* FirstUserSteps */,
 				84821A1C1A873BE100463B7E /* MainInterface */,
@@ -566,6 +563,17 @@
 				840029661AB2E7E300696105 /* AttendeeViewController.xib */,
 			);
 			name = AcceptInvitesInterface;
+			sourceTree = "<group>";
+		};
+		84ADDBF71B0E7CCA006A6C46 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				84821A171A873BAB00463B7E /* Converters */,
+				84BFE0AC1A8DF93100721F88 /* Sorters */,
+				842B33A01A96FD040049EEB1 /* PhotoServer */,
+				844432471A9C06070052747E /* Search */,
+			);
+			name = APIs;
 			sourceTree = "<group>";
 		};
 		84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */ = {

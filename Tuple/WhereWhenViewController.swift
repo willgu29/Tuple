@@ -16,14 +16,9 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     var delegate = UIApplication.sharedApplication().delegate as AppDelegate;
     
     @IBOutlet weak var lbl_count : UILabel!
-    @IBOutlet weak var min15: UIButton!
-    @IBOutlet weak var min30: UIButton!
-    @IBOutlet weak var min1hr: UIButton!
-    @IBOutlet weak var min2hr: UIButton!
-    @IBOutlet weak var min3hr: UIButton!
     @IBOutlet weak var eventXIB : UITextView!
     @IBOutlet weak var eventLocationXIB : UITextField!
-    
+    @IBOutlet weak var eventTimeXIB : UITextField!
   
     
     override func viewDidLoad() {
@@ -116,41 +111,7 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }
     }
-    @IBAction func timeButtonClicked(var sender: UIButton)
-    {
-        //TODO: Deselect all
-        resetAllButtonImages();
-        var buttonImage: UIImage?
-        if (sender.tag == 0)
-        {
-            delegate.sendData.minutesTillMeetup = 15;
-            buttonImage = UIImage(named:"15HMinButton.png");
-        }
-        else if (sender.tag == 1)
-        {
-            delegate.sendData.minutesTillMeetup = 30;
-            buttonImage = UIImage(named: "30HMinButton.png");
-        }
-        else if (sender.tag == 2)
-        {
-            delegate.sendData.minutesTillMeetup = 60;
-            buttonImage = UIImage(named: "1hrButtonH.png");
-        }
-        else if (sender.tag == 3)
-        {
-            delegate.sendData.minutesTillMeetup = 120;
-            buttonImage = UIImage(named: "2hrButtonH.png");
-        }
-        else if (sender.tag == 4)
-        {
-            delegate.sendData.minutesTillMeetup = 180;
-            buttonImage = UIImage(named: "3hrButtonH.png");
-        }
-        sender.setImage(buttonImage, forState: UIControlState.Normal);
 
-        
-    }
-    
     @IBAction func checkInvites(){
         //TODO: not using the navigation controller
         delegate.sendData.currentUsername = PFUser.currentUser().username;
