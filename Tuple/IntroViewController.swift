@@ -45,11 +45,10 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder();
         return true;
     }
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
     }
-    
+
     func loginToParse(){
         if (username.text.isEmpty || password.text.isEmpty)
         {
@@ -61,14 +60,14 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
             
             var loginUsername = username.text.stringByReplacingOccurrencesOfString(" ", withString: "");
             var loginPassword = password.text.stringByReplacingOccurrencesOfString(" ", withString: "");
-            PFUser.logInWithUsernameInBackground(loginUsername, password: loginPassword, block: { (var user: PFUser!, var error: NSError!) -> Void in
+            PFUser.logInWithUsernameInBackground(loginUsername, password: loginPassword, block: { (var user: PFUser?, var error: NSError?) -> Void in
                 if (user != nil)
                 {
                     self.segueToMainVC();
                 }
                 else
                 {
-                    if (error.code == 101)
+                    if (error!.code == 101)
                     {
                         var alert = UIAlertView(title: "Uh oh...", message: "You've entered an incorrect username/password", delegate: nil, cancelButtonTitle: "Alright!")
                         alert.show()

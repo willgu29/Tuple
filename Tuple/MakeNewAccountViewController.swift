@@ -37,9 +37,10 @@ class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, Creat
         textField.resignFirstResponder();
         return true;
     }
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
     }
+
     
     @IBAction func backButton() {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
@@ -65,8 +66,7 @@ class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, Creat
     
     //Successful account creation makes a PFUser in Parse Database w/ all necessary information
     func createAccountSuccess() {
-        
-        PFUser.logInWithUsernameInBackground(username.text, password: password.text) { (var user: PFUser!, var error: NSError!) -> Void in
+        PFUser.logInWithUsernameInBackground(username.text, password: password.text) { (var user: PFUser?, var error: NSError?) -> Void in
             if ((user) != nil)
             {
                 self.dismissViewControllerAnimated(true, completion: nil);
@@ -81,6 +81,7 @@ class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, Creat
                 alert.show()
             }
         }
+       
     }
     func createAccountWithFailure(error: NSError!) {
         var alert = UIAlertView(title: "We couldn't create an account...", message: "Please check your internet.", delegate: nil, cancelButtonTitle: "Will do")

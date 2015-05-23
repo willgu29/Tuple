@@ -14,7 +14,7 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
     @IBOutlet var imagePreview: UIImageView?
     @IBOutlet var submitPictureButton: UIButton?
     var reportBug = ReportBug();
-    var delegate = UIApplication.sharedApplication().delegate as AppDelegate;
+    var delegate = UIApplication.sharedApplication().delegate as! AppDelegate;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +40,18 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
         self.presentViewController(imagePicker, animated: true, completion: nil);
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info:NSDictionary!) {
-        var tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as UIImage
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        var tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePreview?.image = tempImage;
         CreateProfilePicture.transformImageViewIntoCircle(imagePreview);
         self.submitPictureButton?.hidden = false;
         self.imagePreview?.hidden = false;
         self.dismissViewControllerAnimated(true, completion: nil);
-        
+    }
+  
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil);
+
     }
     
     @IBAction func submitPicture() {
@@ -55,13 +59,9 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
     }
     
     @IBAction func getPicture() {
-        PhotoServer.fetchImageFromServerForUsername(PFUser.currentUser().username);
+        PhotoServer.fetchImageFromServerForUsername(PFUser.currentUser()!.username);
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController!) {
-        
-        self.dismissViewControllerAnimated(true, completion: nil);
-    }
     
     @IBAction func logoutButton(){
         PFUser.logOut();

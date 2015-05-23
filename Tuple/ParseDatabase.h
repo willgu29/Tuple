@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-
 @interface ParseDatabase : NSObject
 
 +(PFUser *)lookupUsername:(NSString *)username;

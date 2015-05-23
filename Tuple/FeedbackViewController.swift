@@ -43,8 +43,8 @@ class FeedbackViewController: UIViewController {
     func sendResultsToParse(){
         var feedbackObject = PFObject(className: "Feedback");
         feedbackObject["rating"] = ratingCounter;
-        feedbackObject["fromUser"] = PFUser.currentUser().username;
-        feedbackObject.saveInBackgroundWithBlock { (var success:Bool, var error: NSError!) -> Void in
+        feedbackObject["fromUser"] = PFUser.currentUser()!.username;
+        feedbackObject.saveInBackgroundWithBlock { (var success:Bool, var error: NSError?) -> Void in
             
         }
       

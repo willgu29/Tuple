@@ -18,8 +18,9 @@
 		84242A081AA6B17600129411 /* ResendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A061AA6B17600129411 /* ResendViewController.xib */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
 		842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* PhotoServer.m */; };
-		843A1AE41AB3C31C00745D2F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A1AE21AB3C31C00745D2F /* Bolts.framework */; };
-		843A1AE51AB3C31C00745D2F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A1AE31AB3C31C00745D2F /* Parse.framework */; };
+		842F0F4D1B1054E500CDC087 /* Tuple-Bridging-Header.h in Resources */ = {isa = PBXBuildFile; fileRef = 84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */; };
+		842F0F501B10562800CDC087 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842F0F4E1B10562800CDC087 /* Bolts.framework */; };
+		842F0F511B10562800CDC087 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842F0F4F1B10562800CDC087 /* Parse.framework */; };
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
@@ -69,6 +70,21 @@
 		84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821ADB1A88A05000463B7E /* PhoneTextField.m */; };
 		84ADDBF31B0E79B9006A6C46 /* Tuple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */; };
 		84ADDBF61B0E7B85006A6C46 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBF51B0E7B85006A6C46 /* Event.m */; };
+		84ADDBFA1B0E83FD006A6C46 /* Chatroom.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBF91B0E83FD006A6C46 /* Chatroom.m */; };
+		84ADDC091B0E874D006A6C46 /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBFC1B0E874D006A6C46 /* SocketAckManager.swift */; };
+		84ADDC0A1B0E874D006A6C46 /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBFD1B0E874D006A6C46 /* SocketAnyEvent.swift */; };
+		84ADDC0B1B0E874D006A6C46 /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBFE1B0E874D006A6C46 /* SocketEngine.swift */; };
+		84ADDC0C1B0E874D006A6C46 /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDBFF1B0E874D006A6C46 /* SocketEngineClient.swift */; };
+		84ADDC0D1B0E874D006A6C46 /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC001B0E874D006A6C46 /* SocketEventHandler.swift */; };
+		84ADDC0E1B0E874D006A6C46 /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC011B0E874D006A6C46 /* SocketFixUTF8.swift */; };
+		84ADDC0F1B0E874D006A6C46 /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC021B0E874D006A6C46 /* SocketIOClient.swift */; };
+		84ADDC101B0E874D006A6C46 /* SocketLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC031B0E874D006A6C46 /* SocketLogger.swift */; };
+		84ADDC111B0E874D006A6C46 /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC041B0E874D006A6C46 /* SocketPacket.swift */; };
+		84ADDC121B0E874D006A6C46 /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC051B0E874D006A6C46 /* SocketParser.swift */; };
+		84ADDC131B0E874D006A6C46 /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC061B0E874D006A6C46 /* SocketTypes.swift */; };
+		84ADDC141B0E874D006A6C46 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC071B0E874D006A6C46 /* SwiftRegex.swift */; };
+		84ADDC151B0E874D006A6C46 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC081B0E874D006A6C46 /* WebSocket.swift */; };
+		84ADDC171B0E8818006A6C46 /* Chatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC161B0E8818006A6C46 /* Chatroom.swift */; };
 		84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */; };
 		84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */; };
 		84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0951A8DCE6A00721F88 /* DeleteParseObject.m */; };
@@ -110,8 +126,8 @@
 		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
 		842B33A11A96FD3D0049EEB1 /* PhotoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoServer.h; sourceTree = "<group>"; };
 		842B33A21A96FD3D0049EEB1 /* PhotoServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoServer.m; sourceTree = "<group>"; };
-		843A1AE21AB3C31C00745D2F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		843A1AE31AB3C31C00745D2F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		842F0F4E1B10562800CDC087 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		842F0F4F1B10562800CDC087 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		844432441A9932600052747E /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
 		844432451A9932600052747E /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		844432481A9C06380052747E /* ArraySearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArraySearcher.h; sourceTree = "<group>"; };
@@ -186,6 +202,22 @@
 		84ADDBF21B0E79B9006A6C46 /* Tuple.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tuple.xcdatamodel; sourceTree = "<group>"; };
 		84ADDBF41B0E7B85006A6C46 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		84ADDBF51B0E7B85006A6C46 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		84ADDBF81B0E83FD006A6C46 /* Chatroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chatroom.h; sourceTree = "<group>"; };
+		84ADDBF91B0E83FD006A6C46 /* Chatroom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chatroom.m; sourceTree = "<group>"; };
+		84ADDBFC1B0E874D006A6C46 /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckManager.swift; sourceTree = "<group>"; };
+		84ADDBFD1B0E874D006A6C46 /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAnyEvent.swift; sourceTree = "<group>"; };
+		84ADDBFE1B0E874D006A6C46 /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngine.swift; sourceTree = "<group>"; };
+		84ADDBFF1B0E874D006A6C46 /* SocketEngineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngineClient.swift; sourceTree = "<group>"; };
+		84ADDC001B0E874D006A6C46 /* SocketEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEventHandler.swift; sourceTree = "<group>"; };
+		84ADDC011B0E874D006A6C46 /* SocketFixUTF8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketFixUTF8.swift; sourceTree = "<group>"; };
+		84ADDC021B0E874D006A6C46 /* SocketIOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOClient.swift; sourceTree = "<group>"; };
+		84ADDC031B0E874D006A6C46 /* SocketLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketLogger.swift; sourceTree = "<group>"; };
+		84ADDC041B0E874D006A6C46 /* SocketPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketPacket.swift; sourceTree = "<group>"; };
+		84ADDC051B0E874D006A6C46 /* SocketParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
+		84ADDC061B0E874D006A6C46 /* SocketTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketTypes.swift; sourceTree = "<group>"; };
+		84ADDC071B0E874D006A6C46 /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		84ADDC081B0E874D006A6C46 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		84ADDC161B0E8818006A6C46 /* Chatroom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chatroom.swift; sourceTree = "<group>"; };
 		84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvitesViewController.h; sourceTree = "<group>"; };
 		84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetInvitesViewController.m; sourceTree = "<group>"; };
 		84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetInvitesViewController.xib; sourceTree = "<group>"; };
@@ -217,6 +249,8 @@
 				84821AAC1A87F33800463B7E /* AddressBookUI.framework in Frameworks */,
 				84821A881A873FE000463B7E /* MobileCoreServices.framework in Frameworks */,
 				84821A891A873FE000463B7E /* QuartzCore.framework in Frameworks */,
+				842F0F511B10562800CDC087 /* Parse.framework in Frameworks */,
+				842F0F501B10562800CDC087 /* Bolts.framework in Frameworks */,
 				84821A8A1A873FE000463B7E /* Security.framework in Frameworks */,
 				84821A8B1A873FE000463B7E /* Social.framework in Frameworks */,
 				84821A8C1A873FE000463B7E /* SystemConfiguration.framework in Frameworks */,
@@ -226,12 +260,10 @@
 				84821A7E1A873FCB00463B7E /* CoreData.framework in Frameworks */,
 				84821A7F1A873FCB00463B7E /* CoreLocation.framework in Frameworks */,
 				84821A801A873FCB00463B7E /* libsqlite3.dylib in Frameworks */,
-				843A1AE41AB3C31C00745D2F /* Bolts.framework in Frameworks */,
 				84821A811A873FCB00463B7E /* libz.dylib in Frameworks */,
 				84821A741A873FA700463B7E /* Accelerate.framework in Frameworks */,
 				84821A751A873FA700463B7E /* Accounts.framework in Frameworks */,
 				09630052F5A7AC28705A72CD /* libPods-Tuple.a in Frameworks */,
-				843A1AE51AB3C31C00745D2F /* Parse.framework in Frameworks */,
 				14BE0C6511E807B3B541E470 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +350,7 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				84ADDBFB1B0E874D006A6C46 /* SocketIOClientSwift */,
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
 				84ADDBF71B0E7CCA006A6C46 /* APIs */,
 				8400295E1AB2BAC400696105 /* HostInterface */,
@@ -452,8 +485,8 @@
 		84821A4B1A873E9100463B7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				843A1AE21AB3C31C00745D2F /* Bolts.framework */,
-				843A1AE31AB3C31C00745D2F /* Parse.framework */,
+				842F0F4E1B10562800CDC087 /* Bolts.framework */,
+				842F0F4F1B10562800CDC087 /* Parse.framework */,
 				84BFE0C01A8EB0A900721F88 /* Foundation.framework */,
 				84BFE0BE1A8EB09500721F88 /* CoreGraphics.framework */,
 				84BFE0B61A8EB01B00721F88 /* libPods-Tuple-AFNetworking.a */,
@@ -572,8 +605,31 @@
 				84BFE0AC1A8DF93100721F88 /* Sorters */,
 				842B33A01A96FD040049EEB1 /* PhotoServer */,
 				844432471A9C06070052747E /* Search */,
+				84ADDBF81B0E83FD006A6C46 /* Chatroom.h */,
+				84ADDBF91B0E83FD006A6C46 /* Chatroom.m */,
+				84ADDC161B0E8818006A6C46 /* Chatroom.swift */,
 			);
 			name = APIs;
+			sourceTree = "<group>";
+		};
+		84ADDBFB1B0E874D006A6C46 /* SocketIOClientSwift */ = {
+			isa = PBXGroup;
+			children = (
+				84ADDBFC1B0E874D006A6C46 /* SocketAckManager.swift */,
+				84ADDBFD1B0E874D006A6C46 /* SocketAnyEvent.swift */,
+				84ADDBFE1B0E874D006A6C46 /* SocketEngine.swift */,
+				84ADDBFF1B0E874D006A6C46 /* SocketEngineClient.swift */,
+				84ADDC001B0E874D006A6C46 /* SocketEventHandler.swift */,
+				84ADDC011B0E874D006A6C46 /* SocketFixUTF8.swift */,
+				84ADDC021B0E874D006A6C46 /* SocketIOClient.swift */,
+				84ADDC031B0E874D006A6C46 /* SocketLogger.swift */,
+				84ADDC041B0E874D006A6C46 /* SocketPacket.swift */,
+				84ADDC051B0E874D006A6C46 /* SocketParser.swift */,
+				84ADDC061B0E874D006A6C46 /* SocketTypes.swift */,
+				84ADDC071B0E874D006A6C46 /* SwiftRegex.swift */,
+				84ADDC081B0E874D006A6C46 /* WebSocket.swift */,
+			);
+			path = SocketIOClientSwift;
 			sourceTree = "<group>";
 		};
 		84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */ = {
@@ -700,6 +756,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842F0F4D1B1054E500CDC087 /* Tuple-Bridging-Header.h in Resources */,
 				84821A2C1A873C4A00463B7E /* WhereWhenViewController.xib in Resources */,
 				84821A3B1A873C7D00463B7E /* SendInvitesViewController.xib in Resources */,
 				840029681AB2E7E300696105 /* AttendeeViewController.xib in Resources */,
@@ -766,37 +823,52 @@
 			files = (
 				84821A471A873CAE00463B7E /* ReportBug.m in Sources */,
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
+				84ADDC091B0E874D006A6C46 /* SocketAckManager.swift in Sources */,
 				842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */,
 				84BFE0A61A8DF0E300721F88 /* VerificationStepViewController.swift in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
+				84ADDC0C1B0E874D006A6C46 /* SocketEngineClient.swift in Sources */,
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
 				8444324A1A9C06380052747E /* ArraySearcher.m in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
+				84ADDC131B0E874D006A6C46 /* SocketTypes.swift in Sources */,
 				84ADDBF31B0E79B9006A6C46 /* Tuple.xcdatamodeld in Sources */,
 				840029671AB2E7E300696105 /* AttendeeViewController.m in Sources */,
 				84821AD31A88247300463B7E /* ParseDatabase.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
 				84ADDBF61B0E7B85006A6C46 /* Event.m in Sources */,
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
+				84ADDBFA1B0E83FD006A6C46 /* Chatroom.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
+				84ADDC0D1B0E874D006A6C46 /* SocketEventHandler.swift in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
 				8400295C1AB2543B00696105 /* DisplayViewController.m in Sources */,
+				84ADDC0E1B0E874D006A6C46 /* SocketFixUTF8.swift in Sources */,
+				84ADDC121B0E874D006A6C46 /* SocketParser.swift in Sources */,
+				84ADDC141B0E874D006A6C46 /* SwiftRegex.swift in Sources */,
 				84BFE0AA1A8DF6E700721F88 /* UserProfileViewController.swift in Sources */,
 				848219F41A873B0F00463B7E /* main.m in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
 				84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */,
+				84ADDC151B0E874D006A6C46 /* WebSocket.swift in Sources */,
 				840029621AB2BAD800696105 /* HostViewController.m in Sources */,
+				84ADDC0F1B0E874D006A6C46 /* SocketIOClient.swift in Sources */,
 				84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */,
 				84242A071AA6B17600129411 /* ResendViewController.m in Sources */,
 				84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
+				84ADDC0A1B0E874D006A6C46 /* SocketAnyEvent.swift in Sources */,
+				84ADDC171B0E8818006A6C46 /* Chatroom.swift in Sources */,
 				84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */,
 				84821A351A873C7500463B7E /* BlastOffTableViewCell.m in Sources */,
+				84ADDC111B0E874D006A6C46 /* SocketPacket.swift in Sources */,
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
 				84821A991A87DCCE00463B7E /* SendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
+				84ADDC0B1B0E874D006A6C46 /* SocketEngine.swift in Sources */,
+				84ADDC101B0E874D006A6C46 /* SocketLogger.swift in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
 				84821A271A873C2600463B7E /* MakeNewAccountViewController.swift in Sources */,
 				844432461A9932600052747E /* Converter.m in Sources */,
@@ -908,7 +980,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -936,7 +1010,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: William Gu (X8C323275L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Gu (X8C323275L)";
 				FRAMEWORK_SEARCH_PATHS = (

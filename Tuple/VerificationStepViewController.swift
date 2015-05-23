@@ -34,10 +34,8 @@ class VerificationStepViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder();
         return true;
     }
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
-
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+         UIApplication.sharedApplication().sendAction("resignFirstResponder", to: nil, from: nil, forEvent: nil)
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

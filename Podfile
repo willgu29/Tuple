@@ -5,7 +5,6 @@ pod "AFNetworking", "~> 2.0"
 
 target 'Tuple' do
 pod 'Branch'
-pod 'LayerKit'
 end
 
 target 'TupleTests' do
