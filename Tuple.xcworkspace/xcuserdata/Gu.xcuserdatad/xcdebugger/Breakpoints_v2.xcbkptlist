@@ -42,13 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tuple/MessagingViewController.m"
-            timestampString = "447135627.08569"
+            timestampString = "454896449.870313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-sendButton:"
-            landmarkType = "5">
+            startingLineNumber = "115"
+            endingLineNumber = "115">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,13 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tuple/MessagingViewController.m"
-            timestampString = "446286255.114252"
+            timestampString = "454896449.870313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-loadConversationAndMessages"
-            landmarkType = "5">
+            startingLineNumber = "57"
+            endingLineNumber = "57">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,13 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tuple/MessagingViewController.m"
-            timestampString = "446286143.978593"
+            timestampString = "454896449.870313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-loadConversationAndMessages"
-            landmarkType = "5">
+            startingLineNumber = "72"
+            endingLineNumber = "72">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -11,9 +11,8 @@
 #import "UserTypeEnums.h"
 #import "ArraySearcher.h"
 #import "UserCellInfo.h"
-#import "HostViewController.h"
 #import "AppDelegate.h"
-
+#import "MessagingViewController.h"
 @interface SendInvitesViewController ()
 
 @property (nonatomic, strong) PushToParseCloud *pushToParseCloud;
@@ -77,9 +76,8 @@
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     if (delegate.sendData.clientType == 1)
     {
-        HostViewController *hostVC = [[HostViewController alloc] initWithNibName:@"HostViewController" bundle:nil];
-        hostVC.uuid = uuid;
-        [self.navigationController pushViewController:hostVC animated:YES];
+        MessagingViewController *messageVC = [[MessagingViewController alloc] initWithNibName:@"MessagingViewController" bundle:nil];
+        [self.navigationController pushViewController:messageVC animated:YES];
     }
     else
     {

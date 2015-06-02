@@ -12,8 +12,14 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
+	console.log("user connected");
 	socket.emit('news', {hello : 'world'});
-	socket.on('my other event', function (data){
+	socket.on('chat message', function (data){
 		console.log(data);
+		io.emit('chat message', data);
 	});
+
+	socket.on('disconnect', function() {
+		console.log("user disconnected");
+	})
 });

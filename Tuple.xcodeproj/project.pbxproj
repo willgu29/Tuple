@@ -84,7 +84,6 @@
 		84ADDC131B0E874D006A6C46 /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC061B0E874D006A6C46 /* SocketTypes.swift */; };
 		84ADDC141B0E874D006A6C46 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC071B0E874D006A6C46 /* SwiftRegex.swift */; };
 		84ADDC151B0E874D006A6C46 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC081B0E874D006A6C46 /* WebSocket.swift */; };
-		84ADDC171B0E8818006A6C46 /* Chatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC161B0E8818006A6C46 /* Chatroom.swift */; };
 		84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */; };
 		84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */; };
 		84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0951A8DCE6A00721F88 /* DeleteParseObject.m */; };
@@ -96,6 +95,8 @@
 		84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0AE1A8DF94500721F88 /* ArraySorter.m */; };
 		84BFE0BF1A8EB09500721F88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BFE0BE1A8EB09500721F88 /* CoreGraphics.framework */; };
 		84BFE0C11A8EB0A900721F88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BFE0C01A8EB0A900721F88 /* Foundation.framework */; };
+		84F807561B1D290E00D7D3EB /* MessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F807541B1D290E00D7D3EB /* MessagingViewController.m */; };
+		84F807571B1D290E00D7D3EB /* MessagingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F807551B1D290E00D7D3EB /* MessagingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,7 +218,6 @@
 		84ADDC061B0E874D006A6C46 /* SocketTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketTypes.swift; sourceTree = "<group>"; };
 		84ADDC071B0E874D006A6C46 /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
 		84ADDC081B0E874D006A6C46 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
-		84ADDC161B0E8818006A6C46 /* Chatroom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chatroom.swift; sourceTree = "<group>"; };
 		84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvitesViewController.h; sourceTree = "<group>"; };
 		84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetInvitesViewController.m; sourceTree = "<group>"; };
 		84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetInvitesViewController.xib; sourceTree = "<group>"; };
@@ -234,6 +234,9 @@
 		84BFE0B61A8EB01B00721F88 /* libPods-Tuple-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Tuple-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-Tuple-AFNetworking.a"; sourceTree = "<group>"; };
 		84BFE0BE1A8EB09500721F88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		84BFE0C01A8EB0A900721F88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84F807531B1D290E00D7D3EB /* MessagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagingViewController.h; sourceTree = "<group>"; };
+		84F807541B1D290E00D7D3EB /* MessagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagingViewController.m; sourceTree = "<group>"; };
+		84F807551B1D290E00D7D3EB /* MessagingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagingViewController.xib; sourceTree = "<group>"; };
 		8E58D714B2E46233466CA53F /* Pods-Tuple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tuple/Pods-Tuple.debug.xcconfig"; sourceTree = "<group>"; };
 		A16768E974AACC91909089AD /* libPods-Tuple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tuple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -364,6 +367,7 @@
 				84821A1C1A873BE100463B7E /* MainInterface */,
 				84821AEA1A89590500463B7E /* AcceptInvitesInterface */,
 				84821A1D1A873BE700463B7E /* SendInvitesInterface */,
+				84F8074C1B1D288400D7D3EB /* MessagingInterface */,
 				84821A1F1A873C0800463B7E /* FeedbackInterface */,
 				84821A481A873CB900463B7E /* AppDelegate.h */,
 				84821A491A873CB900463B7E /* AppDelegate.m */,
@@ -607,7 +611,6 @@
 				844432471A9C06070052747E /* Search */,
 				84ADDBF81B0E83FD006A6C46 /* Chatroom.h */,
 				84ADDBF91B0E83FD006A6C46 /* Chatroom.m */,
-				84ADDC161B0E8818006A6C46 /* Chatroom.swift */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -648,6 +651,16 @@
 				84BFE0AE1A8DF94500721F88 /* ArraySorter.m */,
 			);
 			name = Sorters;
+			sourceTree = "<group>";
+		};
+		84F8074C1B1D288400D7D3EB /* MessagingInterface */ = {
+			isa = PBXGroup;
+			children = (
+				84F807531B1D290E00D7D3EB /* MessagingViewController.h */,
+				84F807541B1D290E00D7D3EB /* MessagingViewController.m */,
+				84F807551B1D290E00D7D3EB /* MessagingViewController.xib */,
+			);
+			name = MessagingInterface;
 			sourceTree = "<group>";
 		};
 		8810EE2E4BB53CCA16BDD8B2 /* Pods */ = {
@@ -765,6 +778,7 @@
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
 				84BFE0AB1A8DF6E700721F88 /* UserProfileViewController.xib in Resources */,
 				84242A081AA6B17600129411 /* ResendViewController.xib in Resources */,
+				84F807571B1D290E00D7D3EB /* MessagingViewController.xib in Resources */,
 				84821A281A873C2600463B7E /* MakeNewAccountViewController.xib in Resources */,
 				84821A361A873C7500463B7E /* BlastOffTableViewCell.xib in Resources */,
 				84BFE09B1A8DD92700721F88 /* avenir-light.ttf in Resources */,
@@ -822,6 +836,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84821A471A873CAE00463B7E /* ReportBug.m in Sources */,
+				84F807561B1D290E00D7D3EB /* MessagingViewController.m in Sources */,
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
 				84ADDC091B0E874D006A6C46 /* SocketAckManager.swift in Sources */,
 				842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */,
@@ -859,7 +874,6 @@
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
 				84ADDC0A1B0E874D006A6C46 /* SocketAnyEvent.swift in Sources */,
-				84ADDC171B0E8818006A6C46 /* Chatroom.swift in Sources */,
 				84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */,
 				84821A351A873C7500463B7E /* BlastOffTableViewCell.m in Sources */,
 				84ADDC111B0E874D006A6C46 /* SocketPacket.swift in Sources */,
@@ -985,6 +999,7 @@
 				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1013,8 +1028,9 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_MODULES_AUTOLINK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: William Gu (X8C323275L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Gu (X8C323275L)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
