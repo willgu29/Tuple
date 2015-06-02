@@ -7,6 +7,7 @@
 //
 
 #import "MessagingViewController.h"
+#import "Chatroom.h"
 
 @interface MessagingViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    Chatroom *chatroom = [[Chatroom alloc] init];
+    [chatroom chatroom];
 }
 
 - (void)didReceiveMemoryWarning {

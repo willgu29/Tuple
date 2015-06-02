@@ -12,6 +12,8 @@
 #import "NSDataConvert.h"
 #import "DeleteParseObject.h"
 #import "Event.h"
+#import "MessagingViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -47,8 +49,11 @@
     _sendData =  [[SendData alloc] init];
 
 
-    IntroViewController *introVC = [[IntroViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
-    self.window.rootViewController = introVC;
+//    IntroViewController *introVC = [[IntroViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
+//    self.window.rootViewController = introVC;
+    
+    MessagingViewController *messageVC  = [[MessagingViewController alloc] init];
+    self.window.rootViewController = messageVC;
     
     
     self.window.backgroundColor = [UIColor whiteColor];

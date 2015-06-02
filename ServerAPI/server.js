@@ -1,25 +1,54 @@
-var app = require('express')(),
-	server = require('http').Server(app),
-	io = require('sockiet.io')(server);
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-var port = process.env.PORT || 3000
-app.listen(port);
-console.log("Listening on port " + port);
+//var nsp = io.of('/chatroom');
 
-
-app.get('/', function (req, res) {
-	res.sendfile(__dirname + "/index.html");
+app.get('/*', function (req, res, next) {
+	console.log("DIRECTORY + URL: ", __dirname, req.url);
+	next();
 });
 
-io.on('connection', function (socket) {
-	console.log("user connected");
-	socket.emit('news', {hello : 'world'});
-	socket.on('chat message', function (data){
-		console.log(data);
-		io.emit('chat message', data);
-	});
+app.get('/', function (req, res) {
+	res.sendFile(__dirname + '/index.html');
+});
+app.get('/chatroom', function (req, res) {
+	res.sendFile(__dirname + '/index.html');
+});
+io.on('connection', function(socket){
+  console.log('a user connected');
 
-	socket.on('disconnect', function() {
-		console.log("user disconnected");
-	})
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+  });
+
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
+
+http.listen(3331, function(){
+  console.log('listening on *:3331');
+});
+app.get('/jquery.js', function (req, res) {
+	res.sendFile(__dirname + req.url);
+});
+
+app.get('/css/:cssFile', function (req, res) {
+	console.log("CSS");
+	res.sendFile(__dirname + req.url);
+});
+app.get('/js/:jsFile', function (req, res) {
+	res.sendFile(__dirname + req.url);
+});
+app.get('/font-awesome/css/:fontPath', function (req, res) {
+	res.sendFile(__dirname + req.url);
+});
+app.get('/font-awesome/fonts/:fontPath', function (req, res) {
+	res.sendFile(__dirname + req.url);
+});
+app.get('/img/:imgName', function (req, res) {
+	res.sendFile(__dirname + req.url);
 });

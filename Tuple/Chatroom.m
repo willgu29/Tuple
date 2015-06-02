@@ -8,6 +8,13 @@
 
 #import "Chatroom.h"
 #import "Tuple-Swift.h"
+
+@interface Chatroom()
+
+@property (nonatomic, strong) SocketIOClient *socket;
+
+@end
+
 @implementation Chatroom
 
 
@@ -15,12 +22,17 @@
 
 -(void)joinChatroom
 {
-    
+    _socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:8080" options:nil];
+}
+
+-(void)leaveChatroom
+{
+    [_socket closeWithFast:false];
 }
 
 -(void)chatroom
 {
-    SocketIOClient* socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:8080" options:nil];
+    SocketIOClient* socket = [[SocketIOClient alloc] initWithSocketURL:@"http://tupleapp.com" options:nil];
     
     [socket on:@"connect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"socket connected");
