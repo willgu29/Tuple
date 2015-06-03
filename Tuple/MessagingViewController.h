@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Chatroom.h"
+@interface MessagingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ChatroomDelegate>
 
-
-@interface MessagingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) NSString *senderID;
+@property (nonatomic, strong) NSString *displayName;
 
 @end

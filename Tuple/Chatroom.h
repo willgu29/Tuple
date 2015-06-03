@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Message.h"
 @protocol ChatroomDelegate <NSObject>
 
--(void)messageReceived:(NSArray *)data;
--(void)messageSendFailure:(NSError *)error;
+-(void)chatMessageReceived;
+-(void)chatMessageSendFailure:(NSError *)error;
 
 @end
 
@@ -19,6 +19,9 @@
 
 -(void)joinChatroom;
 -(void)sendMessage:(NSString *)message;
+
+-(int)messageCount;
+-(Message*)getMessageAtIndex:(int)index;
 
 
 @property (nonatomic, assign) id delegate;

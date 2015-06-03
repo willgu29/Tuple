@@ -4,7 +4,6 @@ pod "AFNetworking", "~> 2.0"
 
 
 target 'Tuple' do
-pod 'JSQMessagesViewController'  
 pod 'Branch'
 end
 

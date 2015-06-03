@@ -8,10 +8,12 @@
 
 #import "MessagingViewController.h"
 #import "Chatroom.h"
+#import "Message.h"
 
 @interface MessagingViewController ()
 
 @property (nonatomic, strong) Chatroom *room;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
 
@@ -38,9 +40,11 @@
     [_room sendMessage:@"TEST"];
 }
 
+#pragma mark - Table View Delegate
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [_room messageCount];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -51,8 +55,18 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
         
     }
-    cell.textLabel.text = @"HI";
+    
+    Message *message = [_room getMessageAtIndex:indexPath.row];
+    
+    cell.textLabel.text = message.message;
     
     return cell;
 }
+
+#pragma mark - Chatroom Delegate
+-(void)chatMessageReceived
+{
+    [self.tableView reloadData];
+}
+
 @end

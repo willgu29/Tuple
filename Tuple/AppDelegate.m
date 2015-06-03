@@ -13,7 +13,6 @@
 #import "DeleteParseObject.h"
 #import "Event.h"
 #import "MessagingViewController.h"
-#import <JSQMessagesViewController/JSQMessages.h>
 
 @interface AppDelegate ()
 
@@ -53,12 +52,10 @@
 //    IntroViewController *introVC = [[IntroViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
 //    self.window.rootViewController = introVC;
     
-//    MessagingViewController *messageVC  = [[MessagingViewController alloc] init];
-//    self.window.rootViewController = messageVC;
-    
-    JSQMessagesViewController *messageVC = [[JSQMessagesViewController alloc] init];
+    MessagingViewController *messageVC  = [[MessagingViewController alloc] init];
     self.window.rootViewController = messageVC;
     
+
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

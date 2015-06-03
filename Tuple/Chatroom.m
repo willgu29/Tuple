@@ -8,7 +8,8 @@
 
 #import "Chatroom.h"
 #import "Tuple-Swift.h"
-
+#import "Message.h"
+#import "NSManagedObject+WGMethods.h"
 @interface Chatroom()
 
 @property (nonatomic, strong) SocketIOClient *socket;
@@ -44,7 +45,10 @@
     
     [_socket on:@"chat message" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"DATA: %@", data);
-        [_delegate messageReceived:data];
+        Message *newMessage = [[Message alloc] init];
+        [newMessage safeSetValuesForKeysWithDictionary:(NSDictionary *)data dateFormatter:nil];
+        [_messages addObject:data];
+        [_delegate chatMessageReceived];
     }];
     
     [_socket on:@"disconnect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
@@ -59,6 +63,15 @@
 
 -(void)sendMessage:(NSString *)message
 {
-    [_socket emit:@"chat message" withItems:@[@{@"roomID": @"100", @"message": message}]];
+    [_socket emit:@"chat message" withItems:@[@{@"senderID": @"willgu", @"roomID": @"102", @"message": message, @"time": [NSDate date]}]];
+}
+
+-(int)messageCount
+{
+    return [_messages count];
+}
+-(Message*)getMessageAtIndex:(int)index
+{
+    return [_messages objectAtIndex:index];
 }
 @end
