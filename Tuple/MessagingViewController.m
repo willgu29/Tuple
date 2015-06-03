@@ -11,6 +11,8 @@
 
 @interface MessagingViewController ()
 
+@property (nonatomic, strong) Chatroom *room;
+
 @end
 
 @implementation MessagingViewController
@@ -22,13 +24,18 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    Chatroom *chatroom = [[Chatroom alloc] init];
-    [chatroom chatroom];
+    _room = [[Chatroom alloc] init];
+    [_room joinChatroom];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(IBAction)test:(UIButton *)sender
+{
+    NSLog(@"Test");
+    [_room sendMessage:@"TEST"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

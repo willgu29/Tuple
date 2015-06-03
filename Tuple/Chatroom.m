@@ -22,7 +22,17 @@
 
 -(void)joinChatroom
 {
-    _socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:8080" options:nil];
+    _socket = [[SocketIOClient alloc] initWithSocketURL:@"http://tupleapp.com" options:nil];
+    
+    [_socket on:@"connect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"socket connected");
+    }];
+    
+    [_socket on:@"chat message" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"DATA: %@", data);
+    }];
+    
+    [_socket connect];
 }
 
 -(void)leaveChatroom
@@ -30,24 +40,8 @@
     [_socket closeWithFast:false];
 }
 
--(void)chatroom
+-(void)sendMessage:(NSString *)message
 {
-    SocketIOClient* socket = [[SocketIOClient alloc] initWithSocketURL:@"http://tupleapp.com" options:nil];
-    
-    [socket on:@"connect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
-        NSLog(@"socket connected");
-    }];
-    
-    [socket on:@"currentAmount" callback:^(NSArray* data, void (^ack)(NSArray*)) {
-        double cur = [[data objectAtIndex:0] floatValue];
-        
-        [socket emitWithAck:@"canUpdate" withItems:@[@(cur)]](0, ^(NSArray* data) {
-            [socket emit:@"update" withItems:@[@{@"amount": @(cur + 2.50)}]];
-        });
-        
-        ack(@[@"Got your currentAmount, ", @"dude"]);
-    }];
-    
-    [socket connect];
+    [_socket emit:@"chat message" withItems:@[@{@"roomID": @"100", @"message": message}]];
 }
 @end

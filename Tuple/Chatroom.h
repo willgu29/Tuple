@@ -10,7 +10,7 @@
 
 @interface Chatroom : NSObject
 
--(void)chatroom;
-
+-(void)joinChatroom;
+-(void)sendMessage:(NSString *)message;
 
 @end

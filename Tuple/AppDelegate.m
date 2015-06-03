@@ -25,23 +25,23 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    NSManagedObjectContext *context = [self managedObjectContext];
-    Event *event = [NSEntityDescription
-                  insertNewObjectForEntityForName:@"Event"
-                  inManagedObjectContext:context];
-    event.title = @"HEHE";
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Event" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (Event *info in fetchedObjects) {
-        NSLog(@"Text: %@", info.title);
-    }
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    Event *event = [NSEntityDescription
+//                  insertNewObjectForEntityForName:@"Event"
+//                  inManagedObjectContext:context];
+//    event.title = @"HEHE";
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+//    }
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription
+//                                   entityForName:@"Event" inManagedObjectContext:context];
+//    [fetchRequest setEntity:entity];
+//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//    for (Event *info in fetchedObjects) {
+//        NSLog(@"Text: %@", info.title);
+//    }
 
     
     [self setupParse:application withLaunchOptions:launchOptions];
