@@ -41,13 +41,32 @@
 {
     [_socket on:@"connect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"socket connected");
+        [_delegate chatRoomConnected];
     }];
     
     [_socket on:@"chat message" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"DATA: %@", data);
-        Message *newMessage = [[Message alloc] init];
-        [newMessage safeSetValuesForKeysWithDictionary:(NSDictionary *)data dateFormatter:nil];
-        [_messages addObject:data];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        dateFormat.timeStyle = NSDateFormatterNoStyle;
+        dateFormat.dateStyle = NSDateFormatterMediumStyle;
+        NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+        [dateFormat setLocale:usLocale];
+        
+        
+        
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        NSManagedObjectContext *context = [delegate managedObjectContext];
+        Message *newMessage = [NSEntityDescription
+                          insertNewObjectForEntityForName:@"Message"
+                          inManagedObjectContext:context];
+        [newMessage safeSetValuesForKeysWithDictionary:[data firstObject] dateFormatter:dateFormat];
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+
+        [_messages addObject:newMessage];
         [_delegate chatMessageReceived];
     }];
     
@@ -63,7 +82,9 @@
 
 -(void)sendMessage:(NSString *)message
 {
-    [_socket emit:@"chat message" withItems:@[@{@"senderID": @"willgu", @"roomID": @"102", @"message": message, @"time": [NSDate date]}]];
+   
+    NSDate *now = [NSDate date];
+    [_socket emit:@"chat message" withItems:@[@{@"senderID": @"willgu", @"roomID": @"102", @"message": message, @"time": [now description]}]];
 }
 
 -(int)messageCount

@@ -10,6 +10,7 @@
 #import "Message.h"
 @protocol ChatroomDelegate <NSObject>
 
+-(void)chatRoomConnected;
 -(void)chatMessageReceived;
 -(void)chatMessageSendFailure:(NSError *)error;
 

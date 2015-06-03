@@ -27,6 +27,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     _room = [[Chatroom alloc] init];
+    _room.delegate = self;
     [_room joinChatroom];
 }
 
@@ -67,6 +68,10 @@
 -(void)chatMessageReceived
 {
     [self.tableView reloadData];
+}
+-(void)chatRoomConnected
+{
+    NSLog(@"Connected!");
 }
 
 @end
