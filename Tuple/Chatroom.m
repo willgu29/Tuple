@@ -95,4 +95,24 @@
 {
     return [_messages objectAtIndex:index];
 }
+
+-(void)cleanup
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *myContext = delegate.managedObjectContext;
+    NSFetchRequest * allMessages = [[NSFetchRequest alloc] init];
+    [allMessages setEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:myContext]];
+    [allMessages setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError * error = nil;
+    NSArray * messages = [myContext executeFetchRequest:allMessages error:&error];
+    //error handling goes here
+    for (Message *message in messages) {
+        [myContext deleteObject:message];
+    }
+    NSError *saveError = nil;
+    [myContext save:&saveError];
+    //more error handling here
+}
+
 @end
