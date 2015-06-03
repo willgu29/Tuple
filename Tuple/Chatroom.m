@@ -12,27 +12,44 @@
 @interface Chatroom()
 
 @property (nonatomic, strong) SocketIOClient *socket;
+@property (nonatomic, strong) NSMutableArray *messages;
 
 @end
 
 @implementation Chatroom
 
 
-
+-(instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        _messages = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 -(void)joinChatroom
 {
     _socket = [[SocketIOClient alloc] initWithSocketURL:@"http://tupleapp.com" options:nil];
-    
+    [self setHandlers];
+    [_socket connect];
+}
+
+-(void)setHandlers
+{
     [_socket on:@"connect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"socket connected");
     }];
     
     [_socket on:@"chat message" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"DATA: %@", data);
+        [_delegate messageReceived:data];
     }];
     
-    [_socket connect];
+    [_socket on:@"disconnect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"socket disconnected");
+    }];
 }
 
 -(void)leaveChatroom

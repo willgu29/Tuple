@@ -6,7 +6,15 @@
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="avatarData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Event" positionX="-18" positionY="27" width="128" height="103"/>
+        <element name="User" positionX="-162" positionY="29" width="128" height="118"/>
     </elements>
 </model>

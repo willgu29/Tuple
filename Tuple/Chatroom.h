@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol ChatroomDelegate <NSObject>
+
+-(void)messageReceived:(NSArray *)data;
+-(void)messageSendFailure:(NSError *)error;
+
+@end
+
 @interface Chatroom : NSObject
 
 -(void)joinChatroom;
 -(void)sendMessage:(NSString *)message;
+
+
+@property (nonatomic, assign) id delegate;
 
 @end

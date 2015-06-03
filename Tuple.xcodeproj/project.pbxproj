@@ -23,6 +23,9 @@
 		842F0F511B10562800CDC087 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842F0F4F1B10562800CDC087 /* Parse.framework */; };
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
+		847655A51B1F952300E03554 /* FrameworkMessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655A41B1F952300E03554 /* FrameworkMessagingViewController.m */; };
+		847655A81B1F967200E03554 /* DemoModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655A71B1F967200E03554 /* DemoModelData.m */; };
+		847655AB1B1F995300E03554 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655AA1B1F995300E03554 /* NSUserDefaults+DemoSettings.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -133,6 +136,12 @@
 		844432451A9932600052747E /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		844432481A9C06380052747E /* ArraySearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArraySearcher.h; sourceTree = "<group>"; };
 		844432491A9C06380052747E /* ArraySearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArraySearcher.m; sourceTree = "<group>"; };
+		847655A31B1F952300E03554 /* FrameworkMessagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameworkMessagingViewController.h; sourceTree = "<group>"; };
+		847655A41B1F952300E03554 /* FrameworkMessagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameworkMessagingViewController.m; sourceTree = "<group>"; };
+		847655A61B1F967200E03554 /* DemoModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModelData.h; sourceTree = "<group>"; };
+		847655A71B1F967200E03554 /* DemoModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModelData.m; sourceTree = "<group>"; };
+		847655A91B1F995300E03554 /* NSUserDefaults+DemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+DemoSettings.h"; sourceTree = "<group>"; };
+		847655AA1B1F995300E03554 /* NSUserDefaults+DemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+DemoSettings.m"; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -656,9 +665,15 @@
 		84F8074C1B1D288400D7D3EB /* MessagingInterface */ = {
 			isa = PBXGroup;
 			children = (
+				847655A91B1F995300E03554 /* NSUserDefaults+DemoSettings.h */,
+				847655AA1B1F995300E03554 /* NSUserDefaults+DemoSettings.m */,
+				847655A61B1F967200E03554 /* DemoModelData.h */,
+				847655A71B1F967200E03554 /* DemoModelData.m */,
 				84F807531B1D290E00D7D3EB /* MessagingViewController.h */,
 				84F807541B1D290E00D7D3EB /* MessagingViewController.m */,
 				84F807551B1D290E00D7D3EB /* MessagingViewController.xib */,
+				847655A31B1F952300E03554 /* FrameworkMessagingViewController.h */,
+				847655A41B1F952300E03554 /* FrameworkMessagingViewController.m */,
 			);
 			name = MessagingInterface;
 			sourceTree = "<group>";
@@ -870,14 +885,17 @@
 				84ADDC0F1B0E874D006A6C46 /* SocketIOClient.swift in Sources */,
 				84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */,
 				84242A071AA6B17600129411 /* ResendViewController.m in Sources */,
+				847655AB1B1F995300E03554 /* NSUserDefaults+DemoSettings.m in Sources */,
 				84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
 				84ADDC0A1B0E874D006A6C46 /* SocketAnyEvent.swift in Sources */,
 				84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */,
+				847655A51B1F952300E03554 /* FrameworkMessagingViewController.m in Sources */,
 				84821A351A873C7500463B7E /* BlastOffTableViewCell.m in Sources */,
 				84ADDC111B0E874D006A6C46 /* SocketPacket.swift in Sources */,
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
+				847655A81B1F967200E03554 /* DemoModelData.m in Sources */,
 				84821A991A87DCCE00463B7E /* SendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
