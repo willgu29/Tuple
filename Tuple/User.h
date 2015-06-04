@@ -17,6 +17,9 @@
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSDecimalNumber * score;
 @property (nonatomic, retain) NSString * phoneNumber;
+@property (nonatomic, retain) NSString * firstName;
+@property (nonatomic, retain) NSString * fullName;
+@property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) Contact *contactCard;
 
 @end

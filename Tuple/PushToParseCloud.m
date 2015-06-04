@@ -39,19 +39,15 @@
     } else {
         event[@"hostName"] = [NSString stringWithFormat:@"%@ %@", currentUser[@"firstName"], currentUser[@"lastName"]];
     }
+    event[@"usersInChatroom"] = @[];
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [_delegate pushEventToParseSuccess:uuid];
-            [self sendDeviceTokensToCloud:_deviceTokensArray];
-            [self sendMessage:textMessage ToPhoneNumbers:_phoneNumbersArray];
         } else {
             [_delegate pushEventToParseFailure:error];
         }
-        
     }];
-    
-    
     
 }
 
@@ -67,40 +63,13 @@
     return self;
 }
 
--(void)separateAppUsersFromContactsAndSendPush:(NSArray *)selectedArray
-{
-    if ([selectedArray count] == 0)
-    {
-        NSError *error = [[NSError alloc] initWithDomain:@"Please select people to send invites to!" code:15 userInfo:nil];
-        [_delegate sendInvitesFailure:error];
-        return;
-    }
-    for (UserCellInfo *userInfo in selectedArray)
-    {
-        if (userInfo.userType == IS_CONTACT_NO_APP)
-        {
-            NSString *numbersOnly = [Converter convertPhoneNumberToOnlyNumbers:userInfo.phoneNumber];
-            [_phoneNumbersArray addObject:numbersOnly];
-        }
-        else if (userInfo.userType == IS_CONTACT_WITH_APP)
-        {
-            [_deviceTokensArray addObject:userInfo.deviceToken];
-            [_usernamesArray addObject:userInfo.username];
-        }
-    }
-    [self pushEventToParse:_usernamesArray andNumbers:_phoneNumbersArray];
-}
 
 -(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     
-    NSString *inviter = delegate.sendData.inviterName;
-    NSString *hostUsername = delegate.sendData.hostUsername;
-    NSString *eventTime = delegate.sendData.eventTime;
-    NSString *event = delegate.sendData.event;
-    NSString *eventLocation = delegate.sendData.eventLocation;
-    
+
+    /* Reimplement push notifications
     [PFCloud callFunctionInBackground:@"hello"
                        withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"event" : event, @"eventLocation": eventLocation, @"eventTime": eventTime}
                                 block:^(id object, NSError *error) {
@@ -114,6 +83,7 @@
                                     }
                                     
                                 }];
+     */
     
 }
 

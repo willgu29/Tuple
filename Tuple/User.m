@@ -16,6 +16,9 @@
 @dynamic username;
 @dynamic score;
 @dynamic phoneNumber;
+@dynamic firstName;
+@dynamic fullName;
+@dynamic lastName;
 @dynamic contactCard;
 
 @end

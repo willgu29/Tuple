@@ -7,6 +7,7 @@
 //
 
 #import "Event.h"
+#import "User.h"
 
 
 @implementation Event
@@ -15,5 +16,9 @@
 @dynamic location;
 @dynamic time;
 @dynamic title;
+@dynamic hostName;
+@dynamic hostID;
+@dynamic inviter;
+@dynamic host;
 
 @end
