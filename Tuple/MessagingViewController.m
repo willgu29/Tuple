@@ -9,6 +9,7 @@
 #import "MessagingViewController.h"
 #import "Chatroom.h"
 #import "Message.h"
+#import <Parse/Parse.h>
 
 @interface MessagingViewController ()
 
@@ -22,13 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _room = [[Chatroom alloc] init];
+    _room.delegate = self;
+    [_room joinChatroom];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    _room = [[Chatroom alloc] init];
-    _room.delegate = self;
-    [_room joinChatroom];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,9 +71,10 @@
 {
     [self.tableView reloadData];
 }
--(void)chatRoomConnected
+-(void)chatRoomReconnected
 {
-    NSLog(@"Connected!");
+    NSLog(@"Re-Connected!");
+    
 }
 
 @end

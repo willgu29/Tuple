@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) SocketIOClient *socket;
 @property (nonatomic, strong) NSMutableArray *messages;
+@property (nonatomic, strong) NSMutableArray *users;
 
 @end
 
@@ -26,6 +27,7 @@
     if (self)
     {
         _messages = [[NSMutableArray alloc] init];
+        _users = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -35,13 +37,19 @@
     _socket = [[SocketIOClient alloc] initWithSocketURL:@"http://tupleapp.com" options:nil];
     [self setHandlers];
     [_socket connect];
+    
+    [_socket emit:@"join chatroom" withItems:@[[PFUser currentUser]]];
 }
 
 -(void)setHandlers
 {
     [_socket on:@"connect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"socket connected");
-        [_delegate chatRoomConnected];
+        NSLog(@"Data Connect: %@", data);
+        [_delegate chatRoomReconnected];
+    }];
+    [_socket on:@"disconnect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"socket disconnected");
     }];
     
     [_socket on:@"chat message" callback:^(NSArray* data, void (^ack)(NSArray*)) {
@@ -70,14 +78,24 @@
         [_delegate chatMessageReceived];
     }];
     
-    [_socket on:@"disconnect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
-        NSLog(@"socket disconnected");
+    [_socket on:@"join chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"User joined");
+        //TODO: Increment user count
+        [self addUserToChatroom:[data firstObject]];
+    }];
+    [_socket on:@"leave chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"User left");
+        //TODO: Cleanup
+        [self removeUserFromChatroom:[data firstObject]];
     }];
 }
 
 -(void)leaveChatroom
 {
+    [_socket emit:@"leave chatroom" withItems:@[[PFUser currentUser]]];
+
     [_socket closeWithFast:false];
+    [self cleanup];
 }
 
 -(void)sendMessage:(NSString *)message
@@ -85,6 +103,8 @@
    
     NSDate *now = [NSDate date];
     [_socket emit:@"chat message" withItems:@[@{@"senderID": @"willgu", @"roomID": @"102", @"message": message, @"time": [now description]}]];
+    
+    //TODO: Send push notification to group as well
 }
 
 -(int)messageCount
@@ -96,8 +116,10 @@
     return [_messages objectAtIndex:index];
 }
 
+
 -(void)cleanup
 {
+    
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSManagedObjectContext *myContext = delegate.managedObjectContext;
     NSFetchRequest * allMessages = [[NSFetchRequest alloc] init];
@@ -113,6 +135,14 @@
     NSError *saveError = nil;
     [myContext save:&saveError];
     //more error handling here
+}
+-(void)addUserToChatroom:(PFUser *)newUser
+{
+    [_users addObject:newUser];
+}
+-(void)removeUserFromChatroom:(PFUser *)removeUser
+{
+    [_users removeObject:removeUser];
 }
 
 @end

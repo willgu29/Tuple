@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "Message.h"
+#import "User.h"
+#import <Parse/Parse.h>
 @protocol ChatroomDelegate <NSObject>
 
--(void)chatRoomConnected;
+-(void)chatRoomReconnected;
 -(void)chatMessageReceived;
 -(void)chatMessageSendFailure:(NSError *)error;
 
@@ -23,7 +25,8 @@
 
 -(int)messageCount;
 -(Message*)getMessageAtIndex:(int)index;
-
+-(void)addUserToChatroom:(PFUser *)newUser;
+-(void)removeUserFromChatroom:(PFUser *)removeUser;
 
 @property (nonatomic, assign) id delegate;
 
