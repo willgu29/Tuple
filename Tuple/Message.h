@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <JSQMessagesViewController/JSQMessages.h>
 
 
-@interface Message : NSManagedObject
+@interface Message : NSManagedObject <JSQMessageData>
 
 @property (nonatomic, retain) NSString * senderID;
 @property (nonatomic, retain) NSString * roomID;
 @property (nonatomic, retain) NSString * message;
-@property (nonatomic, retain) NSDate * time;
+@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * isMediaMessage;
+@property (nonatomic, retain) NSString * senderDisplayName;
+@property (nonatomic, retain) NSData * media;
+@property (nonatomic, retain) NSNumber * messageHash;
 
 @end

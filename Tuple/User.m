@@ -16,5 +16,6 @@
 @dynamic phoneNumber;
 @dynamic password;
 @dynamic score;
+@dynamic email;
 
 @end

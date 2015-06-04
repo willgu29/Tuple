@@ -29,5 +29,10 @@
 -(void)removeUserFromChatroom:(PFUser *)removeUser;
 
 @property (nonatomic, assign) id delegate;
+@property (strong, nonatomic) JSQMessagesBubbleImage *outgoingBubbleImageData;
+@property (strong, nonatomic) JSQMessagesBubbleImage *incomingBubbleImageData;
+@property (strong, nonatomic) NSDictionary *avatars;
+
+
 
 @end

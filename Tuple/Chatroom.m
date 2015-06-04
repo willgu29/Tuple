@@ -13,12 +13,24 @@
 @interface Chatroom()
 
 @property (nonatomic, strong) SocketIOClient *socket;
-@property (nonatomic, strong) NSMutableArray *messages;
 @property (nonatomic, strong) NSMutableArray *users;
+@property (nonatomic, strong) NSMutableArray *messages;
+
+
+//@property (strong, nonatomic) NSDictionary *users;
+
 
 @end
 
 @implementation Chatroom
+
+-(void)initBubbles
+{
+    JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
+    
+    self.outgoingBubbleImageData = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
+    self.incomingBubbleImageData = [bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleGreenColor]];
+}
 
 
 -(instancetype)init
@@ -28,6 +40,7 @@
     {
         _messages = [[NSMutableArray alloc] init];
         _users = [[NSMutableArray alloc] init];
+        [self initBubbles];
     }
     return self;
 }
@@ -38,7 +51,7 @@
     [self setHandlers];
     [_socket connect];
     
-    [_socket emit:@"join chatroom" withItems:@[[PFUser currentUser]]];
+//    [_socket emit:@"join chatroom" withItems:@[[PFUser currentUser]]]; (not signed in due to testing) (uncomment when signed in)
 }
 
 -(void)setHandlers
@@ -81,12 +94,12 @@
     [_socket on:@"join chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"User joined");
         //TODO: Increment user count
-        [self addUserToChatroom:[data firstObject]];
+//        [self addUserToChatroom:[data firstObject]];
     }];
     [_socket on:@"leave chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"User left");
         //TODO: Cleanup
-        [self removeUserFromChatroom:[data firstObject]];
+//        [self removeUserFromChatroom:[data firstObject]];
     }];
 }
 
@@ -102,8 +115,8 @@
 {
    
     NSDate *now = [NSDate date];
-    [_socket emit:@"chat message" withItems:@[@{@"senderID": @"willgu", @"roomID": @"102", @"message": message, @"time": [now description]}]];
-    
+    [_socket emit:@"chat message" withItems:@[@{@"senderID": @"willgu", @"roomID": @"102", @"message": message, @"date": [now description], @"isMediaMessage": @"false", @"senderDisplayName": @"Will Gu", @"messageHash": @"12o3i12"}]];
+
     //TODO: Send push notification to group as well
 }
 

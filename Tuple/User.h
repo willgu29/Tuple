@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSNumber * phoneNumber;
 @property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSDecimalNumber * score;
+@property (nonatomic, retain) NSString * email;
 
 @end
