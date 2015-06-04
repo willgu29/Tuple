@@ -11,8 +11,13 @@
 @class PullFromContactsList;
 @protocol PullFromContactsListDelegate
 
--(void)contactListFetchSuccess:(NSArray *)contactListArray;
+-(void)contactListFetchSuccess;
 -(void)contactListFetchFailure:(NSError *)error;
+-(void)contactListAuthorized;
+-(void)contactListAuthorizedFirstTime;
+-(void)contactListDeniedAccess;
+-(void)contactListDeleteSuccess;
+
 
 @end
 
@@ -20,7 +25,10 @@
 
 @property (nonatomic, assign) id delegate;
 
--(void)fetchTableViewData;
+-(void)fetchAllFromContactsList;
+-(void)checkAuthorizationStatusForContactList;
+-(void)deleteAllFromContactList;
+
 -(instancetype)init;
 
 @end

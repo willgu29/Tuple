@@ -8,13 +8,14 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class UserProfileViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate, PullFromContactsListDelegate {
 
     var imagePicker = UIImagePickerController()
     @IBOutlet var imagePreview: UIImageView?
     @IBOutlet var submitPictureButton: UIButton?
     var reportBug = ReportBug();
     var delegate = UIApplication.sharedApplication().delegate as! AppDelegate;
+    var pullContacts = PullFromContactsList();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,41 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil);
 
+    }
+    
+    @IBAction func refreshContactList() {
+        pullContacts.delegate = self;
+        pullContacts.deleteAllFromContactList();
+    }
+    func contactListDeleteSuccess() {
+        pullContacts.checkAuthorizationStatusForContactList();
+    }
+    func contactListAuthorized() {
+        pullContacts.fetchAllFromContactsList();
+    }
+    func contactListAuthorizedFirstTime() {
+        pullContacts.fetchAllFromContactsList();
+    }
+    func contactListDeniedAccess() {
+        //Cry
+    }
+    func contactListFetchSuccess() {
+        var fetchRequest = NSFetchRequest();
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate;
+        let managedContext = delegate.managedObjectContext;
+        var entity = NSEntityDescription.entityForName("Contact", inManagedObjectContext: managedContext);
+        fetchRequest.entity = entity;
+        var error = NSErrorPointer();
+        let objects: NSArray = managedContext.executeFetchRequest(fetchRequest, error: error)!;
+        for contact in objects
+        {
+//            NSLog("The Card: %@", contact);
+            println("GJAL %@", contact);
+        }
+        
+    }
+    func contactListFetchFailure(error: NSError!) {
+        
     }
     
     @IBAction func submitPicture() {

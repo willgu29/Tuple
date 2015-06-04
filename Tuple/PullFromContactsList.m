@@ -45,12 +45,12 @@
     ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
     if (status == kABAuthorizationStatusAuthorized)
     {
-        [self fetchAllFromContactsList];
+        [_delegate contactListAuthorized];
     }
     else if (status == kABAuthorizationStatusNotDetermined) {
         ABAddressBookRequestAccessWithCompletion(nil, ^(bool granted, CFErrorRef error) {
             if (granted) {
-                [self fetchAllFromContactsList];
+                [_delegate contactListAuthorizedFirstTime];
             } else {
                 // User denied access
                 [_delegate contactListFetchFailure:(__bridge NSError *)(error)];
@@ -60,7 +60,7 @@
     else if (status == kABAuthorizationStatusDenied || status == kABAuthorizationStatusRestricted)
     {
         NSError *error = [[NSError alloc] initWithDomain:@"This app requires access to your contacts book" code:1 userInfo:nil];
-        [_delegate contactListFetchFailure:error];
+        [_delegate contactListDeniedAccess];
         return;
     }
 
@@ -83,7 +83,7 @@
         ABRecordRef person = (__bridge ABRecordRef)allPeople[i];
         NSString *firstName = CFBridgingRelease(ABRecordCopyValue(person, kABPersonFirstNameProperty));
         NSString *lastName  = CFBridgingRelease(ABRecordCopyValue(person, kABPersonLastNameProperty));
-        NSString *email = CFBridgingRelease(ABRecordCopyValue(person, kABPersonEmailProperty));
+//        NSString *email = CFBridgingRelease(ABRecordCopyValue(person, kABPersonEmailProperty));
         ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
         
         CFIndex numberOfPhoneNumbers = ABMultiValueGetCount(phoneNumbers);
@@ -110,7 +110,7 @@
             newContact.firstName = firstName;
             newContact.lastName = lastName;
             newContact.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-            newContact.email = email;
+//            newContact.email = email;
             
             PFUser *user = [ParseDatabase lookupPhoneNumber:formatted];
             User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:managedContext];
@@ -133,9 +133,26 @@
         }
         
     }
-//    NSArray *sortedArray = [ArraySorter sortArrayAlphabetically:_contactListArray];
     
-//    [_delegate contactListFetchSuccess:sortedArray];
+    [_delegate contactListFetchSuccess];
+}
+-(void)deleteAllFromContactList
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *myContext = delegate.managedObjectContext;
+    NSFetchRequest * allContacts = [[NSFetchRequest alloc] init];
+    [allContacts setEntity:[NSEntityDescription entityForName:@"Contact" inManagedObjectContext:myContext]];
+    [allContacts setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError * error = nil;
+    NSArray * contacts = [myContext executeFetchRequest:allContacts error:&error];
+    //error handling goes here
+    for (Contact *contact in contacts) {
+        [myContext deleteObject:contact];
+    }
+    NSError *saveError = nil;
+    [myContext save:&saveError];
+    [_delegate contactListDeleteSuccess];
 }
 
 

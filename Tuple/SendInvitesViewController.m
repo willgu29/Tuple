@@ -16,7 +16,6 @@
 @interface SendInvitesViewController ()
 
 @property (nonatomic, strong) PushToParseCloud *pushToParseCloud;
-@property (nonatomic, strong) PullFromContactsList *pullFromContacts;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *searchBar;
@@ -30,9 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _pullFromContacts = [[PullFromContactsList alloc] init];
-    _pullFromContacts.delegate = self;
-    [_pullFromContacts fetchTableViewData];
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
 }
