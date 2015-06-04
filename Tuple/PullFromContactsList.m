@@ -11,8 +11,12 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
-//#import "FetchUserData.h"
 #import "ArraySorter.h"
+#import "AppDelegate.h"
+#import "Contact.h"
+#import "User.h"
+#import "ParseDatabase.h"
+#import "Converter.h"
 @interface PullFromContactsList()
 
 @property (nonatomic, strong) NSMutableArray *contactListArray;
@@ -79,6 +83,7 @@
         ABRecordRef person = (__bridge ABRecordRef)allPeople[i];
         NSString *firstName = CFBridgingRelease(ABRecordCopyValue(person, kABPersonFirstNameProperty));
         NSString *lastName  = CFBridgingRelease(ABRecordCopyValue(person, kABPersonLastNameProperty));
+        NSString *email = CFBridgingRelease(ABRecordCopyValue(person, kABPersonEmailProperty));
         ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
         
         CFIndex numberOfPhoneNumbers = ABMultiValueGetCount(phoneNumbers);
@@ -91,19 +96,46 @@
 
         if (phoneNumber && (firstName || lastName))
         {
-            UserCellInfo *userInfo = [[UserCellInfo alloc] init];
-            userInfo.phoneNumber = phoneNumber;
-            userInfo.firstName = firstName;
-            userInfo.lastName = lastName;
-            userInfo.username = nil;
-            userInfo.userType = IS_CONTACT_NO_APP;
-            [_contactListArray addObject:userInfo];
+            NSString *formatted = [Converter convertPhoneNumberToOnlyNumbers:phoneNumber];
+            if ([formatted isEqualToString:@"ERROR"])
+            {
+                continue;
+            }
+            
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            NSManagedObjectContext *managedContext = [delegate managedObjectContext];
+            Contact *newContact = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:managedContext];
+            
+            newContact.phoneNumber = formatted;
+            newContact.firstName = firstName;
+            newContact.lastName = lastName;
+            newContact.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+            newContact.email = email;
+            
+            PFUser *user = [ParseDatabase lookupPhoneNumber:formatted];
+            User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:managedContext];
+            if (user) {
+                newContact.hasTupleAccount = [NSNumber numberWithBool:YES];
+                newUser.username = user.username;
+                newUser.score = user[@"score"];
+                newUser.phoneNumber = user[@"phoneNumber"];
+                newUser.contactCard = newContact;
+            } else {
+                newContact.hasTupleAccount = [NSNumber numberWithBool:NO];
+            }
+            
+            newContact.userInfo = newUser;
+            NSError *error;
+            if (![managedContext save:&error]) {
+                        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            }
+            
         }
         
     }
-    NSArray *sortedArray = [ArraySorter sortArrayAlphabetically:_contactListArray];
+//    NSArray *sortedArray = [ArraySorter sortArrayAlphabetically:_contactListArray];
     
-    [_delegate contactListFetchSuccess:sortedArray];
+//    [_delegate contactListFetchSuccess:sortedArray];
 }
 
 

@@ -13,7 +13,7 @@
 +(NSDate *)convertTimeMinutesToDate:(int)minutesTillMeetup;
 +(NSString *)convertDateToCurrentTimeZone:(NSDate *)date;
 +(NSString *)formatDateTo12HoursPmAm:(NSDate *)date;
-+(NSString *)convertPhoneNumberToOnlyNumbers:(NSString *)phoneNumber; // 10 digit form xxx-xxx-xxxx
++(NSString *)convertPhoneNumberToOnlyNumbers:(NSString *)phoneNumber; // 11 digit form x-xxx-xxx-xxxx
 +(NSString *)convertDiningHallIntToString:(int)diningHallInt; //check imple values
 
 

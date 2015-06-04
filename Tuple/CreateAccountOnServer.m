@@ -75,6 +75,7 @@
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
     newUser[@"phoneNumber"] = [Converter convertPhoneNumberToOnlyNumbers:_phoneNumber];
     newUser[@"phoneVerified"] = [NSNumber numberWithBool:NO];
+    newUser[@"score"] = [NSNumber numberWithDouble:0];
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.

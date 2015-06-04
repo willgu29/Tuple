@@ -44,13 +44,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    BOOL isReturningUser = [[NSUserDefaults standardUserDefaults] boolForKey:@"isReturningUser"];
-    if (! isReturningUser) //onboarding process
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Welcome to Tuple!" message:@"Tuple requires you to invite at least one friend to an event, whether your the host or attendee. It's just better that way!" delegate:nil cancelButtonTitle:@"Got it!" otherButtonTitles:nil];
-        [alertView show];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isReturningUser"];
-    }
+   
 }
 
 #pragma mark - IBActions
@@ -66,17 +60,8 @@
     
     [_pushToParseCloud separateAppUsersFromContactsAndSendPush:self.selectedPeopleArray];
 
-    if (self.presentingViewController != [MessagingViewController class])
-    {
-        MessagingViewController *messageVC = [[MessagingViewController alloc] initWithNibName:@"MessagingViewController" bundle:nil];
-        [self.navigationController pushViewController:messageVC animated:YES];
-    }
-    else
-    {
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your invites were sent." delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles:nil];
-        [alertView show];
-    }
+    
+    [self segueToMessaging];
 
 }
 
@@ -176,6 +161,21 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
+
+-(void)segueToMessaging
+{
+    if (self.presentingViewController != [MessagingViewController class])
+    {
+        MessagingViewController *messageVC = [[MessagingViewController alloc] initWithNibName:@"MessagingViewController" bundle:nil];
+        [self.navigationController pushViewController:messageVC animated:YES];
+    }
+    else
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your invites were sent." delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 @end

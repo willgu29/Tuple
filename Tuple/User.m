@@ -7,15 +7,15 @@
 //
 
 #import "User.h"
+#import "Contact.h"
 
 
 @implementation User
 
-@dynamic username;
 @dynamic avatarURL;
-@dynamic phoneNumber;
-@dynamic password;
+@dynamic username;
 @dynamic score;
-@dynamic email;
+@dynamic phoneNumber;
+@dynamic contactCard;
 
 @end

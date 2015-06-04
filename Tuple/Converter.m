@@ -46,10 +46,14 @@
     {
         return numbersOnlyPhoneNumber;
     }
-    else
+    else if (numbersOnlyPhoneNumber.length == 10)
     {
         NSString *newStr = [NSString stringWithFormat:@"1%@",numbersOnlyPhoneNumber];
         return newStr;
+    }
+    else
+    {
+        return @"ERROR"; //ERROR. phone number is 7 digits
     }
 }
 
