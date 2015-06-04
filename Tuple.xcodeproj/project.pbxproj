@@ -24,9 +24,9 @@
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
 		847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */; };
-		847655CA1B1FE29000E03554 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655C91B1FE29000E03554 /* User.m */; };
-		847655CD1B1FE29100E03554 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655CC1B1FE29100E03554 /* Event.m */; };
-		847655D01B1FE29200E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655CF1B1FE29200E03554 /* Message.m */; };
+		847655E41B1FF6E400E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655E31B1FF6E400E03554 /* Message.m */; };
+		847655E71B1FF6E500E03554 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655E61B1FF6E500E03554 /* User.m */; };
+		847655EA1B1FF6E500E03554 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655E91B1FF6E500E03554 /* Event.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -138,12 +138,12 @@
 		844432491A9C06380052747E /* ArraySearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArraySearcher.m; sourceTree = "<group>"; };
 		847655C21B1FA04900E03554 /* NSManagedObject+WGMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+WGMethods.h"; sourceTree = "<group>"; };
 		847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+WGMethods.m"; sourceTree = "<group>"; };
-		847655C81B1FE29000E03554 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		847655C91B1FE29000E03554 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		847655CB1B1FE29100E03554 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		847655CC1B1FE29100E03554 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		847655CE1B1FE29200E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		847655CF1B1FE29200E03554 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		847655E21B1FF6E400E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		847655E31B1FF6E400E03554 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		847655E51B1FF6E500E03554 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		847655E61B1FF6E500E03554 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		847655E81B1FF6E500E03554 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		847655E91B1FF6E500E03554 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -383,12 +383,12 @@
 				848219FE1A873B0F00463B7E /* Images.xcassets */,
 				848219F11A873B0F00463B7E /* Supporting Files */,
 				84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */,
-				847655C81B1FE29000E03554 /* User.h */,
-				847655C91B1FE29000E03554 /* User.m */,
-				847655CB1B1FE29100E03554 /* Event.h */,
-				847655CC1B1FE29100E03554 /* Event.m */,
-				847655CE1B1FE29200E03554 /* Message.h */,
-				847655CF1B1FE29200E03554 /* Message.m */,
+				847655E81B1FF6E500E03554 /* Event.h */,
+				847655E91B1FF6E500E03554 /* Event.m */,
+				847655E51B1FF6E500E03554 /* User.h */,
+				847655E61B1FF6E500E03554 /* User.m */,
+				847655E21B1FF6E400E03554 /* Message.h */,
+				847655E31B1FF6E400E03554 /* Message.m */,
 			);
 			path = Tuple;
 			sourceTree = "<group>";
@@ -852,6 +852,7 @@
 			files = (
 				84821A471A873CAE00463B7E /* ReportBug.m in Sources */,
 				84F807561B1D290E00D7D3EB /* MessagingViewController.m in Sources */,
+				847655E71B1FF6E500E03554 /* User.m in Sources */,
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
 				84ADDC091B0E874D006A6C46 /* SocketAckManager.swift in Sources */,
 				842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */,
@@ -870,7 +871,6 @@
 				84ADDBFA1B0E83FD006A6C46 /* Chatroom.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84ADDC0D1B0E874D006A6C46 /* SocketEventHandler.swift in Sources */,
-				847655CD1B1FE29100E03554 /* Event.m in Sources */,
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
 				8400295C1AB2543B00696105 /* DisplayViewController.m in Sources */,
 				84ADDC0E1B0E874D006A6C46 /* SocketFixUTF8.swift in Sources */,
@@ -880,6 +880,7 @@
 				848219F41A873B0F00463B7E /* main.m in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
 				84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */,
+				847655EA1B1FF6E500E03554 /* Event.m in Sources */,
 				84ADDC151B0E874D006A6C46 /* WebSocket.swift in Sources */,
 				840029621AB2BAD800696105 /* HostViewController.m in Sources */,
 				84ADDC0F1B0E874D006A6C46 /* SocketIOClient.swift in Sources */,
@@ -891,15 +892,14 @@
 				84ADDC0A1B0E874D006A6C46 /* SocketAnyEvent.swift in Sources */,
 				84821AAF1A87F73E00463B7E /* PullFromFriendsList.m in Sources */,
 				84821A351A873C7500463B7E /* BlastOffTableViewCell.m in Sources */,
-				847655D01B1FE29200E03554 /* Message.m in Sources */,
 				84ADDC111B0E874D006A6C46 /* SocketPacket.swift in Sources */,
+				847655E41B1FF6E400E03554 /* Message.m in Sources */,
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
 				84821A991A87DCCE00463B7E /* SendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
 				847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */,
 				84ADDC0B1B0E874D006A6C46 /* SocketEngine.swift in Sources */,
-				847655CA1B1FE29000E03554 /* User.m in Sources */,
 				84ADDC101B0E874D006A6C46 /* SocketLogger.swift in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
 				84821A271A873C2600463B7E /* MakeNewAccountViewController.swift in Sources */,

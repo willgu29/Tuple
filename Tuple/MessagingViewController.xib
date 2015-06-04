@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessagingViewController">
             <connections>
                 <outlet property="tableView" destination="4LR-oW-CEs" id="sBk-mp-8WN"/>
+                <outlet property="textField" destination="vI4-iW-CBi" id="U0L-GJ-AuJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +30,9 @@
                     <state key="normal" title="Done">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="done:" destination="-1" eventType="touchUpInside" id="jrl-5S-EAc"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surprise us..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vI4-iW-CBi">
                     <rect key="frame" x="8" y="530" width="228" height="30"/>
@@ -43,6 +47,9 @@
                     <state key="normal" title="Send">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="sendMessage:" destination="-1" eventType="touchUpInside" id="agi-LF-1nE"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

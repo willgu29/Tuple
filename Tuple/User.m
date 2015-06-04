@@ -12,7 +12,7 @@
 @implementation User
 
 @dynamic username;
-@dynamic avatarData;
+@dynamic avatarURL;
 @dynamic phoneNumber;
 @dynamic password;
 @dynamic score;

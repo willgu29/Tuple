@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) Chatroom *room;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
 
 @end
 
@@ -37,10 +38,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)test:(UIButton *)sender
+-(IBAction)sendMessage:(UIButton *)sender
 {
-    NSLog(@"Test");
-    [_room sendMessage:@"TEST"];
+    [_room sendMessage:_textField.text];
+    _textField.text = @"";
+}
+-(IBAction)done:(UIButton *)sender
+{
+    
 }
 
 #pragma mark - Table View Delegate
@@ -74,6 +79,16 @@
 -(void)chatRoomReconnected
 {
     NSLog(@"Re-Connected!");
+    
+}
+
+#pragma mark - UITextField Delegate
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_textField resignFirstResponder];
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
     
 }
 

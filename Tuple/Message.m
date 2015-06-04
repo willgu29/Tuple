@@ -15,9 +15,6 @@
 @dynamic roomID;
 @dynamic message;
 @dynamic date;
-@dynamic isMediaMessage;
 @dynamic senderDisplayName;
-@dynamic media;
-@dynamic messageHash;
 
 @end

@@ -13,7 +13,7 @@
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSData * avatarData;
+@property (nonatomic, retain) NSString * avatarURL;
 @property (nonatomic, retain) NSNumber * phoneNumber;
 @property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSDecimalNumber * score;

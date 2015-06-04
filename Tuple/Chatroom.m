@@ -17,20 +17,13 @@
 @property (nonatomic, strong) NSMutableArray *messages;
 
 
+
 //@property (strong, nonatomic) NSDictionary *users;
 
 
 @end
 
 @implementation Chatroom
-
--(void)initBubbles
-{
-    JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
-    
-    self.outgoingBubbleImageData = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
-    self.incomingBubbleImageData = [bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleGreenColor]];
-}
 
 
 -(instancetype)init
@@ -40,7 +33,6 @@
     {
         _messages = [[NSMutableArray alloc] init];
         _users = [[NSMutableArray alloc] init];
-        [self initBubbles];
     }
     return self;
 }
