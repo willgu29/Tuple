@@ -109,7 +109,15 @@
             newContact.phoneNumber = formatted;
             newContact.firstName = firstName;
             newContact.lastName = lastName;
-            newContact.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+            if (firstName && lastName) {
+                newContact.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+            } else if (firstName) {
+                newContact.fullName = firstName;
+            } else if (lastName) {
+                newContact.fullName = lastName;
+            } else {
+                //DUH FUQ?
+            }
 //            newContact.email = email;
             
             PFUser *user = [ParseDatabase lookupPhoneNumber:formatted];
@@ -120,11 +128,12 @@
                 newUser.score = user[@"score"];
                 newUser.phoneNumber = user[@"phoneNumber"];
                 newUser.contactCard = newContact;
+                newContact.userInfo = newUser;
+
             } else {
                 newContact.hasTupleAccount = [NSNumber numberWithBool:NO];
             }
             
-            newContact.userInfo = newUser;
             NSError *error;
             if (![managedContext save:&error]) {
                         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
