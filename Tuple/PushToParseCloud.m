@@ -14,6 +14,7 @@
 #import "Converter.h"
 #import "DeleteParseObject.h"
 #import "AFNetworking.h"
+#import "Event.h"
 
 @interface PushToParseCloud()
 
@@ -34,11 +35,7 @@
     event[@"activity"] = activity;
     event[@"time"] = time;
     event[@"hostID"] = currentUser.username;
-    if (currentUser[@"fullName"]){
-        event[@"hostName"] = currentUser[@"fullName"];
-    } else {
-        event[@"hostName"] = [NSString stringWithFormat:@"%@ %@", currentUser[@"firstName"], currentUser[@"lastName"]];
-    }
+    event[@"hostName"] = [self getFullNameFromUser:currentUser];
     event[@"usersInChatroom"] = @[];
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -49,6 +46,30 @@
         }
     }];
     
+   
+}
+
+-(void)saveToContext:(PFObject *)event
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
+    newEvent.hostID = event[@"hostID"];
+    newEvent.hostName = event[@"hostName"];
+    newEvent.location = event[@"location"];
+    newEvent.activity = event[@"activity"];
+    newEvent.time = event[@"time"];
+
+//    newEvent.usersInChatroom =
+}
+
+-(NSString *)getFullNameFromUser:(PFUser *)currentUser
+{
+    if (currentUser[@"fullName"]){
+        return currentUser[@"fullName"];
+    } else {
+        return [NSString stringWithFormat:@"%@ %@", currentUser[@"firstName"], currentUser[@"lastName"]];
+    }
 }
 
 -(instancetype)init
@@ -67,7 +88,6 @@
 -(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    
 
     /* Reimplement push notifications
     [PFCloud callFunctionInBackground:@"hello"
@@ -87,7 +107,7 @@
     
 }
 
-//phoneArray already parsed to 10 digits
+//phoneArray already parsed to 11 digits
 -(void)sendMessage:(NSString *)message  ToPhoneNumbers:(NSArray *)phoneArray
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -108,80 +128,6 @@
     });
    
 }
-
-#pragma mark - Push Event To Cloud
--(void)pushEventToParse:(NSArray *)usernames andNumbers:(NSArray *)phoneNumbers
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    PFUser *user = [PFUser currentUser];
-
-    NSString *textMessage = [NSString stringWithFormat:@"%@ wants to %@ at %@ at %@ via tuple.",  delegate.sendData.inviterName, delegate.sendData.event, delegate.sendData.eventLocation, delegate.sendData.eventTime];
-    
-    PFObject *event;
-    NSString *uuid = [[NSUUID UUID] UUIDString];
-
-    if (delegate.sendData.clientType == 1) //create event
-    {
-        NSMutableArray *invitedAndHost = [NSMutableArray arrayWithArray:usernames];
-        [invitedAndHost addObject:user.username];
-        [DeleteParseObject deleteCurrentUserEventFromParse];
-        event = [PFObject objectWithClassName:@"Events"];
-        event[@"inviterName"] = delegate.sendData.inviterName;
-        event[@"hostUsername"] = delegate.sendData.hostUsername;
-        event[@"hostName"] = delegate.sendData.hostName;
-        event[@"event"] = delegate.sendData.event;
-        event[@"eventLocation"] = delegate.sendData.eventLocation;
-        event[@"eventTime"] = delegate.sendData.eventTime;
-        event[@"peopleAttending"] = [NSArray arrayWithObject:delegate.sendData.hostUsername];
-        event[@"peopleDeclined"] = @[];
-        event[@"phoneNumbersInvited"] = [NSArray arrayWithArray:_phoneNumbersArray];
-        event[@"hostPhoneNumber"] = user[@"phoneNumber"];
-        event[@"usersInvited"] = invitedAndHost;
-        event[@"eventID"] = uuid;
-
-        delegate.sendData.eventID = uuid;
-    }
-    else if (delegate.sendData.clientType == 2) //update event
-    {
-        PFQuery *query = [PFQuery queryWithClassName:@"Events"];
-        [query whereKey:@"eventID" equalTo:delegate.sendData.eventID];
-        event = (PFObject *)[query getFirstObject];
-        if (delegate.sendData.isAttending)
-        {
-            [event addUniqueObject:user.username forKey:@"peopleAttending"];
-            [event addUniqueObjectsFromArray:usernames forKey:@"usersInvited"];
-            [event addUniqueObjectsFromArray:phoneNumbers forKey:@"phoneNumbersInvited"];
-        }
-        else
-        {
-            [event addUniqueObject:user.username forKey:@"peopleDeclined"];
-        }
-        
-    }
-    
-    
-    [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            [_delegate pushEventToParseSuccess:uuid];
-            [self sendDeviceTokensToCloud:_deviceTokensArray];
-            [self sendMessage:textMessage ToPhoneNumbers:_phoneNumbersArray];
-        } else {
-            [_delegate pushEventToParseFailure:error];
-        }
-        
-    }];
-    
-    
- 
-    
-}
-
-
-//Nexmo
-//NSString *postURL =  [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=7b892d9a&api_secret=ddb44b4f&from=12198527594&to=%@&text=%@", phoneNumber, messageToSend]; //Requires UTF8 encoded (URL and UTF8)
-//NSString *encoded = [postURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
-
 
 
 

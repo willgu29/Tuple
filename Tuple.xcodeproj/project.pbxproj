@@ -12,8 +12,6 @@
 		8400295C1AB2543B00696105 /* DisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400295A1AB2543B00696105 /* DisplayViewController.m */; };
 		840029621AB2BAD800696105 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840029601AB2BAD800696105 /* HostViewController.m */; };
 		840029631AB2BAD800696105 /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840029611AB2BAD800696105 /* HostViewController.xib */; };
-		840029671AB2E7E300696105 /* AttendeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840029651AB2E7E300696105 /* AttendeeViewController.m */; };
-		840029681AB2E7E300696105 /* AttendeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840029661AB2E7E300696105 /* AttendeeViewController.xib */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
 		842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* PhotoServer.m */; };
 		842F0F4D1B1054E500CDC087 /* Tuple-Bridging-Header.h in Resources */ = {isa = PBXBuildFile; fileRef = 84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */; };
@@ -22,10 +20,10 @@
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
 		847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */; };
-		847656381B200F7600E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656371B200F7600E03554 /* Message.m */; };
-		8476563B1B200F7700E03554 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476563A1B200F7700E03554 /* User.m */; };
-		8476563E1B200F7700E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476563D1B200F7700E03554 /* Contact.m */; };
-		847656411B200F7700E03554 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656401B200F7700E03554 /* Event.m */; };
+		847656441B20134800E03554 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656431B20134800E03554 /* Event.m */; };
+		847656471B20134800E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656461B20134800E03554 /* Message.m */; };
+		8476564A1B20134800E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656491B20134800E03554 /* Contact.m */; };
+		8476564D1B20134800E03554 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476564C1B20134800E03554 /* User.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -118,9 +116,6 @@
 		8400295F1AB2BAD800696105 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		840029601AB2BAD800696105 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		840029611AB2BAD800696105 /* HostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostViewController.xib; sourceTree = "<group>"; };
-		840029641AB2E7E300696105 /* AttendeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendeeViewController.h; sourceTree = "<group>"; };
-		840029651AB2E7E300696105 /* AttendeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendeeViewController.m; sourceTree = "<group>"; };
-		840029661AB2E7E300696105 /* AttendeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttendeeViewController.xib; sourceTree = "<group>"; };
 		842B339D1A96FB6C0049EEB1 /* CreateProfilePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProfilePicture.h; sourceTree = "<group>"; };
 		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
 		842B33A11A96FD3D0049EEB1 /* PhotoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoServer.h; sourceTree = "<group>"; };
@@ -133,14 +128,14 @@
 		844432491A9C06380052747E /* ArraySearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArraySearcher.m; sourceTree = "<group>"; };
 		847655C21B1FA04900E03554 /* NSManagedObject+WGMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+WGMethods.h"; sourceTree = "<group>"; };
 		847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+WGMethods.m"; sourceTree = "<group>"; };
-		847656361B200F7600E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		847656371B200F7600E03554 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		847656391B200F7700E03554 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		8476563A1B200F7700E03554 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		8476563C1B200F7700E03554 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		8476563D1B200F7700E03554 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
-		8476563F1B200F7700E03554 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		847656401B200F7700E03554 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		847656421B20134800E03554 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		847656431B20134800E03554 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		847656451B20134800E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		847656461B20134800E03554 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		847656481B20134800E03554 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		847656491B20134800E03554 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		8476564B1B20134800E03554 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8476564C1B20134800E03554 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -364,14 +359,14 @@
 				848219FE1A873B0F00463B7E /* Images.xcassets */,
 				848219F11A873B0F00463B7E /* Supporting Files */,
 				84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */,
-				847656361B200F7600E03554 /* Message.h */,
-				847656371B200F7600E03554 /* Message.m */,
-				8476563F1B200F7700E03554 /* Event.h */,
-				847656401B200F7700E03554 /* Event.m */,
-				8476563C1B200F7700E03554 /* Contact.h */,
-				8476563D1B200F7700E03554 /* Contact.m */,
-				847656391B200F7700E03554 /* User.h */,
-				8476563A1B200F7700E03554 /* User.m */,
+				8476564B1B20134800E03554 /* User.h */,
+				8476564C1B20134800E03554 /* User.m */,
+				847656481B20134800E03554 /* Contact.h */,
+				847656491B20134800E03554 /* Contact.m */,
+				847656451B20134800E03554 /* Message.h */,
+				847656461B20134800E03554 /* Message.m */,
+				847656421B20134800E03554 /* Event.h */,
+				847656431B20134800E03554 /* Event.m */,
 			);
 			path = Tuple;
 			sourceTree = "<group>";
@@ -582,9 +577,6 @@
 				84BFE0841A8AD1D600721F88 /* GetInvitesViewController.h */,
 				84BFE0851A8AD1D600721F88 /* GetInvitesViewController.m */,
 				84BFE0861A8AD1D600721F88 /* GetInvitesViewController.xib */,
-				840029641AB2E7E300696105 /* AttendeeViewController.h */,
-				840029651AB2E7E300696105 /* AttendeeViewController.m */,
-				840029661AB2E7E300696105 /* AttendeeViewController.xib */,
 			);
 			name = AcceptInvitesInterface;
 			sourceTree = "<group>";
@@ -763,7 +755,6 @@
 				842F0F4D1B1054E500CDC087 /* Tuple-Bridging-Header.h in Resources */,
 				84821A2C1A873C4A00463B7E /* WhereWhenViewController.xib in Resources */,
 				84821A3B1A873C7D00463B7E /* SendInvitesViewController.xib in Resources */,
-				840029681AB2E7E300696105 /* AttendeeViewController.xib in Resources */,
 				848219FF1A873B0F00463B7E /* Images.xcassets in Resources */,
 				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
@@ -834,12 +825,11 @@
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
 				84ADDC0C1B0E874D006A6C46 /* SocketEngineClient.swift in Sources */,
 				84821A2B1A873C4A00463B7E /* WhereWhenViewController.swift in Sources */,
-				847656381B200F7600E03554 /* Message.m in Sources */,
+				847656471B20134800E03554 /* Message.m in Sources */,
 				8444324A1A9C06380052747E /* ArraySearcher.m in Sources */,
 				84821A451A873CAE00463B7E /* FeedbackViewController.swift in Sources */,
 				84ADDC131B0E874D006A6C46 /* SocketTypes.swift in Sources */,
 				84ADDBF31B0E79B9006A6C46 /* Tuple.xcdatamodeld in Sources */,
-				840029671AB2E7E300696105 /* AttendeeViewController.m in Sources */,
 				84821AD31A88247300463B7E /* ParseDatabase.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
@@ -849,13 +839,13 @@
 				84821A1A1A873BD800463B7E /* NSDataConvert.m in Sources */,
 				8400295C1AB2543B00696105 /* DisplayViewController.m in Sources */,
 				84ADDC0E1B0E874D006A6C46 /* SocketFixUTF8.swift in Sources */,
-				847656411B200F7700E03554 /* Event.m in Sources */,
-				8476563E1B200F7700E03554 /* Contact.m in Sources */,
+				847656441B20134800E03554 /* Event.m in Sources */,
+				8476564A1B20134800E03554 /* Contact.m in Sources */,
 				84ADDC121B0E874D006A6C46 /* SocketParser.swift in Sources */,
 				84ADDC141B0E874D006A6C46 /* SwiftRegex.swift in Sources */,
 				84BFE0AA1A8DF6E700721F88 /* UserProfileViewController.swift in Sources */,
 				848219F41A873B0F00463B7E /* main.m in Sources */,
-				8476563B1B200F7700E03554 /* User.m in Sources */,
+				8476564D1B20134800E03554 /* User.m in Sources */,
 				84821AB21A88055500463B7E /* UserCellInfo.m in Sources */,
 				84821ADC1A88A05000463B7E /* PhoneTextField.m in Sources */,
 				84ADDC151B0E874D006A6C46 /* WebSocket.swift in Sources */,

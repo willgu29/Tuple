@@ -18,6 +18,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="host" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="inviter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="usersInChatroom" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
     </entity>
     <entity name="Message" representedClassName="Message" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -35,11 +36,13 @@
         <attribute name="score" optional="YES" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contactCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="userInfo" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="eventsCreated" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" syncable="YES"/>
+        <relationship name="eventsInvitedTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="70" positionY="-94" width="128" height="163"/>
-        <element name="Contact" positionX="-162" positionY="50" width="128" height="148"/>
-        <element name="Message" positionX="-299" positionY="45" width="128" height="118"/>
-        <element name="User" positionX="54" positionY="225" width="128" height="163"/>
+        <element name="Event" positionX="378" positionY="281" width="128" height="178"/>
+        <element name="Contact" positionX="-47" positionY="216" width="128" height="148"/>
+        <element name="Message" positionX="45" positionY="62" width="128" height="118"/>
+        <element name="User" positionX="106" positionY="278" width="128" height="193"/>
     </elements>
 </model>

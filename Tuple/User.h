@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Contact;
+@class Contact, Event;
 
 @interface User : NSManagedObject
 
@@ -21,5 +21,20 @@
 @property (nonatomic, retain) NSString * fullName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) Contact *contactCard;
+@property (nonatomic, retain) NSSet *eventsCreated;
+@property (nonatomic, retain) NSSet *eventsInvitedTo;
+@end
+
+@interface User (CoreDataGeneratedAccessors)
+
+- (void)addEventsCreatedObject:(Event *)value;
+- (void)removeEventsCreatedObject:(Event *)value;
+- (void)addEventsCreated:(NSSet *)values;
+- (void)removeEventsCreated:(NSSet *)values;
+
+- (void)addEventsInvitedToObject:(Event *)value;
+- (void)removeEventsInvitedToObject:(Event *)value;
+- (void)addEventsInvitedTo:(NSSet *)values;
+- (void)removeEventsInvitedTo:(NSSet *)values;
 
 @end

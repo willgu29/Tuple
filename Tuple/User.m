@@ -8,6 +8,7 @@
 
 #import "User.h"
 #import "Contact.h"
+#import "Event.h"
 
 
 @implementation User
@@ -20,5 +21,7 @@
 @dynamic fullName;
 @dynamic lastName;
 @dynamic contactCard;
+@dynamic eventsCreated;
+@dynamic eventsInvitedTo;
 
 @end

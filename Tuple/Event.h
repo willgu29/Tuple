@@ -21,5 +21,14 @@
 @property (nonatomic, retain) NSString * hostID;
 @property (nonatomic, retain) User *inviter;
 @property (nonatomic, retain) User *host;
+@property (nonatomic, retain) NSSet *usersInChatroom;
+@end
+
+@interface Event (CoreDataGeneratedAccessors)
+
+- (void)addUsersInChatroomObject:(User *)value;
+- (void)removeUsersInChatroomObject:(User *)value;
+- (void)addUsersInChatroom:(NSSet *)values;
+- (void)removeUsersInChatroom:(NSSet *)values;
 
 @end

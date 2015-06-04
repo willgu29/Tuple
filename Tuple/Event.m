@@ -20,5 +20,6 @@
 @dynamic hostID;
 @dynamic inviter;
 @dynamic host;
+@dynamic usersInChatroom;
 
 @end

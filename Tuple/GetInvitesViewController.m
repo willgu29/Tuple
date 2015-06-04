@@ -9,7 +9,7 @@
 #import "GetInvitesViewController.h"
 #import "AppDelegate.h"
 #import "Converter.h"
-#import "AttendeeViewController.h"
+#import "MessagingViewController.h"
 @interface GetInvitesViewController ()
 
 @property (nonatomic, strong) PullFromParseCloud *pullFromParseCloud;
@@ -31,7 +31,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [_pullFromParseCloud findEventsThatUsernameIsInvitedTo:delegate.sendData.currentUsername];
+    
+    //TODO: Fetch events user is invited to via local DB
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,38 +78,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    PFObject *eventObject = [_eventsInvitedTo objectAtIndex:indexPath.row];
-    delegate.sendData.hostName = eventObject[@"hostName"];
-    delegate.sendData.hostUsername = eventObject[@"hostUsername"];
-    delegate.sendData.eventTime = eventObject[@"eventTime"];
-    delegate.sendData.event = eventObject[@"event"];
-    delegate.sendData.eventLocation = eventObject[@"eventLocation"];
-    delegate.sendData.eventTime = eventObject[@"eventTime"];
-    delegate.sendData.eventID = eventObject[@"eventID"];
-    delegate.sendData.clientType = 2;
-    
-    PFUser *user = [PFUser currentUser];
-    NSString *firstName = user[@"firstName"];
-    NSString *lastName = user[@"lastName"];
-    NSString *inviterName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    delegate.sendData.inviterName = inviterName;
-    
-    AttendeeViewController *displayVC = [[AttendeeViewController alloc] initWithNibName:@"AttendeeViewController" bundle:nil];
-    displayVC.uuid = delegate.sendData.eventID;
-    [self.navigationController pushViewController:displayVC animated:YES];
+   
+    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
+    [self.navigationController pushViewController:messageVC animated:YES];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PFObject *eventObject = [_eventsInvitedTo objectAtIndex:indexPath.row];
     
-    NSArray *peopleAttending = eventObject[@"peopleAttending"];
-    NSString *event = eventObject[@"event"];
-    NSString *eventLocation = eventObject[@"eventLocation"];
-    NSString *eventTime = eventObject[@"eventTime"];
+    //TODO: Redo fetching
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.text = [NSString stringWithFormat:@"Host: %@ Inviter: %@", eventObject[@"hostName"], eventObject[@"inviterName"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@, %lu Attending", event, eventTime, (unsigned long)[peopleAttending count]];
+    cell.textLabel.text = @"HAHA";
+    cell.detailTextLabel.text = @":(";
 }
 
 
