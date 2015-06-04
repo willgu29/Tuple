@@ -18,3 +18,16 @@
 @property (nonatomic, retain) NSString * title;
 
 @end
+
+//Old event
+//@property (nonatomic, strong) NSString *eventID;
+//@property (nonatomic, strong) NSString *eventTime;
+//@property (nonatomic, strong) NSString *hostUsername;
+//@property (nonatomic, strong) NSString *hostName; //first name last name
+//@property (nonatomic, strong) NSString *currentUsername;
+//@property (nonatomic, strong) NSString *inviterName; //First name last name
+//@property (nonatomic) int minutesTillMeetup;
+//@property (nonatomic) int clientType; //1 = host, 2 = attendee
+//@property (nonatomic, strong) NSString *event;
+//@property (nonatomic, strong) NSString *eventLocation;
+//@property (nonatomic) BOOL isAttending;

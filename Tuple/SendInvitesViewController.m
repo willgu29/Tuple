@@ -66,31 +66,31 @@
     
     [_pushToParseCloud separateAppUsersFromContactsAndSendPush:self.selectedPeopleArray];
 
-    
-}
-
-#pragma mark - Push To Cloud Delegate
-
--(void)pushEventToParseSuccess:(NSString *)uuid
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    if (delegate.sendData.clientType == 1)
+    if (self.presentingViewController != [MessagingViewController class])
     {
         MessagingViewController *messageVC = [[MessagingViewController alloc] initWithNibName:@"MessagingViewController" bundle:nil];
         [self.navigationController pushViewController:messageVC animated:YES];
     }
     else
     {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your invites were sent." delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles:nil];
         [alertView show];
     }
 
 }
 
+#pragma mark - Push To Cloud Delegate
+
+-(void)pushEventToParseSuccess:(NSString *)uuid
+{
+
+
+}
+
 -(void)pushEventToParseFailure:(NSError *)error
 {
-    
+    //TODO: Fatal! Give user error and desegueway messaging vc.
 }
 
 -(void)sendInvitesFailure:(NSError *)error

@@ -71,6 +71,7 @@
     newUser.email = _email;
     newUser[@"firstName"] = _firstName;
     newUser[@"lastName"] = _lastName;
+    newUser[@"fullName"] = [NSString stringWithFormat:@"%@ %@", _firstName, _lastName];
     newUser[@"deviceToken"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
     newUser[@"phoneNumber"] = [Converter convertPhoneNumberToOnlyNumbers:_phoneNumber];
     newUser[@"phoneVerified"] = [NSNumber numberWithBool:NO];

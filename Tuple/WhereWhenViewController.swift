@@ -33,7 +33,7 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
 
     }
     override func viewWillAppear(animated: Bool) {
-        delegate.sendData.minutesTillMeetup = -1;
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,9 +42,9 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     }
     
     func errorCheckSuccess() -> Bool {
-        if (delegate.sendData.minutesTillMeetup == -1)
+        if (eventTimeXIB.text.isEmpty)
         {
-            var alert = UIAlertView(title: "What? Where? When?", message: "Please select when you want to eat.", delegate: nil, cancelButtonTitle: "Sure")
+            var alert = UIAlertView(title: "What? Where? When?", message: "Please specify when you want to meet.", delegate: nil, cancelButtonTitle: "Sure")
             alert.show()
             return false;
         }
@@ -62,30 +62,8 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
         }
         return true;
     }
+
     
-    func saveDate(){
-        var date = Converter.convertTimeMinutesToDate(delegate.sendData.minutesTillMeetup);
-        var dateLocal = Converter.convertDateToCurrentTimeZone(date);
-        delegate.sendData.eventTime = Converter.formatDateTo12HoursPmAm(date)
-    }
-    func saveHostName()
-    {
-        var user = PFUser.currentUser();
-        var firstName:String = user?.objectForKey("firstName") as! String;
-        var lastName:String = user?.objectForKey("lastName") as! String;
-        var hostName = NSString(format: "%@ %@", firstName, lastName)
-        delegate.sendData.hostUsername = user!.username;
-        delegate.sendData.hostName = hostName as String;
-        delegate.sendData.inviterName = hostName as String; //inviter is also host in this case
-    }
-    
-    func saveLocation() {
-        delegate.sendData.event = eventXIB.text;
-    }
-    
-    func saveEvent() {
-        delegate.sendData.eventLocation = eventLocationXIB.text;
-    }
     
     //IBActions
 
@@ -101,20 +79,12 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
         
         if (errorCheckSuccess() == true)
         {
-            saveDate();
-            saveHostName();
-            saveLocation();
-            saveEvent();
-            delegate.sendData.clientType = 1;
             var sendInviteVC = SendInvitesViewController(nibName: "SendInvitesViewController", bundle: nil);
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }
     }
 
     @IBAction func checkInvites(){
-        //TODO: not using the navigation controller
-        delegate.sendData.currentUsername = PFUser.currentUser()!.username;
-        delegate.sendData.clientType = 2;
         var getInvitesVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle: nil);
         self.navigationController?.pushViewController(getInvitesVC, animated: true)
     }

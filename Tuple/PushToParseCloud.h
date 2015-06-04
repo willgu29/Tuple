@@ -23,6 +23,9 @@
 @property (nonatomic, assign) id delegate;
 -(void)separateAppUsersFromContactsAndSendPush:(NSArray *)selectedArray;
 
+-(void)createEvent:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time;
+
+
 @end
 
 /* Data Flow: -> separateApp -> Call push parse event -> on success -> sendInvites -> on success segue  */

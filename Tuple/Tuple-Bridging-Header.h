@@ -10,7 +10,6 @@
 #import "CreateFriendsList.h"
 #import "PhoneTextField.h"
 #import "Converter.h"
-#import "SendData.h"
 #import "ParseDatabase.h"
 #import "PullFromParseCloud.h"
 #import "GetInvitesViewController.h"

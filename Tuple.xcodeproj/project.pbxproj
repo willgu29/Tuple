@@ -14,8 +14,6 @@
 		840029631AB2BAD800696105 /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840029611AB2BAD800696105 /* HostViewController.xib */; };
 		840029671AB2E7E300696105 /* AttendeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840029651AB2E7E300696105 /* AttendeeViewController.m */; };
 		840029681AB2E7E300696105 /* AttendeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840029661AB2E7E300696105 /* AttendeeViewController.xib */; };
-		84242A071AA6B17600129411 /* ResendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84242A051AA6B17600129411 /* ResendViewController.m */; };
-		84242A081AA6B17600129411 /* ResendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A061AA6B17600129411 /* ResendViewController.xib */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
 		842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* PhotoServer.m */; };
 		842F0F4D1B1054E500CDC087 /* Tuple-Bridging-Header.h in Resources */ = {isa = PBXBuildFile; fileRef = 84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */; };
@@ -61,7 +59,6 @@
 		84821A8C1A873FE000463B7E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A861A873FE000463B7E /* SystemConfiguration.framework */; };
 		84821A8D1A873FE000463B7E /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821A871A873FE000463B7E /* Twitter.framework */; };
 		84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */; };
-		84821A991A87DCCE00463B7E /* SendData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A981A87DCCE00463B7E /* SendData.m */; };
 		84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AA31A87F1BB00463B7E /* PullFromParseCloud.m */; };
 		84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821AA71A87F22B00463B7E /* PullFromContactsList.m */; };
 		84821AAB1A87F33800463B7E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84821AA91A87F33700463B7E /* AddressBook.framework */; };
@@ -123,9 +120,6 @@
 		840029641AB2E7E300696105 /* AttendeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendeeViewController.h; sourceTree = "<group>"; };
 		840029651AB2E7E300696105 /* AttendeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendeeViewController.m; sourceTree = "<group>"; };
 		840029661AB2E7E300696105 /* AttendeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttendeeViewController.xib; sourceTree = "<group>"; };
-		84242A041AA6B17600129411 /* ResendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResendViewController.h; sourceTree = "<group>"; };
-		84242A051AA6B17600129411 /* ResendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResendViewController.m; sourceTree = "<group>"; };
-		84242A061AA6B17600129411 /* ResendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResendViewController.xib; sourceTree = "<group>"; };
 		842B339D1A96FB6C0049EEB1 /* CreateProfilePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProfilePicture.h; sourceTree = "<group>"; };
 		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
 		842B33A11A96FD3D0049EEB1 /* PhotoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoServer.h; sourceTree = "<group>"; };
@@ -190,8 +184,6 @@
 		84821A871A873FE000463B7E /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		84821A8E1A8744D700463B7E /* CreateAccountOnServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountOnServer.h; sourceTree = "<group>"; };
 		84821A8F1A8744D700463B7E /* CreateAccountOnServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountOnServer.m; sourceTree = "<group>"; };
-		84821A971A87DCCE00463B7E /* SendData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendData.h; sourceTree = "<group>"; };
-		84821A981A87DCCE00463B7E /* SendData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendData.m; sourceTree = "<group>"; };
 		84821AA21A87F1BB00463B7E /* PullFromParseCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullFromParseCloud.h; sourceTree = "<group>"; };
 		84821AA31A87F1BB00463B7E /* PullFromParseCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullFromParseCloud.m; sourceTree = "<group>"; };
 		84821AA61A87F22B00463B7E /* PullFromContactsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullFromContactsList.h; sourceTree = "<group>"; };
@@ -300,16 +292,6 @@
 			name = HostInterface;
 			sourceTree = "<group>";
 		};
-		84242A031AA6A8A400129411 /* ResendInvitesInterface */ = {
-			isa = PBXGroup;
-			children = (
-				84242A041AA6B17600129411 /* ResendViewController.h */,
-				84242A051AA6B17600129411 /* ResendViewController.m */,
-				84242A061AA6B17600129411 /* ResendViewController.xib */,
-			);
-			name = ResendInvitesInterface;
-			sourceTree = "<group>";
-		};
 		842B339C1A96FB500049EEB1 /* ImageManipulations */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,12 +348,8 @@
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
 				84ADDBF71B0E7CCA006A6C46 /* APIs */,
 				8400295E1AB2BAC400696105 /* HostInterface */,
-				84242A031AA6A8A400129411 /* ResendInvitesInterface */,
 				842B339C1A96FB500049EEB1 /* ImageManipulations */,
-				84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */,
 				84821ACB1A88201700463B7E /* BaseViewControllers */,
-				84821A931A87DC4E00463B7E /* GlobalData */,
-				84821AA51A87F20E00463B7E /* GetPeopleAPI */,
 				84821A1B1A873BDB00463B7E /* FirstUserSteps */,
 				84821A1C1A873BE100463B7E /* MainInterface */,
 				84821AEA1A89590500463B7E /* AcceptInvitesInterface */,
@@ -540,15 +518,6 @@
 			name = ServerAPI;
 			sourceTree = "<group>";
 		};
-		84821A931A87DC4E00463B7E /* GlobalData */ = {
-			isa = PBXGroup;
-			children = (
-				84821A971A87DCCE00463B7E /* SendData.h */,
-				84821A981A87DCCE00463B7E /* SendData.m */,
-			);
-			name = GlobalData;
-			sourceTree = "<group>";
-		};
 		84821AA11A87F14F00463B7E /* GetInvitesAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,6 +587,8 @@
 		84ADDBF71B0E7CCA006A6C46 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				84821AA51A87F20E00463B7E /* GetPeopleAPI */,
+				84BFE0931A8DCE5300721F88 /* DeleteUpdateAPI */,
 				847655C21B1FA04900E03554 /* NSManagedObject+WGMethods.h */,
 				847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */,
 				84821A171A873BAB00463B7E /* Converters */,
@@ -792,7 +763,6 @@
 				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
 				84BFE0AB1A8DF6E700721F88 /* UserProfileViewController.xib in Resources */,
-				84242A081AA6B17600129411 /* ResendViewController.xib in Resources */,
 				84F807571B1D290E00D7D3EB /* MessagingViewController.xib in Resources */,
 				84821A281A873C2600463B7E /* MakeNewAccountViewController.xib in Resources */,
 				84821A361A873C7500463B7E /* BlastOffTableViewCell.xib in Resources */,
@@ -885,7 +855,6 @@
 				840029621AB2BAD800696105 /* HostViewController.m in Sources */,
 				84ADDC0F1B0E874D006A6C46 /* SocketIOClient.swift in Sources */,
 				84BFE0961A8DCE6A00721F88 /* DeleteParseObject.m in Sources */,
-				84242A071AA6B17600129411 /* ResendViewController.m in Sources */,
 				84BFE0871A8AD1D600721F88 /* GetInvitesViewController.m in Sources */,
 				84821A251A873C2600463B7E /* IntroViewController.swift in Sources */,
 				84821A4A1A873CB900463B7E /* AppDelegate.m in Sources */,
@@ -895,7 +864,6 @@
 				84ADDC111B0E874D006A6C46 /* SocketPacket.swift in Sources */,
 				847655E41B1FF6E400E03554 /* Message.m in Sources */,
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
-				84821A991A87DCCE00463B7E /* SendData.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
 				847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */,

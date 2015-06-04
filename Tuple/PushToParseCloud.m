@@ -24,6 +24,37 @@
 
 @implementation PushToParseCloud
 
+-(void)createEvent:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time
+{
+    PFUser *currentUser = [PFUser currentUser];
+   NSString *uuid = [[NSUUID UUID] UUIDString];
+    PFObject *event = [PFObject objectWithClassName:@"Event"];
+    event[@"UUID"] = uuid;
+    event[@"location"] = location;
+    event[@"activity"] = activity;
+    event[@"time"] = time;
+    event[@"hostID"] = currentUser.username;
+    if (currentUser[@"fullName"]){
+        event[@"hostName"] = currentUser[@"fullName"];
+    } else {
+        event[@"hostName"] = [NSString stringWithFormat:@"%@ %@", currentUser[@"firstName"], currentUser[@"lastName"]];
+    }
+    
+    [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [_delegate pushEventToParseSuccess:uuid];
+            [self sendDeviceTokensToCloud:_deviceTokensArray];
+            [self sendMessage:textMessage ToPhoneNumbers:_phoneNumbersArray];
+        } else {
+            [_delegate pushEventToParseFailure:error];
+        }
+        
+    }];
+    
+    
+    
+}
+
 -(instancetype)init
 {
     self = [super init];
@@ -35,7 +66,6 @@
     }
     return self;
 }
-
 
 -(void)separateAppUsersFromContactsAndSendPush:(NSArray *)selectedArray
 {

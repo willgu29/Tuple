@@ -46,15 +46,12 @@
     
     [self setupParse:application withLaunchOptions:launchOptions];
     
-    _sendData =  [[SendData alloc] init];
 
 
-//    IntroViewController *introVC = [[IntroViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
-//    self.window.rootViewController = introVC;
+    IntroViewController *introVC = [[IntroViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
+    self.window.rootViewController = introVC;
     
-    MessagingViewController *messageVC  = [[MessagingViewController alloc] init];
-    self.window.rootViewController = messageVC;
-    
+
 
     
     self.window.backgroundColor = [UIColor whiteColor];

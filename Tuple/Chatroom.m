@@ -43,7 +43,7 @@
     [self setHandlers];
     [_socket connect];
     
-//    [_socket emit:@"join chatroom" withItems:@[[PFUser currentUser]]]; (not signed in due to testing) (uncomment when signed in)
+    [_socket emit:@"join chatroom" withItems:@[[PFUser currentUser]]];
 }
 
 -(void)setHandlers
@@ -86,12 +86,12 @@
     [_socket on:@"join chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"User joined");
         //TODO: Increment user count
-//        [self addUserToChatroom:[data firstObject]];
+        [self addUserToChatroom:[data firstObject]];
     }];
     [_socket on:@"leave chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"User left");
         //TODO: Cleanup
-//        [self removeUserFromChatroom:[data firstObject]];
+        [self removeUserFromChatroom:[data firstObject]];
     }];
 }
 
