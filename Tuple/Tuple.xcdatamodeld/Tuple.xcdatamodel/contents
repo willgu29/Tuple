@@ -31,6 +31,7 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceToken" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,6 +46,6 @@
         <element name="Event" positionX="378" positionY="281" width="128" height="178"/>
         <element name="Contact" positionX="-47" positionY="216" width="128" height="178"/>
         <element name="Message" positionX="45" positionY="62" width="128" height="118"/>
-        <element name="User" positionX="106" positionY="278" width="128" height="193"/>
+        <element name="User" positionX="106" positionY="278" width="128" height="208"/>
     </elements>
 </model>

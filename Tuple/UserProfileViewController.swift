@@ -63,10 +63,14 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
         pullContacts.checkAuthorizationStatusForContactList();
     }
     func contactListAuthorized() {
-        pullContacts.fetchAllFromContactsList();
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_UTILITY.value), 0)) { () -> Void in
+            self.pullContacts.fetchAllFromContactsList();
+        };
     }
     func contactListAuthorizedFirstTime() {
-        pullContacts.fetchAllFromContactsList();
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_UTILITY.value), 0)) { () -> Void in
+            self.pullContacts.fetchAllFromContactsList();
+        };
     }
     func contactListDeniedAccess() {
         //Cry

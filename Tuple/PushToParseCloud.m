@@ -9,13 +9,13 @@
 #import "PushToParseCloud.h"
 #import "UserCellInfo.h"
 #import "UserTypeEnums.h"
-#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "Converter.h"
 #import "DeleteParseObject.h"
 #import "AFNetworking.h"
 #import "Event.h"
-
+#import "Contact.h"
+#import "User.h"
 @interface PushToParseCloud()
 
 @property (nonatomic, strong) NSMutableArray *phoneNumbersArray; //those without the app
@@ -24,6 +24,8 @@
 @end
 
 @implementation PushToParseCloud
+
+#pragma mark - Public Facing
 
 -(void)createEvent:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time
 {
@@ -40,7 +42,7 @@
     
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [_delegate pushEventToParseSuccess:uuid];
+            [_delegate pushEventToParseSuccess:event];
         } else {
             [_delegate pushEventToParseFailure:error];
         }
@@ -48,6 +50,22 @@
     
    
 }
+-(void)sendNotificationsToContacts:(NSArray *)contacts forEvent:(PFObject *)event
+{
+    for (int i = 0; i < [contacts count]; i++)
+    {
+        Contact *contact = [contacts objectAtIndex:i];
+        if (contact.hasTupleAccount){
+            [self sendTextMessage:contact forEvent:event];
+        } else {
+            [self sendPushNotification:contact forEvent:event];
+        }
+        
+    }
+}
+
+
+#pragma mark Private Methods
 
 -(void)saveToContext:(PFObject *)event
 {
@@ -85,50 +103,73 @@
 }
 
 
--(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
 
-    /* Reimplement push notifications
-    [PFCloud callFunctionInBackground:@"hello"
-                       withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"event" : event, @"eventLocation": eventLocation, @"eventTime": eventTime}
-                                block:^(id object, NSError *error) {
-                                    if (!error) {
-                                        // this is where you handle the results and change the UI.
-                                        NSLog(@"RESULTS: %@", object);
-                                    }
-                                    else
-                                    {
-                                        [_delegate sendInvitesFailure:error];
-                                    }
-                                    
-                                }];
-     */
+
+-(void)sendPushNotification:(Contact *)contact forEvent:(PFObject *)event
+{
     
+    PFUser *currentUser = [PFUser currentUser];
+    User *user = contact.userInfo;
+    
+    
+     [PFCloud callFunctionInBackground:@"hello"
+                        withParameters:@{@"deviceToken": user.deviceToken, @"inviter": currentUser[@"fullName"], @"hostUsername":event[@"hostID"] , @"event" : event[@"activity"], @"eventLocation": event[@"location"], @"eventTime": event[@"time"]} block:^(id object, NSError *error) {
+         if (!error) {
+             NSLog(@"RESULTS: %@", object);
+         } else {
+             [_delegate sendInvitesFailure:error];
+         }
+     
+     }];
 }
-
-//phoneArray already parsed to 11 digits
--(void)sendMessage:(NSString *)message  ToPhoneNumbers:(NSArray *)phoneArray
+-(void)sendTextMessage:(Contact *)contact forEvent:(PFObject *)event
 {
+    PFUser *currentUser = [PFUser currentUser];
+    
+    NSString *defaultMessage = [NSString stringWithFormat:@"%@ has invited you to %@ at %@ and %@", currentUser[@"fullName"], event[@"activity"], event[@"location"], event[@"time"]];
+    
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *tuple = @"http://tupleapp.com/twilio/sms/";
     NSString *encoded = [NSString stringWithUTF8String:[tuple UTF8String]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (NSString *phoneNumber in phoneArray)
-        {
-            NSDictionary *body = @{@"number" : phoneNumber, @"message" : message};
-            [manager POST:encoded parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
+      
+        NSDictionary *body = @{@"number" : contact.phoneNumber, @"message" : defaultMessage};
+        [manager POST:encoded parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 
-            }];
+        }];
+            
         
-        }
     });
-   
+    
+    
 }
 
+
+-(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    
+    /* Reimplement push notifications
+     [PFCloud callFunctionInBackground:@"hello"
+     withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"event" : event, @"eventLocation": eventLocation, @"eventTime": eventTime}
+     block:^(id object, NSError *error) {
+     if (!error) {
+     // this is where you handle the results and change the UI.
+     NSLog(@"RESULTS: %@", object);
+     }
+     else
+     {
+     [_delegate sendInvitesFailure:error];
+     }
+     
+     }];
+     */
+    
+}
 
 
 

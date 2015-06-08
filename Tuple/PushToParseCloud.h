@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @class PushToParseCloud;
 @protocol PushToParseCloudDelegate
 
 -(void)sendInvitesSuccess;
 -(void)sendInvitesFailure:(NSError *)error;
--(void)pushEventToParseSuccess:(NSString *)uuid;
+-(void)pushEventToParseSuccess:(PFObject *)event;
 -(void)pushEventToParseFailure:(NSError *)error;
 
 @end
@@ -21,11 +22,9 @@
 @interface PushToParseCloud : NSObject
 
 @property (nonatomic, assign) id delegate;
--(void)separateAppUsersFromContactsAndSendPush:(NSArray *)selectedArray;
 
 -(void)createEvent:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time;
-
+-(void)sendNotificationsToContacts:(NSArray *)contacts forEvent:(PFObject *)event;
 
 @end
 
-/* Data Flow: -> separateApp -> Call push parse event -> on success -> sendInvites -> on success segue  */

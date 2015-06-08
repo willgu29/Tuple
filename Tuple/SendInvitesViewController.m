@@ -38,7 +38,6 @@
 
 @implementation SendInvitesViewController
 
-#pragma mark - UITableView Delegate
 
 
 #pragma mark - UITableViewDelegate
@@ -138,21 +137,17 @@
     
     WhereWhenViewController *whereWhen = (WhereWhenViewController *)self.presentingViewController;
     
-//    [_pushToParseCloud createEvent:whereWhen.eventLocationXIB.text withActivity:whereWhen.eventXIB.text atTime:whereWhen.eventTimeXIB.text];
-    
-    //TODO: Send text messages
-    //TODO: Send push notifications
-    
-//    [self segueToMessaging];
-    NSLog(@"Checked: %@", _checkMarked);
+    [_pushToParseCloud createEvent:whereWhen.eventLocationXIB.text withActivity:whereWhen.eventXIB.text atTime:whereWhen.eventTimeXIB.text];
+
 
 }
 
 #pragma mark - Push To Cloud Delegate
 
--(void)pushEventToParseSuccess:(NSString *)uuid
+-(void)pushEventToParseSuccess:(PFObject *)event
 {
-
+    [_pushToParseCloud sendNotificationsToContacts:_checkMarked forEvent:event];
+    [self segueToMessaging];
 
 }
 

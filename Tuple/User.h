@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * fullName;
 @property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSString * deviceToken;
 @property (nonatomic, retain) Contact *contactCard;
 @property (nonatomic, retain) NSSet *eventsCreated;
 @property (nonatomic, retain) NSSet *eventsInvitedTo;

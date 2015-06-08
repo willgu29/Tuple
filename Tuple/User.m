@@ -20,6 +20,7 @@
 @dynamic firstName;
 @dynamic fullName;
 @dynamic lastName;
+@dynamic deviceToken;
 @dynamic contactCard;
 @dynamic eventsCreated;
 @dynamic eventsInvitedTo;

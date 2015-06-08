@@ -112,6 +112,7 @@
             newContact.firstName = firstName;
             newContact.lastName = lastName;
             newContact.isSelected = NO;
+            
             if (firstName && lastName) {
                 newContact.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
             } else if (firstName) {
@@ -130,6 +131,7 @@
                 newUser.username = user.username;
                 newUser.score = user[@"score"];
                 newUser.phoneNumber = user[@"phoneNumber"];
+                newUser.deviceToken = user[@"deviceToken"];
                 newUser.contactCard = newContact;
                 newContact.userInfo = newUser;
 
