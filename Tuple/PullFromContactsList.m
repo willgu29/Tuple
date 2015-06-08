@@ -77,7 +77,7 @@
     }
     NSArray *allPeople = CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
     NSInteger nPeople = [allPeople count];
-    
+    int countActualContacts = 0;
     for (int i = 0; i < nPeople; i++)
     {
         ABRecordRef person = (__bridge ABRecordRef)allPeople[i];
@@ -96,6 +96,7 @@
 
         if (phoneNumber && (firstName || lastName))
         {
+            
             NSString *formatted = [Converter convertPhoneNumberToOnlyNumbers:phoneNumber];
             if ([formatted isEqualToString:@"ERROR"])
             {
@@ -105,10 +106,12 @@
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             NSManagedObjectContext *managedContext = [delegate managedObjectContext];
             Contact *newContact = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:managedContext];
-            
+            newContact.contactID = [NSNumber numberWithInt:countActualContacts];
+            countActualContacts++;
             newContact.phoneNumber = formatted;
             newContact.firstName = firstName;
             newContact.lastName = lastName;
+            newContact.isSelected = NO;
             if (firstName && lastName) {
                 newContact.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
             } else if (firstName) {

@@ -19,6 +19,7 @@
 @dynamic fullName;
 @dynamic lastName;
 @dynamic isSelected;
+@dynamic contactID;
 @dynamic userInfo;
 
 @end

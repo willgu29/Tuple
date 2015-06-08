@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * fullName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSNumber * isSelected;
+@property (nonatomic, retain) NSNumber * contactID;
 @property (nonatomic, retain) User *userInfo;
 
 @end

@@ -24,7 +24,7 @@
 
 @property (nonatomic) BOOL isClearing;
 
-@property (nonatomic, strong) NSArray *contacts;
+@property (nonatomic, strong) NSMutableArray *contacts;
 @property (nonatomic, strong) NSArray *tupleUsers;
 @property (nonatomic, strong) NSArray *phoneNumbers;
 
@@ -33,7 +33,6 @@
 @property (nonatomic, strong) NSArray *displayArray;
 
 
-@property (nonatomic) BOOL isSearching;
 
 @end
 
@@ -45,11 +44,8 @@
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_isSearching){
-        return [_displayArray count];
-    } else {
-        return [_contacts count];
-    }
+    return [_displayArray count];
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -62,10 +58,12 @@
     }
     Contact *contact;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    if (_isSearching) {
-        contact = [_displayArray objectAtIndex:indexPath.item];
+    contact = [_displayArray objectAtIndex:indexPath.item];
+    
+    if (contact.isSelected) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        contact = [_contacts objectAtIndex:indexPath.item];
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     cell.textLabel.text = contact.fullName;
@@ -78,28 +76,24 @@
     Contact *contact = [_displayArray objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell.accessoryType){
+    if (contact.isSelected){
         contact.isSelected = NO;
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [_checkMarked removeObject:cell];
+        [_checkMarked removeObject:contact];
     } else {
         contact.isSelected = [NSNumber numberWithBool:YES];
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [_checkMarked addObject:cell];
+        [_checkMarked addObject:contact];
     }
+    [self.contacts replaceObjectAtIndex:contact.contactID.intValue withObject:contact];
+    [_tableView reloadData];
     [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [self tableView:_tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Contact *contact = [_displayArray objectAtIndex:indexPath.row];
-    
-    if (contact.isSelected){
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
+
     
 }
 
@@ -111,59 +105,13 @@
     _searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     
     _checkMarked = [[NSMutableArray alloc] init];
-    
+    _contacts = [[NSMutableArray alloc] init];
     [self fetchAllContacts];
-    [self fetchTupleUsers];
-    [self fetchNonTupleUsers];
-    
+//    [self fetchTupleUsers];
+//    [self fetchNonTupleUsers];
+//    
   
     
-}
-
--(void)fetchAllContacts
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    NSArray *contacts = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    
-    _displayArray = contacts;
-    _contacts = contacts;
-    [_tableView reloadData];
-}
--(void)fetchTupleUsers
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSPredicate *onlyTupleUsers = [NSPredicate predicateWithFormat:@"hasTupleAccount == YES"];
-    [fetchRequest setPredicate:onlyTupleUsers];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    NSArray *tupleUsers = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    
-    
-    _tupleUsers = tupleUsers;
-}
--(void)fetchNonTupleUsers
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-
-    NSFetchRequest *getNonTupleUsers = [[NSFetchRequest alloc] init];
-    NSPredicate *nonTupleUsers = [NSPredicate predicateWithFormat:@"hasTupleAccount == NO"];
-    [getNonTupleUsers setPredicate:nonTupleUsers];
-    NSEntityDescription *entity = [NSEntityDescription
-                                    entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
-    [getNonTupleUsers setEntity:entity];
-    NSError *error;
-    NSArray *nonTuple = [delegate.managedObjectContext executeFetchRequest:getNonTupleUsers error:&error];
-    
-    
-    _phoneNumbers = nonTuple;
 }
 
 
@@ -190,12 +138,13 @@
     
     WhereWhenViewController *whereWhen = (WhereWhenViewController *)self.presentingViewController;
     
-    [_pushToParseCloud createEvent:whereWhen.eventLocationXIB.text withActivity:whereWhen.eventXIB.text atTime:whereWhen.eventTimeXIB.text];
+//    [_pushToParseCloud createEvent:whereWhen.eventLocationXIB.text withActivity:whereWhen.eventXIB.text atTime:whereWhen.eventTimeXIB.text];
     
     //TODO: Send text messages
     //TODO: Send push notifications
     
-    [self segueToMessaging];
+//    [self segueToMessaging];
+    NSLog(@"Checked: %@", _checkMarked);
 
 }
 
@@ -231,7 +180,6 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    _isSearching = YES;
     NSString *substring = _searchBar.text;
     substring = [substring stringByReplacingCharactersInRange:range withString:string];
     NSArray *results = [ArraySearcher getTextThatBeginsWith:substring inArray:self.contacts withPath:@"self.fullName"];
@@ -252,7 +200,6 @@
 {
     if ([textField.text isEqualToString:@""])
     {
-        _isSearching = NO;
         self.displayArray = self.contacts;
         [_tableView reloadData];
     }
@@ -293,5 +240,53 @@
         [alertView show];
     }
 }
+#pragma mark - Helpers
+-(void)fetchAllContacts
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *contacts = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    _displayArray = contacts.copy;
+    _contacts = contacts.mutableCopy;
+    [_tableView reloadData];
+}
+-(void)fetchTupleUsers
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSPredicate *onlyTupleUsers = [NSPredicate predicateWithFormat:@"hasTupleAccount == YES"];
+    [fetchRequest setPredicate:onlyTupleUsers];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *tupleUsers = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    
+    _tupleUsers = tupleUsers;
+}
+-(void)fetchNonTupleUsers
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    
+    NSFetchRequest *getNonTupleUsers = [[NSFetchRequest alloc] init];
+    NSPredicate *nonTupleUsers = [NSPredicate predicateWithFormat:@"hasTupleAccount == NO"];
+    [getNonTupleUsers setPredicate:nonTupleUsers];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
+    [getNonTupleUsers setEntity:entity];
+    NSError *error;
+    NSArray *nonTuple = [delegate.managedObjectContext executeFetchRequest:getNonTupleUsers error:&error];
+    
+    
+    _phoneNumbers = nonTuple;
+}
+
+
 
 @end

@@ -23,7 +23,7 @@
 		847656501B253F6900E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476564F1B253F6900E03554 /* Message.m */; };
 		847656531B253F6900E03554 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656521B253F6900E03554 /* User.m */; };
 		847656591B253F6A00E03554 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656581B253F6A00E03554 /* Event.m */; };
-		8476565C1B2548FF00E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476565B1B2548FF00E03554 /* Contact.m */; };
+		847656621B2550E600E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656611B2550E600E03554 /* Contact.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -134,8 +134,8 @@
 		847656521B253F6900E03554 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		847656571B253F6A00E03554 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		847656581B253F6A00E03554 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		8476565A1B2548FF00E03554 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		8476565B1B2548FF00E03554 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		847656601B2550E600E03554 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		847656611B2550E600E03554 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -359,8 +359,8 @@
 				848219FE1A873B0F00463B7E /* Images.xcassets */,
 				848219F11A873B0F00463B7E /* Supporting Files */,
 				84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */,
-				8476565A1B2548FF00E03554 /* Contact.h */,
-				8476565B1B2548FF00E03554 /* Contact.m */,
+				847656601B2550E600E03554 /* Contact.h */,
+				847656611B2550E600E03554 /* Contact.m */,
 				847656571B253F6A00E03554 /* Event.h */,
 				847656581B253F6A00E03554 /* Event.m */,
 				847656511B253F6900E03554 /* User.h */,
@@ -860,7 +860,7 @@
 				84ADDC111B0E874D006A6C46 /* SocketPacket.swift in Sources */,
 				84821ACF1A88203500463B7E /* BaseTableViewController.m in Sources */,
 				84821AA41A87F1BB00463B7E /* PullFromParseCloud.m in Sources */,
-				8476565C1B2548FF00E03554 /* Contact.m in Sources */,
+				847656621B2550E600E03554 /* Contact.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
 				847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */,
 				84ADDC0B1B0E874D006A6C46 /* SocketEngine.swift in Sources */,
