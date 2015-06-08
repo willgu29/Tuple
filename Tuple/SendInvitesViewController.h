@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "PullFromContactsList.h"
-#import "BaseTableViewController.h"
 #import "PushToParseCloud.h"
 
-@interface SendInvitesViewController : BaseTableViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate, PushToParseCloudDelegate, UITextFieldDelegate>
+@interface SendInvitesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PushToParseCloudDelegate, UITextFieldDelegate>
 
 @end

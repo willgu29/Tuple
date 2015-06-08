@@ -13,6 +13,8 @@
 #import "UserCellInfo.h"
 #import "AppDelegate.h"
 #import "MessagingViewController.h"
+#import "Contact.h"
+#import "Tuple-Swift.h"
 @interface SendInvitesViewController ()
 
 @property (nonatomic, strong) PushToParseCloud *pushToParseCloud;
@@ -22,23 +24,155 @@
 
 @property (nonatomic) BOOL isClearing;
 
+@property (nonatomic, strong) NSArray *contacts;
+@property (nonatomic, strong) NSArray *tupleUsers;
+@property (nonatomic, strong) NSArray *phoneNumbers;
+
+@property (nonatomic, strong) NSMutableArray *checkMarked;
+
+@property (nonatomic, strong) NSArray *displayArray;
+
+
+@property (nonatomic) BOOL isSearching;
+
 @end
 
 @implementation SendInvitesViewController
 
+#pragma mark - UITableView Delegate
+
+
+#pragma mark - UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (_isSearching){
+        return [_displayArray count];
+    } else {
+        return [_contacts count];
+    }
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *simpleTableIdentifier = [NSString stringWithFormat:@"%ld_%ld", (long)indexPath.section, (long)indexPath.row];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
+        
+    }
+    Contact *contact;
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    if (_isSearching) {
+        contact = [_displayArray objectAtIndex:indexPath.item];
+    } else {
+        contact = [_contacts objectAtIndex:indexPath.item];
+    }
+    
+    cell.textLabel.text = contact.fullName;
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Contact *contact = [_displayArray objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.accessoryType){
+        contact.isSelected = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [_checkMarked removeObject:cell];
+    } else {
+        contact.isSelected = [NSNumber numberWithBool:YES];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [_checkMarked addObject:cell];
+    }
+    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Contact *contact = [_displayArray objectAtIndex:indexPath.row];
+    
+    if (contact.isSelected){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    
+}
+
+#pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    _checkMarked = [[NSMutableArray alloc] init];
+    
+    [self fetchAllContacts];
+    [self fetchTupleUsers];
+    [self fetchNonTupleUsers];
+    
+  
+    
 }
+
+-(void)fetchAllContacts
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *contacts = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    _displayArray = contacts;
+    _contacts = contacts;
+    [_tableView reloadData];
+}
+-(void)fetchTupleUsers
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSPredicate *onlyTupleUsers = [NSPredicate predicateWithFormat:@"hasTupleAccount == YES"];
+    [fetchRequest setPredicate:onlyTupleUsers];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *tupleUsers = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    
+    _tupleUsers = tupleUsers;
+}
+-(void)fetchNonTupleUsers
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+
+    NSFetchRequest *getNonTupleUsers = [[NSFetchRequest alloc] init];
+    NSPredicate *nonTupleUsers = [NSPredicate predicateWithFormat:@"hasTupleAccount == NO"];
+    [getNonTupleUsers setPredicate:nonTupleUsers];
+    NSEntityDescription *entity = [NSEntityDescription
+                                    entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
+    [getNonTupleUsers setEntity:entity];
+    NSError *error;
+    NSArray *nonTuple = [delegate.managedObjectContext executeFetchRequest:getNonTupleUsers error:&error];
+    
+    
+    _phoneNumbers = nonTuple;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
    
 }
@@ -54,8 +188,12 @@
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _pushToParseCloud.delegate = self;
     
-    [_pushToParseCloud separateAppUsersFromContactsAndSendPush:self.selectedPeopleArray];
-
+    WhereWhenViewController *whereWhen = (WhereWhenViewController *)self.presentingViewController;
+    
+    [_pushToParseCloud createEvent:whereWhen.eventLocationXIB.text withActivity:whereWhen.eventXIB.text atTime:whereWhen.eventTimeXIB.text];
+    
+    //TODO: Send text messages
+    //TODO: Send push notifications
     
     [self segueToMessaging];
 
@@ -83,25 +221,6 @@
     }
 }
 
-#pragma mark - Contact List Delegate
--(void)contactListFetchSuccess:(NSArray *)contactListArray
-{
-    int i = 0;
-    NSLog(@"Fetch Contact List Success!");
-    for (UserCellInfo *cellInfo in contactListArray)
-    {
-        cellInfo.cellID = i;
-        i++;
-    }
-    [self.cellData addObjectsFromArray:contactListArray];
-    [self.displayInfoArray addObjectsFromArray:contactListArray];
-    [_tableView reloadData];
-}
--(void)contactListFetchFailure:(NSError *)error
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-}
 
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -112,11 +231,11 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    
+    _isSearching = YES;
     NSString *substring = _searchBar.text;
     substring = [substring stringByReplacingCharactersInRange:range withString:string];
-    NSArray *results = [ArraySearcher getTextThatBeginsWith:substring inArray:self.cellData withPath:@"self.firstName"];
-    self.displayInfoArray = results.mutableCopy;
+    NSArray *results = [ArraySearcher getTextThatBeginsWith:substring inArray:self.contacts withPath:@"self.fullName"];
+    self.displayArray = results;
     [_tableView reloadData];
     
     return YES;
@@ -133,7 +252,8 @@
 {
     if ([textField.text isEqualToString:@""])
     {
-        self.displayInfoArray = self.cellData;
+        _isSearching = NO;
+        self.displayArray = self.contacts;
         [_tableView reloadData];
     }
 }

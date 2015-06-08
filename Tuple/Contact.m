@@ -2,7 +2,7 @@
 //  Contact.m
 //  Tuple
 //
-//  Created by William Gu on 6/3/15.
+//  Created by William Gu on 6/7/15.
 //  Copyright (c) 2015 William Gu. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @dynamic firstName;
 @dynamic fullName;
 @dynamic lastName;
+@dynamic isSelected;
 @dynamic userInfo;
 
 @end

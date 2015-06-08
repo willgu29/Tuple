@@ -5,6 +5,7 @@
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasTupleAccount" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" minValueString="10" indexed="YES" syncable="YES"/>
         <relationship name="userInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="contactCard" inverseEntity="User" syncable="YES"/>
@@ -41,7 +42,7 @@
     </entity>
     <elements>
         <element name="Event" positionX="378" positionY="281" width="128" height="178"/>
-        <element name="Contact" positionX="-47" positionY="216" width="128" height="148"/>
+        <element name="Contact" positionX="-47" positionY="216" width="128" height="163"/>
         <element name="Message" positionX="45" positionY="62" width="128" height="118"/>
         <element name="User" positionX="106" positionY="278" width="128" height="193"/>
     </elements>

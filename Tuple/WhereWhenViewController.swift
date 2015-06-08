@@ -138,6 +138,7 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         eventXIB.resignFirstResponder();
         eventLocationXIB.resignFirstResponder();
+        eventTimeXIB.resignFirstResponder();
     }
 
 }

@@ -72,18 +72,7 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
         //Cry
     }
     func contactListFetchSuccess() {
-        var fetchRequest = NSFetchRequest();
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-        let managedContext = delegate.managedObjectContext;
-        var entity = NSEntityDescription.entityForName("Contact", inManagedObjectContext: managedContext);
-        fetchRequest.entity = entity;
-        var error = NSErrorPointer();
-        let objects: NSArray = managedContext.executeFetchRequest(fetchRequest, error: error)!;
-        for contact in objects
-        {
-//            NSLog("The Card: %@", contact);
-            println("GJAL %@", contact);
-        }
+        
         
     }
     func contactListFetchFailure(error: NSError!) {
