@@ -139,7 +139,7 @@
                 newContact.hasTupleAccount = [NSNumber numberWithBool:NO];
             }
             
-            NSError *error;
+            NSError *error = nil;
             if (![managedContext save:&error]) {
                         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
             }

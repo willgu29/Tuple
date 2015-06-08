@@ -39,7 +39,8 @@
     event[@"hostID"] = currentUser.username;
     event[@"hostName"] = [self getFullNameFromUser:currentUser];
     event[@"usersInChatroom"] = @[];
-    
+    event[@"contactsInvited"] = @[];
+    event[@"inviterName"] = @"";
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [_delegate pushEventToParseSuccess:event];
@@ -64,6 +65,21 @@
     }
 }
 
+-(void)updateContactsInvited:(NSArray *)contacts forEvent:(PFObject *)event
+{
+    PFUser *currentUser = [PFUser currentUser];
+    for (int i = 0; i < [contacts count]; i++)
+    {
+        Contact *contact = [contacts objectAtIndex:i];
+        if (contact.hasTupleAccount) {
+            [event addObject:contact.userInfo.username forKey:@"contactsInvited"];
+        } else {
+            [event addObject:contact.phoneNumber forKey:@"contactsInvited"];
+        }
+    }
+    event[@"inviterName"] = currentUser[@"fullName"];
+    [event saveInBackground];
+}
 
 #pragma mark Private Methods
 

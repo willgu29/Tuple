@@ -18,6 +18,7 @@
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contactsInvited" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" syncable="YES"/>
         <relationship name="host" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="inviter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="usersInChatroom" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
@@ -43,7 +44,7 @@
         <relationship name="eventsInvitedTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="378" positionY="281" width="128" height="178"/>
+        <element name="Event" positionX="412" positionY="185" width="128" height="193"/>
         <element name="Contact" positionX="-47" positionY="216" width="128" height="178"/>
         <element name="Message" positionX="45" positionY="62" width="128" height="118"/>
         <element name="User" positionX="106" positionY="278" width="128" height="208"/>

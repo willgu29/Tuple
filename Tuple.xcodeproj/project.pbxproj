@@ -21,9 +21,9 @@
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
 		847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */; };
 		847656501B253F6900E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476564F1B253F6900E03554 /* Message.m */; };
-		847656591B253F6A00E03554 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656581B253F6A00E03554 /* Event.m */; };
 		847656621B2550E600E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656611B2550E600E03554 /* Contact.m */; };
 		847656651B255ABE00E03554 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656641B255ABE00E03554 /* User.m */; };
+		847656681B255FA800E03554 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656671B255FA800E03554 /* Event.m */; };
 		848219F41A873B0F00463B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848219F31A873B0F00463B7E /* main.m */; };
 		848219FF1A873B0F00463B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848219FE1A873B0F00463B7E /* Images.xcassets */; };
 		84821A0E1A873B0F00463B7E /* TupleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84821A0D1A873B0F00463B7E /* TupleTests.m */; };
@@ -130,12 +130,12 @@
 		847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+WGMethods.m"; sourceTree = "<group>"; };
 		8476564E1B253F6900E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		8476564F1B253F6900E03554 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		847656571B253F6A00E03554 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		847656581B253F6A00E03554 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		847656601B2550E600E03554 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		847656611B2550E600E03554 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		847656631B255ABE00E03554 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		847656641B255ABE00E03554 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		847656661B255FA800E03554 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		847656671B255FA800E03554 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		848219EE1A873B0F00463B7E /* Tuple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848219F21A873B0F00463B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848219F31A873B0F00463B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -359,12 +359,12 @@
 				848219FE1A873B0F00463B7E /* Images.xcassets */,
 				848219F11A873B0F00463B7E /* Supporting Files */,
 				84ADDBF11B0E79B9006A6C46 /* Tuple.xcdatamodeld */,
+				847656661B255FA800E03554 /* Event.h */,
+				847656671B255FA800E03554 /* Event.m */,
 				847656631B255ABE00E03554 /* User.h */,
 				847656641B255ABE00E03554 /* User.m */,
 				847656601B2550E600E03554 /* Contact.h */,
 				847656611B2550E600E03554 /* Contact.m */,
-				847656571B253F6A00E03554 /* Event.h */,
-				847656581B253F6A00E03554 /* Event.m */,
 				8476564E1B253F6900E03554 /* Message.h */,
 				8476564F1B253F6900E03554 /* Message.m */,
 			);
@@ -832,7 +832,7 @@
 				84ADDBF31B0E79B9006A6C46 /* Tuple.xcdatamodeld in Sources */,
 				84821AD31A88247300463B7E /* ParseDatabase.m in Sources */,
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
-				847656591B253F6A00E03554 /* Event.m in Sources */,
+				847656681B255FA800E03554 /* Event.m in Sources */,
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
 				84ADDBFA1B0E83FD006A6C46 /* Chatroom.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,

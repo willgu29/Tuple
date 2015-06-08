@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class User;
+@class Contact, User;
 
 @interface Event : NSManagedObject
 
@@ -22,6 +22,7 @@
 @property (nonatomic, retain) User *inviter;
 @property (nonatomic, retain) User *host;
 @property (nonatomic, retain) NSSet *usersInChatroom;
+@property (nonatomic, retain) NSSet *contactsInvited;
 @end
 
 @interface Event (CoreDataGeneratedAccessors)
@@ -30,5 +31,10 @@
 - (void)removeUsersInChatroomObject:(User *)value;
 - (void)addUsersInChatroom:(NSSet *)values;
 - (void)removeUsersInChatroom:(NSSet *)values;
+
+- (void)addContactsInvitedObject:(Contact *)value;
+- (void)removeContactsInvitedObject:(Contact *)value;
+- (void)addContactsInvited:(NSSet *)values;
+- (void)removeContactsInvited:(NSSet *)values;
 
 @end

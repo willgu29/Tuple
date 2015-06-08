@@ -25,14 +25,13 @@
 @property (nonatomic) BOOL isClearing;
 
 @property (nonatomic, strong) NSMutableArray *contacts;
-@property (nonatomic, strong) NSArray *tupleUsers;
-@property (nonatomic, strong) NSArray *phoneNumbers;
-
 @property (nonatomic, strong) NSMutableArray *checkMarked;
 
 @property (nonatomic, strong) NSArray *displayArray;
 
-
+//Not used now
+@property (nonatomic, strong) NSArray *tupleUsers;
+@property (nonatomic, strong) NSArray *phoneNumbers;
 
 @end
 
@@ -58,7 +57,11 @@
     Contact *contact;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     contact = [_displayArray objectAtIndex:indexPath.item];
-    
+    if (contact.hasTupleAccount) {
+        cell.detailTextLabel.text = contact.userInfo.username;
+    } else {
+        cell.detailTextLabel.text = contact.phoneNumber;
+    }
     if (contact.isSelected) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
@@ -86,15 +89,10 @@
     }
     [self.contacts replaceObjectAtIndex:contact.contactID.intValue withObject:contact];
     [_tableView reloadData];
-    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    [self tableView:_tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+//    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    
-}
 
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
@@ -106,9 +104,6 @@
     _checkMarked = [[NSMutableArray alloc] init];
     _contacts = [[NSMutableArray alloc] init];
     [self fetchAllContacts];
-//    [self fetchTupleUsers];
-//    [self fetchNonTupleUsers];
-//    
   
     
 }
@@ -135,7 +130,7 @@
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _pushToParseCloud.delegate = self;
     
-    WhereWhenViewController *whereWhen = (WhereWhenViewController *)self.presentingViewController;
+    WhereWhenViewController *whereWhen  = [self.navigationController.viewControllers firstObject];
     
     [_pushToParseCloud createEvent:whereWhen.eventLocationXIB.text withActivity:whereWhen.eventXIB.text atTime:whereWhen.eventTimeXIB.text];
 
@@ -147,6 +142,7 @@
 -(void)pushEventToParseSuccess:(PFObject *)event
 {
     [_pushToParseCloud sendNotificationsToContacts:_checkMarked forEvent:event];
+    [_pushToParseCloud updateContactsInvited:_checkMarked forEvent:event];
     [self segueToMessaging];
 
 }

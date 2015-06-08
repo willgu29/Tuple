@@ -10,10 +10,11 @@
 #import "AppDelegate.h"
 #import "Converter.h"
 #import "MessagingViewController.h"
+#import "ParseDatabase.h"
 @interface GetInvitesViewController ()
 
 @property (nonatomic, strong) PullFromParseCloud *pullFromParseCloud;
-@property (nonatomic, strong) NSMutableArray *eventsInvitedTo;
+@property (nonatomic, strong) NSArray *eventsInvitedTo;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
@@ -33,6 +34,13 @@
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     
     //TODO: Fetch events user is invited to via local DB
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"contactsInvited" equalTo:[PFUser currentUser].username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *PF_NULLABLE_S objects, NSError *PF_NULLABLE_S error)
+    {
+        _eventsInvitedTo = objects;
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +80,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
     
+    PFObject *event = [_eventsInvitedTo objectAtIndex:indexPath.row];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.text = event[@"hostID"];
+    cell.detailTextLabel.text = event[@"inviterName"];
+    
     return cell;
 }
 
@@ -81,15 +95,6 @@
    
     MessagingViewController *messageVC = [[MessagingViewController alloc] init];
     [self.navigationController pushViewController:messageVC animated:YES];
-}
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    //TODO: Redo fetching
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.text = @"HAHA";
-    cell.detailTextLabel.text = @":(";
 }
 
 

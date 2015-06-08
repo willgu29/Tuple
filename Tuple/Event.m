@@ -7,6 +7,7 @@
 //
 
 #import "Event.h"
+#import "Contact.h"
 #import "User.h"
 
 
@@ -21,5 +22,6 @@
 @dynamic inviter;
 @dynamic host;
 @dynamic usersInChatroom;
+@dynamic contactsInvited;
 
 @end

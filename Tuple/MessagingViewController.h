@@ -10,6 +10,8 @@
 #import "Chatroom.h"
 @interface MessagingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ChatroomDelegate, UITextFieldDelegate>
 
+@property (nonatomic, strong) NSString *hostID;
+
 @property (nonatomic, strong) NSString *senderID;
 @property (nonatomic, strong) NSString *displayName;
 

@@ -93,7 +93,10 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
         var userVC = UserProfileViewController(nibName:"UserProfileViewController", bundle:nil);
         self.presentViewController(userVC, animated: true, completion: nil);
     }
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
+    }
     func textViewDidBeginEditing(textView: UITextView) {
         if (textView.text == PLACEHOLDER_TEXTVIEWTEXT)
         {

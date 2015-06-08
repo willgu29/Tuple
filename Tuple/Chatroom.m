@@ -43,6 +43,7 @@
     [self setHandlers];
     [_socket connect];
     
+    
     [_socket emit:@"join chatroom" withItems:@[[PFUser currentUser]]];
 }
 
