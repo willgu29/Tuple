@@ -12,6 +12,8 @@
 #import "NSManagedObject+WGMethods.h"
 @interface Chatroom()
 
+@property (nonatomic, strong) NSString *roomID;
+
 @property (nonatomic, strong) SocketIOClient *socket;
 @property (nonatomic, strong) NSMutableArray *users;
 @property (nonatomic, strong) NSMutableArray *messages;
@@ -25,6 +27,10 @@
 
 @implementation Chatroom
 
+-(void)setRoomID:(NSString *)newRoomID
+{
+    _roomID = newRoomID;
+}
 
 -(instancetype)init
 {
@@ -37,15 +43,25 @@
     return self;
 }
 
--(void)joinChatroom
+-(void)connectToSocket
 {
     _socket = [[SocketIOClient alloc] initWithSocketURL:@"http://tupleapp.com" options:nil];
     [self setHandlers];
     [_socket connect];
-    
-    
-    [_socket emit:@"join chatroom" withItems:@[[PFUser currentUser]]];
 }
+
+-(void)joinChatroom:(NSString *)roomID
+{
+    _roomID = roomID;
+    
+    if (_roomID) {
+        //Cool
+    } else {
+        _roomID = @"";
+    }
+    [_socket emit:@"joinChatroom" withItems:@[@{@"roomID": _roomID, @"user": [PFUser currentUser].username}]];
+}
+
 
 -(void)setHandlers
 {
@@ -87,7 +103,7 @@
     [_socket on:@"join chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"User joined");
         //TODO: Increment user count
-        [self addUserToChatroom:[data firstObject]];
+//        [self addUserToChatroom:[data firstObject]];
     }];
     [_socket on:@"leave chatroom" callback:^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"User left");
@@ -108,12 +124,13 @@
 {
    
     NSDate *now = [NSDate date];
-    [_socket emit:@"chat message" withItems:@[@{@"senderID": @"willgu", @"roomID": @"102", @"message": message, @"date": [now description], @"isMediaMessage": @"false", @"senderDisplayName": @"Will Gu", @"messageHash": @"12o3i12"}]];
+    PFUser *currentUser = [PFUser currentUser];
+    [_socket emit:@"chat message" withItems:@[@{@"senderID": currentUser.username, @"roomID": _roomID, @"message": message, @"date": [now description], @"senderDisplayName": currentUser[@"fullName"]}]];
 
     //TODO: Send push notification to group as well
 }
 
--(int)messageCount
+-(NSInteger)messageCount
 {
     return [_messages count];
 }
@@ -145,10 +162,12 @@
 -(void)addUserToChatroom:(PFUser *)newUser
 {
     [_users addObject:newUser];
+    [_delegate chatRoomJoinedBy:newUser];
 }
 -(void)removeUserFromChatroom:(PFUser *)removeUser
 {
     [_users removeObject:removeUser];
+    [_delegate chatRoomLeftBy:removeUser];
 }
 
 @end

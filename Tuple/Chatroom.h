@@ -15,15 +15,21 @@
 -(void)chatRoomReconnected;
 -(void)chatMessageReceived;
 -(void)chatMessageSendFailure:(NSError *)error;
+-(void)chatRoomJoinedBy:(id)data;
+-(void)chatRoomLeftBy:(id)data;
 
 @end
 
 @interface Chatroom : NSObject
 
--(void)joinChatroom;
+-(void)setRoomID:(NSString *)newRoomID; //REQUIRED
+
+-(void)connectToSocket;
+-(void)joinChatroom:(NSString *)roomID; //Or set it here via argument
+-(void)leaveChatroom;
 -(void)sendMessage:(NSString *)message;
 
--(int)messageCount;
+-(NSInteger)messageCount;
 -(Message*)getMessageAtIndex:(int)index;
 -(void)addUserToChatroom:(PFUser *)newUser;
 -(void)removeUserFromChatroom:(PFUser *)removeUser;

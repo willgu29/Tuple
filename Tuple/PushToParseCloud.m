@@ -57,9 +57,9 @@
     {
         Contact *contact = [contacts objectAtIndex:i];
         if (contact.hasTupleAccount){
-            [self sendTextMessage:contact forEvent:event];
-        } else {
             [self sendPushNotification:contact forEvent:event];
+        } else {
+            [self sendTextMessage:contact forEvent:event];
         }
         
     }

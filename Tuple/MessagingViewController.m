@@ -16,17 +16,46 @@
 @property (nonatomic, strong) Chatroom *room;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
 @implementation MessagingViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _room = [[Chatroom alloc] init];
     _room.delegate = self;
-    [_room joinChatroom];
+    [_room connectToSocket];
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+   
+    
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -79,6 +108,14 @@
 -(void)chatRoomReconnected
 {
     NSLog(@"Re-Connected!");
+    [_room joinChatroom:[PFUser currentUser].username];
+}
+-(void)chatRoomJoinedBy:(id)data
+{
+    
+}
+-(void)chatRoomLeftBy:(id)data
+{
     
 }
 
@@ -87,9 +124,36 @@
 {
     [_textField resignFirstResponder];
 }
--(void)textFieldDidBeginEditing:(UITextField *)textField
+-(void)textFieldDidBeginEditing:(UITextField *)sender
 {
     
 }
+
+#pragma mark - animations for keyboard
+
+
+- (void)keyboardWillShow:(NSNotification*)notification
+{
+    [_tableView setContentOffset:CGPointMake(0, -240) animated:YES];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(0, -240, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification
+{
+    [_tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+    
+    
+}
+
+
+
 
 @end

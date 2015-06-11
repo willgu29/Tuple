@@ -39,6 +39,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *PF_NULLABLE_S objects, NSError *PF_NULLABLE_S error)
     {
         _eventsInvitedTo = objects;
+        [_tableView reloadData];
     }];
 
 }
