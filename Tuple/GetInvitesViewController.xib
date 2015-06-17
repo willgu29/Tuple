@@ -17,38 +17,72 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="HeaderRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="dOP-vz-Oav">
+                    <rect key="frame" x="0.0" y="0.0" width="321" height="59"/>
+                </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mrv-tX-4aN">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="496"/>
+                    <rect key="frame" x="0.0" y="63" width="320" height="505"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ZtG-u8-LAs"/>
                         <outlet property="delegate" destination="-1" id="eZx-OX-64O"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nc-Nq-R5h">
-                    <rect key="frame" x="262" y="511" width="50" height="49"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="49" id="c8A-QF-Zwe"/>
-                        <constraint firstAttribute="width" constant="50" id="kpu-De-Ahy"/>
-                    </constraints>
-                    <state key="normal" title="Back">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2V-VT-IBM">
+                    <rect key="frame" x="253" y="0.0" width="67" height="55"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                    <state key="normal" title="+">
+                        <color key="titleColor" red="0.95520550270000004" green="0.95520550270000004" blue="0.95520550270000004" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="backButton:" destination="-1" eventType="touchUpInside" id="50d-yX-TFQ"/>
+                        <action selector="rightButton:" destination="-1" eventType="touchUpInside" id="oo9-lV-XtE"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odE-5A-iGg">
+                    <rect key="frame" x="8" y="6" width="51" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="51" id="8Nc-WV-Y7f"/>
+                    </constraints>
+                    <color key="tintColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="ProfileButton">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="leftButton:" destination="-1" eventType="touchUpInside" id="3qL-ET-sWM"/>
+                    </connections>
+                </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TupleHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-yC-sI8">
+                    <rect key="frame" x="120" y="12" width="81" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="RKp-xm-67C"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="8nc-Nq-R5h" firstAttribute="top" secondItem="mrv-tX-4aN" secondAttribute="bottom" constant="15" id="1FK-dG-NBq"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3TA-eU-6s4"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4xm-EN-fNP"/>
-                <constraint firstItem="8nc-Nq-R5h" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="6DZ-Pt-69G"/>
-                <constraint firstItem="8nc-Nq-R5h" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="Z5E-6o-KjM"/>
-                <constraint firstAttribute="trailing" secondItem="mrv-tX-4aN" secondAttribute="trailing" id="ztg-BU-405"/>
+                <constraint firstItem="r2V-VT-IBM" firstAttribute="leading" secondItem="iZH-yC-sI8" secondAttribute="trailing" constant="52" id="1oo-NZ-mRM"/>
+                <constraint firstItem="iZH-yC-sI8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="2FZ-BX-xDn"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Etm-d7-rhh"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Ew8-z9-I60"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="dOP-vz-Oav" secondAttribute="leading" id="Ja0-uU-jRH"/>
+                <constraint firstAttribute="bottom" secondItem="mrv-tX-4aN" secondAttribute="bottom" id="LnE-Eh-R1H"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="trailing" secondItem="r2V-VT-IBM" secondAttribute="trailing" id="R95-2d-QdO"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="bottom" constant="8" symbolic="YES" id="YSp-Z8-5fG"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="dOP-vz-Oav" secondAttribute="bottom" constant="4" id="hHb-s4-7Fb"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="iZH-yC-sI8" secondAttribute="bottom" constant="15" id="hIH-Lt-zZk"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="odE-5A-iGg" secondAttribute="bottom" constant="10" id="j72-Xb-z7b"/>
+                <constraint firstItem="r2V-VT-IBM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jPj-EK-OGT"/>
+                <constraint firstItem="odE-5A-iGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="nD1-jU-H3e"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wh0-gp-s50"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerY" secondItem="odE-5A-iGg" secondAttribute="centerY" id="yvC-fP-Wpv"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="HeaderRectangle" width="321" height="59"/>
+        <image name="ProfileButton" width="30" height="28"/>
+        <image name="TupleHeaderLogo" width="81" height="36"/>
+    </resources>
 </document>

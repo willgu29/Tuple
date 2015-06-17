@@ -24,7 +24,8 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup Layer
-        self.navigationController?.navigationBarHidden = true;
+        self.navigationController?.navigationBarHidden = false;
+        self.title = "Create Event";
         
         var imageLayer = eventXIB.layer;
         imageLayer.cornerRadius = 10;
@@ -80,6 +81,9 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
         if (errorCheckSuccess() == true)
         {
             var sendInviteVC = SendInvitesViewController(nibName: "SendInvitesViewController", bundle: nil);
+            sendInviteVC.location = self.eventLocationXIB.text;
+            sendInviteVC.event = self.eventXIB.text;
+            sendInviteVC.time = self.eventTimeXIB.text;
             self.navigationController?.pushViewController(sendInviteVC, animated: true);
         }
     }

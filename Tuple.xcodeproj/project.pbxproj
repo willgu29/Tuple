@@ -19,6 +19,8 @@
 		842F0F511B10562800CDC087 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842F0F4F1B10562800CDC087 /* Parse.framework */; };
 		844432461A9932600052747E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432451A9932600052747E /* Converter.m */; };
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
+		846615A31B314DF500651E76 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846615A11B314DF500651E76 /* EventDetailsViewController.m */; };
+		846615A41B314DF500651E76 /* EventDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846615A21B314DF500651E76 /* EventDetailsViewController.xib */; };
 		847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */; };
 		847656501B253F6900E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476564F1B253F6900E03554 /* Message.m */; };
 		847656621B2550E600E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656611B2550E600E03554 /* Contact.m */; };
@@ -126,6 +128,9 @@
 		844432451A9932600052747E /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		844432481A9C06380052747E /* ArraySearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArraySearcher.h; sourceTree = "<group>"; };
 		844432491A9C06380052747E /* ArraySearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArraySearcher.m; sourceTree = "<group>"; };
+		846615A01B314DF500651E76 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
+		846615A11B314DF500651E76 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
+		846615A21B314DF500651E76 /* EventDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsViewController.xib; sourceTree = "<group>"; };
 		847655C21B1FA04900E03554 /* NSManagedObject+WGMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+WGMethods.h"; sourceTree = "<group>"; };
 		847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+WGMethods.m"; sourceTree = "<group>"; };
 		8476564E1B253F6900E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -317,6 +322,32 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		8466159F1B314DC100651E76 /* EventDetailsInterface */ = {
+			isa = PBXGroup;
+			children = (
+				846615A61B314E3900651E76 /* Undecided */,
+				846615A51B314E1900651E76 /* Accepted */,
+				846615A01B314DF500651E76 /* EventDetailsViewController.h */,
+				846615A11B314DF500651E76 /* EventDetailsViewController.m */,
+				846615A21B314DF500651E76 /* EventDetailsViewController.xib */,
+			);
+			name = EventDetailsInterface;
+			sourceTree = "<group>";
+		};
+		846615A51B314E1900651E76 /* Accepted */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Accepted;
+			sourceTree = "<group>";
+		};
+		846615A61B314E3900651E76 /* Undecided */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Undecided;
+			sourceTree = "<group>";
+		};
 		848219E51A873B0F00463B7E = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +373,7 @@
 		848219F01A873B0F00463B7E /* Tuple */ = {
 			isa = PBXGroup;
 			children = (
+				8466159F1B314DC100651E76 /* EventDetailsInterface */,
 				84ADDBFB1B0E874D006A6C46 /* SocketIOClientSwift */,
 				84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */,
 				84ADDBF71B0E7CCA006A6C46 /* APIs */,
@@ -755,6 +787,7 @@
 				842F0F4D1B1054E500CDC087 /* Tuple-Bridging-Header.h in Resources */,
 				84821A2C1A873C4A00463B7E /* WhereWhenViewController.xib in Resources */,
 				84821A3B1A873C7D00463B7E /* SendInvitesViewController.xib in Resources */,
+				846615A41B314DF500651E76 /* EventDetailsViewController.xib in Resources */,
 				848219FF1A873B0F00463B7E /* Images.xcassets in Resources */,
 				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
@@ -834,6 +867,7 @@
 				84821AA81A87F22B00463B7E /* PullFromContactsList.m in Sources */,
 				847656681B255FA800E03554 /* Event.m in Sources */,
 				84BFE0AF1A8DF94500721F88 /* ArraySorter.m in Sources */,
+				846615A31B314DF500651E76 /* EventDetailsViewController.m in Sources */,
 				84ADDBFA1B0E83FD006A6C46 /* Chatroom.m in Sources */,
 				84821ABF1A8818C600463B7E /* CreateFriendsList.m in Sources */,
 				84ADDC0D1B0E874D006A6C46 /* SocketEventHandler.swift in Sources */,

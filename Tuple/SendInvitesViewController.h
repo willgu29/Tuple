@@ -12,4 +12,10 @@
 
 @interface SendInvitesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PushToParseCloudDelegate, UITextFieldDelegate>
 
+// SET BY ANOTHER VC
+@property (nonatomic, strong) NSString *event;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString *time;
+//*****
+
 @end

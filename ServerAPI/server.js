@@ -17,10 +17,20 @@ app.get('/chatroom', function (req, res) {
 });
 io.on('connection', function(socket){
   console.log('a user connected');
-
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-    io.emit('chat message', msg);
+  socket.on('joinChatroom', function(data) {
+    console.log("Room ID: ", data);
+    socket.join(data.roomID);
+    io.to(data.roomID).emit('join chatroom', data.user);
+  });
+  socket.on('leave chatroom', function(data) {
+    console.log("Leaving RoomID: ", data[0]);
+    io.to(data[0]).emit('leave chatroom', data[1]);
+    socket.leave(data[0]);
+    
+  });
+  socket.on('chat message', function(data){
+    console.log('message: ' + data.message);
+    io.to(data.roomID).emit('chat message', data);
   });
 
   socket.on('disconnect', function(){

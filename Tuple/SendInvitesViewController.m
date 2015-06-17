@@ -39,6 +39,24 @@
 
 
 
+#pragma mark - Hooks
+-(void)segueToNextViewController
+{
+    if (self.presentingViewController != [MessagingViewController class])
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your invites were sent and your event created." delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your invites were sent." delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -97,7 +115,7 @@
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"Send Invites";
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     
@@ -107,6 +125,12 @@
   
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    UIBarButtonItem *btnSend = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendInvites:)];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnSend, nil]];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -114,10 +138,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-   
-}
 
 #pragma mark - IBActions
 
@@ -130,10 +150,8 @@
     _pushToParseCloud = [[PushToParseCloud alloc] init];
     _pushToParseCloud.delegate = self;
     
-    WhereWhenViewController *whereWhen  = [self.navigationController.viewControllers firstObject];
     
-    [_pushToParseCloud createEvent:whereWhen.eventLocationXIB.text withActivity:whereWhen.eventXIB.text atTime:whereWhen.eventTimeXIB.text];
-
+    [_pushToParseCloud createEventAt:self.location withActivity:self.event atTime:self.time];
 
 }
 
@@ -143,7 +161,7 @@
 {
     [_pushToParseCloud sendNotificationsToContacts:_checkMarked forEvent:event];
     [_pushToParseCloud updateContactsInvited:_checkMarked forEvent:event];
-    [self segueToMessaging];
+    [self segueToNextViewController];
 
 }
 
@@ -217,20 +235,7 @@
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
--(void)segueToMessaging
-{
-    if (self.presentingViewController != [MessagingViewController class])
-    {
-        MessagingViewController *messageVC = [[MessagingViewController alloc] initWithNibName:@"MessagingViewController" bundle:nil];
-        [self.navigationController pushViewController:messageVC animated:YES];
-    }
-    else
-    {
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your invites were sent." delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles:nil];
-        [alertView show];
-    }
-}
+
 #pragma mark - Helpers
 -(void)fetchAllContacts
 {

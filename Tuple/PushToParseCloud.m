@@ -27,7 +27,7 @@
 
 #pragma mark - Public Facing
 
--(void)createEvent:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time
+-(void)createEventAt:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time
 {
     PFUser *currentUser = [PFUser currentUser];
    NSString *uuid = [[NSUUID UUID] UUIDString];

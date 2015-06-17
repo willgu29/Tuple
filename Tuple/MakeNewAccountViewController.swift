@@ -71,8 +71,8 @@ class MakeNewAccountViewController: UIViewController, UITextFieldDelegate, Creat
             {
                 self.dismissViewControllerAnimated(true, completion: nil);
                 //Login success
-                var whereWhenVC = WhereWhenViewController(nibName:"WhereWhenViewController", bundle:nil)
-                var navigationController = UINavigationController(rootViewController: whereWhenVC);
+                var mainVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle:nil)
+                var navigationController = UINavigationController(rootViewController: mainVC);
                 self.presentViewController(navigationController, animated: true, completion:nil)
             }
             else

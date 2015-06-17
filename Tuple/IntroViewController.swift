@@ -28,8 +28,8 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         if ((PFUser.currentUser()) != nil)
         {
-            var whereWhenVC = WhereWhenViewController(nibName:"WhereWhenViewController", bundle:nil);
-            var navVC = UINavigationController(rootViewController: whereWhenVC);
+            var mainVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle:nil);
+            var navVC = UINavigationController(rootViewController: mainVC);
             self.presentViewController(navVC, animated: true, completion: nil);
         }
     }

@@ -23,7 +23,7 @@
 
 @property (nonatomic, assign) id delegate;
 
--(void)createEvent:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time;
+-(void)createEventAt:(NSString *)location withActivity:(NSString *)activity atTime:(NSString *)time;
 -(void)sendNotificationsToContacts:(NSArray *)contacts forEvent:(PFObject *)event;
 -(void)updateContactsInvited:(NSArray *)contacts forEvent:(PFObject *)event;
 @end
