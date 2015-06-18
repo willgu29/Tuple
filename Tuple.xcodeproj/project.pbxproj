@@ -21,6 +21,8 @@
 		8444324A1A9C06380052747E /* ArraySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 844432491A9C06380052747E /* ArraySearcher.m */; };
 		846615A31B314DF500651E76 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846615A11B314DF500651E76 /* EventDetailsViewController.m */; };
 		846615A41B314DF500651E76 /* EventDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846615A21B314DF500651E76 /* EventDetailsViewController.xib */; };
+		846615AC1B33556B00651E76 /* OldSendInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846615AA1B33556B00651E76 /* OldSendInvitesViewController.m */; };
+		846615AD1B33556B00651E76 /* OldSendInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846615AB1B33556B00651E76 /* OldSendInvitesViewController.xib */; };
 		847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */; };
 		847656501B253F6900E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476564F1B253F6900E03554 /* Message.m */; };
 		847656621B2550E600E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656611B2550E600E03554 /* Contact.m */; };
@@ -131,6 +133,9 @@
 		846615A01B314DF500651E76 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		846615A11B314DF500651E76 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		846615A21B314DF500651E76 /* EventDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsViewController.xib; sourceTree = "<group>"; };
+		846615A91B33556B00651E76 /* OldSendInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldSendInvitesViewController.h; sourceTree = "<group>"; };
+		846615AA1B33556B00651E76 /* OldSendInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldSendInvitesViewController.m; sourceTree = "<group>"; };
+		846615AB1B33556B00651E76 /* OldSendInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OldSendInvitesViewController.xib; sourceTree = "<group>"; };
 		847655C21B1FA04900E03554 /* NSManagedObject+WGMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+WGMethods.h"; sourceTree = "<group>"; };
 		847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+WGMethods.m"; sourceTree = "<group>"; };
 		8476564E1B253F6900E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -469,6 +474,9 @@
 		84821A1D1A873BE700463B7E /* SendInvitesInterface */ = {
 			isa = PBXGroup;
 			children = (
+				846615A91B33556B00651E76 /* OldSendInvitesViewController.h */,
+				846615AA1B33556B00651E76 /* OldSendInvitesViewController.m */,
+				846615AB1B33556B00651E76 /* OldSendInvitesViewController.xib */,
 				84821AB31A88055B00463B7E /* PersonInfo */,
 				84821A2D1A873C5100463B7E /* SendInvitesAPI */,
 				84821A2E1A873C5900463B7E /* CustomTableCells */,
@@ -790,6 +798,7 @@
 				846615A41B314DF500651E76 /* EventDetailsViewController.xib in Resources */,
 				848219FF1A873B0F00463B7E /* Images.xcassets in Resources */,
 				84BFE0881A8AD1D600721F88 /* GetInvitesViewController.xib in Resources */,
+				846615AD1B33556B00651E76 /* OldSendInvitesViewController.xib in Resources */,
 				84BFE0A71A8DF0E300721F88 /* VerificationStepViewController.xib in Resources */,
 				84BFE0AB1A8DF6E700721F88 /* UserProfileViewController.xib in Resources */,
 				84F807571B1D290E00D7D3EB /* MessagingViewController.xib in Resources */,
@@ -854,6 +863,7 @@
 				84F807561B1D290E00D7D3EB /* MessagingViewController.m in Sources */,
 				84821A901A8744D700463B7E /* CreateAccountOnServer.m in Sources */,
 				84ADDC091B0E874D006A6C46 /* SocketAckManager.swift in Sources */,
+				846615AC1B33556B00651E76 /* OldSendInvitesViewController.m in Sources */,
 				842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */,
 				84BFE0A61A8DF0E300721F88 /* VerificationStepViewController.swift in Sources */,
 				84821A311A873C6F00463B7E /* PushToParseCloud.m in Sources */,
