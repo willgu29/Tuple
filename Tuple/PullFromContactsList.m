@@ -124,20 +124,21 @@
             }
 //            newContact.email = email;
             
-            PFUser *user = [ParseDatabase lookupPhoneNumber:formatted];
-            User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:managedContext];
-            if (user) {
-                newContact.hasTupleAccount = [NSNumber numberWithBool:YES];
-                newUser.username = user.username;
-                newUser.score = user[@"score"];
-                newUser.phoneNumber = user[@"phoneNumber"];
-                newUser.deviceToken = user[@"deviceToken"];
-                newUser.contactCard = newContact;
-                newContact.userInfo = newUser;
-
-            } else {
+            //Doing in invites page now
+//            PFUser *user = nil;//[ParseDatabase lookupPhoneNumber:formatted];
+//            User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:managedContext];
+//            if (user) {
+//                newContact.hasTupleAccount = [NSNumber numberWithBool:YES];
+//                newUser.username = user.username;
+//                newUser.score = user[@"score"];
+//                newUser.phoneNumber = user[@"phoneNumber"];
+//                newUser.deviceToken = user[@"deviceToken"];
+//                newUser.contactCard = newContact;
+//                newContact.userInfo = newUser;
+//
+//            } else {
                 newContact.hasTupleAccount = [NSNumber numberWithBool:NO];
-            }
+//            }
             
             NSError *error = nil;
             if (![managedContext save:&error]) {
