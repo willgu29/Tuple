@@ -28,9 +28,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         if ((PFUser.currentUser()) != nil)
         {
-            var mainVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle:nil);
-            var navVC = UINavigationController(rootViewController: mainVC);
-            self.presentViewController(navVC, animated: true, completion: nil);
+            self.segueToMainVC();
         }
     }
     
@@ -88,7 +86,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     func segueToMainVC(){
-        var whereWhenVC = WhereWhenViewController(nibName:"WhereWhenViewController", bundle:nil)
+        var whereWhenVC = GetInvitesViewController(nibName:"GetInvitesViewController", bundle:nil)
         var navigationController = UINavigationController(rootViewController: whereWhenVC);
         self.presentViewController(navigationController, animated: true, completion: nil);
     }

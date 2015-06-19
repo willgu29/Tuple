@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PullFromContactsList.h"
+#import "OldPullFromContactsList.h"
 #import "BaseTableViewController.h"
 #import "PushToParseCloud.h"
 #import <Parse/Parse.h>
 
-@interface OldSendInvitesViewController : BaseTableViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate, PushToParseCloudDelegate, UITextFieldDelegate>
+@interface OldSendInvitesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PullFromContactsListDelegate, PushToParseCloudDelegate, UITextFieldDelegate>
 
 
 

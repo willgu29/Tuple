@@ -94,12 +94,12 @@ class UserProfileViewController: UIViewController,UINavigationControllerDelegate
     
     @IBAction func logoutButton(){
         PFUser.logOut();
-        var introVC = IntroViewController(nibName:"IntroViewController", bundle: nil);
-        self.presentViewController(introVC, animated: true, completion: nil);
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+
     }
     
     @IBAction func backButton(){
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+        self.navigationController?.popViewControllerAnimated(true);
     }
     
     @IBAction func feedbackButton(){

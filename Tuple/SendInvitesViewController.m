@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "MessagingViewController.h"
 #import "Contact.h"
+#import "User.h"
 #import "Tuple-Swift.h"
 @interface SendInvitesViewController ()
 
@@ -75,7 +76,7 @@
     Contact *contact;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     contact = [_displayArray objectAtIndex:indexPath.item];
-    if (contact.hasTupleAccount) {
+    if ([contact.hasTupleAccount isEqualToNumber:[NSNumber numberWithBool:YES]]) {
         cell.detailTextLabel.text = contact.userInfo.username;
     } else {
         cell.detailTextLabel.text = contact.phoneNumber;
@@ -96,6 +97,21 @@
     Contact *contact = [_displayArray objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
+    NSLog(@"Contact: %@", contact.hasTupleAccount);
+    
+    if ([contact.hasTupleAccount isEqualToNumber:[NSNumber numberWithBool:NO]]) {
+        PFUser *user = [ParseDatabase lookupPhoneNumber:contact.phoneNumber];
+        if (user) {
+            User *coreUser = [self createCoreDataUser:user forContact:contact];
+            contact.hasTupleAccount = [NSNumber numberWithBool:YES];
+            contact.userInfo = coreUser;
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            NSManagedObjectContext *context = [delegate managedObjectContext];
+            NSError *error;
+            [context save:&error];
+        }
+    }
+    
     if (contact.isSelected){
         contact.isSelected = NO;
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -107,10 +123,27 @@
     }
     [self.contacts replaceObjectAtIndex:contact.contactID.intValue withObject:contact];
     [_tableView reloadData];
-//    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    
+    
 
 }
 
+-(User *)createCoreDataUser:(PFUser *)user forContact:(Contact *)contact
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+    newUser.username = user.username;
+    newUser.score = user[@"score"];
+    newUser.phoneNumber = user[@"phoneNumber"];
+    newUser.firstName = user[@"firstName"];
+    newUser.lastName = user[@"lastName"];
+    newUser.fullName = user[@"fullName"];
+    newUser.contactCard = contact;
+    newUser.deviceToken = user[@"deviceToken"];
+    return newUser;
+}
 
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
@@ -128,7 +161,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    UIBarButtonItem *btnSend = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(sendInvites:)];
+    UIBarButtonItem *btnSend = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendInvites:)];
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnSend, nil]];
 }
 
@@ -244,6 +277,11 @@
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"Contact" inManagedObjectContext:delegate.managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"fullName" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+
     NSError *error;
     NSArray *contacts = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     

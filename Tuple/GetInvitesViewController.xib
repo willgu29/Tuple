@@ -40,7 +40,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odE-5A-iGg">
-                    <rect key="frame" x="8" y="6" width="51" height="47"/>
+                    <rect key="frame" x="6" y="8" width="51" height="47"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="51" id="8Nc-WV-Y7f"/>
                     </constraints>
@@ -71,11 +71,11 @@
                 <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="bottom" constant="8" symbolic="YES" id="YSp-Z8-5fG"/>
                 <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="dOP-vz-Oav" secondAttribute="bottom" constant="4" id="hHb-s4-7Fb"/>
                 <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="iZH-yC-sI8" secondAttribute="bottom" constant="15" id="hIH-Lt-zZk"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="odE-5A-iGg" secondAttribute="bottom" constant="10" id="j72-Xb-z7b"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="odE-5A-iGg" secondAttribute="bottom" constant="8" id="j72-Xb-z7b"/>
                 <constraint firstItem="r2V-VT-IBM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jPj-EK-OGT"/>
-                <constraint firstItem="odE-5A-iGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="nD1-jU-H3e"/>
+                <constraint firstItem="odE-5A-iGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="-2" id="nD1-jU-H3e"/>
                 <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wh0-gp-s50"/>
-                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerY" secondItem="odE-5A-iGg" secondAttribute="centerY" id="yvC-fP-Wpv"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerY" secondItem="odE-5A-iGg" secondAttribute="centerY" constant="-2" id="yvC-fP-Wpv"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

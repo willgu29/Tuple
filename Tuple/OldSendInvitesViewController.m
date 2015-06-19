@@ -13,12 +13,14 @@
 #import "UserCellInfo.h"
 #import "HostViewController.h"
 #import "AppDelegate.h"
+#import "Converter.h"
 #import "MessagingViewController.h"
+#import "ParseDatabase.h"
 
 @interface OldSendInvitesViewController ()
 
 @property (nonatomic, strong) PushToParseCloud *pushToParseCloud;
-@property (nonatomic, strong) PullFromContactsList *pullFromContacts;
+@property (nonatomic, strong) OldPullFromContactsList *pullFromContacts;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *searchBar;
@@ -28,9 +30,7 @@
 @end
 
 @implementation OldSendInvitesViewController
-@synthesize displayInfoArray;
-@synthesize cellData;
-@synthesize selectedPeopleArray;
+
 
 -(void)segueToNextViewController
 {
@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _pullFromContacts = [[PullFromContactsList alloc] init];
+    _pullFromContacts = [[OldPullFromContactsList alloc] init];
     _pullFromContacts.delegate = self;
     [_pullFromContacts fetchTableViewData];
     _pushToParseCloud = [[PushToParseCloud alloc] init];
@@ -94,8 +94,8 @@
 
 -(void)pushEventToParseSuccess:(NSString *)uuid
 {
-    [_pushToParseCloud sendNotificationsToContacts:_checkMarked forEvent:event];
-    [_pushToParseCloud updateContactsInvited:_checkMarked forEvent:event];
+//    [_pushToParseCloud sendNotificationsToContacts:_checkMarked forEvent:event];
+  //  [_pushToParseCloud updateContactsInvited:_checkMarked forEvent:event];
     [self segueToNextViewController];
 
 }

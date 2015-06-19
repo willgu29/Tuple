@@ -23,6 +23,7 @@
 		846615A41B314DF500651E76 /* EventDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846615A21B314DF500651E76 /* EventDetailsViewController.xib */; };
 		846615AC1B33556B00651E76 /* OldSendInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846615AA1B33556B00651E76 /* OldSendInvitesViewController.m */; };
 		846615AD1B33556B00651E76 /* OldSendInvitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846615AB1B33556B00651E76 /* OldSendInvitesViewController.xib */; };
+		846615B01B33575D00651E76 /* OldPullFromContactsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 846615AF1B33575D00651E76 /* OldPullFromContactsList.m */; };
 		847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */; };
 		847656501B253F6900E03554 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476564F1B253F6900E03554 /* Message.m */; };
 		847656621B2550E600E03554 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 847656611B2550E600E03554 /* Contact.m */; };
@@ -136,6 +137,8 @@
 		846615A91B33556B00651E76 /* OldSendInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldSendInvitesViewController.h; sourceTree = "<group>"; };
 		846615AA1B33556B00651E76 /* OldSendInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldSendInvitesViewController.m; sourceTree = "<group>"; };
 		846615AB1B33556B00651E76 /* OldSendInvitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OldSendInvitesViewController.xib; sourceTree = "<group>"; };
+		846615AE1B33575D00651E76 /* OldPullFromContactsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldPullFromContactsList.h; sourceTree = "<group>"; };
+		846615AF1B33575D00651E76 /* OldPullFromContactsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldPullFromContactsList.m; sourceTree = "<group>"; };
 		847655C21B1FA04900E03554 /* NSManagedObject+WGMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+WGMethods.h"; sourceTree = "<group>"; };
 		847655C31B1FA04900E03554 /* NSManagedObject+WGMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+WGMethods.m"; sourceTree = "<group>"; };
 		8476564E1B253F6900E03554 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -474,6 +477,8 @@
 		84821A1D1A873BE700463B7E /* SendInvitesInterface */ = {
 			isa = PBXGroup;
 			children = (
+				846615AE1B33575D00651E76 /* OldPullFromContactsList.h */,
+				846615AF1B33575D00651E76 /* OldPullFromContactsList.m */,
 				846615A91B33556B00651E76 /* OldSendInvitesViewController.h */,
 				846615AA1B33556B00651E76 /* OldSendInvitesViewController.m */,
 				846615AB1B33556B00651E76 /* OldSendInvitesViewController.xib */,
@@ -907,6 +912,7 @@
 				847656621B2550E600E03554 /* Contact.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
 				847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */,
+				846615B01B33575D00651E76 /* OldPullFromContactsList.m in Sources */,
 				84ADDC0B1B0E874D006A6C46 /* SocketEngine.swift in Sources */,
 				84ADDC101B0E874D006A6C46 /* SocketLogger.swift in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,

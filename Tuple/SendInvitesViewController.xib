@@ -18,17 +18,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uxX-wM-v5W">
-                    <rect key="frame" x="0.0" y="100" width="320" height="468"/>
+                    <rect key="frame" x="0.0" y="112" width="320" height="456"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="456" id="egw-Oq-IV7"/>
+                    </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="d0A-vA-JSz"/>
                         <outlet property="delegate" destination="-1" id="fRg-o1-xce"/>
                     </connections>
                 </tableView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Search Contacts" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fGe-U9-H3x">
-                    <rect key="frame" x="0.0" y="59" width="320" height="41"/>
+                    <rect key="frame" x="0.0" y="72" width="320" height="41"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="41" id="pC1-wm-hvU"/>
+                        <constraint firstAttribute="height" constant="41" id="r7D-59-6se"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -39,13 +42,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="top" secondItem="fGe-U9-H3x" secondAttribute="bottom" id="1GR-Og-ew1"/>
-                <constraint firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="ERS-Mw-b6z"/>
-                <constraint firstItem="fGe-U9-H3x" firstAttribute="leading" secondItem="uxX-wM-v5W" secondAttribute="leading" id="HuP-rR-sse"/>
-                <constraint firstItem="fGe-U9-H3x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="JGo-dD-Eer"/>
-                <constraint firstItem="fGe-U9-H3x" firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="M28-KN-EDe"/>
-                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aja-N4-Qf7"/>
-                <constraint firstAttribute="bottom" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="jIP-bv-irc"/>
+                <constraint firstItem="fGe-U9-H3x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="3j1-UE-Pt7"/>
+                <constraint firstItem="fGe-U9-H3x" firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="55g-g1-kfa"/>
+                <constraint firstAttribute="trailing" secondItem="uxX-wM-v5W" secondAttribute="trailing" id="Z9e-nt-zUJ"/>
+                <constraint firstItem="uxX-wM-v5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cra-DC-trw"/>
+                <constraint firstAttribute="bottom" secondItem="uxX-wM-v5W" secondAttribute="bottom" id="vV3-HK-FnR"/>
+                <constraint firstItem="fGe-U9-H3x" firstAttribute="leading" secondItem="uxX-wM-v5W" secondAttribute="leading" id="vzi-Ro-HCn"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
