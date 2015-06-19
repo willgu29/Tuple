@@ -10,9 +10,10 @@ Parse.Cloud.define("hello", function(request, response) {
 		var eventTime = request.params.eventTime;
 		var eventLocation = request.params.eventLocation;
 		var inviter = request.params.inviter;
+		var deviceToken = request.params.deviceToken;
 		//var messageString = inviter + " would like to eat at " + timeToEat;
 		var messageString = "You've received a new event invite!";
-		PushNotifications.sendPushNotification(inviter, event, eventLocation, eventTime ,hostUsername, messageString, {
+		PushNotifications.sendPushNotification(inviter, event, eventLocation, eventTime ,hostUsername, deviceToken, messageString, {
 			success: function(){
 				response.success();
 			},
