@@ -56,7 +56,7 @@
     for (int i = 0; i < [contacts count]; i++)
     {
         Contact *contact = [contacts objectAtIndex:i];
-        if (contact.hasTupleAccount){
+        if ([contact.hasTupleAccount isEqualToNumber:[NSNumber numberWithBool:YES]]){
             [self sendPushNotification:contact forEvent:event];
         } else {
             [self sendTextMessage:contact forEvent:event];

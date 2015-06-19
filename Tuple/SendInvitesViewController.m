@@ -99,18 +99,23 @@
     
     NSLog(@"Contact: %@", contact.hasTupleAccount);
     
+    NSNumber *currentStateSelected = contact.isSelected;
+    
     if ([contact.hasTupleAccount isEqualToNumber:[NSNumber numberWithBool:NO]]) {
         PFUser *user = [ParseDatabase lookupPhoneNumber:contact.phoneNumber];
         if (user) {
             User *coreUser = [self createCoreDataUser:user forContact:contact];
             contact.hasTupleAccount = [NSNumber numberWithBool:YES];
             contact.userInfo = coreUser;
+            contact.isSelected = [NSNumber numberWithBool:NO];
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             NSManagedObjectContext *context = [delegate managedObjectContext];
             NSError *error;
             [context save:&error];
         }
     }
+    
+    contact.isSelected = currentStateSelected;
     
     if (contact.isSelected){
         contact.isSelected = NO;
@@ -192,6 +197,8 @@
 
 -(void)pushEventToParseSuccess:(PFObject *)event
 {
+    NSLog(@"Checkmarked: %@", _checkMarked);
+    
     [_pushToParseCloud sendNotificationsToContacts:_checkMarked forEvent:event];
     [_pushToParseCloud updateContactsInvited:_checkMarked forEvent:event];
     [self segueToNextViewController];
@@ -209,6 +216,8 @@
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tuple with your friends!" message:@"Please invite some friends" delegate:nil cancelButtonTitle:@"Yah!" otherButtonTitles:nil];
         [alert show];
+    } else {
+        NSLog(@"Error: %@", error);
     }
 }
 

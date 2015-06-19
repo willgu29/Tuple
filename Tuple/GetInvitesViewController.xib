@@ -52,8 +52,8 @@
                         <action selector="leftButton:" destination="-1" eventType="touchUpInside" id="3qL-ET-sWM"/>
                     </connections>
                 </button>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TupleHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-yC-sI8">
-                    <rect key="frame" x="120" y="12" width="81" height="36"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="TupleHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-yC-sI8">
+                    <rect key="frame" x="120" y="17" width="81" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="RKp-xm-67C"/>
                     </constraints>
