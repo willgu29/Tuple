@@ -12,12 +12,15 @@
 #import "MessagingViewController.h"
 #import "ParseDatabase.h"
 #import "Tuple-Swift.h"
+#import "EventDetailsViewController.h"
 @interface GetInvitesViewController ()
 
 @property (nonatomic, strong) PullFromParseCloud *pullFromParseCloud;
 @property (nonatomic, strong) NSArray *eventsInvitedTo;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSArray *outletReferences;
 @end
 
 @implementation GetInvitesViewController
@@ -92,8 +95,13 @@
     PFObject *event = [_eventsInvitedTo objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.text = event[@"hostID"];
-    NSString *detailText = [NSString stringWithFormat:@"Invited by: %@ at %@", event[@"inviterName"], event[@"createdAt"]];
+    
+    NSString *mainText = [NSString stringWithFormat:@"%@ at %@ by %@", event[@"activity"], event[@"time"], event[@"hostName"]];
+    
+    cell.textLabel.text = mainText;
+    
+    NSDate *timeInvited = event.createdAt;
+    NSString *detailText = [NSString stringWithFormat:@"Invited by: %@ at %@", event[@"inviterName"], [timeInvited description]];
     
     cell.detailTextLabel.text = detailText;
     
@@ -102,8 +110,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-   
+    EventDetailsViewController *eventVC = [[EventDetailsViewController alloc] initWithNibName:@"EventDetailsViewController" bundle:nil];
+    [self.navigationController pushViewController:eventVC animated:YES];
 }
 
 
@@ -160,12 +168,27 @@
          _eventsInvitedTo = objects;
          if ([_eventsInvitedTo count]) {
              _tableView.hidden = NO;
+             [self deleteOutletsInReferences];
              [_tableView reloadData];
          } else {
              _tableView.hidden = YES;
-             [self.view addSubview:[self createButton:@"Refresh"]];
-             [self.view addSubview:[self createLabel:@"No events.. why not create one?"]];
+             UIButton *newButton = [self createButton:@"Refresh"];
+             UILabel *newLabel = [self createLabel:@"No events.. why not create one?"];
+             _outletReferences = @[newLabel, newButton];
+             [self.view addSubview:newButton];
+             [self.view addSubview:newLabel];
+             
          }
      }];
+}
+
+-(void)deleteOutletsInReferences
+{
+    for (int i = 0; i < [_outletReferences count]; i++)
+    {
+        id object = [_outletReferences objectAtIndex:i];
+        [object removeFromSuperview];
+        object = nil;
+    }
 }
 @end
