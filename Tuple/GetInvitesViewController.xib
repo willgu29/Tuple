@@ -42,7 +42,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odE-5A-iGg">
                     <rect key="frame" x="6" y="8" width="51" height="47"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="51" id="8Nc-WV-Y7f"/>
+                        <constraint firstAttribute="width" constant="51" id="Ner-Dv-ibh"/>
                     </constraints>
                     <color key="tintColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="ProfileButton">
@@ -52,30 +52,30 @@
                         <action selector="leftButton:" destination="-1" eventType="touchUpInside" id="3qL-ET-sWM"/>
                     </connections>
                 </button>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="TupleHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-yC-sI8">
-                    <rect key="frame" x="120" y="17" width="81" height="36"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TupleHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-yC-sI8">
+                    <rect key="frame" x="120" y="20" width="81" height="36"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="36" id="RKp-xm-67C"/>
+                        <constraint firstAttribute="height" constant="36" id="0Lk-zJ-4o5"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="r2V-VT-IBM" firstAttribute="leading" secondItem="iZH-yC-sI8" secondAttribute="trailing" constant="52" id="1oo-NZ-mRM"/>
-                <constraint firstItem="iZH-yC-sI8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="2FZ-BX-xDn"/>
-                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Etm-d7-rhh"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Ew8-z9-I60"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="dOP-vz-Oav" secondAttribute="leading" id="Ja0-uU-jRH"/>
-                <constraint firstAttribute="bottom" secondItem="mrv-tX-4aN" secondAttribute="bottom" id="LnE-Eh-R1H"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="trailing" secondItem="r2V-VT-IBM" secondAttribute="trailing" id="R95-2d-QdO"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="bottom" constant="8" symbolic="YES" id="YSp-Z8-5fG"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="dOP-vz-Oav" secondAttribute="bottom" constant="4" id="hHb-s4-7Fb"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="iZH-yC-sI8" secondAttribute="bottom" constant="15" id="hIH-Lt-zZk"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="odE-5A-iGg" secondAttribute="bottom" constant="8" id="j72-Xb-z7b"/>
-                <constraint firstItem="r2V-VT-IBM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jPj-EK-OGT"/>
-                <constraint firstItem="odE-5A-iGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="-2" id="nD1-jU-H3e"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wh0-gp-s50"/>
-                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerY" secondItem="odE-5A-iGg" secondAttribute="centerY" constant="-2" id="yvC-fP-Wpv"/>
+                <constraint firstItem="r2V-VT-IBM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hmt-hL-osy"/>
+                <constraint firstAttribute="bottom" secondItem="mrv-tX-4aN" secondAttribute="bottom" id="Le3-aH-i0K"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="top" id="QEA-Ld-pTK"/>
+                <constraint firstItem="iZH-yC-sI8" firstAttribute="leading" secondItem="odE-5A-iGg" secondAttribute="trailing" constant="63" id="S5T-Rs-Tfp"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Uzl-C3-bOU"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Yam-eK-vEw"/>
+                <constraint firstItem="r2V-VT-IBM" firstAttribute="leading" secondItem="iZH-yC-sI8" secondAttribute="trailing" constant="52" id="ZOT-ac-QPs"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ael-hL-MYz"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="iZH-yC-sI8" secondAttribute="bottom" constant="7" id="dxv-AO-yyd"/>
+                <constraint firstItem="iZH-yC-sI8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="hVQ-V4-kfN"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="dOP-vz-Oav" secondAttribute="leading" id="qTp-sO-Uob"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="bottom" constant="8" symbolic="YES" id="s2a-zj-QJa"/>
+                <constraint firstItem="r2V-VT-IBM" firstAttribute="trailing" secondItem="mrv-tX-4aN" secondAttribute="trailing" id="uXG-6c-W9O"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="odE-5A-iGg" secondAttribute="bottom" constant="8" symbolic="YES" id="v70-3K-JRR"/>
+                <constraint firstItem="odE-5A-iGg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="yC7-0l-ql6"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
