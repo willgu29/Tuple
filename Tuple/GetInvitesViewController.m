@@ -35,20 +35,7 @@
 {
     self.navigationController.navigationBarHidden = YES;
 
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    [query whereKey:@"contactsInvited" equalTo:[PFUser currentUser].username];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *PF_NULLABLE_S objects, NSError *PF_NULLABLE_S error)
-    {
-        _eventsInvitedTo = objects;
-        if ([_eventsInvitedTo count]) {
-            [_tableView reloadData];
-        } else {
-            _tableView.hidden = YES;
-            [self.view addSubview:[self createButton:@"Refresh"]];
-            [self.view addSubview:[self createLabel:@"No events.. why not create one?"]];
-        }
-    }];
+    [self queryForEvents];
 
 }
 
@@ -61,7 +48,7 @@
 
 -(void)refresh:(UIButton *)sender
 {
-    //TODO: refresh events
+    [self queryForEvents];
 }
 
 -(IBAction)leftButton:(UIButton *)sender
@@ -73,11 +60,6 @@
 {
     WhereWhenViewController *addEventVC = [[WhereWhenViewController alloc] initWithNibName:@"WhereWhenViewController" bundle:nil];
     [self.navigationController pushViewController:addEventVC animated:YES];
-}
-
--(IBAction)backButton:(UIButton *)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Pull Parse Cloud Delegate
@@ -111,7 +93,9 @@
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.text = event[@"hostID"];
-    cell.detailTextLabel.text = event[@"inviterName"];
+    NSString *detailText = [NSString stringWithFormat:@"Invited by: %@ at %@", event[@"inviterName"], event[@"createdAt"]];
+    
+    cell.detailTextLabel.text = detailText;
     
     return cell;
 }
@@ -120,8 +104,6 @@
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
    
-    MessagingViewController *messageVC = [[MessagingViewController alloc] init];
-    [self.navigationController pushViewController:messageVC animated:YES];
 }
 
 
@@ -167,4 +149,23 @@
     return UIStatusBarStyleLightContent;
 }
 
+
+#pragma mark - Helper functions
+-(void)queryForEvents
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"contactsInvited" equalTo:[PFUser currentUser].username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *PF_NULLABLE_S objects, NSError *PF_NULLABLE_S error)
+     {
+         _eventsInvitedTo = objects;
+         if ([_eventsInvitedTo count]) {
+             _tableView.hidden = NO;
+             [_tableView reloadData];
+         } else {
+             _tableView.hidden = YES;
+             [self.view addSubview:[self createButton:@"Refresh"]];
+             [self.view addSubview:[self createLabel:@"No events.. why not create one?"]];
+         }
+     }];
+}
 @end

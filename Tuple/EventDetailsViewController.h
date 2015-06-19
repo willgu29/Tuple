@@ -10,4 +10,11 @@
 
 @interface EventDetailsViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UILabel *hostName;
+@property (nonatomic, weak) IBOutlet UILabel *eventActivity;
+@property (nonatomic, weak) IBOutlet UILabel *eventLocation;
+@property (nonatomic, weak) IBOutlet UILabel *eventTime;
+
+@property (nonatomic, strong) NSArray *peopleGoing; //fullName
+
 @end
