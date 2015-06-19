@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GetInvitesViewController">
@@ -29,7 +28,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2V-VT-IBM">
-                    <rect key="frame" x="253" y="0.0" width="67" height="55"/>
+                    <rect key="frame" x="253" y="7" width="67" height="55"/>
                     <fontDescription key="fontDescription" type="system" pointSize="38"/>
                     <state key="normal" title="+">
                         <color key="titleColor" red="0.95520550270000004" green="0.95520550270000004" blue="0.95520550270000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,9 +39,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odE-5A-iGg">
-                    <rect key="frame" x="6" y="8" width="51" height="47"/>
+                    <rect key="frame" x="6" y="14" width="51" height="47"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="51" id="Ner-Dv-ibh"/>
+                        <constraint firstAttribute="width" constant="51" id="GFO-6q-4uG"/>
                     </constraints>
                     <color key="tintColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="ProfileButton">
@@ -55,27 +54,27 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TupleHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-yC-sI8">
                     <rect key="frame" x="120" y="20" width="81" height="36"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="36" id="0Lk-zJ-4o5"/>
+                        <constraint firstAttribute="height" constant="36" id="YI0-vF-tRZ"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="r2V-VT-IBM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hmt-hL-osy"/>
-                <constraint firstAttribute="bottom" secondItem="mrv-tX-4aN" secondAttribute="bottom" id="Le3-aH-i0K"/>
-                <constraint firstItem="dOP-vz-Oav" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="top" id="QEA-Ld-pTK"/>
-                <constraint firstItem="iZH-yC-sI8" firstAttribute="leading" secondItem="odE-5A-iGg" secondAttribute="trailing" constant="63" id="S5T-Rs-Tfp"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Uzl-C3-bOU"/>
-                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Yam-eK-vEw"/>
-                <constraint firstItem="r2V-VT-IBM" firstAttribute="leading" secondItem="iZH-yC-sI8" secondAttribute="trailing" constant="52" id="ZOT-ac-QPs"/>
-                <constraint firstItem="dOP-vz-Oav" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ael-hL-MYz"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="iZH-yC-sI8" secondAttribute="bottom" constant="7" id="dxv-AO-yyd"/>
-                <constraint firstItem="iZH-yC-sI8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="hVQ-V4-kfN"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="dOP-vz-Oav" secondAttribute="leading" id="qTp-sO-Uob"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="bottom" constant="8" symbolic="YES" id="s2a-zj-QJa"/>
-                <constraint firstItem="r2V-VT-IBM" firstAttribute="trailing" secondItem="mrv-tX-4aN" secondAttribute="trailing" id="uXG-6c-W9O"/>
-                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="odE-5A-iGg" secondAttribute="bottom" constant="8" symbolic="YES" id="v70-3K-JRR"/>
-                <constraint firstItem="odE-5A-iGg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="yC7-0l-ql6"/>
+                <constraint firstItem="odE-5A-iGg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="1hE-7T-TN0"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="iZH-yC-sI8" secondAttribute="bottom" constant="7" id="2CS-4y-dT8"/>
+                <constraint firstItem="r2V-VT-IBM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="7" id="3lO-yw-Rer"/>
+                <constraint firstItem="iZH-yC-sI8" firstAttribute="leading" secondItem="odE-5A-iGg" secondAttribute="trailing" constant="63" id="8kF-nF-tre"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="r2V-VT-IBM" secondAttribute="bottom" constant="1" id="F4C-WP-q1C"/>
+                <constraint firstItem="r2V-VT-IBM" firstAttribute="leading" secondItem="iZH-yC-sI8" secondAttribute="trailing" constant="52" id="Hz9-Yq-prd"/>
+                <constraint firstItem="iZH-yC-sI8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Ikw-lL-LsZ"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="centerX" secondItem="iZH-yC-sI8" secondAttribute="centerX" id="Imh-tY-Zvl"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JH3-Ye-IoN"/>
+                <constraint firstAttribute="bottom" secondItem="mrv-tX-4aN" secondAttribute="bottom" id="QrP-LO-wSp"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="top" secondItem="odE-5A-iGg" secondAttribute="bottom" constant="2" id="b6a-x1-Jem"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="trailing" secondItem="r2V-VT-IBM" secondAttribute="trailing" id="dGG-O3-A7p"/>
+                <constraint firstItem="iZH-yC-sI8" firstAttribute="centerX" secondItem="mrv-tX-4aN" secondAttribute="centerX" id="rkj-RZ-Amb"/>
+                <constraint firstItem="dOP-vz-Oav" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="t8k-DZ-ZM8"/>
+                <constraint firstItem="mrv-tX-4aN" firstAttribute="leading" secondItem="dOP-vz-Oav" secondAttribute="leading" id="ydH-Cu-j4t"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

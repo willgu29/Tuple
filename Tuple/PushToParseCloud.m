@@ -39,7 +39,7 @@
     event[@"hostID"] = currentUser.username;
     event[@"hostName"] = [self getFullNameFromUser:currentUser];
     event[@"usersInChatroom"] = @[];
-    event[@"contactsInvited"] = @[];
+    event[@"contactsInvited"] = @[currentUser.username];
     event[@"inviterName"] = @"";
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -71,10 +71,10 @@
     for (int i = 0; i < [contacts count]; i++)
     {
         Contact *contact = [contacts objectAtIndex:i];
-        if (contact.hasTupleAccount) {
-            [event addObject:contact.userInfo.username forKey:@"contactsInvited"];
+        if ([contact.hasTupleAccount isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            [event addUniqueObject:contact.userInfo.username forKey:@"contactsInvited"];
         } else {
-            [event addObject:contact.phoneNumber forKey:@"contactsInvited"];
+            [event addUniqueObject:contact.phoneNumber forKey:@"contactsInvited"];
         }
     }
     event[@"inviterName"] = currentUser[@"fullName"];
