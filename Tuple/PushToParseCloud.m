@@ -39,6 +39,7 @@
     event[@"hostID"] = currentUser.username;
     event[@"hostName"] = [self getFullNameFromUser:currentUser];
     event[@"usersGoing"] = @[currentUser.username];
+    event[@"usersResponded"] = @[currentUser.username];
     event[@"contactsInvited"] = @[currentUser.username];
     event[@"inviterName"] = @"";
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

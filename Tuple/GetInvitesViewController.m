@@ -31,6 +31,11 @@
     
     _pullFromParseCloud = [[PullFromParseCloud alloc] init];
     _pullFromParseCloud.delegate = self;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    
+
     
 }
 
@@ -49,9 +54,12 @@
 
 #pragma mark - Hooks
 
--(void)refresh:(UIButton *)sender
+-(void)refresh:(id)sender
 {
     [self queryForEvents];
+    if ([sender isKindOfClass:[UIRefreshControl class]]) {
+        [(UIRefreshControl *)sender endRefreshing];
+    }
 }
 
 -(IBAction)leftButton:(UIButton *)sender

@@ -36,8 +36,15 @@
         _eventActivity.text  = self.event[@"activity"];
         _eventLocation.text = self.event[@"location"];
         _eventTime.text = self.event[@"time"];
-    } else {
         
+        if ([self hasRespondedToInvite]) {
+            
+        } else {
+            [self addResponseButtonsToView];
+        }
+        
+    } else {
+        NSLog(@"Uhh ERROR NO EVENT");
     }
     
 }
@@ -47,5 +54,23 @@
 }
 
 #pragma mark - Helper functions
+
+-(void)addResponseButtonsToView
+{
+    UIButton *going = [[UIButton alloc] init];
+    [going setTitle:@"Going" forState:UIControlStateNormal];
+    [going ]
+}
+
+-(BOOL)hasRespondedToInvite
+{
+    PFUser *currentUser = [PFUser currentUser];
+    NSArray *usersResponded = self.event[@"usersResponded"];
+    if ([usersResponded containsObject:currentUser.username]) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 @end
