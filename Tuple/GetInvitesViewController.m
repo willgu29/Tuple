@@ -110,7 +110,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PFObject *event = [_eventsInvitedTo objectAtIndex:indexPath.row];
     EventDetailsViewController *eventVC = [[EventDetailsViewController alloc] initWithNibName:@"EventDetailsViewController" bundle:nil];
+    
     [self.navigationController pushViewController:eventVC animated:YES];
 }
 

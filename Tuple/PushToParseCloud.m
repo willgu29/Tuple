@@ -38,7 +38,7 @@
     event[@"time"] = time;
     event[@"hostID"] = currentUser.username;
     event[@"hostName"] = [self getFullNameFromUser:currentUser];
-    event[@"usersInChatroom"] = @[];
+    event[@"usersGoing"] = @[currentUser.username];
     event[@"contactsInvited"] = @[currentUser.username];
     event[@"inviterName"] = @"";
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -163,30 +163,6 @@
     
     
 }
-
-
--(void)sendDeviceTokensToCloud:(NSArray *)deviceTokenArray
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    
-    /* Reimplement push notifications
-     [PFCloud callFunctionInBackground:@"hello"
-     withParameters:@{@"deviceTokenArray": deviceTokenArray, @"inviter": inviter, @"hostUsername":hostUsername , @"event" : event, @"eventLocation": eventLocation, @"eventTime": eventTime}
-     block:^(id object, NSError *error) {
-     if (!error) {
-     // this is where you handle the results and change the UI.
-     NSLog(@"RESULTS: %@", object);
-     }
-     else
-     {
-     [_delegate sendInvitesFailure:error];
-     }
-     
-     }];
-     */
-    
-}
-
 
 
 @end
