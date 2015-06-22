@@ -25,6 +25,13 @@
 
 @implementation EventDetailsViewController
 
+-(void)setEvent:(PFObject *)event
+{
+    _event = event;
+    [self updatePersonSelectorView];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -88,9 +95,26 @@
     [self updateCounter];
 }
 
+-(PFObject *)getMostRecentEvent
+{
+    PFObject *currentEvent = self.event;
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"UUID" equalTo:currentEvent[@"UUID"]];
+    PFObject *mostRecentEvent = [query getFirstObject];
+    
+    return mostRecentEvent;
+}
+
 #pragma mark Button Selectors
 
 
+-(void)refresh:(UIButton *)sender
+{
+    
+    
+    PFObject *mostRecent = [self getMostRecentEvent];
+    [self setEvent:mostRecent];
+}
 
 -(void)updateResponse:(UIButton *)sender
 {
@@ -110,20 +134,15 @@
 -(void)updateEventInfoAndGoing:(BOOL)isGoing
 {
     PFUser *currentUser = [PFUser currentUser];
-    
-    NSString *UUID = self.event[@"UUID"];
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    [query whereKey:@"UUID" equalTo:UUID];
-    PFObject *newEvent = [query getFirstObject];
-    [newEvent addUniqueObject:currentUser.username forKey:@"usersResponded"];
+    PFObject *updatedEvent = [self getMostRecentEvent];
+    [updatedEvent addUniqueObject:currentUser.username forKey:@"usersResponded"];
     if (isGoing) {
-        [newEvent addUniqueObject:currentUser.username forKey:@"usersGoing"];
+        [updatedEvent addUniqueObject:currentUser.username forKey:@"usersGoing"];
     }
     
-    [newEvent saveInBackground];
+    [updatedEvent saveInBackground];
     
-    self.event = newEvent;
-    [self updatePersonSelectorView];
+    [self setEvent:updatedEvent];
 
 }
 
@@ -153,7 +172,7 @@
     [refresh sizeToFit];
     [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventTouchUpInside];
     
-    refresh.frame = CGRectMake(self.view.bounds.size.width/2-refresh.frame.size.width/2, self.view.bounds.size.height-40, refresh.frame.size.width, refresh.frame.size.width);
+    refresh.frame = CGRectMake(self.view.bounds.size.width/2-refresh.frame.size.width/2, self.view.bounds.size.height-60, refresh.frame.size.width, refresh.frame.size.width);
     
     [self.view addSubview:refresh];
 }
@@ -166,7 +185,7 @@
     [going sizeToFit];
     [going addTarget:self action:@selector(updateResponse:) forControlEvents:UIControlEventTouchUpOutside];
     
-    going.frame = CGRectMake(40, self.view.bounds.size.height-40, going.frame.size.width, going.frame.size.width);
+    going.frame = CGRectMake(40, self.view.bounds.size.height-60, going.frame.size.width, going.frame.size.width);
     
     
     UIButton *busy = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -175,7 +194,7 @@
     [busy sizeToFit];
     [busy addTarget:self action:@selector(updateResponse:) forControlEvents:UIControlEventTouchUpOutside];
     
-    busy.frame = CGRectMake(self.view.bounds.size.width-40, self.view.bounds.size.height-40, going.frame.size.width, going.frame.size.width);
+    busy.frame = CGRectMake(self.view.bounds.size.width-40, self.view.bounds.size.height-60, going.frame.size.width, going.frame.size.width);
     
     [self.view addSubview:going];
     [self.view addSubview:busy];
