@@ -120,7 +120,7 @@
 {
     PFObject *event = [_eventsInvitedTo objectAtIndex:indexPath.row];
     EventDetailsViewController *eventVC = [[EventDetailsViewController alloc] initWithNibName:@"EventDetailsViewController" bundle:nil];
-    
+    eventVC.event = event;
     [self.navigationController pushViewController:eventVC animated:YES];
 }
 

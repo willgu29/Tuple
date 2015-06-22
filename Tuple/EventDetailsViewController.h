@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-@interface EventDetailsViewController : UIViewController
+@interface EventDetailsViewController : UIViewController <UIScrollViewDelegate>
 
 
 @property (nonatomic, strong) PFObject *event;
