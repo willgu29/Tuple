@@ -30,10 +30,22 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden = NO;
+    
+    if (self.event) {
+        _hostName.text = self.event[@"hostName"];
+        _eventActivity.text  = self.event[@"activity"];
+        _eventLocation.text = self.event[@"location"];
+        _eventTime.text = self.event[@"time"];
+    } else {
+        
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Helper functions
 
 @end
