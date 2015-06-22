@@ -11,7 +11,6 @@
 @interface LeftRightSelectorScrollView : UIScrollView
 
 -(void)setTextToDisplayArray:(NSArray *)textToDisplay;
--(void)addArrayTextToView;
 -(CGSize)calculateContentSize;
 -(int)getCurrentPage;
 

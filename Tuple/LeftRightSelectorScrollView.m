@@ -23,6 +23,7 @@
 -(void)setTextToDisplayArray:(NSArray *)textToDisplay
 {
     _textToDisplay = textToDisplay;
+    [self addArrayTextToView];
 }
 
 -(id)initWithFrame:(CGRect)frame
