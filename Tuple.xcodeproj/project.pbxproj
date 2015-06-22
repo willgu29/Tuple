@@ -13,6 +13,7 @@
 		840029621AB2BAD800696105 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840029601AB2BAD800696105 /* HostViewController.m */; };
 		840029631AB2BAD800696105 /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840029611AB2BAD800696105 /* HostViewController.xib */; };
 		840D07921B388CF400F1D66C /* LeftRightSelectorScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D07911B388CF400F1D66C /* LeftRightSelectorScrollView.m */; };
+		840D07951B38A86400F1D66C /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D07941B38A86400F1D66C /* SocketIO.m */; };
 		842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */; };
 		842B33A31A96FD3D0049EEB1 /* PhotoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B33A21A96FD3D0049EEB1 /* PhotoServer.m */; };
 		842F0F4D1B1054E500CDC087 /* Tuple-Bridging-Header.h in Resources */ = {isa = PBXBuildFile; fileRef = 84821A201A873C2600463B7E /* Tuple-Bridging-Header.h */; };
@@ -121,6 +122,8 @@
 		840029611AB2BAD800696105 /* HostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostViewController.xib; sourceTree = "<group>"; };
 		840D07901B388CF400F1D66C /* LeftRightSelectorScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftRightSelectorScrollView.h; sourceTree = "<group>"; };
 		840D07911B388CF400F1D66C /* LeftRightSelectorScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftRightSelectorScrollView.m; sourceTree = "<group>"; };
+		840D07931B38A86400F1D66C /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
+		840D07941B38A86400F1D66C /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
 		842B339D1A96FB6C0049EEB1 /* CreateProfilePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProfilePicture.h; sourceTree = "<group>"; };
 		842B339E1A96FB6C0049EEB1 /* CreateProfilePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfilePicture.m; sourceTree = "<group>"; };
 		842B33A11A96FD3D0049EEB1 /* PhotoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoServer.h; sourceTree = "<group>"; };
@@ -631,6 +634,8 @@
 				844432471A9C06070052747E /* Search */,
 				84ADDBF81B0E83FD006A6C46 /* Chatroom.h */,
 				84ADDBF91B0E83FD006A6C46 /* Chatroom.m */,
+				840D07931B38A86400F1D66C /* SocketIO.h */,
+				840D07941B38A86400F1D66C /* SocketIO.m */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -903,6 +908,7 @@
 				847656621B2550E600E03554 /* Contact.m in Sources */,
 				842B339F1A96FB6C0049EEB1 /* CreateProfilePicture.m in Sources */,
 				847655C41B1FA04900E03554 /* NSManagedObject+WGMethods.m in Sources */,
+				840D07951B38A86400F1D66C /* SocketIO.m in Sources */,
 				84ADDC0B1B0E874D006A6C46 /* SocketEngine.swift in Sources */,
 				84ADDC101B0E874D006A6C46 /* SocketLogger.swift in Sources */,
 				84821A3A1A873C7D00463B7E /* SendInvitesViewController.m in Sources */,
