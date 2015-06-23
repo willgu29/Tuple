@@ -143,7 +143,7 @@
 {
     PFUser *currentUser = [PFUser currentUser];
     
-    NSString *defaultMessage = [NSString stringWithFormat:@"%@ has invited you to %@ at %@ and %@", currentUser[@"fullName"], event[@"activity"], event[@"location"], event[@"time"]];
+    NSString *defaultMessage = [NSString stringWithFormat:@"%@ has invited you to %@ at %@ and %@ via tuple.", currentUser[@"fullName"], event[@"activity"], event[@"location"], event[@"time"]];
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
