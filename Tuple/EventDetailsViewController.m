@@ -90,10 +90,11 @@
     _personCounter.text = counterText;
 }
 #pragma mark - Scroll Delegate
--(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self updateCounter];
 }
+
 
 -(PFObject *)getMostRecentEvent
 {
