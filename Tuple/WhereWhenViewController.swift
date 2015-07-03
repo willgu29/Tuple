@@ -69,14 +69,14 @@ class WhereWhenViewController: UIViewController, UITextViewDelegate, UITextField
     //IBActions
 
     @IBAction func sendInvites() {
-       
-        if (!ParseDatabase.getPhoneVerificationStatusCurrentUser())
-        {
-            var alert = UIAlertView(title: "Tuple Closed Beta", message: "Interested in testing? Email us at support@tupleapp.com with proof that you're a Bruin!", delegate: nil, cancelButtonTitle: "Okay!")
-            alert.show()
-            return;
-        }
-        
+//       
+//        if (!ParseDatabase.getPhoneVerificationStatusCurrentUser())
+//        {
+//            var alert = UIAlertView(title: "Tuple Closed Beta", message: "Interested in testing? Email us at support@tupleapp.com with proof that you're a Bruin!", delegate: nil, cancelButtonTitle: "Okay!")
+//            alert.show()
+//            return;
+//        }
+//        
         
         if (errorCheckSuccess() == true)
         {

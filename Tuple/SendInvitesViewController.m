@@ -118,7 +118,7 @@
     contact.isSelected = currentStateSelected;
     
     if (contact.isSelected){
-        contact.isSelected = NO;
+        contact.isSelected = [NSNumber numberWithBool:NO];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [_checkMarked removeObject:contact];
     } else {
